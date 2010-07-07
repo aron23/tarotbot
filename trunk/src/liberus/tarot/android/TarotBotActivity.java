@@ -168,9 +168,9 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	/* Creates the menu items */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, MENU_LOAD, 0, "Load").setIcon(android.R.drawable.ic_menu_set_as);
+		/*menu.add(0, MENU_LOAD, 0, "Load").setIcon(android.R.drawable.ic_menu_set_as);
 	    menu.add(0, MENU_SAVE, 1, "Save").setIcon(android.R.drawable.ic_menu_save);
-	    menu.add(0, MENU_SHARE, 2, "Share").setIcon(android.R.drawable.ic_menu_share);
+	    menu.add(0, MENU_SHARE, 2, "Share").setIcon(android.R.drawable.ic_menu_share);*/
 	    return true;
 	}
 

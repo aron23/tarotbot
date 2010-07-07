@@ -402,7 +402,7 @@ public class BotaInt extends Interpretation {
 			returner += "this card is the most significant of the reading\n\n";
 		
 		if (getAbst(circled) > 0 && appcontext.getString(getAbst(circled)).length() > 0)
-			returner += "In general signifies: " + appcontext.getString(getAbst(circled))+"\n\n";
+			returner += "In general: " + appcontext.getString(getAbst(circled))+"\n\n";
 		if (significatorIn == 1 && getInSpiritualMatters(circled) > 0 && appcontext.getString(getInSpiritualMatters(circled)).length() > 0)
 			returner += "More directly: "+ appcontext.getString(getInSpiritualMatters(circled))+"\n\n";
 		else if (significatorIn == 3 && getInMaterialMatters(circled) > 0 && appcontext.getString(getInMaterialMatters(circled)).length() > 0)

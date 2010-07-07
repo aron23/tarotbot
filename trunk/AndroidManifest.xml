@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="liberus.tarot.android"
+      android:versionCode="5" android:versionName="1.04">
+    <application android:icon="@drawable/logo" android:label="@string/app_name" android:debuggable="true">
+        <activity android:name=".TarotBotActivity"
+           		android:screenOrientation="portrait"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CardForTheDayActivity"
+           		android:screenOrientation="portrait"
+                  android:label="card for the day">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".TarotBotLargeWidget" android:label="TarotBot Card of the Day 4x4">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tarotbotlargewidget" />
+        </receiver>
+        <receiver android:name=".TarotBotMediumWidget" android:label="TarotBot Card of the Day 2x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tarotbotmediumwidget" />
+        </receiver>
+        <receiver android:name=".TarotBotSmallWidget" android:label="TarotBot Card of the Day 1x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tarotbotsmallwidget" />
+        </receiver>        
+    </application>
+
+
+
+
+<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+<uses-sdk android:minSdkVersion="1"></uses-sdk>
+
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+</manifest> 

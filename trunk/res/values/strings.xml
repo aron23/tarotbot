@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">To begin select your status and birthdate:</string>
+    <string name="status_prompt">select which best describes you</string>
+    <string name="birthdate_prompt">enter your birthdate</string>
+	<string-array name="status_array">
+        <item>Single Female</item>
+        <item>Single Male</item>
+        <item>Partnered Female</item>
+        <item>Partnered Male</item>
+    </string-array>
+    <string name="app_name">TarotBot</string>
+    <string name="questionprompt">consider your question, when you are sure of it touch begin</string>
+</resources>

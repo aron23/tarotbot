@@ -1,0 +1,2896 @@
+<?xml version="1.0"?>
+<resources>
+  <integer name="the_fool_00_index">100</integer>
+  <string name="the_fool_00_title">The Fool</string>
+  <string name="the_fool_00_en_title">The Fool</string>
+  <integer name="the_fool_00_second_operation_count">3</integer>
+  <string name="the_fool_00_astrology">Uranus</string>
+  <string name="the_fool_00_time_period"></string>
+  <string name="the_fool_00_archetype">divine child</string>
+  <string name="the_fool_00_journey">the journey begins fresh, innocent, and full of potential</string>
+  <string name="the_fool_00_element">air</string>
+  <string name="the_fool_00_hebrew">aleph</string>
+  <string name="the_fool_00_occult_title"></string>
+  <string name="the_fool_00_keyword"></string>
+  <string name="the_fool_00_abst">innocence, naivete</string>
+  <string name="the_fool_00_meanings">inexperience, readjustment, the unexpected onset of chaotic conditions</string>
+  <string name="the_fool_00_in_spiritual">Originality, audacity, a tendency to iconoclasm, venturesome quest of higher truth.</string>
+  <string name="the_fool_00_in_material">Folly, eccentricity, sudden action without sufficient consideration or forethought, stupidity, or even insanity.</string>
+  <string name="the_fool_00_well_dignified"></string>
+  <string name="the_fool_00_ill_dignified"></string>
+  <string name="the_fool_00_actions">be spontaneous, have faith, embrace folly</string>
+  <integer-array name="the_fool_00_opposition_number">
+    <item>105</item>
+    <item>113</item>
+    <item>115</item>
+    <item>151</item>
+    <item>167</item>
+  </integer-array>
+  <string-array name="the_fool_00_opposition_text">
+    <item>routine, convention</item>
+    <item>endings, closings</item>
+    <item>lack of faith, cynicism</item>
+    <item>tension, reluctance, armoring</item>
+    <item>order, regularity</item>
+  </string-array>
+  <integer-array name="the_fool_00_reinforcement_number">
+    <item>112</item>
+    <item>117</item>
+    <item>120</item>
+    <item>124</item>
+  </integer-array>
+  <string-array name="the_fool_00_reinforcement_text">
+    <item>going with the flow, trusting in what is</item>
+    <item>innocence, faith, trust</item>
+    <item>rebirth</item>
+    <item>exploration, expanding horizons</item>
+  </string-array>
+  <integer name="the_magician_01_index">101</integer>
+  <string name="the_magician_01_title">The Magician</string>
+  <string name="the_magician_01_en_title">The Magician</string>
+  <integer name="the_magician_01_second_operation_count">9</integer>
+  <string name="the_magician_01_astrology">Mercury</string>
+  <string name="the_magician_01_time_period"></string>
+  <string name="the_magician_01_archetype">trickster</string>
+  <string name="the_magician_01_journey">focusing creative energy using logic and technology to manifest desire; modeling of the objective world</string>
+  <string name="the_magician_01_element">air</string>
+  <string name="the_magician_01_hebrew">beth</string>
+  <string name="the_magician_01_occult_title"></string>
+  <string name="the_magician_01_keyword"></string>
+  <string name="the_magician_01_abst">wisdom, mastery of the elements</string>
+  <string name="the_magician_01_meanings">speed, dexterity, the skillful manipulation of the material world, communication, learning and intellectual pursuits</string>
+  <string name="the_magician_01_in_spiritual"></string>
+  <string name="the_magician_01_in_material"></string>
+  <string name="the_magician_01_well_dignified">Skill, adaptation, constructive power, initiative, subtlety.</string>
+  <string name="the_magician_01_ill_dignified">Craft, the power of sense-illusion, lying, deception, cunning.</string>
+  <string name="the_magician_01_actions">take action, act consciously, concentrate, experience power</string>
+  <integer-array name="the_magician_01_opposition_number">
+    <item>102</item>
+    <item>111</item>
+    <item>142</item>
+    <item>153</item>
+    <item>157</item>
+  </integer-array>
+  <string-array name="the_magician_01_opposition_text">
+    <item>intuition, accessing the unconscious</item>
+    <item>suspending action, not doing</item>
+    <item>lacking focus and commitment</item>
+    <item>resting quietly, storing energy</item>
+    <item>confused and uncertain, powerless</item>
+  </string-array>
+  <integer-array name="the_magician_01_reinforcement_number">
+    <item>107</item>
+    <item>123</item>
+    <item>129</item>
+    <item>171</item>
+  </integer-array>
+  <string-array name="the_magician_01_reinforcement_text">
+    <item>focus, concentration, strong will</item>
+    <item>personal power, weilding strong force</item>
+    <item>quick action, making your move</item>
+    <item>focus and concentration</item>
+  </string-array>
+  <integer name="the_high_priestess_02_index">102</integer>
+  <string name="the_high_priestess_02_title">The High Priestess</string>
+  <string name="the_high_priestess_02_en_title">The High Priestess</string>
+  <integer name="the_high_priestess_02_second_operation_count">9</integer>
+  <string name="the_high_priestess_02_astrology">Moon</string>
+  <string name="the_high_priestess_02_time_period"></string>
+  <string name="the_high_priestess_02_archetype"></string>
+  <string name="the_high_priestess_02_journey">discovering through intuition and hidden insight; modeling of the subjective world</string>
+  <string name="the_high_priestess_02_element">earth</string>
+  <string name="the_high_priestess_02_hebrew">gimel</string>
+  <string name="the_high_priestess_02_occult_title"></string>
+  <string name="the_high_priestess_02_keyword"></string>
+  <string name="the_high_priestess_02_abst">that which is just below the surface of ordinary reality</string>
+  <string name="the_high_priestess_02_meanings">dreams, visions, insights, intuition, the subconscious, things hidden or unseen</string>
+  <string name="the_high_priestess_02_in_spiritual"></string>
+  <string name="the_high_priestess_02_in_material"></string>
+  <string name="the_high_priestess_02_well_dignified"></string>
+  <string name="the_high_priestess_02_ill_dignified"></string>
+  <string name="the_high_priestess_02_actions">stay nonactive, access the unconscious, see potential, sense mystery</string>
+  <integer-array name="the_high_priestess_02_opposition_number">
+    <item>101</item>
+    <item>123</item>
+    <item>128</item>
+    <item>129</item>
+  </integer-array>
+  <string-array name="the_high_priestess_02_opposition_text">
+    <item>caught in the stream of consicousness</item>
+    <item>acting boldy</item>
+    <item>being agressive</item>
+    <item>putting plans into action</item>
+  </string-array>
+  <integer-array name="the_high_priestess_02_reinforcement_number">
+    <item>109</item>
+    <item>112</item>
+    <item>153</item>
+  </integer-array>
+  <string-array name="the_high_priestess_02_reinforcement_text">
+    <item>looking inward, seeking guidance</item>
+    <item>suspending activity, waiting</item>
+    <item>resting quietly, contemplating</item>
+  </string-array>
+  <integer name="the_empress_03_index">103</integer>
+  <string name="the_empress_03_title">The Empress</string>
+  <string name="the_empress_03_en_title">The Empress</string>
+  <integer name="the_empress_03_second_operation_count">9</integer>
+  <string name="the_empress_03_astrology">Venus</string>
+  <string name="the_empress_03_time_period"></string>
+  <string name="the_empress_03_archetype">anima</string>
+  <string name="the_empress_03_journey">finding nourishment, fertility, abundance</string>
+  <string name="the_empress_03_element">earth</string>
+  <string name="the_empress_03_hebrew">daleth</string>
+  <string name="the_empress_03_occult_title"></string>
+  <string name="the_empress_03_keyword"></string>
+  <string name="the_empress_03_abst">abundance and fruitfulness, feminine creative power</string>
+  <string name="the_empress_03_meanings">love, sex, reproduction, strong instinctual urges</string>
+  <string name="the_empress_03_in_spiritual"></string>
+  <string name="the_empress_03_in_material"></string>
+  <string name="the_empress_03_well_dignified">Fruitfulness, Beauty, luxury, pleasure, success and happiness.</string>
+  <string name="the_empress_03_ill_dignified">Signifies Dissipation, lust, waste of time and substance in pleasure, laziness and sensuality.</string>
+  <string name="the_empress_03_actions">be motherly, welcome abundance, experience the senses, respond to nature</string>
+  <integer-array name="the_empress_03_opposition_number">
+    <item>104</item>
+    <item>113</item>
+    <item>167</item>
+    <item>172</item>
+  </integer-array>
+  <string-array name="the_empress_03_opposition_text">
+    <item>fathering, order and discipline, regularity</item>
+    <item>transformation</item>
+    <item>miserly possessiveness</item>
+    <item>refinement, sophistication</item>
+  </string-array>
+  <integer-array name="the_empress_03_reinforcement_number">
+    <item>106</item>
+    <item>117</item>
+    <item>144</item>
+    <item>170</item>
+    <item>173</item>
+  </integer-array>
+  <string-array name="the_empress_03_reinforcement_text">
+    <item>sexual fulfillment, pleasure</item>
+    <item>generosity, free flowing love</item>
+    <item>enjoying the senses</item>
+    <item>material reward</item>
+    <item>affluence, luxury, physical comfort</item>
+  </string-array>
+  <integer name="the_emperor_04_index">104</integer>
+  <string name="the_emperor_04_title">The Emperor</string>
+  <string name="the_emperor_04_en_title">The Emperor</string>
+  <integer name="the_emperor_04_second_operation_count">12</integer>
+  <string name="the_emperor_04_astrology">Aries</string>
+  <string name="the_emperor_04_time_period"></string>
+  <string name="the_emperor_04_archetype">animus</string>
+  <string name="the_emperor_04_journey">seeking authority, power, control</string>
+  <string name="the_emperor_04_element">fire</string>
+  <string name="the_emperor_04_hebrew">heh</string>
+  <string name="the_emperor_04_occult_title"></string>
+  <string name="the_emperor_04_keyword"></string>
+  <string name="the_emperor_04_abst">irresistible force and eternal renewal</string>
+  <string name="the_emperor_04_meanings">structure, order, regulation, authority and governance</string>
+  <string name="the_emperor_04_in_spiritual"></string>
+  <string name="the_emperor_04_in_material"></string>
+  <string name="the_emperor_04_well_dignified">Mental energy; foresight, supervision, oversight, control; reason, persistence, determination; ambition, leadership, enthusiasm.</string>
+  <string name="the_emperor_04_ill_dignified">Strife, anger, tendency to go to extremes; over-active; lack of discretion.</string>
+  <string name="the_emperor_04_actions">fathering, exercising authority, creating structure, enforcing regulation</string>
+  <integer-array name="the_emperor_04_opposition_number">
+    <item>103</item>
+    <item>142</item>
+    <item>154</item>
+  </integer-array>
+  <string-array name="the_emperor_04_opposition_text">
+    <item>mothering, free flowing abundance</item>
+    <item>dissipation, lack of order</item>
+    <item>bending the rules, breaking the law</item>
+  </string-array>
+  <integer-array name="the_emperor_04_reinforcement_number">
+    <item>105</item>
+    <item>111</item>
+    <item>123</item>
+    <item>124</item>
+    <item>167</item>
+  </integer-array>
+  <string-array name="the_emperor_04_reinforcement_text">
+    <item>conforming to rules</item>
+    <item>concerns of justice and legality</item>
+    <item>having authority</item>
+    <item>assuming leadership</item>
+    <item>control, structure, power</item>
+  </string-array>
+  <integer name="the_hierophant_05_index">105</integer>
+  <string name="the_hierophant_05_title">The Hierophant</string>
+  <string name="the_hierophant_05_en_title">The Hierophant</string>
+  <integer name="the_hierophant_05_second_operation_count">12</integer>
+  <string name="the_hierophant_05_astrology">Taurus</string>
+  <string name="the_hierophant_05_time_period"></string>
+  <string name="the_hierophant_05_archetype">persona</string>
+  <string name="the_hierophant_05_journey">transmission of traditional values and morals</string>
+  <string name="the_hierophant_05_element">earth</string>
+  <string name="the_hierophant_05_hebrew">vau</string>
+  <string name="the_hierophant_05_occult_title"></string>
+  <string name="the_hierophant_05_keyword"></string>
+  <string name="the_hierophant_05_abst">spiritual authority made manifest</string>
+  <string name="the_hierophant_05_meanings">dogma and rigidity, stubbornness, stability, domination</string>
+  <string name="the_hierophant_05_in_spiritual"></string>
+  <string name="the_hierophant_05_in_material"></string>
+  <string name="the_hierophant_05_well_dignified"></string>
+  <string name="the_hierophant_05_ill_dignified"></string>
+  <string name="the_hierophant_05_actions">education, conforming, dogma, indentifying with the group</string>
+  <integer-array name="the_hierophant_05_opposition_number">
+    <item>100</item>
+    <item>106</item>
+    <item>123</item>
+    <item>156</item>
+    <item>165</item>
+  </integer-array>
+  <string-array name="the_hierophant_05_opposition_text">
+    <item>being unorthodox, crazy</item>
+    <item>personal belief</item>
+    <item>diverging from the crowd, being a pioneer</item>
+    <item>being a lone wolf</item>
+    <item>being flexible, changing with the times</item>
+  </string-array>
+  <integer-array name="the_hierophant_05_reinforcement_number">
+    <item>104</item>
+    <item>138</item>
+    <item>166</item>
+    <item>171</item>
+    <item>173</item>
+  </integer-array>
+  <string-array name="the_hierophant_05_reinforcement_text">
+    <item>following rules</item>
+    <item>focusing on the group</item>
+    <item>working in a team or group</item>
+    <item>learning, studying</item>
+    <item>conforming, following rules, conservative</item>
+  </string-array>
+  <integer name="the_lovers_06_index">106</integer>
+  <string name="the_lovers_06_title">The Lovers</string>
+  <string name="the_lovers_06_en_title">The Lovers</string>
+  <integer name="the_lovers_06_second_operation_count">12</integer>
+  <string name="the_lovers_06_astrology">Gemini</string>
+  <string name="the_lovers_06_time_period"></string>
+  <string name="the_lovers_06_archetype"></string>
+  <string name="the_lovers_06_journey">encounters with temptation, decision, choice</string>
+  <string name="the_lovers_06_element">air</string>
+  <string name="the_lovers_06_hebrew">zain</string>
+  <string name="the_lovers_06_occult_title"></string>
+  <string name="the_lovers_06_keyword"></string>
+  <string name="the_lovers_06_abst">balanced polarity, union of opposites</string>
+  <string name="the_lovers_06_meanings">Attraction, beauty, love, sympathy. Balance of forces, and reciprocal activity</string>
+  <string name="the_lovers_06_in_spiritual"></string>
+  <string name="the_lovers_06_in_material"></string>
+  <string name="the_lovers_06_well_dignified"></string>
+  <string name="the_lovers_06_ill_dignified"></string>
+  <string name="the_lovers_06_actions">relating to others, being sexual, establishing personal beliefs, determining values</string>
+  <integer-array name="the_lovers_06_opposition_number">
+    <item>105</item>
+    <item>109</item>
+    <item>140</item>
+    <item>152</item>
+  </integer-array>
+  <string-array name="the_lovers_06_opposition_text">
+    <item>estabilished beliefs</item>
+    <item>being alone, not relating, less sexuality</item>
+    <item>loss in relationships</item>
+    <item>rejection, seperation</item>
+  </string-array>
+  <integer-array name="the_lovers_06_reinforcement_number">
+    <item>103</item>
+    <item>137</item>
+    <item>144</item>
+    <item>145</item>
+    <item>173</item>
+  </integer-array>
+  <string-array name="the_lovers_06_reinforcement_text">
+    <item>sexual fulfillment, pleasure</item>
+    <item>union, marriage, connection</item>
+    <item>sexual pleasure</item>
+    <item>family relationships, bonding</item>
+    <item>permanent unions, family ties</item>
+  </string-array>
+  <integer name="the_chariot_07_index">107</integer>
+  <string name="the_chariot_07_title">The Chariot</string>
+  <string name="the_chariot_07_en_title">The Chariot</string>
+  <integer name="the_chariot_07_second_operation_count">12</integer>
+  <string name="the_chariot_07_astrology">Cancer</string>
+  <string name="the_chariot_07_time_period"></string>
+  <string name="the_chariot_07_archetype"></string>
+  <string name="the_chariot_07_journey">mastering control of opposing forces</string>
+  <string name="the_chariot_07_element">water</string>
+  <string name="the_chariot_07_hebrew">cheth</string>
+  <string name="the_chariot_07_occult_title"></string>
+  <string name="the_chariot_07_keyword"></string>
+  <string name="the_chariot_07_abst">the union of intellectual and physical powers</string>
+  <string name="the_chariot_07_meanings">indirect control, intuition, the power of subtlety</string>
+  <string name="the_chariot_07_in_spiritual"></string>
+  <string name="the_chariot_07_in_material"></string>
+  <string name="the_chariot_07_well_dignified"></string>
+  <string name="the_chariot_07_ill_dignified"></string>
+  <string name="the_chariot_07_actions">achieving victory, asserting yourself, using your will, achieving hard control</string>
+  <integer-array name="the_chariot_07_opposition_number">
+    <item>108</item>
+    <item>112</item>
+    <item>116</item>
+    <item>157</item>
+    <item>159</item>
+  </integer-array>
+  <string-array name="the_chariot_07_opposition_text">
+    <item>soft control</item>
+    <item>submission, putting others first</item>
+    <item>defeat, a humbling experience</item>
+    <item>confusion, self doubt</item>
+    <item>being powerless</item>
+  </string-array>
+  <integer-array name="the_chariot_07_reinforcement_number">
+    <item>101</item>
+    <item>123</item>
+    <item>127</item>
+    <item>167</item>
+    <item>172</item>
+  </integer-array>
+  <string-array name="the_chariot_07_reinforcement_text">
+    <item>using your will, concentrating</item>
+    <item>being in authority, dominating</item>
+    <item>triumph, self-confidence</item>
+    <item>hard control</item>
+    <item>self-control, discipline</item>
+  </string-array>
+  <integer name="strength_08_index">108</integer>
+  <string name="strength_08_title">Strength</string>
+  <string name="strength_08_en_title">Strength</string>
+  <integer name="strength_08_second_operation_count">12</integer>
+  <string name="strength_08_astrology">Leo</string>
+  <string name="strength_08_time_period"></string>
+  <string name="strength_08_archetype"></string>
+  <string name="strength_08_journey">developing self-confidence and inner strength</string>
+  <string name="strength_08_element">air</string>
+  <string name="strength_08_hebrew">teth</string>
+  <string name="strength_08_occult_title"></string>
+  <string name="strength_08_keyword"></string>
+  <string name="strength_08_abst">Power, the energy which manifests</string>
+  <string name="strength_08_meanings">patience and compassion; accepting others and forgiving mistakes, dealing calmly with frustration</string>
+  <string name="strength_08_in_spiritual">Relates to arousal and control of kundalini energies.</string>
+  <string name="strength_08_in_material">Relates to risky speculation, dangerous adventures, and sometimes to clandestine love-affairs.</string>
+  <string name="strength_08_well_dignified">courage, strength, fortitude</string>
+  <string name="strength_08_ill_dignified">ostentation, obstinacy</string>
+  <string name="strength_08_actions">showing strength, being compassionate, being patient, achieving soft control</string>
+  <integer-array name="strength_08_opposition_number">
+    <item>107</item>
+    <item>143</item>
+    <item>155</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="strength_08_opposition_text">
+    <item>hard control</item>
+    <item>weariness, lack of strength</item>
+    <item>being listless, lacking heart</item>
+    <item>ill-health, weakness</item>
+  </string-array>
+  <integer-array name="strength_08_reinforcement_number">
+    <item>112</item>
+    <item>130</item>
+  </integer-array>
+  <string-array name="strength_08_reinforcement_text">
+    <item>using your will, concentrating</item>
+    <item>being in authority, dominating</item>
+  </string-array>
+  <integer name="the_hermit_09_index">109</integer>
+  <string name="the_hermit_09_title">The Hermit</string>
+  <string name="the_hermit_09_en_title">The Hermit</string>
+  <integer name="the_hermit_09_second_operation_count">12</integer>
+  <string name="the_hermit_09_astrology">Virgo</string>
+  <string name="the_hermit_09_time_period"></string>
+  <string name="the_hermit_09_archetype"></string>
+  <string name="the_hermit_09_journey">finding inner guidance; know thyself</string>
+  <string name="the_hermit_09_element">air</string>
+  <string name="the_hermit_09_hebrew">yod</string>
+  <string name="the_hermit_09_occult_title"></string>
+  <string name="the_hermit_09_keyword"></string>
+  <string name="the_hermit_09_abst">The desire to turn away from society and focus on the inner world.</string>
+  <string name="the_hermit_09_meanings">a period of reflection when distractions are limited, time alone</string>
+  <string name="the_hermit_09_in_spiritual"></string>
+  <string name="the_hermit_09_in_material"></string>
+  <string name="the_hermit_09_well_dignified">Light and guidance from higher realms. Aid from superiors and inferiors. Good for Health.</string>
+  <string name="the_hermit_09_ill_dignified">Suffering from misunderstanding and isolation; may expect active opposition from superiors and inferiors; may have to engage in unpleasant or menial occupations; and will be in danger of illness.</string>
+  <string name="the_hermit_09_actions">being introspective, giving / recieving guidance, searching, solitude</string>
+  <integer-array name="the_hermit_09_opposition_number">
+    <item>106</item>
+    <item>120</item>
+    <item>137</item>
+    <item>138</item>
+    <item>144</item>
+  </integer-array>
+  <string-array name="the_hermit_09_opposition_text">
+    <item>being in a relationship, sexuality</item>
+    <item>involvement with the world</item>
+    <item>making connections, partnerships</item>
+    <item>being in a group, being with others</item>
+    <item>sensual pleasure</item>
+  </string-array>
+  <integer-array name="the_hermit_09_reinforcement_number">
+    <item>102</item>
+    <item>139</item>
+    <item>143</item>
+    <item>153</item>
+    <item>156</item>
+  </integer-array>
+  <string-array name="the_hermit_09_reinforcement_text">
+    <item>looking inward, withdrawing</item>
+    <item>withdrawing, being introverted</item>
+    <item>searching for deeper meaning</item>
+    <item>contemplating, being quiet</item>
+    <item>being alone, staying away from others</item>
+  </string-array>
+  <integer name="the_wheel_of_fortune_10_index">110</integer>
+  <string name="the_wheel_of_fortune_10_title">Fortune</string>
+  <string name="the_wheel_of_fortune_10_en_title">Fortune</string>
+  <integer name="the_wheel_of_fortune_10_second_operation_count">9</integer>
+  <string name="the_wheel_of_fortune_10_astrology">Jupiter</string>
+  <string name="the_wheel_of_fortune_10_time_period"></string>
+  <string name="the_wheel_of_fortune_10_archetype"></string>
+  <string name="the_wheel_of_fortune_10_journey">discovering the limits of control</string>
+  <string name="the_wheel_of_fortune_10_element">water</string>
+  <string name="the_wheel_of_fortune_10_hebrew">kaph</string>
+  <string name="the_wheel_of_fortune_10_occult_title"></string>
+  <string name="the_wheel_of_fortune_10_keyword"></string>
+  <string name="the_wheel_of_fortune_10_abst">destiny</string>
+  <string name="the_wheel_of_fortune_10_meanings">unexpected encounters and twists of fate, changes in direction, repeating cycles, rapid movement</string>
+  <string name="the_wheel_of_fortune_10_in_spiritual"></string>
+  <string name="the_wheel_of_fortune_10_in_material"></string>
+  <string name="the_wheel_of_fortune_10_well_dignified">Good fortune, a turn for the better, happiness. When beset by doubts and uncertainties, the solution of those difficulties.</string>
+  <string name="the_wheel_of_fortune_10_ill_dignified">Pride, arrogance, overconfidence</string>
+  <string name="the_wheel_of_fortune_10_actions">feeling a sense of destiny, feeling movement, being at a turning point, having a personal vision</string>
+  <integer-array name="the_wheel_of_fortune_10_opposition_number">
+    <item>151</item>
+    <item>153</item>
+    <item>167</item>
+    <item>170</item>
+  </integer-array>
+  <string-array name="the_wheel_of_fortune_10_opposition_text">
+    <item>being stuck</item>
+    <item>rest, quiet, slow pace</item>
+    <item>blocked change, no movement</item>
+    <item>assessment before direction change</item>
+  </string-array>
+  <integer-array name="the_wheel_of_fortune_10_reinforcement_number">
+    <item>129</item>
+  </integer-array>
+  <string-array name="the_wheel_of_fortune_10_reinforcement_text">
+    <item>rapid pace, quick developments</item>
+  </string-array>
+  <integer name="justice_11_index">111</integer>
+  <string name="justice_11_title">Justice</string>
+  <string name="justice_11_en_title">Justice</string>
+  <integer name="justice_11_second_operation_count">12</integer>
+  <string name="justice_11_astrology">Libra</string>
+  <string name="justice_11_time_period"></string>
+  <string name="justice_11_archetype"></string>
+  <string name="justice_11_journey">being held accountable for ones actions</string>
+  <string name="justice_11_element">fire</string>
+  <string name="justice_11_hebrew">lamed</string>
+  <string name="justice_11_occult_title"></string>
+  <string name="justice_11_keyword"></string>
+  <string name="justice_11_abst">balance directed by will</string>
+  <string name="justice_11_meanings">doing what needs to be done, accepting responsibility, settling accounts, karma</string>
+  <string name="justice_11_in_spiritual"></string>
+  <string name="justice_11_in_material"></string>
+  <string name="justice_11_well_dignified">Balance, equilibrium, especially emotional stability; good Karma. Is often an indication of successful dealings with the public, is favorable in all questions involving legal matters, partnership, or marriage.</string>
+  <string name="justice_11_ill_dignified">It indicates unfavorable relations with partners (marriage or business), trouble in court, emotional instability; sudden changes of plans; bad Karma.</string>
+  <string name="justice_11_actions">respecting justice, preparing for a decision, assuming responsibility, understanding cause and effect</string>
+  <integer-array name="justice_11_opposition_number">
+    <item>151</item>
+    <item>154</item>
+    <item>156</item>
+  </integer-array>
+  <string-array name="justice_11_opposition_text">
+    <item>avoiding the truth, disavowing your role</item>
+    <item>lack of integrity, not doing what is right</item>
+    <item>shirking responsibility</item>
+  </string-array>
+  <integer-array name="justice_11_reinforcement_number">
+    <item>104</item>
+    <item>120</item>
+    <item>131</item>
+    <item>158</item>
+    <item>170</item>
+  </integer-array>
+  <string-array name="justice_11_reinforcement_text">
+    <item>justice, regulation, legal issues</item>
+    <item>deciding, accepting past actions/mistakes</item>
+    <item>accepting responsibility, being accountable</item>
+    <item>guilt over the past, acknowledging mistakes</item>
+    <item>assessing where you are, deciding a future course</item>
+  </string-array>
+  <integer name="the_hanged_man_12_index">112</integer>
+  <string name="the_hanged_man_12_title">The Hanged Man</string>
+  <string name="the_hanged_man_12_en_title">The Hanged Man</string>
+  <integer name="the_hanged_man_12_second_operation_count">3</integer>
+  <string name="the_hanged_man_12_astrology">Neptune</string>
+  <string name="the_hanged_man_12_time_period"></string>
+  <string name="the_hanged_man_12_archetype"></string>
+  <string name="the_hanged_man_12_journey">dealing with trade-offs, the zero sum game</string>
+  <string name="the_hanged_man_12_element">water</string>
+  <string name="the_hanged_man_12_hebrew">mem</string>
+  <string name="the_hanged_man_12_occult_title"></string>
+  <string name="the_hanged_man_12_keyword"></string>
+  <string name="the_hanged_man_12_abst">represents wisdom, but a wisdom that is just the reverse of what the world commonly accepts</string>
+  <string name="the_hanged_man_12_meanings">self sacrifice, martyrdom, victory through surrender</string>
+  <string name="the_hanged_man_12_in_spiritual">surrender to universal laws</string>
+  <string name="the_hanged_man_12_in_material">involuntary submission to the force of circumstances, a symbol of reverses and losses, of suffering and sacrifice</string>
+  <string name="the_hanged_man_12_well_dignified"></string>
+  <string name="the_hanged_man_12_ill_dignified"></string>
+  <string name="the_hanged_man_12_actions">letting go, suspending action, reversing, sacrificing</string>
+  <integer-array name="the_hanged_man_12_opposition_number">
+    <item>101</item>
+    <item>107</item>
+    <item>128</item>
+    <item>131</item>
+    <item>167</item>
+  </integer-array>
+  <string-array name="the_hanged_man_12_opposition_text">
+    <item>acting, doing</item>
+    <item>self assertion</item>
+    <item>defiance, struggling against</item>
+    <item>struggle</item>
+    <item>holding on, control</item>
+  </string-array>
+  <integer-array name="the_hanged_man_12_reinforcement_number">
+    <item>100</item>
+    <item>102</item>
+    <item>108</item>
+    <item>153</item>
+    <item>159</item>
+  </integer-array>
+  <string-array name="the_hanged_man_12_reinforcement_text">
+    <item>faith in what is, going with the flow</item>
+    <item>suspending activity, waiting</item>
+    <item>patience, taking time</item>
+    <item>rest, suspending activity</item>
+    <item>sacrifice, martyrdom</item>
+  </string-array>
+  <integer name="death_13_index">113</integer>
+  <string name="death_13_title">Death</string>
+  <string name="death_13_en_title">Death</string>
+  <integer name="death_13_second_operation_count">12</integer>
+  <string name="death_13_astrology">Scorpio</string>
+  <string name="death_13_time_period"></string>
+  <string name="death_13_archetype"></string>
+  <string name="death_13_journey"></string>
+  <string name="death_13_element">water</string>
+  <string name="death_13_hebrew">nun</string>
+  <string name="death_13_occult_title"></string>
+  <string name="death_13_keyword"></string>
+  <string name="death_13_abst">an important ending that initiates great change</string>
+  <string name="death_13_meanings">sadness and reluctance yet also relief and a sense of completion</string>
+  <string name="death_13_in_spiritual"></string>
+  <string name="death_13_in_material"></string>
+  <string name="death_13_well_dignified">changing for the better</string>
+  <string name="death_13_ill_dignified">changing for the worse</string>
+  <string name="death_13_actions">ending, eliminating excess, going through transition, experiencing inexorable forces</string>
+  <integer-array name="death_13_opposition_number">
+    <item>100</item>
+    <item>103</item>
+    <item>120</item>
+  </integer-array>
+  <string-array name="death_13_opposition_text">
+    <item>beginning</item>
+    <item>birth</item>
+    <item>rebirth, fresh start</item>
+  </string-array>
+  <integer-array name="death_13_reinforcement_number">
+    <item>116</item>
+    <item>129</item>
+    <item>140</item>
+    <item>143</item>
+  </integer-array>
+  <string-array name="death_13_reinforcement_text">
+    <item>faith in what is, going with the flow</item>
+    <item>suspending activity, waiting</item>
+    <item>patience, taking time</item>
+    <item>rest, suspending activity</item>
+  </string-array>
+  <integer name="temperance_14_index">114</integer>
+  <string name="temperance_14_title">Temperance</string>
+  <string name="temperance_14_en_title">Temperance</string>
+  <integer name="temperance_14_second_operation_count">12</integer>
+  <string name="temperance_14_astrology">Sagittarius</string>
+  <string name="temperance_14_time_period"></string>
+  <string name="temperance_14_archetype"></string>
+  <string name="temperance_14_journey">maintaining integrity through perspective and moderation</string>
+  <string name="temperance_14_element">fire</string>
+  <string name="temperance_14_hebrew">samekh</string>
+  <string name="temperance_14_occult_title"></string>
+  <string name="temperance_14_keyword"></string>
+  <string name="temperance_14_abst">moderation, self-restraint, combining and recombining</string>
+  <string name="temperance_14_meanings">a need for balance, compromise and cooperation are vital, good health</string>
+  <string name="temperance_14_in_spiritual"></string>
+  <string name="temperance_14_in_material"></string>
+  <string name="temperance_14_well_dignified"></string>
+  <string name="temperance_14_ill_dignified"></string>
+  <string name="temperance_14_actions">being temperate, experiencing health, maintaining balance, combining forces</string>
+  <integer-array name="temperance_14_opposition_number">
+    <item>116</item>
+    <item>126</item>
+    <item>142</item>
+    <item>154</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="temperance_14_opposition_text">
+    <item>extremes, exploding apart</item>
+    <item>disagreement, competition, imbalance</item>
+    <item>excess, overindulgence</item>
+    <item>discord, lack of harmony</item>
+    <item>ill health</item>
+  </string-array>
+  <integer-array name="temperance_14_reinforcement_number">
+    <item>121</item>
+    <item>137</item>
+    <item>138</item>
+    <item>165</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="temperance_14_reinforcement_text">
+    <item>integration, synthesis, combination</item>
+    <item>connection, working together</item>
+    <item>joining forces, working together</item>
+    <item>balance, finding the right mix</item>
+    <item>teamwork, combining</item>
+  </string-array>
+  <integer name="the_devil_15_index">115</integer>
+  <string name="the_devil_15_title">The Devil</string>
+  <string name="the_devil_15_en_title">The Devil</string>
+  <integer name="the_devil_15_second_operation_count">12</integer>
+  <string name="the_devil_15_astrology">Capricorn</string>
+  <string name="the_devil_15_time_period"></string>
+  <string name="the_devil_15_archetype">shadow</string>
+  <string name="the_devil_15_journey">preventing progress through ignorance, fanaticism, fundamentalism</string>
+  <string name="the_devil_15_element">earth</string>
+  <string name="the_devil_15_hebrew">ayin</string>
+  <string name="the_devil_15_occult_title"></string>
+  <string name="the_devil_15_keyword"></string>
+  <string name="the_devil_15_abst">big business, the conventions of society, the injustice and cruelty of a social order in which money is god, humanity is bestialized, war is engineered by greed masquerading as patriotism, fear is dominant</string>
+  <string name="the_devil_15_meanings">Bondage, materiality, force </string>
+  <string name="the_devil_15_in_spiritual"></string>
+  <string name="the_devil_15_in_material"></string>
+  <string name="the_devil_15_well_dignified"></string>
+  <string name="the_devil_15_ill_dignified"></string>
+  <string name="the_devil_15_actions">experiencing bondage, staying in ignorance, focusing on material, feeling hopeless</string>
+  <integer-array name="the_devil_15_opposition_number">
+    <item>100</item>
+    <item>117</item>
+    <item>125</item>
+    <item>141</item>
+    <item>145</item>
+  </integer-array>
+  <string-array name="the_devil_15_opposition_text">
+    <item>having faith, believing</item>
+    <item>hope, faith, optimism</item>
+    <item>freedom, release</item>
+    <item>good will, innocence, simple joy</item>
+    <item>joy, peace, blessings</item>
+  </string-array>
+  <integer-array name="the_devil_15_reinforcement_number">
+    <item>142</item>
+    <item>157</item>
+    <item>158</item>
+  </integer-array>
+  <string-array name="the_devil_15_reinforcement_text">
+    <item>overindulgence, dissipation</item>
+    <item>confusion, restriction</item>
+    <item>dispair, lack of joy</item>
+  </string-array>
+  <integer name="the_tower_16_index">116</integer>
+  <string name="the_tower_16_title">The Tower</string>
+  <string name="the_tower_16_en_title">The Tower</string>
+  <integer name="the_tower_16_second_operation_count">9</integer>
+  <string name="the_tower_16_astrology">Mars</string>
+  <string name="the_tower_16_time_period"></string>
+  <string name="the_tower_16_archetype"></string>
+  <string name="the_tower_16_journey">breaking free from illusions and facing the truth</string>
+  <string name="the_tower_16_element">fire</string>
+  <string name="the_tower_16_hebrew">Peh</string>
+  <string name="the_tower_16_occult_title"></string>
+  <string name="the_tower_16_keyword"></string>
+  <string name="the_tower_16_abst">punctuated equilibrium</string>
+  <string name="the_tower_16_meanings">sudden dramatic upheaval or reversal in fortune</string>
+  <string name="the_tower_16_in_spiritual">the overthrow of mistaken conceptions, or the defeat of activities opposed to the one\'s spiritual development</string>
+  <string name="the_tower_16_in_material">ambition, unforeseen catastrophes, fighting, grave dangers, the ruin of the one\'s plans, the defeat of his hopes</string>
+  <string name="the_tower_16_well_dignified"></string>
+  <string name="the_tower_16_ill_dignified"></string>
+  <string name="the_tower_16_actions">going through sudden change, falling down, releasing, having a revelation</string>
+  <integer-array name="the_tower_16_opposition_number">
+    <item>107</item>
+    <item>114</item>
+    <item>117</item>
+    <item>127</item>
+    <item>145</item>
+  </integer-array>
+  <string-array name="the_tower_16_opposition_text">
+    <item>victory, control</item>
+    <item>middle ground, staying together, contained</item>
+    <item>serenity, calm</item>
+    <item>acclaim, pride</item>
+    <item>peace, serenity</item>
+  </string-array>
+  <integer-array name="the_tower_16_reinforcement_number">
+    <item>113</item>
+    <item>119</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="the_tower_16_reinforcement_text">
+    <item>sweeping impact, powerful forces</item>
+    <item>enlightenment, revelation</item>
+    <item>hard times</item>
+  </string-array>
+  <integer name="the_star_17_index">117</integer>
+  <string name="the_star_17_title">The Star</string>
+  <string name="the_star_17_en_title">The Star</string>
+  <integer name="the_star_17_second_operation_count">12</integer>
+  <string name="the_star_17_astrology">Aquarius</string>
+  <string name="the_star_17_time_period"></string>
+  <string name="the_star_17_archetype"></string>
+  <string name="the_star_17_journey">reaching enlightenment through development of special talents</string>
+  <string name="the_star_17_element">air</string>
+  <string name="the_star_17_hebrew">tzaddi</string>
+  <string name="the_star_17_occult_title"></string>
+  <string name="the_star_17_keyword"></string>
+  <string name="the_star_17_abst">the light at the end of the tunnel</string>
+  <string name="the_star_17_meanings">relying on intuition, inner wisdom, guidance, inspiration</string>
+  <string name="the_star_17_in_spiritual"></string>
+  <string name="the_star_17_in_material"></string>
+  <string name="the_star_17_well_dignified">promises of unexpected help, and the realization of hopes and wishes.</string>
+  <string name="the_star_17_ill_dignified">unreliable friends, a tendency to impracticality or dreaminess</string>
+  <string name="the_star_17_actions">regaining hope, being generous, being inspired, feeling serene</string>
+  <integer-array name="the_star_17_opposition_number">
+    <item>115</item>
+    <item>116</item>
+    <item>118</item>
+    <item>151</item>
+    <item>158</item>
+  </integer-array>
+  <string-array name="the_star_17_opposition_text">
+    <item>hopelessness, lack of faith, pessimism</item>
+    <item>upheaval, chaos</item>
+    <item>being troubled, disturbed, anxious</item>
+    <item>blocked flow of feelings</item>
+    <item>guilt, anguish</item>
+  </string-array>
+  <integer-array name="the_star_17_reinforcement_number">
+    <item>100</item>
+    <item>103</item>
+    <item>141</item>
+    <item>145</item>
+  </integer-array>
+  <string-array name="the_star_17_reinforcement_text">
+    <item>innocence, faith, trust</item>
+    <item>generosity, free flowing love</item>
+    <item>good will, sharing</item>
+    <item>joy, positive feelings, blessings</item>
+  </string-array>
+  <integer name="pentacles_01_index">164</integer>
+  <string name="pentacles_01_title">Ace of Pentacles</string>
+  <string name="pentacles_01_en_title">Ace of Pentacles</string>
+  <integer name="pentacles_01_second_operation_count">11</integer>
+  <string name="pentacles_01_astrology"></string>
+  <string name="pentacles_01_time_period">0621-0922</string>
+  <string name="pentacles_01_archetype"></string>
+  <string name="pentacles_01_journey"></string>
+  <string name="pentacles_01_element"></string>
+  <string name="pentacles_01_hebrew"></string>
+  <string name="pentacles_01_occult_title">The Root of the Powers of Earth</string>
+  <string name="pentacles_01_keyword">Materiality</string>
+  <string name="pentacles_01_abst">Comfortable, reliable experiences provide security and establish a foundation of trust.</string>
+  <string name="pentacles_01_meanings">prosperity, abundance and groundedness; manifestation of the will</string>
+  <string name="pentacles_01_in_spiritual"></string>
+  <string name="pentacles_01_in_material"></string>
+  <string name="pentacles_01_well_dignified"></string>
+  <string name="pentacles_01_ill_dignified"></string>
+  <string name="pentacles_01_actions">using material force, being practical, prospering, proceeding with trust</string>
+  <integer-array name="pentacles_01_reinforcement_number">
+    <item>122</item>
+    <item>136</item>
+    <item>150</item>
+  </integer-array>
+  <string-array name="pentacles_01_reinforcement_text">
+    <item>creativity, excitment, adventure, courage, personal power</item>
+    <item>deep feelings, intimacy, attunement, compassion, love</item>
+    <item>intelligence, reason, justice, truth, clarity, perseverance</item>
+  </string-array>
+  <integer name="the_moon_18_index">118</integer>
+  <string name="the_moon_18_title">The Moon</string>
+  <string name="the_moon_18_en_title">The Moon</string>
+  <integer name="the_moon_18_second_operation_count">12</integer>
+  <string name="the_moon_18_astrology">Pisces</string>
+  <string name="the_moon_18_time_period"></string>
+  <string name="the_moon_18_archetype">great mother</string>
+  <string name="the_moon_18_journey">dealing with obscurity, ambiguity, the complexity of reality</string>
+  <string name="the_moon_18_element">water</string>
+  <string name="the_moon_18_hebrew">quoph</string>
+  <string name="the_moon_18_occult_title"></string>
+  <string name="the_moon_18_keyword"></string>
+  <string name="the_moon_18_abst">mystery</string>
+  <string name="the_moon_18_meanings">the realm of shadow and night, inspiration and enchantment, drugs, madness, and intense experiences, the promise that all you imagine can be yours</string>
+  <string name="the_moon_18_in_spiritual"></string>
+  <string name="the_moon_18_in_material"></string>
+  <string name="the_moon_18_well_dignified">Voluntary change, advance into a wider field of activity, but an advance made primarily because one is unhappy in, or dissatisfied with the present position. An element of uncertainty.</string>
+  <string name="the_moon_18_ill_dignified">Error, lying, deception; for limitations resulting from the one\'s own lack of judgement or his want of self-control; for difficulties brought about by the machinations of hidden enemies.</string>
+  <string name="the_moon_18_actions">feeling fear, stimulating the imagination, believing illusions, feeling bewildered</string>
+  <integer-array name="the_moon_18_opposition_number">
+    <item>117</item>
+    <item>119</item>
+  </integer-array>
+  <string-array name="the_moon_18_opposition_text">
+    <item>being serene, untroubled, at peace</item>
+    <item>assurance, clarity, enlightenment</item>
+  </string-array>
+  <integer-array name="the_moon_18_reinforcement_number">
+    <item>142</item>
+    <item>151</item>
+    <item>157</item>
+  </integer-array>
+  <string-array name="the_moon_18_reinforcement_text">
+    <item>illusions, unrealistic ideas, fantasy</item>
+    <item>self-deception, not seeing the truth</item>
+    <item>confusion, lack of clarity</item>
+  </string-array>
+  <integer name="the_sun_19_index">119</integer>
+  <string name="the_sun_19_title">The Sun</string>
+  <string name="the_sun_19_en_title">The Sun</string>
+  <integer name="the_sun_19_second_operation_count">9</integer>
+  <string name="the_sun_19_astrology">Sun</string>
+  <string name="the_sun_19_time_period"></string>
+  <string name="the_sun_19_archetype"></string>
+  <string name="the_sun_19_journey">applying knowledge from observation to achieve goals</string>
+  <string name="the_sun_19_element">fire</string>
+  <string name="the_sun_19_hebrew">resh</string>
+  <string name="the_sun_19_occult_title"></string>
+  <string name="the_sun_19_keyword"></string>
+  <string name="the_sun_19_abst">clarity and brilliance</string>
+  <string name="the_sun_19_meanings">success, fulfillment, self expansion</string>
+  <string name="the_sun_19_in_spiritual">Liberation, signifying release from the bondage of lower planes.</string>
+  <string name="the_sun_19_in_material">Signifies gain, glory, or riches</string>
+  <string name="the_sun_19_well_dignified"></string>
+  <string name="the_sun_19_ill_dignified"></string>
+  <string name="the_sun_19_actions">becoming enlightened, feeling vitality, experiencing greatness, having assurance</string>
+  <integer-array name="the_sun_19_opposition_number">
+    <item>118</item>
+    <item>143</item>
+    <item>155</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="the_sun_19_opposition_text">
+    <item>confusion, disorientation, illusion</item>
+    <item>weariness</item>
+    <item>depressed, listless</item>
+    <item>being rundown, tired</item>
+  </string-array>
+  <integer-array name="the_sun_19_reinforcement_number">
+    <item>116</item>
+    <item>121</item>
+    <item>123</item>
+    <item>127</item>
+  </integer-array>
+  <string-array name="the_sun_19_reinforcement_text">
+    <item>enlightenment, revelation</item>
+    <item>accomplishment, great achievement</item>
+    <item>personal power, vitality, brilliance</item>
+    <item>acclaim, prominence</item>
+  </string-array>
+  <integer name="judgement_20_index">120</integer>
+  <string name="judgement_20_title">Judgement</string>
+  <string name="judgement_20_en_title">Judgement</string>
+  <integer name="judgement_20_second_operation_count">3</integer>
+  <string name="judgement_20_astrology">Pluto</string>
+  <string name="judgement_20_time_period"></string>
+  <string name="judgement_20_archetype"></string>
+  <string name="judgement_20_journey">reforming as a result of inspiration</string>
+  <string name="judgement_20_element">fire</string>
+  <string name="judgement_20_hebrew">shin</string>
+  <string name="judgement_20_occult_title"></string>
+  <string name="judgement_20_keyword"></string>
+  <string name="judgement_20_abst">rebirth</string>
+  <string name="judgement_20_meanings">the end of a cycle, a time of renewal and awakening, a time to reap rewards of past actions</string>
+  <string name="judgement_20_in_spiritual"></string>
+  <string name="judgement_20_in_material"></string>
+  <string name="judgement_20_well_dignified">A favorable outcome. Often the renewal of hopes and wishes, or the betterment of conditions after a period of depression.</string>
+  <string name="judgement_20_ill_dignified">Especially in legal matters, an unfavorable decision, an outcome over which one is powerless.</string>
+  <string name="judgement_20_actions">making judgement, hearing a call, feeling reborn, finding absolution</string>
+  <integer-array name="judgement_20_opposition_number">
+    <item>113</item>
+    <item>140</item>
+    <item>158</item>
+  </integer-array>
+  <string-array name="judgement_20_opposition_text">
+    <item>death, endings</item>
+    <item>regret, mistakes</item>
+    <item>guilt, blame, feelings of sinfulness</item>
+  </string-array>
+  <integer-array name="judgement_20_reinforcement_number">
+    <item>100</item>
+    <item>111</item>
+    <item>170</item>
+  </integer-array>
+  <string-array name="judgement_20_reinforcement_text">
+    <item>rebirth, new starts</item>
+    <item>deciding, accepting mistakes/actions</item>
+    <item>decision point</item>
+  </string-array>
+  <integer name="the_world_21_index">121</integer>
+  <string name="the_world_21_title">The World</string>
+  <string name="the_world_21_en_title">The World</string>
+  <integer name="the_world_21_second_operation_count">9</integer>
+  <string name="the_world_21_astrology">Saturn</string>
+  <string name="the_world_21_time_period"></string>
+  <string name="the_world_21_archetype"></string>
+  <string name="the_world_21_journey">coming full circle</string>
+  <string name="the_world_21_element">earth</string>
+  <string name="the_world_21_hebrew">tau</string>
+  <string name="the_world_21_occult_title"></string>
+  <string name="the_world_21_keyword"></string>
+  <string name="the_world_21_abst">synthesis, dynamic balance</string>
+  <string name="the_world_21_meanings">a positive sign one is on track to achieve one\'s desires, active contribution and service</string>
+  <string name="the_world_21_in_spiritual"></string>
+  <string name="the_world_21_in_material"></string>
+  <string name="the_world_21_well_dignified"></string>
+  <string name="the_world_21_ill_dignified"></string>
+  <string name="the_world_21_actions">integrating, becoming involved, accomplishing, feeling fulfilled</string>
+  <integer-array name="the_world_21_opposition_number">
+    <item>109</item>
+    <item>139</item>
+    <item>126</item>
+  </integer-array>
+  <string-array name="the_world_21_opposition_text">
+    <item>isolation</item>
+    <item>lack of involvement, apathy, withdrawal</item>
+    <item>working at cross-purposes, lack of integration</item>
+  </string-array>
+  <integer-array name="the_world_21_reinforcement_number">
+    <item>114</item>
+    <item>119</item>
+    <item>144</item>
+    <item>145</item>
+    <item>173</item>
+  </integer-array>
+  <string-array name="the_world_21_reinforcement_text">
+    <item>integration, synthesis, combination</item>
+    <item>accomplishment, achievements</item>
+    <item>achieving your hearts desire</item>
+    <item>happiness, emotional fulfillment</item>
+    <item>affluence, material fulfillment</item>
+  </string-array>
+  <integer name="wands_01_index">122</integer>
+  <string name="wands_01_title">Ace of Wands</string>
+  <string name="wands_01_en_title">Ace of Wands</string>
+  <integer name="wands_01_second_operation_count">11</integer>
+  <string name="wands_01_astrology"></string>
+  <string name="wands_01_time_period">0321-0620</string>
+  <string name="wands_01_archetype"></string>
+  <string name="wands_01_journey"></string>
+  <string name="wands_01_element"></string>
+  <string name="wands_01_hebrew"></string>
+  <string name="wands_01_occult_title">The Root of the Power of Fire</string>
+  <string name="wands_01_keyword">Initiative</string>
+  <string name="wands_01_abst">The energy to lay new foundations and begin something promising.&#xD;
+</string>
+  <string name="wands_01_meanings">Natural, as opposed to invoked, force. Strength, force, vigor, vitality, and particularly the force of concentrated Will. The principle, or beginning of an enterprise.</string>
+  <string name="wands_01_in_spiritual"></string>
+  <string name="wands_01_in_material"></string>
+  <string name="wands_01_well_dignified"></string>
+  <string name="wands_01_ill_dignified"></string>
+  <string name="wands_01_actions">using creative force, having confidence, showing enthusiasm, proceeding with courage</string>
+  <integer-array name="wands_01_reinforcement_number">
+    <item>136</item>
+    <item>150</item>
+    <item>164</item>
+  </integer-array>
+  <string-array name="wands_01_reinforcement_text">
+    <item>deep feelings, intimacy, attunement, compassion, love</item>
+    <item>intelligence, reason, justice, truth, clarity, perseverance</item>
+    <item>prosperity, abundance, trust, security, groundedness</item>
+  </string-array>
+  <integer name="wands_02_index">123</integer>
+  <string name="wands_02_title">Two of Wands</string>
+  <string name="wands_02_en_title">Two of Wands</string>
+  <integer name="wands_02_second_operation_count">2</integer>
+  <string name="wands_02_astrology"></string>
+  <string name="wands_02_time_period">0321-0330</string>
+  <string name="wands_02_archetype"></string>
+  <string name="wands_02_journey"></string>
+  <string name="wands_02_element"></string>
+  <string name="wands_02_hebrew"></string>
+  <string name="wands_02_occult_title"></string>
+  <string name="wands_02_keyword">Dominion</string>
+  <string name="wands_02_abst">individual courage and greatness, personal power</string>
+  <string name="wands_02_meanings">power, striving for power; daring and inventiveness</string>
+  <string name="wands_02_in_spiritual"></string>
+  <string name="wands_02_in_material"></string>
+  <string name="wands_02_well_dignified">Force, enterprise, boldness, resolution, originality, some combativeness.</string>
+  <string name="wands_02_ill_dignified">Fierceness, shamelessness, ambition, restlessness, turbulence, obstinacy, revenge. Enthusiasm, but strong self-interest.</string>
+  <string name="wands_02_actions">having personal power, showing originality, being bold</string>
+  <integer-array name="wands_02_opposition_number">
+    <item>102</item>
+    <item>105</item>
+    <item>157</item>
+    <item>159</item>
+    <item>173</item>
+  </integer-array>
+  <string-array name="wands_02_opposition_text">
+    <item>being pasive, staying in the background</item>
+    <item>conforming, going along with the group</item>
+    <item>powerlessness, fear of action</item>
+    <item>victim mentality, powerlessness</item>
+    <item>going by the rules, being conventional</item>
+  </string-array>
+  <integer-array name="wands_02_reinforcement_number">
+    <item>101</item>
+    <item>104</item>
+    <item>107</item>
+    <item>119</item>
+  </integer-array>
+  <string-array name="wands_02_reinforcement_text">
+    <item>personal power, wielding a strong force</item>
+    <item>authority</item>
+    <item>personal power, command</item>
+    <item>vitality, brilliance, greatness</item>
+  </string-array>
+  <integer name="wands_03_index">124</integer>
+  <string name="wands_03_title">Three of Wands</string>
+  <string name="wands_03_en_title">Three of Wands</string>
+  <integer name="wands_03_second_operation_count">3</integer>
+  <string name="wands_03_astrology"></string>
+  <string name="wands_03_time_period">0331-0409</string>
+  <string name="wands_03_archetype"></string>
+  <string name="wands_03_journey"></string>
+  <string name="wands_03_element"></string>
+  <string name="wands_03_hebrew"></string>
+  <string name="wands_03_occult_title"></string>
+  <string name="wands_03_keyword">Established strength</string>
+  <string name="wands_03_abst">taking the long view, visionary</string>
+  <string name="wands_03_meanings">mental energy, leadership, ambition, determination are among the meanings, the realization of hope, of success after struggle</string>
+  <string name="wands_03_in_spiritual"></string>
+  <string name="wands_03_in_material"></string>
+  <string name="wands_03_well_dignified">Courage, persistence, pride, nobility.</string>
+  <string name="wands_03_ill_dignified">Conceit, arrogance, insolence.</string>
+  <string name="wands_03_actions">exploring the unknown, demonstrating leadership, having foresight</string>
+  <integer-array name="wands_03_opposition_number">
+    <item>151</item>
+    <item>173</item>
+  </integer-array>
+  <string-array name="wands_03_opposition_text">
+    <item>avoiding the facts, staying suck</item>
+    <item>being conservative, focusing on security</item>
+  </string-array>
+  <integer-array name="wands_03_reinforcement_number">
+    <item>100</item>
+    <item>104</item>
+    <item>143</item>
+    <item>166</item>
+  </integer-array>
+  <string-array name="wands_03_reinforcement_text">
+    <item>expanding horizons, going into unexplored territory</item>
+    <item>leadership, providing directions</item>
+    <item>going on a trip, starting a journey</item>
+    <item>planning, preparing for the future</item>
+  </string-array>
+  <integer name="wands_04_index">125</integer>
+  <string name="wands_04_title">Four of Wands</string>
+  <string name="wands_04_en_title">Four of Wands</string>
+  <integer name="wands_04_second_operation_count">4</integer>
+  <string name="wands_04_astrology"></string>
+  <string name="wands_04_time_period">0410-0419</string>
+  <string name="wands_04_archetype"></string>
+  <string name="wands_04_journey"></string>
+  <string name="wands_04_element"></string>
+  <string name="wands_04_hebrew"></string>
+  <string name="wands_04_occult_title"></string>
+  <string name="wands_04_keyword">Perfected work</string>
+  <string name="wands_04_abst">rite of passage</string>
+  <string name="wands_04_meanings">breaking the bonds that bind, celebration</string>
+  <string name="wands_04_in_spiritual"></string>
+  <string name="wands_04_in_material"></string>
+  <string name="wands_04_well_dignified">Success through personal merit, good social standing, influential friends: the perfection of something built up after labor; benefit through travel, shipping and business with foreign countries.</string>
+  <string name="wands_04_ill_dignified">Loss through social standing, friends, travel, shipping, business with foreign countries, or in consequence of unpreparedness or hast action.</string>
+  <string name="wands_04_actions">celebrating, feeling excited, seeking freedom</string>
+  <integer-array name="wands_04_opposition_number">
+    <item>115</item>
+    <item>131</item>
+    <item>139</item>
+    <item>155</item>
+    <item>157</item>
+  </integer-array>
+  <string-array name="wands_04_opposition_text">
+    <item>bondage, lack of freedom</item>
+    <item>burdens, being in an oppresive situation</item>
+    <item>apathy, lack of excitement, flat feeling</item>
+    <item>mild depression, little to celebrate</item>
+    <item>restriction, lack of freedom</item>
+  </string-array>
+  <integer-array name="wands_04_reinforcement_number">
+    <item>138</item>
+    <item>165</item>
+  </integer-array>
+  <string-array name="wands_04_reinforcement_text">
+    <item>excitement, high spirits, celebration</item>
+    <item>fun, excitement, parties</item>
+  </string-array>
+  <integer name="wands_05_index">126</integer>
+  <string name="wands_05_title">Five of Wands</string>
+  <string name="wands_05_en_title">Five of Wands</string>
+  <integer name="wands_05_second_operation_count">5</integer>
+  <string name="wands_05_astrology"></string>
+  <string name="wands_05_time_period">0723-0801</string>
+  <string name="wands_05_archetype"></string>
+  <string name="wands_05_journey"></string>
+  <string name="wands_05_element"></string>
+  <string name="wands_05_hebrew"></string>
+  <string name="wands_05_occult_title"></string>
+  <string name="wands_05_keyword">Competition</string>
+  <string name="wands_05_abst">contention and rivalry</string>
+  <string name="wands_05_meanings">power, and pleasure in exercising it; adventure, speculation, and uncertainty; strong attachments.</string>
+  <string name="wands_05_in_spiritual"></string>
+  <string name="wands_05_in_material"></string>
+  <string name="wands_05_well_dignified">Boldness, command, generosity.</string>
+  <string name="wands_05_ill_dignified">Cruelty, violence, lust, prodigality.</string>
+  <string name="wands_05_actions">disagreeing, experiencing hassles, experiencing competition</string>
+  <integer-array name="wands_05_opposition_number">
+    <item>114</item>
+    <item>121</item>
+    <item>137</item>
+    <item>165</item>
+    <item>166</item>
+  </integer-array>
+  <string-array name="wands_05_opposition_text">
+    <item>balance, agreement, working together</item>
+    <item>integration, working together</item>
+    <item>truce, agreement, coming together</item>
+    <item>working smoothly, getting people together</item>
+    <item>teamwork, cooperation</item>
+  </string-array>
+  <integer-array name="wands_05_reinforcement_number">
+    <item>128</item>
+    <item>131</item>
+    <item>154</item>
+  </integer-array>
+  <string-array name="wands_05_reinforcement_text">
+    <item>opposition, fighting</item>
+    <item>struggle, hassles, meeting resistance</item>
+    <item>discord, people set against each other</item>
+  </string-array>
+  <integer name="wands_06_index">127</integer>
+  <string name="wands_06_title">Six of Wands</string>
+  <string name="wands_06_en_title">Six of Wands</string>
+  <integer name="wands_06_second_operation_count">6</integer>
+  <string name="wands_06_astrology"></string>
+  <string name="wands_06_time_period">0802-0811</string>
+  <string name="wands_06_archetype"></string>
+  <string name="wands_06_journey"></string>
+  <string name="wands_06_element"></string>
+  <string name="wands_06_hebrew"></string>
+  <string name="wands_06_occult_title"></string>
+  <string name="wands_06_keyword">Victory</string>
+  <string name="wands_06_abst">the likelihood of success</string>
+  <string name="wands_06_meanings">success, happiness, gain</string>
+  <string name="wands_06_in_spiritual"></string>
+  <string name="wands_06_in_material"></string>
+  <string name="wands_06_well_dignified">Gain through love affairs, or by opposite sex; pleasure in labor, gain after a period of uncertainty or competition.</string>
+  <string name="wands_06_ill_dignified">Loss through love affairs, or by opposite sex; pleasure in labor, loss after a period of uncertainty or competition., waste in pleasure, trouble through pride of riches or through insolence based on success.</string>
+  <string name="wands_06_actions">triumphing, feeling pride, receiving acclaim</string>
+  <integer-array name="wands_06_opposition_number">
+    <item>116</item>
+    <item>140</item>
+    <item>159</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="wands_06_opposition_text">
+    <item>humility, loss of acclaim</item>
+    <item>loss, defeat</item>
+    <item>self-deprecating, in the pits</item>
+    <item>rejection, lack of recognition</item>
+  </string-array>
+  <integer-array name="wands_06_reinforcement_number">
+    <item>107</item>
+    <item>119</item>
+    <item>144</item>
+  </integer-array>
+  <string-array name="wands_06_reinforcement_text">
+    <item>triumph, self-confidence</item>
+    <item>acclaim, prominance</item>
+    <item>self-satisfaction, achieving what you want</item>
+  </string-array>
+  <integer name="wands_07_index">128</integer>
+  <string name="wands_07_title">Seven of Wands</string>
+  <string name="wands_07_en_title">Seven of Wands</string>
+  <integer name="wands_07_second_operation_count">7</integer>
+  <string name="wands_07_astrology"></string>
+  <string name="wands_07_time_period">0812-0822</string>
+  <string name="wands_07_archetype"></string>
+  <string name="wands_07_journey"></string>
+  <string name="wands_07_element"></string>
+  <string name="wands_07_hebrew"></string>
+  <string name="wands_07_occult_title"></string>
+  <string name="wands_07_keyword">Valor</string>
+  <string name="wands_07_abst">a position of advantage, taking a stand</string>
+  <string name="wands_07_meanings">pleasure in strenuous action; some danger through love-affairs or self-indulgence</string>
+  <string name="wands_07_in_spiritual"></string>
+  <string name="wands_07_in_material"></string>
+  <string name="wands_07_well_dignified">Adventure, strength, courage in the face of difficulties, influence over subordinates.</string>
+  <string name="wands_07_ill_dignified">Indicates ignorance, pretence, vain-glory, quarrels and wrangling, threats, and very determined opposition, especially from subordinates.</string>
+  <string name="wands_07_actions">being aggressive, showing conviction, being defiant</string>
+  <integer-array name="wands_07_opposition_number">
+    <item>102</item>
+    <item>112</item>
+    <item>166</item>
+  </integer-array>
+  <string-array name="wands_07_opposition_text">
+    <item>being passive, holding back</item>
+    <item>waiting, letting go</item>
+    <item>teamwork</item>
+  </string-array>
+  <integer-array name="wands_07_reinforcement_number">
+    <item>126</item>
+    <item>130</item>
+    <item>154</item>
+  </integer-array>
+  <string-array name="wands_07_reinforcement_text">
+    <item>opposition, fighting</item>
+    <item>defending your position, refusing to yield</item>
+    <item>conflict</item>
+  </string-array>
+  <integer name="wands_08_index">129</integer>
+  <string name="wands_08_title">Eight of Wands</string>
+  <string name="wands_08_en_title">Eight of Wands</string>
+  <integer name="wands_08_second_operation_count">8</integer>
+  <string name="wands_08_astrology"></string>
+  <string name="wands_08_time_period">1122-1201</string>
+  <string name="wands_08_archetype"></string>
+  <string name="wands_08_journey"></string>
+  <string name="wands_08_element"></string>
+  <string name="wands_08_hebrew"></string>
+  <string name="wands_08_occult_title"></string>
+  <string name="wands_08_keyword">Swiftness</string>
+  <string name="wands_08_abst">swift action</string>
+  <string name="wands_08_meanings">now is the time for action; events proceed rapidly</string>
+  <string name="wands_08_in_spiritual"></string>
+  <string name="wands_08_in_material"></string>
+  <string name="wands_08_well_dignified">Aspiration, foresight; rapid expression of force, but quickly expended; the acceleration of anything in which one is interested. Also generosity, confidence, freedom.</string>
+  <string name="wands_08_ill_dignified">Violence, warfare, rapacity, insolence, theft or robbery.</string>
+  <string name="wands_08_actions">taking quick action, receiving news, coming to a conclusion</string>
+  <integer-array name="wands_08_opposition_number">
+    <item>102</item>
+    <item>153</item>
+    <item>170</item>
+  </integer-array>
+  <string-array name="wands_08_opposition_text">
+    <item>waiting, holding off</item>
+    <item>not rusing in preparing</item>
+    <item>assessment, taking stock before action</item>
+  </string-array>
+  <integer-array name="wands_08_reinforcement_number">
+    <item>101</item>
+    <item>110</item>
+    <item>113</item>
+    <item>143</item>
+  </integer-array>
+  <string-array name="wands_08_reinforcement_text">
+    <item>taking action, carrying out plans</item>
+    <item>rapid pace, carrying out plans</item>
+    <item>conclusion, endings</item>
+    <item>finishing up, ending a chapter</item>
+  </string-array>
+  <integer name="wands_09_index">130</integer>
+  <string name="wands_09_title">Nine of Wands</string>
+  <string name="wands_09_en_title">Nine of Wands</string>
+  <integer name="wands_09_second_operation_count">9</integer>
+  <string name="wands_09_astrology"></string>
+  <string name="wands_09_time_period">1202-1211</string>
+  <string name="wands_09_archetype"></string>
+  <string name="wands_09_journey"></string>
+  <string name="wands_09_element"></string>
+  <string name="wands_09_hebrew"></string>
+  <string name="wands_09_occult_title"></string>
+  <string name="wands_09_keyword">Preparedness</string>
+  <string name="wands_09_abst">standing your ground</string>
+  <string name="wands_09_meanings">strength in reserve, health after illness; success, but attended by some strife</string>
+  <string name="wands_09_in_spiritual"></string>
+  <string name="wands_09_in_material"></string>
+  <string name="wands_09_well_dignified"></string>
+  <string name="wands_09_ill_dignified">Danger of violence in foreign places, or on or through the course of long journeys; difficulties with the relatives of the marriage partner; conflict with persons prominent in religion or law; obstinacy.</string>
+  <string name="wands_09_actions">defending yourself, showing stamina, persevering</string>
+  <integer-array name="wands_09_opposition_number">
+    <item>138</item>
+    <item>141</item>
+    <item>143</item>
+  </integer-array>
+  <string-array name="wands_09_opposition_text">
+    <item>friendship, trusting someone</item>
+    <item>innocence, believing the best</item>
+    <item>weariness, fatigue</item>
+  </string-array>
+  <integer-array name="wands_09_reinforcement_number">
+    <item>108</item>
+    <item>128</item>
+    <item>151</item>
+    <item>171</item>
+  </integer-array>
+  <string-array name="wands_09_reinforcement_text">
+    <item>endurance, resolve, heart</item>
+    <item>defending a position, holding out</item>
+    <item>being defensive, closing yourself off</item>
+    <item>persistance</item>
+  </string-array>
+  <integer name="wands_10_index">131</integer>
+  <string name="wands_10_title">Ten of Wands</string>
+  <string name="wands_10_en_title">Ten of Wands</string>
+  <integer name="wands_10_second_operation_count">10</integer>
+  <string name="wands_10_astrology"></string>
+  <string name="wands_10_time_period">1212-1221</string>
+  <string name="wands_10_archetype"></string>
+  <string name="wands_10_journey"></string>
+  <string name="wands_10_element"></string>
+  <string name="wands_10_hebrew"></string>
+  <string name="wands_10_occult_title"></string>
+  <string name="wands_10_keyword">Fullness of power</string>
+  <string name="wands_10_abst">burdens of success</string>
+  <string name="wands_10_meanings">step forward and take charge; an uphill battle</string>
+  <string name="wands_10_in_spiritual"></string>
+  <string name="wands_10_in_material"></string>
+  <string name="wands_10_well_dignified">Generosity, success and honor in connection with the law, religion and philosophy; possibility of posts of responsibility; gain through travel.</string>
+  <string name="wands_10_ill_dignified">Ostentation, dogmatism, overbearing pride.</string>
+  <string name="wands_10_actions">overextending, struggling, feeling burdened</string>
+  <integer-array name="wands_10_opposition_number">
+    <item>100</item>
+    <item>112</item>
+    <item>125</item>
+    <item>153</item>
+    <item>156</item>
+  </integer-array>
+  <string-array name="wands_10_opposition_text">
+    <item>carefree, living in the moment</item>
+    <item>letting go</item>
+    <item>free of burdens, escaping oppression</item>
+    <item>relaxing, resting</item>
+    <item>avoiding responsibility</item>
+  </string-array>
+  <integer-array name="wands_10_reinforcement_number">
+    <item>111</item>
+    <item>126</item>
+    <item>155</item>
+    <item>158</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="wands_10_reinforcement_text">
+    <item>accepting responsibility, being accountable</item>
+    <item>struggle, hassles, resistance</item>
+    <item>getting by, struggling along</item>
+    <item>worrying</item>
+    <item>struggling, hard times</item>
+  </string-array>
+  <integer name="wands_page_index">132</integer>
+  <string name="wands_page_title">Page of Wands</string>
+  <string name="wands_page_en_title">Page of Wands</string>
+  <integer name="wands_page_second_operation_count">7</integer>
+  <string name="wands_page_astrology"></string>
+  <string name="wands_page_time_period">0321-0620</string>
+  <string name="wands_page_archetype"></string>
+  <string name="wands_page_journey"></string>
+  <string name="wands_page_element"></string>
+  <string name="wands_page_hebrew"></string>
+  <string name="wands_page_occult_title"></string>
+  <string name="wands_page_keyword"></string>
+  <string name="wands_page_abst">Daring action, vitality, good news.</string>
+  <string name="wands_page_meanings">A youthful person bringing opportunities to experience creativity, courage, charm and inspiration. An opening may appear that excites you or feeds your talents.</string>
+  <string name="wands_page_in_spiritual"></string>
+  <string name="wands_page_in_material"></string>
+  <string name="wands_page_well_dignified"></string>
+  <string name="wands_page_ill_dignified">Vengeful at the least opposition, headstrong, theatrical, unstable, domineering, and decidedly superficial.</string>
+  <string name="wands_page_actions">be creative, be confident, be enthusiastic, be courageous</string>
+  <integer name="wands_knight_index">133</integer>
+  <string name="wands_knight_title">Knight of Wands</string>
+  <string name="wands_knight_en_title">Knight of Wands</string>
+  <integer name="wands_knight_second_operation_count">7</integer>
+  <string name="wands_knight_astrology"></string>
+  <string name="wands_knight_time_period">1113-1211</string>
+  <string name="wands_knight_archetype"></string>
+  <string name="wands_knight_journey"></string>
+  <string name="wands_knight_element"></string>
+  <string name="wands_knight_hebrew"></string>
+  <string name="wands_knight_occult_title"></string>
+  <string name="wands_knight_keyword"></string>
+  <string name="wands_knight_abst">Change in the air, Creative energy, Impatience.</string>
+  <string name="wands_knight_meanings">A young impetuous adult, unwilling to settle down.</string>
+  <string name="wands_knight_in_spiritual"></string>
+  <string name="wands_knight_in_material"></string>
+  <string name="wands_knight_well_dignified">A matter of considerable importance is emerging in your life</string>
+  <string name="wands_knight_ill_dignified">Irresponsible, pushy, domineering, or rash behavior is alienating others and making the situation worse.</string>
+  <string name="wands_knight_actions">being charming/superficial, being self-confident/cocky, being daring/foolhardy, being adventurous/restless, being passionate/hot-tempered</string>
+  <integer name="wands_queen_index">134</integer>
+  <string name="wands_queen_title">Queen of Wands</string>
+  <string name="wands_queen_en_title">Queen of Wands</string>
+  <integer name="wands_queen_second_operation_count">4</integer>
+  <string name="wands_queen_astrology"></string>
+  <string name="wands_queen_time_period">0713-0811</string>
+  <string name="wands_queen_archetype"></string>
+  <string name="wands_queen_journey"></string>
+  <string name="wands_queen_element"></string>
+  <string name="wands_queen_hebrew"></string>
+  <string name="wands_queen_occult_title"></string>
+  <string name="wands_queen_keyword"></string>
+  <string name="wands_queen_abst">Balanced family and career interests.</string>
+  <string name="wands_queen_meanings">An enterprising and ambitious woman, resolute in the face of opposition</string>
+  <string name="wands_queen_in_spiritual"></string>
+  <string name="wands_queen_in_material"></string>
+  <string name="wands_queen_well_dignified">bringing energy, independence of thought, kindness, and generosity</string>
+  <string name="wands_queen_ill_dignified">resorting to emotional blackmail, imposing values upon others</string>
+  <string name="wands_queen_actions">be attractive, be cheerful, be wholehearted, be self-assured, be energetic</string>
+  <integer name="wands_king_index">135</integer>
+  <string name="wands_king_title">King of Wands</string>
+  <string name="wands_king_en_title">King of Wands</string>
+  <integer name="wands_king_second_operation_count">4</integer>
+  <string name="wands_king_astrology"></string>
+  <string name="wands_king_time_period">0311-0409</string>
+  <string name="wands_king_archetype"></string>
+  <string name="wands_king_journey"></string>
+  <string name="wands_king_element"></string>
+  <string name="wands_king_hebrew"></string>
+  <string name="wands_king_occult_title"></string>
+  <string name="wands_king_keyword"></string>
+  <string name="wands_king_abst">Leading the way.</string>
+  <string name="wands_king_meanings">Ardent, impulsive, influential man</string>
+  <string name="wands_king_in_spiritual"></string>
+  <string name="wands_king_in_material"></string>
+  <string name="wands_king_well_dignified">bringing inspiration, motivation, and maturity</string>
+  <string name="wands_king_ill_dignified">arrogant authority figure, intolerant and insensitive to the feelings of others</string>
+  <string name="wands_king_actions">be creative, be charismatic, be inspiring, be bold, be forceful</string>
+  <integer name="cups_01_index">136</integer>
+  <string name="cups_01_title">Ace of Cups</string>
+  <string name="cups_01_en_title">Ace of Cups</string>
+  <integer name="cups_01_second_operation_count">11</integer>
+  <string name="cups_01_astrology"></string>
+  <string name="cups_01_time_period">0621-0922</string>
+  <string name="cups_01_archetype"></string>
+  <string name="cups_01_journey"></string>
+  <string name="cups_01_element"></string>
+  <string name="cups_01_hebrew"></string>
+  <string name="cups_01_occult_title">The Root of the Powers of Water</string>
+  <string name="cups_01_keyword">Desire-force</string>
+  <string name="cups_01_abst">Affairs of the heart, inner attunement and spirituality.</string>
+  <string name="cups_01_meanings">Fertility, productiveness, development, multiplication; happiness, pleasure, gratification, fruition of desires; cheerfulness, geniality, gaiety.</string>
+  <string name="cups_01_in_spiritual"></string>
+  <string name="cups_01_in_material"></string>
+  <string name="cups_01_well_dignified"></string>
+  <string name="cups_01_ill_dignified"></string>
+  <string name="cups_01_actions">using emotional force, developing intuition, experiencing intimacy, proceeding with love</string>
+  <integer-array name="cups_01_reinforcement_number">
+    <item>122</item>
+    <item>150</item>
+    <item>164</item>
+  </integer-array>
+  <string-array name="cups_01_reinforcement_text">
+    <item>creativity, excitment, adventure, courage, personal power</item>
+    <item>intelligence, reason, justice, truth, clarity, perseverance</item>
+    <item>prosperity, abundance, trust, security, groundedness</item>
+  </string-array>
+  <integer name="cups_02_index">137</integer>
+  <string name="cups_02_title">Two of Cups</string>
+  <string name="cups_02_en_title">Two of Cups</string>
+  <integer name="cups_02_second_operation_count">2</integer>
+  <string name="cups_02_astrology"></string>
+  <string name="cups_02_time_period">0621-0630</string>
+  <string name="cups_02_archetype"></string>
+  <string name="cups_02_journey"></string>
+  <string name="cups_02_element"></string>
+  <string name="cups_02_hebrew"></string>
+  <string name="cups_02_occult_title"></string>
+  <string name="cups_02_keyword">Response to environment</string>
+  <string name="cups_02_abst">the power of union</string>
+  <string name="cups_02_meanings">romantic and sexual attraction; potential for bonding</string>
+  <string name="cups_02_in_spiritual"></string>
+  <string name="cups_02_in_material"></string>
+  <string name="cups_02_well_dignified">Reciprocity, reflection; gain and benefit through parents; favors from opposite sex; changes of residence.</string>
+  <string name="cups_02_ill_dignified">Reverses and losses through parents or the opposite sex; unfortunate changes of residence; fluctuations of mood; unwise decisions.</string>
+  <string name="cups_02_actions">making a connection, acknowledging an attraction, calling a truce</string>
+  <integer-array name="cups_02_opposition_number">
+    <item>109</item>
+    <item>126</item>
+    <item>139</item>
+    <item>140</item>
+  </integer-array>
+  <string-array name="cups_02_opposition_text">
+    <item>needing to be alone, solitude</item>
+    <item>disagreement, staying apart, no peace</item>
+    <item>self-absorbed, being alone</item>
+    <item>broken relationship</item>
+  </string-array>
+  <integer-array name="cups_02_reinforcement_number">
+    <item>106</item>
+    <item>114</item>
+    <item>145</item>
+  </integer-array>
+  <string-array name="cups_02_reinforcement_text">
+    <item>union, marriage, connection</item>
+    <item>connection, working together</item>
+    <item>kinship, family ties</item>
+  </string-array>
+  <integer name="cups_03_index">138</integer>
+  <string name="cups_03_title">Three of Cups</string>
+  <string name="cups_03_en_title">Three of Cups</string>
+  <integer name="cups_03_second_operation_count">3</integer>
+  <string name="cups_03_astrology"></string>
+  <string name="cups_03_time_period">0701-0710</string>
+  <string name="cups_03_archetype"></string>
+  <string name="cups_03_journey"></string>
+  <string name="cups_03_element"></string>
+  <string name="cups_03_hebrew"></string>
+  <string name="cups_03_occult_title"></string>
+  <string name="cups_03_keyword">Enjoyment</string>
+  <string name="cups_03_abst">friendship, community, and social networks</string>
+  <string name="cups_03_meanings">a time to rejoice, potential for self indulgence</string>
+  <string name="cups_03_in_spiritual"></string>
+  <string name="cups_03_in_material"></string>
+  <string name="cups_03_well_dignified">Activity, determination, practicality; fondness for pleasure and comfort; attachments and attractions to the opposite sex; pleasure.</string>
+  <string name="cups_03_ill_dignified">Sensuality; danger of the triangle situation; trouble through attachments or the opposite sex; misunderstandings.</string>
+  <string name="cups_03_actions">feeling exuberant, valuing community, enjoying friendship</string>
+  <integer-array name="cups_03_opposition_number">
+    <item>109</item>
+    <item>130</item>
+    <item>152</item>
+    <item>155</item>
+    <item>158</item>
+  </integer-array>
+  <string-array name="cups_03_opposition_text">
+    <item>being solitary, withdrawing from the group</item>
+    <item>lack of trust, wariness</item>
+    <item>lonely, isolated, hurting</item>
+    <item>sad, depressed</item>
+    <item>anguished, joyless</item>
+  </string-array>
+  <integer-array name="cups_03_reinforcement_number">
+    <item>105</item>
+    <item>114</item>
+    <item>125</item>
+    <item>166</item>
+  </integer-array>
+  <string-array name="cups_03_reinforcement_text">
+    <item>focusing on the group</item>
+    <item>joining forces, working together</item>
+    <item>excitement, high spirits, celebration</item>
+    <item>working in a group</item>
+  </string-array>
+  <integer name="cups_04_index">139</integer>
+  <string name="cups_04_title">Four of Cups</string>
+  <string name="cups_04_en_title">Four of Cups</string>
+  <integer name="cups_04_second_operation_count">4</integer>
+  <string name="cups_04_astrology"></string>
+  <string name="cups_04_time_period">0711-0722</string>
+  <string name="cups_04_archetype"></string>
+  <string name="cups_04_journey"></string>
+  <string name="cups_04_element"></string>
+  <string name="cups_04_hebrew"></string>
+  <string name="cups_04_occult_title"></string>
+  <string name="cups_04_keyword">Surfeit</string>
+  <string name="cups_04_abst">self absorbtion and apathy</string>
+  <string name="cups_04_meanings">withdrawl due to discontent; potential for depression</string>
+  <string name="cups_04_in_spiritual"></string>
+  <string name="cups_04_in_material"></string>
+  <string name="cups_04_well_dignified">Success in material things, but desire for something higher; a period of comparative comfort, yet a little confining; a degree of satiety; contemplation, and turning away from pleasure in quest for higher things; strong psychic influences.</string>
+  <string name="cups_04_ill_dignified">Material gain, but through injustice; sorrows resulting from satisfaction of desire; getting what one has wanted, but finding no joy in it.</string>
+  <string name="cups_04_actions">being self-assured, going within, feeling apathetic</string>
+  <integer-array name="cups_04_opposition_number">
+    <item>121</item>
+    <item>125</item>
+    <item>137</item>
+    <item>171</item>
+  </integer-array>
+  <string-array name="cups_04_opposition_text">
+    <item>involvement, caring, taking part</item>
+    <item>excitement, high energy optimism</item>
+    <item>connection, sharing with others</item>
+    <item>making an effort, working hard</item>
+  </string-array>
+  <integer-array name="cups_04_reinforcement_number">
+    <item>109</item>
+    <item>153</item>
+    <item>155</item>
+  </integer-array>
+  <string-array name="cups_04_reinforcement_text">
+    <item>withdrawing, being introverted</item>
+    <item>contemplating, taking time alone</item>
+    <item>listlessness, depression</item>
+  </string-array>
+  <integer name="cups_05_index">140</integer>
+  <string name="cups_05_title">Five of Cups</string>
+  <string name="cups_05_en_title">Five of Cups</string>
+  <integer name="cups_05_second_operation_count">5</integer>
+  <string name="cups_05_astrology"></string>
+  <string name="cups_05_time_period">1023-1101</string>
+  <string name="cups_05_archetype"></string>
+  <string name="cups_05_journey"></string>
+  <string name="cups_05_element"></string>
+  <string name="cups_05_hebrew"></string>
+  <string name="cups_05_occult_title"></string>
+  <string name="cups_05_keyword">Defeated desire</string>
+  <string name="cups_05_abst">sorrow, regret, and denial</string>
+  <string name="cups_05_meanings">Loss in pleasure; vain regret; disappointment, sorrow and loss in those things which have been much desired; treachery, deceit; unexpected troubles and anxieties; disappointment in love, broken engagement, broken friendship.</string>
+  <string name="cups_05_in_spiritual"></string>
+  <string name="cups_05_in_material"></string>
+  <string name="cups_05_well_dignified"></string>
+  <string name="cups_05_ill_dignified"></string>
+  <string name="cups_05_actions">suffering a loss, feeling regret, feeling bereft</string>
+  <integer-array name="cups_05_opposition_number">
+    <item>106</item>
+    <item>120</item>
+    <item>127</item>
+    <item>137</item>
+    <item>144</item>
+  </integer-array>
+  <string-array name="cups_05_opposition_text">
+    <item>establishing a relationship</item>
+    <item>absolving yourself, releasing regret</item>
+    <item>triumph, winning</item>
+    <item>relationship</item>
+    <item>contentment, satisfaction</item>
+  </string-array>
+  <integer-array name="cups_05_reinforcement_number">
+    <item>113</item>
+    <item>152</item>
+    <item>155</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="cups_05_reinforcement_text">
+    <item>loss, goodbyes</item>
+    <item>seperation, loss of love, heartache</item>
+    <item>sadness</item>
+    <item>rejection, lack of support, loss of approval</item>
+  </string-array>
+  <integer name="cups_06_index">141</integer>
+  <string name="cups_06_title">Six of Cups</string>
+  <string name="cups_06_en_title">Six of Cups</string>
+  <integer name="cups_06_second_operation_count">6</integer>
+  <string name="cups_06_astrology"></string>
+  <string name="cups_06_time_period">1102-1111</string>
+  <string name="cups_06_archetype"></string>
+  <string name="cups_06_journey"></string>
+  <string name="cups_06_element"></string>
+  <string name="cups_06_hebrew"></string>
+  <string name="cups_06_occult_title"></string>
+  <string name="cups_06_keyword">Betterment</string>
+  <string name="cups_06_abst">innocence</string>
+  <string name="cups_06_meanings">a sense of nostalgia; clinging to the past</string>
+  <string name="cups_06_in_spiritual"></string>
+  <string name="cups_06_in_material"></string>
+  <string name="cups_06_well_dignified">Deep emotions, ardor, enthusiasm, generosity; money through marriage of business partner, or by inheritance; the beginning of steady gain in business or pleasure, but beginning only; peculiar circumstances.</string>
+  <string name="cups_06_ill_dignified">Deceit in reference to partner\'s money; loss of money inherited through some sort of swindle; danger of death on water, or through poisons or anaesthetics; some reversal of fortune.</string>
+  <string name="cups_06_actions">experiencing goodwill, focusing on childhood, enjoying innocence</string>
+  <integer-array name="cups_06_opposition_number">
+    <item>115</item>
+    <item>130</item>
+    <item>154</item>
+    <item>156</item>
+    <item>158</item>
+  </integer-array>
+  <string-array name="cups_06_opposition_text">
+    <item>negativity, corruption, coveting</item>
+    <item>lack of innocence, believing the worst</item>
+    <item>cynical, hostile, selfish</item>
+    <item>deceiving, manipulating</item>
+    <item>guilt</item>
+  </string-array>
+  <integer-array name="cups_06_reinforcement_number">
+    <item>117</item>
+    <item>145</item>
+  </integer-array>
+  <string-array name="cups_06_reinforcement_text">
+    <item>good will, sharing</item>
+    <item>feeling blessed, happy, joyful</item>
+  </string-array>
+  <integer name="cups_07_index">142</integer>
+  <string name="cups_07_title">Seven of Cups</string>
+  <string name="cups_07_en_title">Seven of Cups</string>
+  <integer name="cups_07_second_operation_count">7</integer>
+  <string name="cups_07_astrology"></string>
+  <string name="cups_07_time_period">1112-1122</string>
+  <string name="cups_07_archetype"></string>
+  <string name="cups_07_journey"></string>
+  <string name="cups_07_element"></string>
+  <string name="cups_07_hebrew"></string>
+  <string name="cups_07_occult_title"></string>
+  <string name="cups_07_keyword">Illusion</string>
+  <string name="cups_07_abst">confusion resulting from lack of focus</string>
+  <string name="cups_07_meanings">possible victory, but one may be too indolent to take advantage opportunities; success may be gained, but not followed up; necessity for choosing the highest possible objectives</string>
+  <string name="cups_07_in_spiritual"></string>
+  <string name="cups_07_in_material"></string>
+  <string name="cups_07_well_dignified"></string>
+  <string name="cups_07_ill_dignified">Illusary success; lying and deceit; drunkenness, violence, even lust.</string>
+  <string name="cups_07_actions">indulging in wishful thinking, falling into dissipation, having many options</string>
+  <integer-array name="cups_07_opposition_number">
+    <item>101</item>
+    <item>104</item>
+    <item>114</item>
+    <item>167</item>
+    <item>171</item>
+    <item>172</item>
+  </integer-array>
+  <string-array name="cups_07_opposition_text">
+    <item>focus and commitment</item>
+    <item>discipline, structure</item>
+    <item>balance, moderation</item>
+    <item>order, control</item>
+    <item>working hard, applying yourself</item>
+    <item>discipline, restraint, refinement</item>
+  </string-array>
+  <integer-array name="cups_07_reinforcement_number">
+    <item>114</item>
+    <item>118</item>
+    <item>144</item>
+  </integer-array>
+  <string-array name="cups_07_reinforcement_text">
+    <item>overindulgence, dissipation</item>
+    <item>illusions, unrealistic ideas, fantasy</item>
+    <item>sensual excess</item>
+  </string-array>
+  <integer name="cups_08_index">143</integer>
+  <string name="cups_08_title">Eight of Cups</string>
+  <string name="cups_08_en_title">Eight of Cups</string>
+  <integer name="cups_08_second_operation_count">8</integer>
+  <string name="cups_08_astrology"></string>
+  <string name="cups_08_time_period">0219-0228</string>
+  <string name="cups_08_archetype"></string>
+  <string name="cups_08_journey"></string>
+  <string name="cups_08_element"></string>
+  <string name="cups_08_hebrew"></string>
+  <string name="cups_08_occult_title"></string>
+  <string name="cups_08_keyword">Instability</string>
+  <string name="cups_08_abst">Moving on</string>
+  <string name="cups_08_meanings">signs of change are apparent; living a dream no longer satisfies</string>
+  <string name="cups_08_in_spiritual"></string>
+  <string name="cups_08_in_material"></string>
+  <string name="cups_08_well_dignified">Renunciation of material success for something higher; interest in psychic and spiritual things; strong emotions; charity and helpfulness; love of travel.</string>
+  <string name="cups_08_ill_dignified">Momentary success, but nothing lasting; over-impressionable; erratic and unsteady emotions; meaningless change of mood and purposeless journeying.</string>
+  <string name="cups_08_actions">seeking deeper meaning, growing weary, moving on</string>
+  <integer-array name="cups_08_opposition_number">
+    <item>108</item>
+    <item>119</item>
+    <item>130</item>
+  </integer-array>
+  <string-array name="cups_08_opposition_text">
+    <item>endurance, strength</item>
+    <item>vitality, high energy</item>
+    <item>hanging on, persevering</item>
+  </string-array>
+  <integer-array name="cups_08_reinforcement_number">
+    <item>109</item>
+    <item>113</item>
+    <item>124</item>
+    <item>129</item>
+    <item>155</item>
+  </integer-array>
+  <string-array name="cups_08_reinforcement_text">
+    <item>searching for deeper meaning</item>
+    <item>moving on, leaving</item>
+    <item>going on a trip, going into new territory</item>
+    <item>finishing up, ending a chapter</item>
+    <item>moving on, going on a trip</item>
+  </string-array>
+  <integer name="cups_09_index">144</integer>
+  <string name="cups_09_title">Nine of Cups</string>
+  <string name="cups_09_en_title">Nine of Cups</string>
+  <integer name="cups_09_second_operation_count">9</integer>
+  <string name="cups_09_astrology"></string>
+  <string name="cups_09_time_period">0301-0310</string>
+  <string name="cups_09_archetype"></string>
+  <string name="cups_09_journey"></string>
+  <string name="cups_09_element"></string>
+  <string name="cups_09_hebrew"></string>
+  <string name="cups_09_occult_title"></string>
+  <string name="cups_09_keyword">Desire fulfilled</string>
+  <string name="cups_09_abst">contentment</string>
+  <string name="cups_09_meanings">wishes coming true, pursuit of pleasure without regard for consequences</string>
+  <string name="cups_09_in_spiritual"></string>
+  <string name="cups_09_in_material"></string>
+  <string name="cups_09_well_dignified">Complete realization of desires; almost perfect pleasure and happiness; wishes fulfilled; materialistic well-being.</string>
+  <string name="cups_09_ill_dignified">Vanity, conceit, egotism; foolish generosity; easily led; one spoilt by prosperity.</string>
+  <string name="cups_09_actions">having your wish fulfilled, enjoying sensual pleasure, feeling satisfied</string>
+  <integer-array name="cups_09_opposition_number">
+    <item>109</item>
+    <item>140</item>
+  </integer-array>
+  <string-array name="cups_09_opposition_text">
+    <item>focusing less on the senses</item>
+    <item>regret</item>
+  </string-array>
+  <integer-array name="cups_09_reinforcement_number">
+    <item>103</item>
+    <item>106</item>
+    <item>121</item>
+    <item>127</item>
+    <item>142</item>
+  </integer-array>
+  <string-array name="cups_09_reinforcement_text">
+    <item>enjoying the senses</item>
+    <item>sexual pleasure</item>
+    <item>achieving your hearts desire</item>
+    <item>pride in self, achieving what you want</item>
+    <item>sensual excess</item>
+  </string-array>
+  <integer name="cups_10_index">145</integer>
+  <string name="cups_10_title">Ten of Cups</string>
+  <string name="cups_10_en_title">Ten of Cups</string>
+  <integer name="cups_10_second_operation_count">10</integer>
+  <string name="cups_10_astrology"></string>
+  <string name="cups_10_time_period">0311-0320</string>
+  <string name="cups_10_archetype"></string>
+  <string name="cups_10_journey"></string>
+  <string name="cups_10_element"></string>
+  <string name="cups_10_hebrew"></string>
+  <string name="cups_10_occult_title"></string>
+  <string name="cups_10_keyword">Family</string>
+  <string name="cups_10_abst">the serenity that accompanies harmony</string>
+  <string name="cups_10_meanings">family relations; inner and outer peace</string>
+  <string name="cups_10_in_spiritual">permanent and lasting success, through inspiration from higher levels of consciousness; high psychic development; realization of the highest aspirations; happiness.</string>
+  <string name="cups_10_in_material"></string>
+  <string name="cups_10_well_dignified">the promise of affection, contentment, and well-being</string>
+  <string name="cups_10_ill_dignified">disruption of family affairs</string>
+  <string name="cups_10_actions">feeling joy, looking to the family, enjoying peace</string>
+  <integer-array name="cups_10_opposition_number">
+    <item>115</item>
+    <item>116</item>
+    <item>152</item>
+    <item>158</item>
+    <item>159</item>
+  </integer-array>
+  <string-array name="cups_10_opposition_text">
+    <item>lack of joy or peace</item>
+    <item>upheaval, chaos</item>
+    <item>heartbreak, loneliness</item>
+    <item>anguish, sorrow, despair</item>
+    <item>in the pits, feeling victimized</item>
+  </string-array>
+  <integer-array name="cups_10_reinforcement_number">
+    <item>106</item>
+    <item>117</item>
+    <item>121</item>
+    <item>141</item>
+  </integer-array>
+  <string-array name="cups_10_reinforcement_text">
+    <item>family relationships, bonding</item>
+    <item>joy, positive feelings, blessings</item>
+    <item>happiness, emotional fulfillment</item>
+    <item>feeling blessed, happy, joyful</item>
+  </string-array>
+  <integer name="cups_page_index">146</integer>
+  <string name="cups_page_title">Page of Cups</string>
+  <string name="cups_page_en_title">Page of Cups</string>
+  <integer name="cups_page_second_operation_count">7</integer>
+  <string name="cups_page_astrology"></string>
+  <string name="cups_page_time_period">0621-0922</string>
+  <string name="cups_page_archetype"></string>
+  <string name="cups_page_journey"></string>
+  <string name="cups_page_element"></string>
+  <string name="cups_page_hebrew"></string>
+  <string name="cups_page_occult_title"></string>
+  <string name="cups_page_keyword"></string>
+  <string name="cups_page_abst">The beginning of a friendship.</string>
+  <string name="cups_page_meanings">A youthful person bringing opportunities to experience romance, deep feelings, and the inner life. An opening may appear that stirs your emotions, pulls at your heartstrings, or brings you great joy.</string>
+  <string name="cups_page_in_spiritual"></string>
+  <string name="cups_page_in_material"></string>
+  <string name="cups_page_well_dignified">renewing an emotional tie or starting a new relationship; a period of emotional development, sensitivity, and maturity</string>
+  <string name="cups_page_ill_dignified">lack of discipline, laziness, and lack of dedication cause difficulties</string>
+  <string name="cups_page_actions">be emotional, be intimate, be intuitive, be loving</string>
+  <integer name="cups_knight_index">147</integer>
+  <string name="cups_knight_title">Knight of Cups</string>
+  <string name="cups_knight_en_title">Knight of Cups</string>
+  <integer name="cups_knight_second_operation_count">7</integer>
+  <string name="cups_knight_astrology"></string>
+  <string name="cups_knight_time_period">0209-0310</string>
+  <string name="cups_knight_archetype"></string>
+  <string name="cups_knight_journey"></string>
+  <string name="cups_knight_element"></string>
+  <string name="cups_knight_hebrew"></string>
+  <string name="cups_knight_occult_title"></string>
+  <string name="cups_knight_keyword"></string>
+  <string name="cups_knight_abst">Romance, artistic talent</string>
+  <string name="cups_knight_meanings">A young romantic adult, tempermental and takes offense easily.</string>
+  <string name="cups_knight_in_spiritual"></string>
+  <string name="cups_knight_in_material"></string>
+  <string name="cups_knight_well_dignified">An invitation or opportunity of a new relationship.</string>
+  <string name="cups_knight_ill_dignified">Danger of being mislead.</string>
+  <string name="cups_knight_actions">being romantic/overemotional, being imaginative/fanciful, being sensitive/tempermental, being refined/overrefined, being introspective/introverted</string>
+  <integer name="cups_queen_index">148</integer>
+  <string name="cups_queen_title">Queen of Cups</string>
+  <string name="cups_queen_en_title">Queen of Cups</string>
+  <integer name="cups_queen_second_operation_count">4</integer>
+  <string name="cups_queen_astrology"></string>
+  <string name="cups_queen_time_period">1012-1111</string>
+  <string name="cups_queen_archetype"></string>
+  <string name="cups_queen_journey"></string>
+  <string name="cups_queen_element"></string>
+  <string name="cups_queen_hebrew"></string>
+  <string name="cups_queen_occult_title"></string>
+  <string name="cups_queen_keyword"></string>
+  <string name="cups_queen_abst">Deep feeling, nurturing</string>
+  <string name="cups_queen_meanings">A compassionate and intuitive woman, reverence for life.</string>
+  <string name="cups_queen_in_spiritual"></string>
+  <string name="cups_queen_in_material"></string>
+  <string name="cups_queen_well_dignified">an opportunity to turn inwards and examine your feelings</string>
+  <string name="cups_queen_ill_dignified">judgement clouded by emotion</string>
+  <string name="cups_queen_actions">be loving, be psychic, be tenderhearted, be spiritual, be intuitive</string>
+  <integer name="cups_king_index">149</integer>
+  <string name="cups_king_title">King of Cups</string>
+  <string name="cups_king_en_title">King of Cups</string>
+  <integer name="cups_king_second_operation_count">4</integer>
+  <string name="cups_king_astrology"></string>
+  <string name="cups_king_time_period">0620-0710</string>
+  <string name="cups_king_archetype"></string>
+  <string name="cups_king_journey"></string>
+  <string name="cups_king_element"></string>
+  <string name="cups_king_hebrew"></string>
+  <string name="cups_king_occult_title"></string>
+  <string name="cups_king_keyword"></string>
+  <string name="cups_king_abst">Culture and intelligence.</string>
+  <string name="cups_king_meanings">a wise and understanding man with deep knowledge of the world; an attentive listener and advisor</string>
+  <string name="cups_king_in_spiritual"></string>
+  <string name="cups_king_in_material"></string>
+  <string name="cups_king_well_dignified">caring and empathic assistance</string>
+  <string name="cups_king_ill_dignified">scheming, con games, emotional deception</string>
+  <string name="cups_king_actions">wise, caring, calm, tolerant, diplomatic</string>
+  <integer name="swords_01_index">150</integer>
+  <string name="swords_01_title">Ace of Swords</string>
+  <string name="swords_01_en_title">Ace of Swords</string>
+  <integer name="swords_01_second_operation_count">11</integer>
+  <string name="swords_01_astrology"></string>
+  <string name="swords_01_time_period">0923-1221</string>
+  <string name="swords_01_archetype"></string>
+  <string name="swords_01_journey"></string>
+  <string name="swords_01_element"></string>
+  <string name="swords_01_hebrew"></string>
+  <string name="swords_01_occult_title">The Root of the Powers of Air</string>
+  <string name="swords_01_keyword">Activity</string>
+  <string name="swords_01_abst">Inner resources to overcome obstacles</string>
+  <string name="swords_01_meanings">intelligence, reason, justice, truth, clarity and fortitude</string>
+  <string name="swords_01_in_spiritual"></string>
+  <string name="swords_01_in_material"></string>
+  <string name="swords_01_well_dignified"></string>
+  <string name="swords_01_ill_dignified"></string>
+  <string name="swords_01_actions">using mental force, seeking justice, having fortitude, proceeding with truth</string>
+  <integer-array name="swords_01_reinforcement_number">
+    <item>122</item>
+    <item>136</item>
+    <item>164</item>
+  </integer-array>
+  <string-array name="swords_01_reinforcement_text">
+    <item>creativity, excitment, adventure, courage, personal power</item>
+    <item>deep feelings, intimacy, attunement, compassion, love</item>
+    <item>prosperity, abundance, trust, security, groundedness</item>
+  </string-array>
+  <integer name="swords_02_index">151</integer>
+  <string name="swords_02_title">Two of Swords</string>
+  <string name="swords_02_en_title">Two of Swords</string>
+  <integer name="swords_02_second_operation_count">2</integer>
+  <string name="swords_02_astrology"></string>
+  <string name="swords_02_time_period">0923-1002</string>
+  <string name="swords_02_archetype"></string>
+  <string name="swords_02_journey"></string>
+  <string name="swords_02_element"></string>
+  <string name="swords_02_hebrew"></string>
+  <string name="swords_02_occult_title"></string>
+  <string name="swords_02_keyword">Indecision</string>
+  <string name="swords_02_abst">barriers, both internal and external; contradictory characters in the same nature: strength through suffering; pleasure after pain.</string>
+  <string name="swords_02_meanings">delay in the realization of objectives, a period of uncertainty</string>
+  <string name="swords_02_in_spiritual"></string>
+  <string name="swords_02_in_material"></string>
+  <string name="swords_02_well_dignified"></string>
+  <string name="swords_02_ill_dignified">Falsehood, sorrow; accidental injury. A symbol of tension, of want of tact, and suggests power held back, awaiting some announcement or revelation that makes decision possible.</string>
+  <string name="swords_02_actions">blocking emotions, being at a stalemate, avoiding the truth</string>
+  <integer-array name="swords_02_opposition_number">
+    <item>100</item>
+    <item>110</item>
+    <item>111</item>
+    <item>117</item>
+    <item>124</item>
+  </integer-array>
+  <string-array name="swords_02_opposition_text">
+    <item>opening up, uninhibited</item>
+    <item>moving, getting things done</item>
+    <item>accepting the truth, accepting responsibility</item>
+    <item>free flow of positive feelings</item>
+    <item>moving forward, looking at the facts</item>
+  </string-array>
+  <integer-array name="swords_02_reinforcement_number">
+    <item>118</item>
+    <item>130</item>
+    <item>156</item>
+    <item>167</item>
+  </integer-array>
+  <string-array name="swords_02_reinforcement_text">
+    <item>self-deception, not seeing the truth</item>
+    <item>being defensive, closing yourself off</item>
+    <item>running away from the truth</item>
+    <item>stalemate, blockage</item>
+  </string-array>
+  <integer name="swords_03_index">152</integer>
+  <string name="swords_03_title">Three of Swords</string>
+  <string name="swords_03_en_title">Three of Swords</string>
+  <integer name="swords_03_second_operation_count">3</integer>
+  <string name="swords_03_astrology"></string>
+  <string name="swords_03_time_period">1003-1012</string>
+  <string name="swords_03_archetype"></string>
+  <string name="swords_03_journey"></string>
+  <string name="swords_03_element"></string>
+  <string name="swords_03_hebrew"></string>
+  <string name="swords_03_occult_title"></string>
+  <string name="swords_03_keyword">Sorrow</string>
+  <string name="swords_03_abst">something is amiss</string>
+  <string name="swords_03_meanings">sorrow, disappointment, tears; delay, absence, separation, divorce; disruption of friendship, interruption of cherished projects, quarrels</string>
+  <string name="swords_03_in_spiritual"></string>
+  <string name="swords_03_in_material"></string>
+  <string name="swords_03_well_dignified"></string>
+  <string name="swords_03_ill_dignified">Slander; selfishness and dissipation; deceit and with respect to promises; loss in legal affairs.</string>
+  <string name="swords_03_actions">feeling heartbreak, experiencing betayal, feeling lonely</string>
+  <integer-array name="swords_03_opposition_number">
+    <item>106</item>
+    <item>138</item>
+    <item>145</item>
+  </integer-array>
+  <string-array name="swords_03_opposition_text">
+    <item>intimacy, feeling love</item>
+    <item>companionship, trust</item>
+    <item>joy, love, peace, togetherness</item>
+  </string-array>
+  <integer-array name="swords_03_reinforcement_number">
+    <item>140</item>
+    <item>158</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="swords_03_reinforcement_text">
+    <item>seperation, loss of love</item>
+    <item>anguish, heartbreak</item>
+    <item>rejection, seperation, lack of support</item>
+  </string-array>
+  <integer name="swords_04_index">153</integer>
+  <string name="swords_04_title">Four of Swords</string>
+  <string name="swords_04_en_title">Four of Swords</string>
+  <integer name="swords_04_second_operation_count">4</integer>
+  <string name="swords_04_astrology"></string>
+  <string name="swords_04_time_period">1013-1022</string>
+  <string name="swords_04_archetype"></string>
+  <string name="swords_04_journey"></string>
+  <string name="swords_04_element"></string>
+  <string name="swords_04_hebrew"></string>
+  <string name="swords_04_occult_title"></string>
+  <string name="swords_04_keyword">Rest</string>
+  <string name="swords_04_abst">Shifting focus</string>
+  <string name="swords_04_meanings">recuperation, meditation, relaxation</string>
+  <string name="swords_04_in_spiritual"></string>
+  <string name="swords_04_in_material"></string>
+  <string name="swords_04_well_dignified">Rest after sorrow, relief from anxiety, rest after illness, quietness, change for the better, success in legal affairs. Strong mental attraction to a person of the opposite sex; activity in writing or short journeys.</string>
+  <string name="swords_04_ill_dignified">Disharmony with partners; unsettled conditions in legal affairs; disorder and loss through illconsidered writings or needless short journeys; vexations through petty strifes and sarcastic speech.</string>
+  <string name="swords_04_actions">resting, quietly preparing, contemplating</string>
+  <integer-array name="swords_04_opposition_number">
+    <item>101</item>
+    <item>110</item>
+    <item>129</item>
+    <item>131</item>
+    <item>165</item>
+  </integer-array>
+  <string-array name="swords_04_opposition_text">
+    <item>being active focusing outward</item>
+    <item>rapid pace, lots of movement</item>
+    <item>making your move, rushing</item>
+    <item>overexerting, taking on too much</item>
+    <item>having fun, balancing many activities</item>
+  </string-array>
+  <integer-array name="swords_04_reinforcement_number">
+    <item>102</item>
+    <item>109</item>
+    <item>112</item>
+    <item>139</item>
+    <item>155</item>
+    <item>170</item>
+  </integer-array>
+  <string-array name="swords_04_reinforcement_text">
+    <item>resting quietly, contemplating</item>
+    <item>contemplating, being quiet</item>
+    <item>rest, suspended activity</item>
+    <item>contemplating, taking time alone</item>
+    <item>rest, recovery</item>
+    <item>pausing to reflect, assess</item>
+  </string-array>
+  <integer name="swords_05_index">154</integer>
+  <string name="swords_05_title">Five of Swords</string>
+  <string name="swords_05_en_title">Five of Swords</string>
+  <integer name="swords_05_second_operation_count">5</integer>
+  <string name="swords_05_astrology"></string>
+  <string name="swords_05_time_period">0120-0129</string>
+  <string name="swords_05_archetype"></string>
+  <string name="swords_05_journey"></string>
+  <string name="swords_05_element"></string>
+  <string name="swords_05_hebrew"></string>
+  <string name="swords_05_occult_title"></string>
+  <string name="swords_05_keyword">Defeat</string>
+  <string name="swords_05_abst">self interest</string>
+  <string name="swords_05_meanings">one-upmanship, vindictiveness, degredation</string>
+  <string name="swords_05_in_spiritual">the end of a course of action in apparent defeat which will nevertheless produce a good ultimate result</string>
+  <string name="swords_05_in_material">loss and failure</string>
+  <string name="swords_05_well_dignified">Failure, defeat, trouble, poverty, and anxiety. Subject to slander.</string>
+  <string name="swords_05_ill_dignified">Troubles are intensified, and are probably the result of the one\'s own failings; particularly, in this instance, suggests loss through the one\'s own avarice.</string>
+  <string name="swords_05_actions">acting in your own self interest, witnessing open dishonor, experiencing discord</string>
+  <integer-array name="swords_05_opposition_number">
+    <item>104</item>
+    <item>111</item>
+    <item>114</item>
+    <item>141</item>
+  </integer-array>
+  <string-array name="swords_05_opposition_text">
+    <item>following the rules, obeying the law</item>
+    <item>having integrity, doing what is right</item>
+    <item>working with others, harmony, cooperation</item>
+    <item>innocent, well-intentioned, kind</item>
+  </string-array>
+  <integer-array name="swords_05_reinforcement_number">
+    <item>126</item>
+    <item>128</item>
+    <item>156</item>
+  </integer-array>
+  <string-array name="swords_05_reinforcement_text">
+    <item>"discord, people set against each other</item>
+    <item>conflict</item>
+    <item>dishonor, seperation from others</item>
+  </string-array>
+  <integer name="swords_06_index">155</integer>
+  <string name="swords_06_title">Six of Swords</string>
+  <string name="swords_06_en_title">Six of Swords</string>
+  <integer name="swords_06_second_operation_count">6</integer>
+  <string name="swords_06_astrology"></string>
+  <string name="swords_06_time_period">0130-0208</string>
+  <string name="swords_06_archetype"></string>
+  <string name="swords_06_journey"></string>
+  <string name="swords_06_element"></string>
+  <string name="swords_06_hebrew"></string>
+  <string name="swords_06_occult_title"></string>
+  <string name="swords_06_keyword">Patience</string>
+  <string name="swords_06_abst">moving away from stress and troubles</string>
+  <string name="swords_06_meanings">dullness, listlessness, a time of recovery</string>
+  <string name="swords_06_in_spiritual"></string>
+  <string name="swords_06_in_material"></string>
+  <string name="swords_06_well_dignified">Success after a period of trouble or anxiety; difficulties overcome; change of scene, possibly a journey; something mysterious effects a change of circumstances for the better; success earned through laborious efforts.</string>
+  <string name="swords_06_ill_dignified">Sudden changes; circumstances dominate; danger of being over-confident or conceited; too much effort expended for small results.</string>
+  <string name="swords_06_actions">feeling the blues, traveling, recovering</string>
+  <integer-array name="swords_06_opposition_number">
+    <item>108</item>
+    <item>119</item>
+    <item>125</item>
+    <item>138</item>
+    <item>165</item>
+  </integer-array>
+  <string-array name="swords_06_opposition_text">
+    <item>having heart, unshakable resolve</item>
+    <item>vitality, enthusiasm</item>
+    <item>excitement, celebration</item>
+    <item>high spirits, exuberance</item>
+    <item>fun</item>
+  </string-array>
+  <integer-array name="swords_06_reinforcement_number">
+    <item>131</item>
+    <item>139</item>
+    <item>140</item>
+    <item>143</item>
+    <item>153</item>
+    <item>158</item>
+  </integer-array>
+  <string-array name="swords_06_reinforcement_text">
+    <item>getting by, struggling along</item>
+    <item>feeling listless, depressed, uncaring</item>
+    <item>sadness</item>
+    <item>moving on, going on a trip</item>
+    <item>rest, recovery</item>
+    <item>depression, sadness</item>
+  </string-array>
+  <integer name="swords_07_index">156</integer>
+  <string name="swords_07_title">Seven of Swords</string>
+  <string name="swords_07_en_title">Seven of Swords</string>
+  <integer name="swords_07_second_operation_count">7</integer>
+  <string name="swords_07_astrology"></string>
+  <string name="swords_07_time_period">0209-0218</string>
+  <string name="swords_07_archetype"></string>
+  <string name="swords_07_journey"></string>
+  <string name="swords_07_element"></string>
+  <string name="swords_07_hebrew"></string>
+  <string name="swords_07_occult_title"></string>
+  <string name="swords_07_keyword">Instability</string>
+  <string name="swords_07_abst">the lone wolf, veiled intent</string>
+  <string name="swords_07_meanings">involvement in underhanded, deceptive, illicit, or sneaky endeavors</string>
+  <string name="swords_07_in_spiritual"></string>
+  <string name="swords_07_in_material"></string>
+  <string name="swords_07_well_dignified">Opposition to intellectual freedom and independence.</string>
+  <string name="swords_07_ill_dignified">Just returns and constructive criticism.</string>
+  <string name="swords_07_actions">running away, choosing hidden dishonor, being a lone wolf</string>
+  <integer-array name="swords_07_opposition_number">
+    <item>105</item>
+    <item>111</item>
+    <item>131</item>
+    <item>141</item>
+  </integer-array>
+  <string-array name="swords_07_opposition_text">
+    <item>working within the group</item>
+    <item>accepting responsibility, being above board</item>
+    <item>meeting obligations, being responsible</item>
+    <item>innocent, kind, open, noble</item>
+  </string-array>
+  <integer-array name="swords_07_reinforcement_number">
+    <item>109</item>
+    <item>151</item>
+    <item>154</item>
+    <item>172</item>
+  </integer-array>
+  <string-array name="swords_07_reinforcement_text">
+    <item>being alone, staying away from others</item>
+    <item>running from the truth</item>
+    <item>dishonor, seperation from others</item>
+    <item>relying on yourself, acting alone</item>
+  </string-array>
+  <integer name="swords_08_index">157</integer>
+  <string name="swords_08_title">Eight of Swords</string>
+  <string name="swords_08_en_title">Eight of Swords</string>
+  <integer name="swords_08_second_operation_count">8</integer>
+  <string name="swords_08_astrology"></string>
+  <string name="swords_08_time_period">0521-0530</string>
+  <string name="swords_08_archetype"></string>
+  <string name="swords_08_journey"></string>
+  <string name="swords_08_element"></string>
+  <string name="swords_08_hebrew"></string>
+  <string name="swords_08_occult_title"></string>
+  <string name="swords_08_keyword">Mediocrity</string>
+  <string name="swords_08_abst">restricted by circumstances</string>
+  <string name="swords_08_meanings">force wasted in petty affairs; too much talk; too much ill-directed action; the state of being terribly busy without accomplishing much; over-careful about details</string>
+  <string name="swords_08_in_spiritual"></string>
+  <string name="swords_08_in_material"></string>
+  <string name="swords_08_well_dignified"></string>
+  <string name="swords_08_ill_dignified">Signifies ill-natured gossip, malice and pettiness. Too much concern with personalities, and disagreements with brothers and sisters.</string>
+  <string name="swords_08_actions">feeling restricted, feeling powerless, feeling confused</string>
+  <integer-array name="swords_08_opposition_number">
+    <item>101</item>
+    <item>107</item>
+    <item>123</item>
+    <item>125</item>
+    <item>166</item>
+  </integer-array>
+  <string-array name="swords_08_opposition_text">
+    <item>feeling powerful, knowing whats going on</item>
+    <item>self-confidence, focus</item>
+    <item>power, boldness</item>
+    <item>freedom, lack of restriction</item>
+    <item>competence, know-how, planning</item>
+  </string-array>
+  <integer-array name="swords_08_reinforcement_number">
+    <item>115</item>
+    <item>118</item>
+    <item>159</item>
+  </integer-array>
+  <string-array name="swords_08_reinforcement_text">
+    <item>confusion, restriction</item>
+    <item>confusion, lack of clarity</item>
+    <item>victim mentality, powerlessness</item>
+  </string-array>
+  <integer name="swords_09_index">158</integer>
+  <string name="swords_09_title">Nine of Swords</string>
+  <string name="swords_09_en_title">Nine of Swords</string>
+  <integer name="swords_09_second_operation_count">9</integer>
+  <string name="swords_09_astrology"></string>
+  <string name="swords_09_time_period">0531-0609</string>
+  <string name="swords_09_archetype"></string>
+  <string name="swords_09_journey"></string>
+  <string name="swords_09_element"></string>
+  <string name="swords_09_hebrew"></string>
+  <string name="swords_09_occult_title"></string>
+  <string name="swords_09_keyword">Worry</string>
+  <string name="swords_09_abst">unhappiness, trouble, a vulnerable spot</string>
+  <string name="swords_09_meanings">unfounded fears, disturbed sleep, guiltiness</string>
+  <string name="swords_09_in_spiritual"></string>
+  <string name="swords_09_in_material"></string>
+  <string name="swords_09_well_dignified"></string>
+  <string name="swords_09_ill_dignified">Despair, cruelty, unfaithfulness; want, loss, misery; bad outcome of legal affairs, disagreements with relatives, unfortunate journeys.</string>
+  <string name="swords_09_actions">worrying, suffering anguish, feeling guilty</string>
+  <integer-array name="swords_09_opposition_number">
+    <item>117</item>
+    <item>120</item>
+    <item>138</item>
+    <item>141</item>
+    <item>145</item>
+  </integer-array>
+  <string-array name="swords_09_opposition_text">
+    <item>serenity, peace of mind</item>
+    <item>lack of guilt, absolution</item>
+    <item>being on top of the world, in the flow</item>
+    <item>innocence</item>
+    <item>joy, peace, delight</item>
+  </string-array>
+  <integer-array name="swords_09_reinforcement_number">
+    <item>115</item>
+    <item>131</item>
+    <item>152</item>
+    <item>155</item>
+  </integer-array>
+  <string-array name="swords_09_reinforcement_text">
+    <item>dispair, lack of joy</item>
+    <item>worrying</item>
+    <item>anguish, heartbreak</item>
+    <item>depression, sadness</item>
+  </string-array>
+  <integer name="swords_10_index">159</integer>
+  <string name="swords_10_title">Ten of Swords</string>
+  <string name="swords_10_en_title">Ten of Swords</string>
+  <integer name="swords_10_second_operation_count">10</integer>
+  <string name="swords_10_astrology"></string>
+  <string name="swords_10_time_period">0609-0620</string>
+  <string name="swords_10_archetype"></string>
+  <string name="swords_10_journey"></string>
+  <string name="swords_10_element"></string>
+  <string name="swords_10_hebrew"></string>
+  <string name="swords_10_occult_title"></string>
+  <string name="swords_10_keyword">Destruction</string>
+  <string name="swords_10_abst">hitting rock bottom</string>
+  <string name="swords_10_meanings">interference from others, and loss through indiscretion in writing or signing contracts.</string>
+  <string name="swords_10_in_spiritual">the end of delusion; the overthrow of limiting conditions; breakup of limitations</string>
+  <string name="swords_10_in_material">sudden and unexpected changes, not necessarily unfortunate in the long run, but disappointing when experienced</string>
+  <string name="swords_10_well_dignified"></string>
+  <string name="swords_10_ill_dignified">Complete failure, desolation, ruin.</string>
+  <string name="swords_10_actions">bottoming out, being a martyr, feeling like a victim</string>
+  <integer-array name="swords_10_opposition_number">
+    <item>107</item>
+    <item>123</item>
+    <item>127</item>
+    <item>144</item>
+  </integer-array>
+  <string-array name="swords_10_opposition_text">
+    <item>self-assertion, power, victory</item>
+    <item>power, self-confidence</item>
+    <item>self-promotion, being on top of the world</item>
+    <item>satisfaction, happy with conditions</item>
+  </string-array>
+  <integer-array name="swords_10_reinforcement_number">
+    <item>112</item>
+    <item>157</item>
+  </integer-array>
+  <string-array name="swords_10_reinforcement_text">
+    <item>sacrifice, martyrdom</item>
+    <item>victim mentality, powerlessness</item>
+  </string-array>
+  <integer name="swords_page_index">160</integer>
+  <string name="swords_page_title">Page of Swords</string>
+  <string name="swords_page_en_title">Page of Swords</string>
+  <integer name="swords_page_second_operation_count">7</integer>
+  <string name="swords_page_astrology"></string>
+  <string name="swords_page_time_period">0923-1221</string>
+  <string name="swords_page_archetype"></string>
+  <string name="swords_page_journey"></string>
+  <string name="swords_page_element"></string>
+  <string name="swords_page_hebrew"></string>
+  <string name="swords_page_occult_title"></string>
+  <string name="swords_page_keyword"></string>
+  <string name="swords_page_abst">Embrace difficult situations</string>
+  <string name="swords_page_meanings">A youthful person bringing opportunities to experience growth in the guise of a problem or dilemma. An opening may appear after a series of trials that test your mettle.</string>
+  <string name="swords_page_in_spiritual"></string>
+  <string name="swords_page_in_material"></string>
+  <string name="swords_page_well_dignified"></string>
+  <string name="swords_page_ill_dignified">Frivolous, cunning and prodigal.</string>
+  <string name="swords_page_actions">use your mind, be just, be truthful, have fortitude</string>
+  <integer name="swords_knight_index">161</integer>
+  <string name="swords_knight_title">Knight of Swords</string>
+  <string name="swords_knight_en_title">Knight of Swords</string>
+  <integer name="swords_knight_second_operation_count">7</integer>
+  <string name="swords_knight_astrology"></string>
+  <string name="swords_knight_time_period">0511-0609</string>
+  <string name="swords_knight_archetype"></string>
+  <string name="swords_knight_journey"></string>
+  <string name="swords_knight_element"></string>
+  <string name="swords_knight_hebrew"></string>
+  <string name="swords_knight_occult_title"></string>
+  <string name="swords_knight_keyword"></string>
+  <string name="swords_knight_abst">Force of intellect</string>
+  <string name="swords_knight_meanings">A young strong adult, assertive and analytical</string>
+  <string name="swords_knight_in_spiritual"></string>
+  <string name="swords_knight_in_material"></string>
+  <string name="swords_knight_well_dignified">A period of struggle or confrontation in which quick and firm action are required.</string>
+  <string name="swords_knight_ill_dignified">Bullying, dictatorial behavior.</string>
+  <string name="swords_knight_actions">being direct/blunt, being authoritative/overbearing, being incisive/cutting, being knowledgable/opinionated, being logical/unfeeling</string>
+  <integer name="swords_queen_index">162</integer>
+  <string name="swords_queen_title">Queen of Swords</string>
+  <string name="swords_queen_en_title">Queen of Swords</string>
+  <integer name="swords_queen_second_operation_count">4</integer>
+  <string name="swords_queen_astrology"></string>
+  <string name="swords_queen_time_period">0110-0208</string>
+  <string name="swords_queen_archetype"></string>
+  <string name="swords_queen_journey"></string>
+  <string name="swords_queen_element"></string>
+  <string name="swords_queen_hebrew"></string>
+  <string name="swords_queen_occult_title"></string>
+  <string name="swords_queen_keyword"></string>
+  <string name="swords_queen_abst">Candor, lack of pretense</string>
+  <string name="swords_queen_meanings">A straightforward and direct woman, experienced in the ways of the world</string>
+  <string name="swords_queen_in_spiritual"></string>
+  <string name="swords_queen_in_material"></string>
+  <string name="swords_queen_well_dignified">Autonomy, aloofness, and independence.</string>
+  <string name="swords_queen_ill_dignified">Attempts to discredit by domineering, vindicitve forces.</string>
+  <string name="swords_queen_actions">be honest, be witty, be astute, be experienced, be forthright</string>
+  <integer name="swords_king_index">163</integer>
+  <string name="swords_king_title">King of Swords</string>
+  <string name="swords_king_en_title">King of Swords</string>
+  <integer name="swords_king_second_operation_count">4</integer>
+  <string name="swords_king_astrology"></string>
+  <string name="swords_king_time_period">0913-1002</string>
+  <string name="swords_king_archetype"></string>
+  <string name="swords_king_journey"></string>
+  <string name="swords_king_element"></string>
+  <string name="swords_king_hebrew"></string>
+  <string name="swords_king_occult_title"></string>
+  <string name="swords_king_keyword"></string>
+  <string name="swords_king_abst">Mastery of reason and logic</string>
+  <string name="swords_king_meanings">A man of cool rationality. Very observant.</string>
+  <string name="swords_king_in_spiritual"></string>
+  <string name="swords_king_in_material"></string>
+  <string name="swords_king_well_dignified">Originality, desire to break the mold.</string>
+  <string name="swords_king_ill_dignified">Suffering injustice.</string>
+  <string name="swords_king_actions">intellectual, just, analytical, ethical, articulate</string>
+  <integer name="pentacles_02_index">165</integer>
+  <string name="pentacles_02_title">Two of Pentacles</string>
+  <string name="pentacles_02_en_title">Two of Pentacles</string>
+  <integer name="pentacles_02_second_operation_count">2</integer>
+  <string name="pentacles_02_astrology"></string>
+  <string name="pentacles_02_time_period">1222-1231</string>
+  <string name="pentacles_02_archetype"></string>
+  <string name="pentacles_02_journey"></string>
+  <string name="pentacles_02_element"></string>
+  <string name="pentacles_02_hebrew"></string>
+  <string name="pentacles_02_occult_title"></string>
+  <string name="pentacles_02_keyword">Fluctuation</string>
+  <string name="pentacles_02_abst">flexibility and adaptation</string>
+  <string name="pentacles_02_meanings">harmony in the midst of change, alternation of gain and loss; change of occupation; travel in quest of wealth; ups and downs of fortune; a visit to friends</string>
+  <string name="pentacles_02_in_spiritual"></string>
+  <string name="pentacles_02_in_material"></string>
+  <string name="pentacles_02_well_dignified"></string>
+  <string name="pentacles_02_ill_dignified">Discontent, foolishness in the management of resources, restricted condition of material affairs due to bad management; one may be too talkative and too suspicious. Kind, but inconsistent, and should avoid arguments.</string>
+  <string name="pentacles_02_actions">juggling, having fun, being flexible</string>
+  <integer-array name="pentacles_02_opposition_number">
+    <item>105</item>
+    <item>126</item>
+    <item>153</item>
+    <item>155</item>
+  </integer-array>
+  <string-array name="pentacles_02_opposition_text">
+    <item>following the program, being conventional</item>
+    <item>being at cross-purposes, not working out</item>
+    <item>rest, quiet, low activity</item>
+    <item>the blues, feeling listless</item>
+  </string-array>
+  <integer-array name="pentacles_02_reinforcement_number">
+    <item>114</item>
+    <item>125</item>
+  </integer-array>
+  <string-array name="pentacles_02_reinforcement_text">
+    <item>balance, finding the right mix</item>
+    <item>fun, excitment, parties</item>
+  </string-array>
+  <integer name="pentacles_03_index">166</integer>
+  <string name="pentacles_03_title">Three of Pentacles</string>
+  <string name="pentacles_03_en_title">Three of Pentacles</string>
+  <integer name="pentacles_03_second_operation_count">3</integer>
+  <string name="pentacles_03_astrology"></string>
+  <string name="pentacles_03_time_period">0101-0110</string>
+  <string name="pentacles_03_archetype"></string>
+  <string name="pentacles_03_journey"></string>
+  <string name="pentacles_03_element"></string>
+  <string name="pentacles_03_hebrew"></string>
+  <string name="pentacles_03_occult_title"></string>
+  <string name="pentacles_03_keyword">Constructiveness</string>
+  <string name="pentacles_03_abst">collaboration; working together</string>
+  <string name="pentacles_03_meanings">accomplishment, growth</string>
+  <string name="pentacles_03_in_spiritual"></string>
+  <string name="pentacles_03_in_material"></string>
+  <string name="pentacles_03_well_dignified">Construction; increase, growth; financial gain; the building up of favorable conditions; gain in commercial transactions; rank or prestige in vocation or business; beginning of matters to be perfected later.</string>
+  <string name="pentacles_03_ill_dignified">Selfishness; cleverness in business, but lack of scruples; narrow and prejudiced; too much ambition.</string>
+  <string name="pentacles_03_actions">working as a team, being competent, planning</string>
+  <integer-array name="pentacles_03_opposition_number">
+    <item>126</item>
+    <item>128</item>
+    <item>157</item>
+    <item>172</item>
+  </integer-array>
+  <string-array name="pentacles_03_opposition_text">
+    <item>lack of teamwork, no cooperation</item>
+    <item>opposition, dissension</item>
+    <item>not feeling up to the job, lacking direction</item>
+    <item>doing it yourself, not focusing on teamwork</item>
+  </string-array>
+  <integer-array name="pentacles_03_reinforcement_number">
+    <item>105</item>
+    <item>114</item>
+    <item>124</item>
+    <item>138</item>
+  </integer-array>
+  <string-array name="pentacles_03_reinforcement_text">
+    <item>working in a team or a group</item>
+    <item>combining forces</item>
+    <item>planning, preparing for the future</item>
+    <item>working in a group</item>
+  </string-array>
+  <integer name="pentacles_04_index">167</integer>
+  <string name="pentacles_04_title">Four of Pentacles</string>
+  <string name="pentacles_04_en_title">Four of Pentacles</string>
+  <integer name="pentacles_04_second_operation_count">4</integer>
+  <string name="pentacles_04_astrology"></string>
+  <string name="pentacles_04_time_period">0111-0119</string>
+  <string name="pentacles_04_archetype"></string>
+  <string name="pentacles_04_journey"></string>
+  <string name="pentacles_04_element"></string>
+  <string name="pentacles_04_hebrew"></string>
+  <string name="pentacles_04_occult_title"></string>
+  <string name="pentacles_04_keyword">Management</string>
+  <string name="pentacles_04_abst">imposition of will</string>
+  <string name="pentacles_04_meanings">ownership; stubborness</string>
+  <string name="pentacles_04_in_spiritual"></string>
+  <string name="pentacles_04_in_material"></string>
+  <string name="pentacles_04_well_dignified">Opportunities for public service; an acute, sharp, penetrating, tactful temperament; economy in the arrangement of material affairs; activity in money-matters.</string>
+  <string name="pentacles_04_ill_dignified">Dangers to reputation; troubles through changes not carefully considered; desire for money, but lack of wisdom in its management; one will meet with sharp criticism.</string>
+  <string name="pentacles_04_actions">wanting to possess, blocking change, maintaining control</string>
+  <integer-array name="pentacles_04_opposition_number">
+    <item>100</item>
+    <item>103</item>
+    <item>110</item>
+    <item>112</item>
+  </integer-array>
+  <string-array name="pentacles_04_opposition_text">
+    <item>being spontaneous</item>
+    <item>openhearted, lavish</item>
+    <item>movement, rapid changes</item>
+    <item>letting go, not trying to control</item>
+  </string-array>
+  <integer-array name="pentacles_04_reinforcement_number">
+    <item>104</item>
+    <item>107</item>
+    <item>151</item>
+    <item>173</item>
+  </integer-array>
+  <string-array name="pentacles_04_reinforcement_text">
+    <item>control, structure, order</item>
+    <item>control</item>
+    <item>stalemate, blockage</item>
+    <item>liking the status quo, conserving</item>
+  </string-array>
+  <integer name="pentacles_05_index">168</integer>
+  <string name="pentacles_05_title">Five of Pentacles</string>
+  <string name="pentacles_05_en_title">Five of Pentacles</string>
+  <integer name="pentacles_05_second_operation_count">5</integer>
+  <string name="pentacles_05_astrology"></string>
+  <string name="pentacles_05_time_period">0420-0429</string>
+  <string name="pentacles_05_archetype"></string>
+  <string name="pentacles_05_journey"></string>
+  <string name="pentacles_05_element"></string>
+  <string name="pentacles_05_hebrew"></string>
+  <string name="pentacles_05_occult_title"></string>
+  <string name="pentacles_05_keyword">Uncertainty; material trouble</string>
+  <string name="pentacles_05_abst">want of necessities</string>
+  <string name="pentacles_05_meanings">degredation of health; economic setbacks; social rejection</string>
+  <string name="pentacles_05_in_spiritual"></string>
+  <string name="pentacles_05_in_material"></string>
+  <string name="pentacles_05_well_dignified">Labor, toil, the cultivation of the land; building, and plans concerning it; some anxiety over money.</string>
+  <string name="pentacles_05_ill_dignified">Toil unrewarded; loss of money; poverty; trouble through lack of imagination and foresight.</string>
+  <string name="pentacles_05_actions">experiencing hard times, being rejected, ill health</string>
+  <integer-array name="pentacles_05_opposition_number">
+    <item>108</item>
+    <item>114</item>
+    <item>119</item>
+    <item>127</item>
+    <item>170</item>
+  </integer-array>
+  <string-array name="pentacles_05_opposition_text">
+    <item>strength, stamina</item>
+    <item>good health</item>
+    <item>vitality, strong constitution</item>
+    <item>acclaim, recognition</item>
+    <item>material reward</item>
+  </string-array>
+  <integer-array name="pentacles_05_reinforcement_number">
+    <item>116</item>
+    <item>131</item>
+    <item>140</item>
+    <item>152</item>
+  </integer-array>
+  <string-array name="pentacles_05_reinforcement_text">
+    <item>hard times</item>
+    <item>struggling to make ends meet, hard times</item>
+    <item>rejection, lack of support, loss of approval</item>
+    <item>rejection, seperation, lack of support</item>
+  </string-array>
+  <integer name="pentacles_06_index">169</integer>
+  <string name="pentacles_06_title">Six of Pentacles</string>
+  <string name="pentacles_06_en_title">Six of Pentacles</string>
+  <integer name="pentacles_06_second_operation_count">6</integer>
+  <string name="pentacles_06_astrology"></string>
+  <string name="pentacles_06_time_period">0430-0509</string>
+  <string name="pentacles_06_archetype"></string>
+  <string name="pentacles_06_journey"></string>
+  <string name="pentacles_06_element"></string>
+  <string name="pentacles_06_hebrew"></string>
+  <string name="pentacles_06_occult_title"></string>
+  <string name="pentacles_06_keyword">Prosperity</string>
+  <string name="pentacles_06_abst">equitable distribution; generosity</string>
+  <string name="pentacles_06_meanings">getting what you deserve</string>
+  <string name="pentacles_06_in_spiritual"></string>
+  <string name="pentacles_06_in_material"></string>
+  <string name="pentacles_06_well_dignified">Practicality and determination; discretion and diplomacy; gain by writing, speaking, travel, teaching, commissions, and through advertising, study, books.</string>
+  <string name="pentacles_06_ill_dignified">Loss through practicality and determination; discretion and diplomacy.</string>
+  <string name="pentacles_06_actions">having or not having: resources, knowledge, power</string>
+  <integer-array name="pentacles_06_reinforcement_number">
+    <item>103</item>
+    <item>121</item>
+    <item>131</item>
+    <item>168</item>
+    <item>170</item>
+    <item>173</item>
+  </integer-array>
+  <string-array name="pentacles_06_reinforcement_text">
+    <item>abundance, physical comfort</item>
+    <item>affluence, material fulfillment</item>
+    <item>struggling to make ends meet, hard times</item>
+    <item>lack, not having</item>
+    <item>material reward, having</item>
+    <item>affluence, having</item>
+  </string-array>
+  <integer name="pentacles_07_index">170</integer>
+  <string name="pentacles_07_title">Seven of Pentacles</string>
+  <string name="pentacles_07_en_title">Seven of Pentacles</string>
+  <integer name="pentacles_07_second_operation_count">7</integer>
+  <string name="pentacles_07_astrology"></string>
+  <string name="pentacles_07_time_period">0510-0520</string>
+  <string name="pentacles_07_archetype"></string>
+  <string name="pentacles_07_journey"></string>
+  <string name="pentacles_07_element"></string>
+  <string name="pentacles_07_hebrew"></string>
+  <string name="pentacles_07_occult_title"></string>
+  <string name="pentacles_07_keyword">Assessment</string>
+  <string name="pentacles_07_abst">time for reflection; crossroads</string>
+  <string name="pentacles_07_meanings">perseverance, investment</string>
+  <string name="pentacles_07_in_spiritual"></string>
+  <string name="pentacles_07_in_material"></string>
+  <string name="pentacles_07_well_dignified">Slight gains, but of small account; much labor for small returns.</string>
+  <string name="pentacles_07_ill_dignified">Something promising turns out badly; loss in speculation and unprofitable employment; financial restriction; unrealized hopes and wishes.</string>
+  <string name="pentacles_07_actions">assessing, considering a direction change, reaping a reward</string>
+  <integer-array name="pentacles_07_opposition_number">
+    <item>110</item>
+    <item>129</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="pentacles_07_opposition_text">
+    <item>movement, action, direction change</item>
+    <item>rapid action</item>
+    <item>lack of reward, hardship</item>
+  </string-array>
+  <integer-array name="pentacles_07_reinforcement_number">
+    <item>104</item>
+    <item>111</item>
+    <item>120</item>
+    <item>153</item>
+  </integer-array>
+  <string-array name="pentacles_07_reinforcement_text">
+    <item>material reward</item>
+    <item>assessing where you are, deciding a future course</item>
+    <item>reaching a decision point</item>
+    <item>rest, thinking things over</item>
+  </string-array>
+  <integer name="pentacles_08_index">171</integer>
+  <string name="pentacles_08_title">Eight of Pentacles</string>
+  <string name="pentacles_08_en_title">Eight of Pentacles</string>
+  <integer name="pentacles_08_second_operation_count">8</integer>
+  <string name="pentacles_08_astrology"></string>
+  <string name="pentacles_08_time_period">0823-0901</string>
+  <string name="pentacles_08_archetype"></string>
+  <string name="pentacles_08_journey"></string>
+  <string name="pentacles_08_element"></string>
+  <string name="pentacles_08_hebrew"></string>
+  <string name="pentacles_08_occult_title"></string>
+  <string name="pentacles_08_keyword">Prudence</string>
+  <string name="pentacles_08_abst">diligence and focus; meticulous attention</string>
+  <string name="pentacles_08_meanings">growth through application of skill; gaining experience</string>
+  <string name="pentacles_08_in_spiritual"></string>
+  <string name="pentacles_08_in_material"></string>
+  <string name="pentacles_08_well_dignified">Skill in the management of material affairs; industry; gain in subordinate positions, through writings, clerical work or travel; gain of ready money in small sums.</string>
+  <string name="pentacles_08_ill_dignified">Avarice and hoarding; penny wisdom and pound foolishness; meanness in money matters; loss through travel or writings; one is likely to be in difficulties with superiors and also with inferiors; may lose through trying to overreach somebody else.</string>
+  <string name="pentacles_08_actions">showing diligence, paying attention to detail, increaing knowledge</string>
+  <integer-array name="pentacles_08_opposition_number">
+    <item>139</item>
+    <item>142</item>
+  </integer-array>
+  <string-array name="pentacles_08_opposition_text">
+    <item>lacking interest, not caring, apathetic</item>
+    <item>lazy, lacking drive</item>
+  </string-array>
+  <integer-array name="pentacles_08_reinforcement_number">
+    <item>101</item>
+    <item>105</item>
+    <item>130</item>
+  </integer-array>
+  <string-array name="pentacles_08_reinforcement_text">
+    <item>focus and concentration</item>
+    <item>learning, studying</item>
+    <item>keeping at it, persistence</item>
+  </string-array>
+  <integer name="pentacles_09_index">172</integer>
+  <string name="pentacles_09_title">Nine of Pentacle</string>
+  <string name="pentacles_09_en_title">Nine of Pentacle</string>
+  <integer name="pentacles_09_second_operation_count">9</integer>
+  <string name="pentacles_09_astrology"></string>
+  <string name="pentacles_09_time_period">0902-0911</string>
+  <string name="pentacles_09_archetype"></string>
+  <string name="pentacles_09_journey"></string>
+  <string name="pentacles_09_element"></string>
+  <string name="pentacles_09_hebrew"></string>
+  <string name="pentacles_09_occult_title"></string>
+  <string name="pentacles_09_keyword">Harvest</string>
+  <string name="pentacles_09_abst">Self reliance</string>
+  <string name="pentacles_09_meanings">discipline and self control; self mastery</string>
+  <string name="pentacles_09_in_spiritual"></string>
+  <string name="pentacles_09_in_material"></string>
+  <string name="pentacles_09_well_dignified">Reserve, discretion, caution, frugality; some worries over money-matters, because of slow maturing of plans; gain through careful investment.</string>
+  <string name="pentacles_09_ill_dignified">Discouragement, troubles through theft and knavery.</string>
+  <string name="pentacles_09_actions">being disciplined, pursuing refinement, relying on yourself</string>
+  <integer-array name="pentacles_09_opposition_number">
+    <item>103</item>
+    <item>142</item>
+    <item>166</item>
+  </integer-array>
+  <string-array name="pentacles_09_opposition_text">
+    <item>earthy sensuality</item>
+    <item>being undisciplined, self-indulgent</item>
+    <item>working in a team, doing with others</item>
+  </string-array>
+  <integer-array name="pentacles_09_reinforcement_number">
+    <item>107</item>
+    <item>156</item>
+  </integer-array>
+  <string-array name="pentacles_09_reinforcement_text">
+    <item>self-control, discipline</item>
+    <item>relying on yourself, acting on your own</item>
+  </string-array>
+  <integer name="pentacles_10_index">173</integer>
+  <string name="pentacles_10_title">Ten of Pentacles</string>
+  <string name="pentacles_10_en_title">Ten of Pentacles</string>
+  <integer name="pentacles_10_second_operation_count">10</integer>
+  <string name="pentacles_10_astrology"></string>
+  <string name="pentacles_10_time_period">0912-0922</string>
+  <string name="pentacles_10_archetype"></string>
+  <string name="pentacles_10_journey"></string>
+  <string name="pentacles_10_element"></string>
+  <string name="pentacles_10_hebrew"></string>
+  <string name="pentacles_10_occult_title"></string>
+  <string name="pentacles_10_keyword">Wealth</string>
+  <string name="pentacles_10_abst">stability; settling down</string>
+  <string name="pentacles_10_meanings">family support; material abundance</string>
+  <string name="pentacles_10_in_spiritual"></string>
+  <string name="pentacles_10_in_material"></string>
+  <string name="pentacles_10_well_dignified">Money through subordinates; completion in material gain and fortune.</string>
+  <string name="pentacles_10_ill_dignified">Material success, but heaviness and dullness of mind; sometimes loss through subordinates; slothfulness.</string>
+  <string name="pentacles_10_actions">enjoying affluence, following convention, seeking permanence</string>
+  <integer-array name="pentacles_10_opposition_number">
+    <item>123</item>
+    <item>124</item>
+    <item>168</item>
+  </integer-array>
+  <string-array name="pentacles_10_opposition_text">
+    <item>being original, avoiding convention</item>
+    <item>exploring, going into untested areas</item>
+    <item>hard times, material lack</item>
+  </string-array>
+  <integer-array name="pentacles_10_reinforcement_number">
+    <item>103</item>
+    <item>105</item>
+    <item>106</item>
+    <item>121</item>
+    <item>167</item>
+  </integer-array>
+  <string-array name="pentacles_10_reinforcement_text">
+    <item>affluence, luxury, physical comfort</item>
+    <item>conforming, following rules, conservative</item>
+    <item>permanent unions, family ties</item>
+    <item>affluence, material fulfillment</item>
+    <item>enjoying the status quo, conserving</item>
+  </string-array>
+  <integer name="pentacles_page_index">174</integer>
+  <string name="pentacles_page_title">Page of Pentacles</string>
+  <string name="pentacles_page_en_title">Page of Pentacles</string>
+  <integer name="pentacles_page_second_operation_count">7</integer>
+  <string name="pentacles_page_astrology"></string>
+  <string name="pentacles_page_time_period">0621-0922</string>
+  <string name="pentacles_page_archetype"></string>
+  <string name="pentacles_page_journey"></string>
+  <string name="pentacles_page_element"></string>
+  <string name="pentacles_page_hebrew"></string>
+  <string name="pentacles_page_occult_title"></string>
+  <string name="pentacles_page_keyword"></string>
+  <string name="pentacles_page_abst">stability, trust, commitment</string>
+  <string name="pentacles_page_meanings">A youthful person bringing opportunities to experience prosperity. An opening may appear promising enrichment, comfort, trust, and the chance to realize your dreams.</string>
+  <string name="pentacles_page_in_spiritual"></string>
+  <string name="pentacles_page_in_material"></string>
+  <string name="pentacles_page_well_dignified">An opportunity to make money or engage in a new business venture.</string>
+  <string name="pentacles_page_ill_dignified">Failure to see the big picture due to overemphasis on details.</string>
+  <string name="pentacles_page_actions">have an effect, be prosperous, be practical, be trusting/trustworthy</string>
+  <integer name="pentacles_knight_index">175</integer>
+  <string name="pentacles_knight_title">Knight of Pentacles</string>
+  <string name="pentacles_knight_en_title">Knight of Pentacles</string>
+  <integer name="pentacles_knight_second_operation_count">7</integer>
+  <string name="pentacles_knight_astrology"></string>
+  <string name="pentacles_knight_time_period">0813-0911</string>
+  <string name="pentacles_knight_archetype"></string>
+  <string name="pentacles_knight_journey"></string>
+  <string name="pentacles_knight_element"></string>
+  <string name="pentacles_knight_hebrew"></string>
+  <string name="pentacles_knight_occult_title"></string>
+  <string name="pentacles_knight_keyword"></string>
+  <string name="pentacles_knight_abst">Tremendous stamina and dedication.</string>
+  <string name="pentacles_knight_meanings">A young hard working adult, steadfast and stubborn.</string>
+  <string name="pentacles_knight_in_spiritual"></string>
+  <string name="pentacles_knight_in_material"></string>
+  <string name="pentacles_knight_well_dignified">A new or unexpected source of prosperity.</string>
+  <string name="pentacles_knight_ill_dignified">Loss resulting from being inflexible and obsessive, stubborness.</string>
+  <string name="pentacles_knight_actions">being unwavering/stubborn, being cautious/unadventurous, being thorough/obsessive, being realistic/pessimistic, being hardworking/grinding</string>
+  <integer name="pentacles_queen_index">176</integer>
+  <string name="pentacles_queen_title">Queen of Pentacles</string>
+  <string name="pentacles_queen_en_title">Queen of Pentacles</string>
+  <integer name="pentacles_queen_second_operation_count">4</integer>
+  <string name="pentacles_queen_astrology"></string>
+  <string name="pentacles_queen_time_period">0410-0509</string>
+  <string name="pentacles_queen_archetype"></string>
+  <string name="pentacles_queen_journey"></string>
+  <string name="pentacles_queen_element"></string>
+  <string name="pentacles_queen_hebrew"></string>
+  <string name="pentacles_queen_occult_title"></string>
+  <string name="pentacles_queen_keyword"></string>
+  <string name="pentacles_queen_abst">Practical management</string>
+  <string name="pentacles_queen_meanings">A loyal and steadfast woman, inspiring trust.</string>
+  <string name="pentacles_queen_in_spiritual"></string>
+  <string name="pentacles_queen_in_material"></string>
+  <string name="pentacles_queen_well_dignified">A sensible, pratcial approach brings steady progress.</string>
+  <string name="pentacles_queen_ill_dignified">Fears and self doubt lead to a sense of insecurity.</string>
+  <string name="pentacles_queen_actions">be nurturing, be resourceful, be bighearted, be trustworthy, be down to earth</string>
+  <integer name="pentacles_king_index">177</integer>
+  <string name="pentacles_king_title">King of Pentacles</string>
+  <string name="pentacles_king_en_title">King of Pentacles</string>
+  <integer name="pentacles_king_second_operation_count">4</integer>
+  <string name="pentacles_king_astrology"></string>
+  <string name="pentacles_king_time_period">1212-0110</string>
+  <string name="pentacles_king_archetype"></string>
+  <string name="pentacles_king_journey"></string>
+  <string name="pentacles_king_element"></string>
+  <string name="pentacles_king_hebrew"></string>
+  <string name="pentacles_king_occult_title"></string>
+  <string name="pentacles_king_keyword"></string>
+  <string name="pentacles_king_abst">Worldly success</string>
+  <string name="pentacles_king_meanings">An adept and enterprising man. Dependable and responsible jack of all trades.</string>
+  <string name="pentacles_king_in_spiritual"></string>
+  <string name="pentacles_king_in_material"></string>
+  <string name="pentacles_king_well_dignified">Rewards of business involvement and organization of finances.</string>
+  <string name="pentacles_king_ill_dignified">Dishonest dealings motivated by greed and materialism.</string>
+  <string name="pentacles_king_actions">enterprising, supporting, adept, steady, reliable</string>
+</resources>

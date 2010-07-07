@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/readinglayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView 
+	android:id="@+id/anticipation" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:layout_centerHorizontal="true"
+    android:background="#333333"
+    android:textColor="#CCCCCC"
+    android:gravity="center"
+    android:layout_gravity="center"
+    />
+<Button 
+	android:id="@+id/agree" 
+	android:text="agree"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="10px"
+    android:layout_marginBottom="10px"
+    />
+<Button 
+	android:id="@+id/disagree" 
+	android:text="disagree"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginRight="10px"
+    android:layout_marginBottom="10px" 
+    /> 
+</RelativeLayout>

@@ -3,5 +3,5 @@
 	xmlns:android="http://schemas.android.com/apk/res/android" 
 	android:minWidth="146dip" 
 	android:minHeight="146dip" 
-	android:initialLayout="@layout/individual"
+	android:initialLayout="@layout/portraitindividual"
 android:updatePeriodMillis="7200000"/>

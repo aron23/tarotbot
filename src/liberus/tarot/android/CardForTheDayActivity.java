@@ -52,7 +52,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
     {
 	    super.onCreate(savedInstanceState);
 	    setFullscreen();
-	    setContentView(R.layout.individual);
+	    setContentView(R.layout.portraitindividual);
      
         inflater = LayoutInflater.from(this);
         
@@ -97,7 +97,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
 	private void showInfo(int cardForTheDay, boolean reverse) {
 		int i = cardForTheDay;
 		String interpretation = BotaInt.getGeneralInterpretation(i,reverse,getApplicationContext());
-		showing = inflater.inflate(R.layout.interpret, null);
+		showing = inflater.inflate(R.layout.portraitinterpretation, null);
 		TextView infotext = (TextView) showing.findViewById(R.id.interpretation);		
 		infotext.setText("\n\n\n\n"+interpretation);
 		/*closure = (Button) showing.findViewById(R.id.closeinterpretation);

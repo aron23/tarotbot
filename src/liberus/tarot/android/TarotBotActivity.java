@@ -193,7 +193,7 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	private void displaySaved() {
 		ArrayList<String[]> savedReadings = WebUtils.loadTarotBot(getApplicationContext());
 		
-		PopupWindow pw = new PopupWindow(inflater.inflate(R.layout.individual,null),0,0);
+		PopupWindow pw = new PopupWindow(inflater.inflate(R.layout.portraitindividual,null),0,0);
         pw.showAtLocation(this.findViewById(R.id.activecard),Gravity.NO_GRAVITY, 20, 20);
         pw.update(50,50,300,400);
 	}
@@ -335,14 +335,14 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 			"Rather than require the user of Tarot Bot memorize or even see the processes underlying this tarot reading technique (the shuffling, cutting, and dealing of the cards), Tarot Bot aims to provide a tarot experience that truly helps the user explore the depths tarot is able to convey.  With this as the goal, all of the design revolves around helping the user interpret and understand the archetypes tarot contains.\n\n"+
 			"As Tarot Bot evolves there will be new decks and interpretations published and the final version should have many more features.\n\n"+
 			"Thank you for trying this software, please visit our forum at http://liber.us and let us know what you think.\n\n";
-			showing = inflater.inflate(R.layout.interpret, null);
+			showing = inflater.inflate(R.layout.portraitinterpretation, null);
 			infotext = (TextView) showing.findViewById(R.id.interpretation);		
 			infotext.setText("\n\n\n\n" +interpretation);
 		} else { 
 			infoDisplayed = true;
 			int i = BotaInt.circles.get(secondSetIndex);
 			String interpretation = BotaInt.secondOperationInterpretation(i,getApplicationContext());
-			showing = inflater.inflate(R.layout.interpret, null);
+			showing = inflater.inflate(R.layout.portraitinterpretation, null);
 			infotext = (TextView) showing.findViewById(R.id.interpretation);		
 			infotext.setText("\n\n\n\nposition " + secondSetIndex +interpretation);			
 		}
@@ -412,7 +412,7 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 		
 		int counter = 1;  
 		for (int index:BotaInt.circles) {			
-			View activeView = inflater.inflate(R.layout.secondset, null);
+			View activeView = inflater.inflate(R.layout.portraitreading, null);
 			if (activeView.findViewById(R.id.secondsetlayout) != null)
 				laidout.add((RelativeLayout) activeView.findViewById(R.id.secondsetlayout));
 			else continue;
@@ -760,7 +760,7 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	public void postFlip(View v) {
 
 		if (type.get(flipper.indexOfChild(v)) == 0) {
-			v = inflater.inflate(R.layout.secondset, null);
+			v = inflater.inflate(R.layout.portraitreading, null);
 		} else {
 			v = inflater.inflate(R.layout.secondsetpair, null);
 		}

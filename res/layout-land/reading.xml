@@ -7,7 +7,6 @@
     >
 <ImageView 
 	android:id="@+id/divine"
-	android:src="@drawable/cups_01" 
     android:layout_centerVertical="true"
     android:gravity="left"
     android:layout_gravity="fill_vertical"
@@ -15,16 +14,8 @@
     android:layout_height="270dip"
     android:scaleType="fitXY"
     />
-<TextView 
-	android:id="@+id/landscapeinterpretation"
-	android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-	android:layout_marginTop="10dip"
-	android:layout_marginBottom="10dip"
-	android:layout_marginLeft="152dip"
-    android:background="#333333"
-    android:textColor="#CCCCCC"
-    android:gravity="center"
-    android:layout_gravity="right"
+<include
+	android:id="@+id/includedinterpretation"
+	layout="@layout/interpretation"
     />    
 </RelativeLayout>

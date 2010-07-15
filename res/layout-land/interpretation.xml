@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/readinglayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<ScrollView android:id="@+id/textAreaScroller" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" 
+	>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/readinglayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >		     
+<TextView 
+	android:id="@+id/interpretation" 
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:layout_marginTop="10dip"
+	android:layout_marginBottom="10dip"
+	android:layout_marginLeft="152dip"
+    android:background="#333333"
+    android:textColor="#CCCCCC"
+    android:gravity="center"
+    android:layout_gravity="right"
+    />  
+<ImageView 
+	android:id="@+id/liberus" 
+	android:src="@drawable/logo"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+	android:layout_marginLeft="152dip"
+    android:background="#333333"
+    android:textColor="#CCCCCC"
+    android:gravity="center"
+    android:layout_gravity="top"
+    />
+</RelativeLayout>
+</ScrollView>
+</RelativeLayout>

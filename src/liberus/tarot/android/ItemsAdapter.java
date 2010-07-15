@@ -21,9 +21,9 @@ public class ItemsAdapter extends ArrayAdapter<Object> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
             View v = convertView;
-            if (v == null) {
+            /*if (v == null) {
             	v = vi.inflate(R.layout.anticipatequery, null);
-            }
+            }*/
 
             Object it = items[position];
             if (it != null) {

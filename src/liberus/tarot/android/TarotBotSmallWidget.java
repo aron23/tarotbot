@@ -28,7 +28,7 @@ public class TarotBotSmallWidget extends AppWidgetProvider
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 		int[] appWidgetIds) {
 		this.appWidgetManager = appWidgetManager;
-		remoteViews = new RemoteViews(context.getPackageName(), R.layout.portraitindividual);
+		remoteViews = new RemoteViews(context.getPackageName(), R.layout.individual);
 		thisWidget = new ComponentName(context, TarotBotSmallWidget.class);
 		
 		//remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay());

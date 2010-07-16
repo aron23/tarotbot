@@ -370,7 +370,7 @@ public class BotaInt extends Interpretation {
 		
 		if (isSignificator(circled)) {
 			String pre = secondOperationPreliminary(appcontext);
-			String post = "This card represents you.\n\n";
+			String post = "This card represents you.\n";
 			
 			if (pre.length() > 0)
 				post = pre+"\n\n"+post;
@@ -380,17 +380,17 @@ public class BotaInt extends Interpretation {
 				context += "the solution of the Querant's problem depends largely on the interaction of forces surrounding, and not so much upon will, thought or action\n\n";*/
 			
 			if (circled==BotaInt.secondSetStrongest)
-				post += "this reading is particularly personal\n\n";
+				post += "this reading is particularly personal\n";
 			
 			returner = post;
 			
-			return "\n\n"+returner;
+			return returner;
 		}
 		returner += appcontext.getString(getTitle(circled))+":\n";
 		if (getKeyword(circled) > 0 && appcontext.getString(getKeyword(circled)).length() > 0)
-			returner += appcontext.getString(getKeyword(circled))+"\n\n";
+			returner += appcontext.getString(getKeyword(circled))+"\n";
 		if (getJourney(circled) > 0 && appcontext.getString(getJourney(circled)).length() > 0)
-			returner += appcontext.getString(getJourney(circled))+"\n\n";
+			returner += appcontext.getString(getJourney(circled))+"\n";
 		//if (getTimePeriod(circled) > 0 && appcontext.getString(getTimePeriod(circled)).length() > 0)
 			//returner += appcontext.getString(getTimePeriod(circled))+", ";
 		//if (getAstrology(circled) > 0 && appcontext.getString(getAstrology(circled)).length() > 0)
@@ -399,20 +399,20 @@ public class BotaInt extends Interpretation {
 			//returner += appcontext.getString(getArchetype(circled))+", ";
 		
 		if (circled==BotaInt.secondSetStrongest)
-			returner += "this card is the most significant of the reading\n\n";
+			returner += "this card is the most significant of the reading\n";
 		
 		if (getAbst(circled) > 0 && appcontext.getString(getAbst(circled)).length() > 0)
-			returner += "In general: " + appcontext.getString(getAbst(circled))+"\n\n";
+			returner += "\nIn general: " + appcontext.getString(getAbst(circled))+"\n";
 		if (significatorIn == 1 && getInSpiritualMatters(circled) > 0 && appcontext.getString(getInSpiritualMatters(circled)).length() > 0)
-			returner += "More directly: "+ appcontext.getString(getInSpiritualMatters(circled))+"\n\n";
+			returner += "\nMore directly: "+ appcontext.getString(getInSpiritualMatters(circled))+"\n";
 		else if (significatorIn == 3 && getInMaterialMatters(circled) > 0 && appcontext.getString(getInMaterialMatters(circled)).length() > 0)
-			returner += "More directly: "+ appcontext.getString(getInMaterialMatters(circled))+"\n\n";
+			returner += "\nMore directly: "+ appcontext.getString(getInMaterialMatters(circled))+"\n";
 		else if (isWellDignified(context) &! isIllDignified(context) && getWellDignified(circled) > 0 && appcontext.getString(getWellDignified(circled)).length() > 0)
-			returner += "More directly: "+ appcontext.getString(getWellDignified(circled))+"\n\n";
+			returner += "\nMore directly: "+ appcontext.getString(getWellDignified(circled))+"\n";
 		else if (isIllDignified(context) &! isWellDignified(context) && getIllDignified(circled) > 0 && appcontext.getString(getIllDignified(circled)).length() > 0)
-			returner += "More directly: "+ appcontext.getString(getIllDignified(circled))+"\n\n";
+			returner += "\nMore directly: "+ appcontext.getString(getIllDignified(circled))+"\n";
 		else if (getMeanings(circled) > 0 && appcontext.getString(getMeanings(circled)).length() > 0)
-			returner += "More directly: "+ appcontext.getString(getMeanings(circled))+"\n\n";
+			returner += "\nMore directly: "+ appcontext.getString(getMeanings(circled))+"\n";
 		if (getOppositionNumber(circled) > 0) {
 			List oppNumList = Arrays.asList(appcontext.getResources().getIntArray(getOppositionNumber(circled)));
 			String lefty = String.valueOf(BotaInt.getCardToTheLeft(circled));
@@ -421,7 +421,7 @@ public class BotaInt extends Interpretation {
 			else
 				lefty = "1"+lefty;
 			if (oppNumList != null && oppNumList.contains(lefty))
-				returner += "Has been opposed by: "+appcontext.getResources().getIntArray(getOppositionText(circled))[oppNumList.indexOf(lefty)]+"\n\n";
+				returner += "Has been opposed by: "+appcontext.getResources().getIntArray(getOppositionText(circled))[oppNumList.indexOf(lefty)]+"\n";
 			
 			String righty = String.valueOf(BotaInt.getCardToTheRight(circled));
 			if (BotaInt.getCardToTheRight(circled) < 10)
@@ -429,7 +429,7 @@ public class BotaInt extends Interpretation {
 			else
 				righty = "1"+righty;
 			if (oppNumList != null && oppNumList.contains(righty))
-				returner += "Will be opposed by: "+appcontext.getResources().getIntArray(getOppositionText(circled))[oppNumList.indexOf(righty)]+"\n\n";
+				returner += "Will be opposed by: "+appcontext.getResources().getIntArray(getOppositionText(circled))[oppNumList.indexOf(righty)]+"\n";
 		}
 		if (getReinforcementNumber(circled) > 0) {
 			List reNumList = Arrays.asList(appcontext.getResources().getIntArray(getReinforcementNumber(circled)));
@@ -440,7 +440,7 @@ public class BotaInt extends Interpretation {
 			else
 				lefty = "1"+lefty;
 			if (reNumList != null && reNumList.contains(lefty))
-				returner += "Has been reinforced by: "+appcontext.getResources().getIntArray(getReinforcementText(circled))[reNumList.indexOf(lefty)]+"\n\n";
+				returner += "Has been reinforced by: "+appcontext.getResources().getIntArray(getReinforcementText(circled))[reNumList.indexOf(lefty)]+"\n";
 			
 			String righty = String.valueOf(BotaInt.getCardToTheRight(circled));
 			if (BotaInt.getCardToTheRight(circled) < 10)
@@ -448,15 +448,15 @@ public class BotaInt extends Interpretation {
 			else
 				righty = "1"+righty;
 			if (reNumList != null && reNumList.contains(righty))
-				returner += "Will be reinforced by: "+appcontext.getResources().getIntArray(getReinforcementText(circled))[reNumList.indexOf(righty)]+"\n\n";
+				returner += "Will be reinforced by: "+appcontext.getResources().getIntArray(getReinforcementText(circled))[reNumList.indexOf(righty)]+"\n";
 		}
 		/*if (getActions(circled) > 0 && appcontext.getString(getActions(circled)).length() > 0)
 			returner += appcontext.getString(getActions(circled))+"\n\n";*/
 		
 		//returner += context;
 		if (myDeck.isReversed(circled))
-			returner += "being reversed the energy of this card is muted, its potential is there but is either not currently being expressed or is effectively suppressed";
-		return "\n\n"+returner;
+			returner += "\nbeing reversed the energy of this card is muted, its potential is there but is either not currently being expressed or is effectively suppressed";
+		return returner;
 		//toReturn.put(circled,returner);
 		//return toReturn;
 	}

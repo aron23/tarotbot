@@ -147,7 +147,7 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
 
 		Calendar today = Calendar.getInstance();
-		// for example init to 1/27/2008, no callback 
+		 
 		if (querantPrefs.contains("birthyear"))
 			dp.init(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR)), querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)), querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH)), this);        
 		else
@@ -191,6 +191,10 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	  if (!firstpass) {
 		  oldFlipper = flipper;
 		  redisplaySecondStage(secondSetIndex);
+		  if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+				Toast.makeText(this, "swipe your finger up or down to display interpretation, left or right to navigate the spread", Toast.LENGTH_LONG).show();
+			else
+				Toast.makeText(this, "swipe left or right to navigate the spread", Toast.LENGTH_LONG).show();
 	  } else {
 		  redisplayMain();
 		  //setContentView(R.layout.main);
@@ -347,42 +351,30 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 			//showInfo();
 		
 	}
-	private void showInfo() {
-		if (firstpass) {			
-			String interpretation = "Tarot Bot is a bit different than most tarot applications or even tarot readings you have probably seen.\n\n"+
-			"Rather than attempting to mimic a deck of cards, Tarot Bot is an attempt to transform the archetypal divination system that is tarot cards into something much more accessible through the digital medium.\n\n"+
-			"The Tarot Bot system is modeled on the book Oracle of the Tarot: A Course on Divination by Paul Foster Case.  This beta version has a complete implementation of the First and Second stage divinations as they are presented in the book along with interpretations derived from the same text.\n\n"+
-			"The basic flow of the divinations is as follows:\n\n"+
-			"Shuffle the Tarot, divide into four separate sets (cut the cards), and then select the set containing a card known as the 'significator' (the choice of significator depends on gender and marital status along with birthdate).\n\n"+
-			"Each of the four sets represents a letter of the tetragrammaton, the holy name of Qabala, IHVH.  Each letter is ascribed a particular theme for the question at hand, whichever theme corresponds to the significator set is proposed to the querant (person with the question) and the querant is asked if they agree.\n\n"+
-			"According to the text if the querant disagrees the divination should stop immediately and should not be resumed for at least two hours.\n\n"+
-			"If the querant agrees with the theme proposed the second stage of divination begins.\n\n"+  
-			"The set containing the significator is dealt in a circle with the significator at the top.  Depending on what card the significator is some number of cards is counted around the circle.  Wherever the counting stops is the next card in the divination.  From there you again begin counting around the circle – repeating the process until you land on the same card twice.\n\n"+
-			"This series of cards (the ones landed on) represent the first story the tarot tells to answer the querant's question.  They are individual tarot are interpreted in the context of the cards which fall next to them.\n\n"+
-			"Next the cards are paired beginning with the cards to the left and right of the significator and continuing until all the cards are paired or there is only one left other than the significator.  This series tells the second story to clarify the querant's question.  These are interpreted with the leftmost of the pair representing the past and the rightmost representing the future.\n\n"+
-			"Rather than require the user of Tarot Bot memorize or even see the processes underlying this tarot reading technique (the shuffling, cutting, and dealing of the cards), Tarot Bot aims to provide a tarot experience that truly helps the user explore the depths tarot is able to convey.  With this as the goal, all of the design revolves around helping the user interpret and understand the archetypes tarot contains.\n\n"+
-			"As Tarot Bot evolves there will be new decks and interpretations published and the final version should have many more features.\n\n"+
-			"Thank you for trying this software, please visit our forum at http://liber.us and let us know what you think.\n\n";
-			showing = inflater.inflate(R.layout.interpretation, null);
-			infotext = (TextView) showing.findViewById(R.id.interpretation);		
-			infotext.setText("\n\n\n\n" +interpretation);
-		} else { 
+	private void showInfo(int type) {
+		if (type == Configuration.ORIENTATION_PORTRAIT) {
 			infoDisplayed = true;
 			int i = BotaInt.circles.get(secondSetIndex);
 			String interpretation = BotaInt.secondOperationInterpretation(i,getApplicationContext());
 			showing = inflater.inflate(R.layout.interpretation, null);
 			infotext = (TextView) showing.findViewById(R.id.interpretation);		
-			infotext.setText("\n\n\n\nposition " + secondSetIndex +interpretation);			
+			infotext.setText("\n\n\n\nposition " +secondSetIndex + "\n\n"+interpretation);			
+			ArrayList<View> toShow = new ArrayList<View>();
+			toShow.add(showing);
+			View v = flipper.getCurrentView();
+			((RelativeLayout)v.findViewById(R.id.secondsetlayout)).addView(showing);
+		} else if (type == Configuration.ORIENTATION_LANDSCAPE) {
+			int i = BotaInt.circles.get(secondSetIndex);
+			String interpretation = BotaInt.secondOperationInterpretation(i,getApplicationContext());
+			View v = flipper.getCurrentView();
+			infotext = (TextView)v.findViewById(R.id.interpretation);		
+			infotext.setText("\nposition " + secondSetIndex + "\n"+interpretation);
+			//((RelativeLayout)v.findViewById(R.id.secondsetlayout)).addView(infotext);
 		}
 		/*closure = (Button) showing.findViewById(R.id.closeinterpretation);
 		closure.setClickable(true);
 		closure.setOnClickListener(this);*/
-		ArrayList<View> toShow = new ArrayList<View>();
-		toShow.add(showing);
-		if (firstpass)
-			laidout.get(0).addView(showing);
-		else
-			laidout.get(secondSetIndex+1).addView(showing);		
+				
 	}
 
 	protected void setFullscreen() { 
@@ -404,6 +396,11 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	        flipper.setOutAnimation(outToLeftAnimation());	        
 	        flipper.showNext();
 		}
+		
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+			showInfo(getResources().getConfiguration().orientation);
+			
+		
 		postFlip(flipper.getChildAt(previous));
 		flipper.stopFlipping();
 	}
@@ -422,6 +419,10 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	        flipper.setOutAnimation(outToRightAnimation());
 	        flipper.showPrevious();
 		}
+		
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+			showInfo(getResources().getConfiguration().orientation);
+		
 		postFlip(flipper.getChildAt(previous));
 		flipper.stopFlipping();
 	}
@@ -431,7 +432,10 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 		BotaInt.secondOperation(getApplicationContext());
 		
 		displaySecondStage(secondSetIndex);		
-		Toast.makeText(this, "swipe your finger up or down to display interpretation, left or right to navigate the spread", 60).show();
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+			Toast.makeText(this, "swipe your finger up or down to display interpretation, left or right to navigate the spread", Toast.LENGTH_LONG).show();
+		else
+			Toast.makeText(this, "swipe left or right to navigate the spread", Toast.LENGTH_LONG).show();
 	}
 	
 	private void restoreSecondStage() {
@@ -478,6 +482,10 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 			divine.setBackgroundDrawable(bmd);
 		} else
 			divine.setBackgroundDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(v)))));
+		
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+			showInfo(getResources().getConfiguration().orientation);
+		
 		flipper.setAnimationCacheEnabled(false);
 		flipper.setPersistentDrawingCache(ViewGroup.PERSISTENT_NO_CACHE);
 		flipper.setDrawingCacheEnabled(false);
@@ -502,7 +510,7 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
 
 		Calendar today = Calendar.getInstance();
-		// for example init to 1/27/2008, no callback 
+		 
 		if (querantPrefs.contains("birthyear"))
 			dp.init(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR)), querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)), querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH)), this);        
 		else
@@ -558,6 +566,10 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 			divine.setBackgroundDrawable(bmd);
 		} else
 			divine.setBackgroundDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(v)))));
+		
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+			showInfo(getResources().getConfiguration().orientation);
+		
 		flipper.setAnimationCacheEnabled(false);
 		flipper.setPersistentDrawingCache(ViewGroup.PERSISTENT_NO_CACHE);
 		flipper.setDrawingCacheEnabled(false);
@@ -586,10 +598,14 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 			incrementSecondSet(secondSetIndex);
 	}
 	protected void redisplay() {
-		if (laidout.size() > 1)
-			laidout.get(secondSetIndex+1).removeView(showing);
-		else
-			laidout.get(0).removeView(showing);
+		infoDisplayed = false;
+		View v = flipper.getCurrentView();
+		View toRemove = v.findViewById(R.id.readinglayout);
+		if (toRemove != null) {
+			RelativeLayout lay = (RelativeLayout)v.findViewById(R.id.secondsetlayout);
+			lay.removeView(toRemove);
+		}
+		
 	}
 
 	private Animation inFromRightAnimation() {	
@@ -691,7 +707,7 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	@Override
 	protected void onStop() {
 		super.onStop();
-		/*if (flipper != null) {
+		if (flipper != null) {
 			for (int i = 0; i < flipper.getChildCount(); i++) {
 				View v = flipper.getChildAt(i);
 				v.destroyDrawingCache();
@@ -708,7 +724,7 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 		myInt = null;
 		aq=null;
 		System.gc();
-		finish();*/
+		finish();
 	}
 	@Override
 	protected void onPause() {
@@ -759,11 +775,13 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 			}
 
 			if (Math.abs(e1.getX() - e2.getX()) < SWIPE_MAX_OFF_PATH) {
-				// vertical swipe
-				if (laidout.get(secondSetIndex+1).findViewById(R.id.interpretation) == null)
-					showInfo();
-				else
-					redisplay();
+				if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+					if (!infoDisplayed)
+						showInfo(getResources().getConfiguration().orientation);
+					else
+						redisplay();		
+				}
+				
 				return true;		         
 			}
 			//} catch (Exception e) {

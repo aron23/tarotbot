@@ -49,8 +49,8 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:layout_gravity="center"
-    android:background="#333333"
-    android:textColor="#CCCCCC"
+    android:background="#000000"
+    android:textColor="#FFFFFF"
     android:paddingBottom="20px"
     android:text="@string/questionprompt"
     /> 

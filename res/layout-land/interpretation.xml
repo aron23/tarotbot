@@ -21,23 +21,12 @@
     android:layout_height="fill_parent"
 	android:layout_marginTop="10dip"
 	android:layout_marginBottom="10dip"
-	android:layout_marginLeft="152dip"
-    android:background="#333333"
-    android:textColor="#CCCCCC"
+	android:layout_marginLeft="168dip"
+    android:background="#000000"
+    android:textColor="#FFFFFF"
     android:gravity="center"
     android:layout_gravity="right"
     />  
-<ImageView 
-	android:id="@+id/liberus" 
-	android:src="@drawable/logo"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-	android:layout_marginLeft="152dip"
-    android:background="#333333"
-    android:textColor="#CCCCCC"
-    android:gravity="center"
-    android:layout_gravity="top"
-    />
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

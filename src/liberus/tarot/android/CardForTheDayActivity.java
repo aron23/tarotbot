@@ -79,8 +79,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
         
         gestureDetector = new GestureDetector(new MyGestureDetector());
         gestureListener = new View.OnTouchListener() {
-            @Override
-        	public boolean onTouch(View v, MotionEvent event) {
+            public boolean onTouch(View v, MotionEvent event) {
                 if (gestureDetector.onTouchEvent(event)) {
                     return true;
                 }
@@ -115,7 +114,6 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); 
     }  
 	
-	@Override
 	public void onClick(View v) {	
 		if (v.equals(closure))
 			redisplay();

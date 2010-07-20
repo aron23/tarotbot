@@ -33,8 +33,8 @@ import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -46,6 +46,8 @@ import android.graphics.drawable.RotateDrawable;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -55,15 +57,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.GestureDetector.SimpleOnGestureListener;
-import android.view.View.OnFocusChangeListener;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -73,10 +75,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.DatePicker.OnDateChangedListener;
 
-public class TarotBotActivity extends Activity implements OnClickListener, View.OnClickListener, OnItemSelectedListener, OnDateChangedListener {
+
+public class TarotBotActivity extends Activity  implements OnClickListener, View.OnClickListener, OnItemSelectedListener, OnDateChangedListener {
 	private DatePicker dp;
 	private Spinner statusspin;
 	private Button initbutton;
@@ -157,13 +158,12 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 
 		gestureDetector = new GestureDetector(new MyGestureDetector());
 		gestureListener = new View.OnTouchListener() {
-			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				if (gestureDetector.onTouchEvent(event)) {
 					return true;
 				}
 				return false;
-			}
+			} 
 		};
 		changeQuerant();		
 		inflater = LayoutInflater.from(this);
@@ -322,7 +322,7 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	
 	private void changeQuerant() {
 
-		if (unselected) {			
+					
 			if (statusspin.getSelectedItem().toString().contains("Single Male")) {
 				male = true;
 				partnered=false;
@@ -336,15 +336,10 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 				male = false;
 				partnered = false;
 			}
-		}
+		
 		//Toast.makeText(this, dp.getMonth(), Toast.LENGTH_SHORT).show();
-		if (aq==null)
-			aq = new Querant(male,partnered,new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth()));
-		else {
-			aq.male=male;
-			aq.partnered=partnered;
-			aq.setBirthDate(new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth()));
-		}
+		aq = new Querant(male,partnered,new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth()));
+		
 
 		//mainlayout.setBackgroundDrawable(getSignificatorImage(aq));
 		//if(firstpass)
@@ -583,7 +578,6 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	}
 
 
-	@Override
 	public void onClick(View v) {	
 		if (v.equals(this.findViewById(R.id.initbutton))) {
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
@@ -646,7 +640,6 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 		return outtoRight;
 	}
 
-	@Override
 	public void onClick(DialogInterface dialog, int which) {
 		if (dialog instanceof AlertDialog) {
 				switch (which) {
@@ -671,40 +664,26 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 	}
 	
 
-	@Override
 	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
 			long arg3) {
+		
 		statusselected = statusspin.getSelectedItemPosition();
-		if (statusspin.getSelectedItem().toString().contains("Single Male")) {
-			male = true;
-			partnered=false;
-		} else if (statusspin.getSelectedItem().toString().contains("Partnered Female")) {
-			male=false;
-			partnered = true;    	
-		} else if (statusspin.getSelectedItem().toString().contains("Partnered Male")) {
-			male = true;
-			partnered = true;
-		} else {
-			male = false;
-			partnered = false;
-		}
-		unselected=false;
 		changeQuerant();
 
 	}
-	@Override
+
 	public void onNothingSelected(AdapterView<?> arg0) {
 		// TODO Auto-generated method stub
 
 	}
-	@Override
+
 	public void onDateChanged(DatePicker view, int year, int monthOfYear,
 			int dayOfMonth) {
 		changeQuerant();
 
 	}
 	
-	@Override
+
 	protected void onStop() {
 		super.onStop();
 		if (flipper != null) {
@@ -726,7 +705,7 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 		System.gc();
 		finish();
 	}
-	@Override
+
 	protected void onPause() {
 		super.onPause();
 		
@@ -754,8 +733,8 @@ public class TarotBotActivity extends Activity implements OnClickListener, View.
 				
 	}
 
-	class MyGestureDetector extends SimpleOnGestureListener {
-		@Override
+	class MyGestureDetector extends SimpleOnGestureListener implements OnGestureListener {
+
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 			//try {
 			if (Math.abs(e1.getY() - e2.getY()) < SWIPE_MAX_OFF_PATH) {

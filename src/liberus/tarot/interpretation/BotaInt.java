@@ -80,17 +80,23 @@ public class BotaInt extends Interpretation {
 		}
 		String toreturn = "";
 		if (hasSignificator(yod)) {
+			System.err.println("yod");
 			significatorIn=0;
 			toreturn = "Your question is about the beginning of some enterprise, about the root-ideas behind some matter. It is more concerned with causes than with outward conditions, and may have to do with the spiritual life.";
 		} else if (hasSignificator(heh1)) {
+			System.err.println("heh1");
 			significatorIn=1;		
 			toreturn = "Your question has to do with your desires and wishes, with the formation of plans, with some state of your emotions or affections, with matters in which your feelings are deeply affected.";
 		} else if (hasSignificator(vau)) {
+			System.err.println("vau");
 			significatorIn=2;		
 			toreturn = "You want to know what to do, what action is best to bring about some result, either to avoid some conflict with others, or to overcome some conflict which has already come up. Your question is somehow connected with inharmony, with disappointment, either actual or threatened.";
-		} else {
+		} else if (hasSignificator(heh2)) {
+			System.err.println("heh2");
 			significatorIn=3;		
 			toreturn = "Your question has to do with the things of the outer world, or practical life. It is almost wholly concerned with material affairs.";
+		} else {
+			System.err.println("missing significator");
 		}
 		return toreturn;
 	}
@@ -108,6 +114,7 @@ public class BotaInt extends Interpretation {
 		boolean circling = true;
 		boolean begun = false;
 		ArrayList<Integer> hits = new ArrayList<Integer>();
+		System.err.println(BotaInt.getSignificator());
 		int circle_index = working.indexOf(BotaInt.getSignificator());
 		while (circling) {
 			if (circle_index == working.indexOf(BotaInt.getSignificator()) && circles.size() < 1) {
@@ -657,9 +664,7 @@ public class BotaInt extends Interpretation {
 	}
 	protected static boolean isSignificator(int card) {
 		switch (myQuerant.getElement()) {
-		case 0: if (myQuerant.youth && card == 32)
-					return true;
-				if (myQuerant.partnered) {
+		case 0: if (myQuerant.partnered) {
 					if (myQuerant.male && card == 35)
 						return true;
 					else if (!myQuerant.male && card == 34)
@@ -671,9 +676,7 @@ public class BotaInt extends Interpretation {
 						return true;
 				}
 				break;
-		case 1: if (myQuerant.youth && card == 46)
-					return true;
-				if (myQuerant.partnered) {
+		case 1: if (myQuerant.partnered) {
 					if (myQuerant.male && card == 49)
 						return true;
 					else if (!myQuerant.male && card == 48)
@@ -685,9 +688,7 @@ public class BotaInt extends Interpretation {
 						return true;
 				}
 				break;
-		case 2: if (myQuerant.youth && card == 60)
-					return true;
-				if (myQuerant.partnered) {
+		case 2: if (myQuerant.partnered) {
 					if (myQuerant.male && card == 63)
 						return true;
 					else if (!myQuerant.male && card == 62)
@@ -699,9 +700,7 @@ public class BotaInt extends Interpretation {
 						return true;
 				}
 				break;
-		case 3: if (myQuerant.youth && card == 74)
-					return true;
-				if (myQuerant.partnered) {
+		case 3: if (myQuerant.partnered) {
 					if (myQuerant.male && card == 77)
 						return true;
 					else if (!myQuerant.male && card == 76)
@@ -718,10 +717,9 @@ public class BotaInt extends Interpretation {
 		return false;
 	}
 	public static int getSignificator() {
+		System.err.println(myQuerant.getElement());
 		switch (myQuerant.getElement()) {
-		case 0: if (myQuerant.youth)
-					return 32;
-				if (myQuerant.partnered) {
+		case 0: if (myQuerant.partnered) {
 					if (myQuerant.male)
 						return 35;
 					else if (!myQuerant.male) 
@@ -732,9 +730,7 @@ public class BotaInt extends Interpretation {
 					else if (!myQuerant.male)
 						return 32;
 				} break;				
-		case 1: if (myQuerant.youth)
-					return 46;
-				if (myQuerant.partnered) {
+		case 1: if (myQuerant.partnered) {
 					if (myQuerant.male)
 						return 49;
 					else if (!myQuerant.male)
@@ -745,9 +741,7 @@ public class BotaInt extends Interpretation {
 					else if (!myQuerant.male)
 						return 46;
 				} break;				
-		case 2: if (myQuerant.youth)
-					return 60;
-				if (myQuerant.partnered) {
+		case 2: if (myQuerant.partnered) {
 					if (myQuerant.male)
 						return 63;
 					else if (!myQuerant.male)
@@ -758,9 +752,7 @@ public class BotaInt extends Interpretation {
 					else if (!myQuerant.male)
 						return 60;
 				} break;
-		default: if (myQuerant.youth)
-					return 74;
-				if (myQuerant.partnered) {
+		case 3: if (myQuerant.partnered) {
 					if (myQuerant.male)
 						return 77;
 					else if (!myQuerant.male)
@@ -791,10 +783,10 @@ public class BotaInt extends Interpretation {
 
 	public static void getSecondSetDeck() {		
 		switch (significatorIn) {
-		case 0: working = new ArrayList<Integer> (Arrays.asList(yod));break;
-		case 1: working = new ArrayList<Integer> (Arrays.asList(heh1));break;
-		case 2: working = new ArrayList<Integer> (Arrays.asList(vau));break;
-		case 3: working = new ArrayList<Integer> (Arrays.asList(heh2));break;
+		case 0: working = new ArrayList<Integer> (Arrays.asList(yod));System.err.println("second operation yod");break;
+		case 1: working = new ArrayList<Integer> (Arrays.asList(heh1));System.err.println("second operation heh1");break;
+		case 2: working = new ArrayList<Integer> (Arrays.asList(vau));System.err.println("second operation vau");break;
+		case 3: working = new ArrayList<Integer> (Arrays.asList(heh2));System.err.println("second operation heh2");break;
 		}
 	}
 
@@ -836,5 +828,10 @@ public class BotaInt extends Interpretation {
 		TelephonyManager tel = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE); 		
 		Random r = new Random(begin.get(Calendar.DAY_OF_MONTH)*(begin.get(Calendar.MONTH)+1)*begin.get(Calendar.YEAR)*(Long.valueOf((tel.getLine1Number().replaceAll("\\D", "")+"1"))));
 		return r.nextBoolean();		 
+	}
+
+	public static void setMyQuerant(Querant aq) {
+		myQuerant = aq;
+		
 	}
 }

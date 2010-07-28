@@ -4,6 +4,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+import liberus.tarot.android.R;
+import liberus.tarot.android.R.id;
+import liberus.tarot.android.R.layout;
 import liberus.tarot.interpretation.BotaInt;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;

@@ -1,50 +1,33 @@
 package liberus.tarot.android;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
 
 import liberus.tarot.android.R;
 import liberus.tarot.android.R.array;
-import liberus.tarot.android.R.drawable;
 import liberus.tarot.android.R.id;
 import liberus.tarot.android.R.layout;
+import liberus.tarot.android.R.string;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.querant.Querant;
 import liberus.utils.WebUtils;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.RotateDrawable;
+import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -64,11 +47,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -118,12 +101,15 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private ArrayList<RelativeLayout> laidout = new ArrayList<RelativeLayout>();
 	private BotaInt myInt;
 	private String saveTitle;
-	private String saveResult;
 	private EditText input;
 	private boolean infoDisplayed;
-	private ViewFlipper oldFlipper;
 	private int myRandomCard;
+	private CheckBox reversalCheck;
+	private boolean sharing;
+	private ViewFlipper oldFlipper;
+	private String saveResult;
 	public static boolean cardfortheday = false;
+
 
 
 	/** Called when the activity is first created. */
@@ -132,9 +118,12 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		super.onCreate(savedInstanceState);
 
 		setFullscreen();
-		setContentView(R.layout.main);
+		setContentView(R.layout.main);		
+		
 		querantPrefs = getSharedPreferences("tarotbot", 0);
 		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
+		
+		sharing = false;
 		
 		statusspin = (Spinner) findViewById(R.id.statusspinner);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -144,9 +133,13 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		statusspin.setOnItemSelectedListener(this);
 		statusspin.setSelection(3);
 		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
-
+		
+		
+		
 		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
 
+		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
+		
 		Calendar today = Calendar.getInstance();
 		 
 		if (querantPrefs.contains("birthyear"))
@@ -180,6 +173,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	
 			initbutton = (Button) this.findViewById(R.id.initbutton);
 			initbutton.setOnClickListener(this);
+			Toast.makeText(this, R.string.questionprompt, Toast.LENGTH_LONG).show(); 
 		}
 		
 		
@@ -192,9 +186,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		  oldFlipper = flipper;
 		  redisplaySecondStage(secondSetIndex);
 		  if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
-				Toast.makeText(this, "swipe your finger up or down to display interpretation, left or right to navigate the spread", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, R.string.portraitnavigation, Toast.LENGTH_LONG).show();
 			else
-				Toast.makeText(this, "swipe left or right to navigate the spread", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, R.string.landscapenavigation, Toast.LENGTH_LONG).show();
 	  } else {
 		  redisplayMain();
 		  //setContentView(R.layout.main);
@@ -220,9 +214,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	/* Creates the menu items */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		/*menu.add(0, MENU_LOAD, 0, "Load").setIcon(android.R.drawable.ic_menu_set_as);
-	    menu.add(0, MENU_SAVE, 1, "Save").setIcon(android.R.drawable.ic_menu_save);
-	    menu.add(0, MENU_SHARE, 2, "Share").setIcon(android.R.drawable.ic_menu_share);*/
+		menu.add(0, MENU_LOAD, 0, R.string.load_menu).setIcon(android.R.drawable.ic_menu_set_as);
+	    menu.add(0, MENU_SAVE, 1, R.string.save_menu).setIcon(android.R.drawable.ic_menu_save);
+	    menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
 	    return true;
 	}
 
@@ -230,10 +224,10 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
 	    case MENU_SAVE:
-	        save();
+	        save(false);
 	        return true;
 	    case MENU_SHARE:
-	        //quit();
+	    	save(true);
 	        return true;
 	    case MENU_LOAD:
 	        displaySaved();
@@ -242,6 +236,15 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	    return false;
 	}
 	
+	public void share(String subject,String text) {
+		sharing = true;
+		 final Intent intent = new Intent(Intent.ACTION_SEND);
+		 intent.setType("text/plain");
+		 intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+		 intent.putExtra(Intent.EXTRA_TEXT, text);
+		 startActivityForResult(Intent.createChooser(intent, getString (R.string.share_intent)),1);
+		}
+
 	private void displaySaved() {
 		ArrayList<String[]> savedReadings = WebUtils.loadTarotBot(getApplicationContext());
 		
@@ -252,9 +255,10 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	private String reversalsToString() {
 		String toReturn = "";
-	    for (int card: BotaInt.working) {
+		
+	    for (boolean reversal: BotaInt.myDeck.reversed) {
 	    	String represent;
-	    	if (BotaInt.isReversed(card))
+	    	if (reversal)
 	    		represent = "R";
 	    	else
 		        represent = "U";
@@ -275,61 +279,73 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	    }
 	    return toReturn;
 	  }
+	
+	public String deckToString(){
+	    String toReturn = "";
+	    for (int card: BotaInt.yod) {
+	      String represent = String.valueOf(card);
+	      if (represent.length() < 2)
+	    	  represent = "10"+represent;
+	      else
+	    	  represent = "1"+represent;
+	      toReturn += represent+",";
+	    }
+	    for (int card: BotaInt.heh1) {
+		     String represent = String.valueOf(card);
+		     if (represent.length() < 2)
+		    	 represent = "10"+represent;
+		     else
+		    	 represent = "1"+represent;
+		     toReturn += represent+",";
+		}
+	    for (int card: BotaInt.vau) {
+		      String represent = String.valueOf(card);
+		      if (represent.length() < 2)
+		    	  represent = "10"+represent;
+		      else
+		    	  represent = "1"+represent;
+		      toReturn += represent+",";
+		    }
+		for (int card: BotaInt.heh2) {
+			String represent = String.valueOf(card);
+			if (represent.length() < 2)
+				 represent = "10"+represent;
+			else
+				 represent = "1"+represent;
+			toReturn += represent+",";
+		}
+	    return toReturn;
+	  }
 
-	private void save() {
-		
+	private void save(boolean share) {
+		sharing = share;
 		saveTitle = "";
 		saveResult = "";
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-		alert.setTitle("Label your reading");
-		alert.setMessage("Message");
+		alert.setTitle(getString(R.string.save_label));
+		//alert.setMessage("Message");
 
 		// Set an EditText view to get user input 
 		input = new EditText(this);
 		alert.setView(input);
 
-		alert.setPositiveButton("Ok", this);
-		alert.setNegativeButton("No Thanks", this); 
+		alert.setPositiveButton(getString(R.string.save_label_ok), this);
+		alert.setNegativeButton(getString(R.string.save_label_no), this); 
 			 
-		alert.show(); 		
+		alert.show(); 	
 	}
 
-	private Drawable getSignificatorImage(Querant q) {
-		switch (BotaInt.getSignificator()) {
-		case 32: return getResources().getDrawable(R.drawable.wands_page);
-		case 33: return getResources().getDrawable(R.drawable.wands_knight);
-		case 34: return getResources().getDrawable(R.drawable.wands_queen);
-		case 35: return getResources().getDrawable(R.drawable.wands_king);
-
-		case 46: return getResources().getDrawable(R.drawable.cups_page);
-		case 47: return getResources().getDrawable(R.drawable.cups_knight);
-		case 48: return getResources().getDrawable(R.drawable.cups_queen);
-		case 49: return getResources().getDrawable(R.drawable.cups_king);
-
-		case 60: return getResources().getDrawable(R.drawable.swords_page);
-		case 61: return getResources().getDrawable(R.drawable.swords_knight);
-		case 62: return getResources().getDrawable(R.drawable.swords_queen);
-		case 63: return getResources().getDrawable(R.drawable.swords_king);
-
-		case 74: return getResources().getDrawable(R.drawable.pent_page);
-		case 75: return getResources().getDrawable(R.drawable.pent_knight);
-		case 76: return getResources().getDrawable(R.drawable.pent_queen);
-		default: return getResources().getDrawable(R.drawable.pent_king);
-		}
-
-	}
-	
 	private void changeQuerant() {
 
 					
-			if (statusspin.getSelectedItem().toString().contains("Single Male")) {
+			if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_sm))) {
 				male = true;
 				partnered=false;
-			} else if (statusspin.getSelectedItem().toString().contains("Partnered Female")) {
+			} else if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_pf))) {
 				male=false;
 				partnered = true;    	
-			} else if (statusspin.getSelectedItem().toString().contains("Partnered Male")) {
+			} else if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_pm))) {
 				male = true;
 				partnered = true;
 			} else {
@@ -353,7 +369,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			String interpretation = BotaInt.secondOperationInterpretation(i,getApplicationContext());
 			showing = inflater.inflate(R.layout.interpretation, null);
 			infotext = (TextView) showing.findViewById(R.id.interpretation);		
-			infotext.setText("\n\n\n\nposition " +secondSetIndex + "\n\n"+interpretation);			
+			infotext.setText("\n\n\n\n"+getString(R.string.position)+" " +secondSetIndex + "\n\n"+interpretation);			
 			ArrayList<View> toShow = new ArrayList<View>();
 			toShow.add(showing);
 			View v = flipper.getCurrentView();
@@ -363,7 +379,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			String interpretation = BotaInt.secondOperationInterpretation(i,getApplicationContext());
 			View v = flipper.getCurrentView();
 			infotext = (TextView)v.findViewById(R.id.interpretation);		
-			infotext.setText("\nposition " + secondSetIndex + "\n"+interpretation);
+			infotext.setText("\n"+getString(R.string.position)+" " + secondSetIndex + "\n"+interpretation);
 			//((RelativeLayout)v.findViewById(R.id.secondsetlayout)).addView(infotext);
 		}
 		/*closure = (Button) showing.findViewById(R.id.closeinterpretation);
@@ -423,14 +439,16 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 	private void beginSecondStage() {
 		firstpass=false;
+		if (!reversalCheck.isChecked())
+			BotaInt.myDeck.reversed = BotaInt.myDeck.noreversal;
 		BotaInt.firstOperation();
 		BotaInt.secondOperation(getApplicationContext());
 		
 		displaySecondStage(secondSetIndex);		
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
-			Toast.makeText(this, "swipe your finger up or down to display interpretation, left or right to navigate the spread", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, R.string.portraitnavigation, Toast.LENGTH_LONG).show();
 		else
-			Toast.makeText(this, "swipe left or right to navigate the spread", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, R.string.landscapenavigation, Toast.LENGTH_LONG).show();
 	}
 	
 	private void restoreSecondStage() {
@@ -464,7 +482,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		//flipper.setOnClickListener(this);
 		flipper.setOnTouchListener(gestureListener);
 		View v = flipper.getChildAt(indexin);
-				
+			
+		
+		
 		ImageView divine = (ImageView) v.findViewById(R.id.divine);
 		if (BotaInt.myDeck.reversed[flipdex.get(flipper.indexOfChild(v))]) {			
 			Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(v))));
@@ -582,13 +602,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		if (v.equals(this.findViewById(R.id.initbutton))) {
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
 			beginSecondStage();//beginReading();	
-		} else if (v.equals(agreebutton))
-			beginSecondStage();
-		else if (v.equals(disagreebutton))
-			this.finish();
-		/*else if (v.equals(closure))
-			redisplay();*/
-		else
+		} else
 			incrementSecondSet(secondSetIndex);
 	}
 	protected void redisplay() {
@@ -646,15 +660,18 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				case -1: { 					
 					saveTitle = input.getText().toString();
 					saveTitle = saveTitle.replaceAll("\\s+", "+");					
-					WebUtils.saveTarotBot(spreadToString(),reversalsToString(),saveTitle,getApplicationContext());																
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,getApplicationContext());																
 					break; 
 				}
 				case -2: { 
-					WebUtils.saveTarotBot(spreadToString(),reversalsToString(),saveTitle,getApplicationContext());
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,getApplicationContext());
 					break; 
-				}
+				}				
 			}
-			Toast.makeText(this, saveResult, Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, saveResult, Toast.LENGTH_LONG);
+				if (sharing) {
+					share(getString(R.string.share_subject),"http://liber.us/tarotbot/reading.new.php?id="+saveResult);
+				}
 		} else {
 			switch (which) {
 				case -1: beginSecondStage(); break;
@@ -686,6 +703,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	protected void onStop() {
 		super.onStop();
+		if (!sharing) {
 		if (flipper != null) {
 			for (int i = 0; i < flipper.getChildCount(); i++) {
 				View v = flipper.getChildAt(i);
@@ -704,6 +722,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		aq=null;
 		System.gc();
 		finish();
+		}
 	}
 
 	protected void onPause() {
@@ -733,6 +752,12 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				
 	}
 
+	
+	protected void onResume() {
+		super.onResume();	
+		
+	}
+	
 	class MyGestureDetector extends SimpleOnGestureListener implements OnGestureListener {
 
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {

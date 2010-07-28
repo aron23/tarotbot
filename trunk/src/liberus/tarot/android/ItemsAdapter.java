@@ -1,5 +1,7 @@
 package liberus.tarot.android;
 
+import liberus.tarot.android.R;
+import liberus.tarot.android.R.id;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

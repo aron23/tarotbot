@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import liberus.tarot.android.R;
+import liberus.tarot.android.R.id;
 import liberus.tarot.android.R.layout;
 import liberus.tarot.android.TarotBotActivity.MyGestureDetector;
 import liberus.tarot.deck.RiderWaiteDeck;
@@ -59,7 +60,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
         
         secondlayout = (RelativeLayout) this.findViewById(R.id.individuallayout);
         myInt = new BotaInt(new RiderWaiteDeck(), null);
-        if (BotaInt.randomReversed(this.getApplicationContext())) {			
+        /*if (BotaInt.randomReversed(this.getApplicationContext())) {			
 			//Toast.makeText(this, "reversed", Toast.LENGTH_SHORT).show();
 			Bitmap bmp = BitmapFactory.decodeResource(this.getApplicationContext().getResources(), BotaInt.getCardForTheDay(this.getApplicationContext()));
 			int w = bmp.getWidth();
@@ -69,7 +70,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
 			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);		
 			((ImageView) this.findViewById(R.id.activecard)).setBackgroundDrawable(bmd);
-		} else
+		} else*/
 			((ImageView) this.findViewById(R.id.activecard)).setBackgroundDrawable(getResources().getDrawable(BotaInt.getCardForTheDay(this.getApplicationContext())));
         
         ((ImageView) this.findViewById(R.id.activecard)).setClickable(true);

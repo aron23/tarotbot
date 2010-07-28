@@ -10,6 +10,12 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+				<action android:name="android.intent.action.VIEW"></action>
+				<category android:name="android.intent.category.DEFAULT"></category>
+				<category android:name="android.intent.category.BROWSABLE"></category>
+				<data android:scheme="liberus.tarot.android.TarotBotActivity" android:host="twitter"></data>
+			</intent-filter>
         </activity>
         <activity android:name=".CardForTheDayActivity"
            		android:screenOrientation="portrait"

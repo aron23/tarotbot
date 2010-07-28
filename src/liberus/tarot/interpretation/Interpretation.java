@@ -109,6 +109,94 @@ public abstract class Interpretation {
 		return 0;
 	}
 	
+	public static int getCardNum(int index) {
+		switch (index) {
+			case 0:return R.integer.the_fool_00_index;
+			case 1:return R.integer.the_magician_01_index;
+			case 2:return R.integer.the_high_priestess_02_index;
+			case 3:return R.integer.the_empress_03_index;
+			case 4:return R.integer.the_emperor_04_index;
+			case 5:return R.integer.the_hierophant_05_index;
+			case 6:return R.integer.the_lovers_06_index;
+			case 7:return R.integer.the_chariot_07_index;
+			case 8:return R.integer.strength_08_index;
+			case 9:return R.integer.the_hermit_09_index;
+			case 10:return R.integer.the_wheel_of_fortune_10_index;
+			case 11:return R.integer.justice_11_index;
+			case 12:return R.integer.the_hanged_man_12_index;
+			case 13:return R.integer.death_13_index;
+			case 14:return R.integer.temperance_14_index;
+			case 15:return R.integer.the_devil_15_index;
+			case 16:return R.integer.the_tower_16_index;
+			case 17:return R.integer.the_star_17_index;
+			case 18:return R.integer.the_moon_18_index;		
+			case 19:return R.integer.the_sun_19_index;
+			case 20:return R.integer.judgement_20_index;
+			case 21:return R.integer.the_world_21_index;
+	
+			case 22:return R.integer.wands_01_index;
+			case 23:return R.integer.wands_02_index;
+			case 24:return R.integer.wands_03_index;
+			case 25:return R.integer.wands_04_index;
+			case 26:return R.integer.wands_05_index;
+			case 27:return R.integer.wands_06_index;
+			case 28:return R.integer.wands_07_index;
+			case 29:return R.integer.wands_08_index;
+			case 30:return R.integer.wands_09_index;
+			case 31:return R.integer.wands_10_index;
+			case 32:return R.integer.wands_page_index;
+			case 33:return R.integer.wands_knight_index;
+			case 34:return R.integer.wands_queen_index;
+			case 35:return R.integer.wands_king_index;
+	
+			case 36:return R.integer.cups_01_index;
+			case 37:return R.integer.cups_02_index;
+			case 38:return R.integer.cups_03_index;
+			case 39:return R.integer.cups_04_index;
+			case 40:return R.integer.cups_05_index;
+			case 41:return R.integer.cups_06_index;
+			case 42:return R.integer.cups_07_index;
+			case 43:return R.integer.cups_08_index;
+			case 44:return R.integer.cups_09_index;
+			case 45:return R.integer.cups_10_index;
+			case 46:return R.integer.cups_page_index;
+			case 47:return R.integer.cups_knight_index;
+			case 48:return R.integer.cups_queen_index;
+			case 49:return R.integer.cups_king_index;
+	
+			case 50:return R.integer.swords_01_index;
+			case 51:return R.integer.swords_02_index;
+			case 52:return R.integer.swords_03_index;
+			case 53:return R.integer.swords_04_index;
+			case 54:return R.integer.swords_05_index;
+			case 55:return R.integer.swords_06_index;
+			case 56:return R.integer.swords_07_index;
+			case 57:return R.integer.swords_08_index;
+			case 58:return R.integer.swords_09_index;
+			case 59:return R.integer.swords_10_index;
+			case 60:return R.integer.swords_page_index;
+			case 61:return R.integer.swords_knight_index;
+			case 62:return R.integer.swords_queen_index;
+			case 63:return R.integer.swords_king_index;
+	
+			case 64:return R.integer.pentacles_01_index;
+			case 65:return R.integer.pentacles_02_index;
+			case 66:return R.integer.pentacles_03_index;
+			case 67:return R.integer.pentacles_04_index;
+			case 68:return R.integer.pentacles_05_index;
+			case 69:return R.integer.pentacles_06_index;
+			case 70:return R.integer.pentacles_07_index;
+			case 71:return R.integer.pentacles_08_index;
+			case 72:return R.integer.pentacles_09_index;
+			case 73:return R.integer.pentacles_10_index;
+			case 74:return R.integer.pentacles_page_index;
+			case 75:return R.integer.pentacles_knight_index;
+			case 76:return R.integer.pentacles_queen_index;
+			case 77:return R.integer.pentacles_king_index;				
+		}
+		return 0;
+	}
+	
 	public static int getTitle(int index) {
 		switch (index) {
 			case 0:return R.string.the_fool_00_title;

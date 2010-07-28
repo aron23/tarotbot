@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import liberus.tarot.android.TarotBotActivity;
 import liberus.tarot.interpretation.BotaInt;
 
 import org.apache.http.HttpResponse;
@@ -19,16 +18,18 @@ import org.apache.http.protocol.HttpContext;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 
+
 public class WebUtils {
 
-	public static int saveTarotBot(String spread, String reversals, String title, Context context) {
+    
+	public static String saveTarotBot(String spread, String deck, String reversals, String title, Context context) {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpContext localContext = new BasicHttpContext();
-		int saveResult = 0;
+		String saveResult = "";
 		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		
-		HttpGet httpGet = new HttpGet("http://liber.us/tarotbot/postspread.php?spread="+spread+"&reversals="+reversals+"&significator="+BotaInt.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId());
-		
+		HttpGet httpGet = new HttpGet("http://liber.us/tarotbot/postspread.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaInt.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId());
+		//Toast.makeText(context, "http://liber.us/tarotbot/postspread.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaInt.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId(), Toast.LENGTH_LONG).show();
 		try {
 			HttpResponse response = httpClient.execute(httpGet, localContext);
 			 
@@ -40,7 +41,7 @@ public class WebUtils {
 			
 			String line = null;
 			while ((line = reader.readLine()) != null){				
-				saveResult = Integer.valueOf(line);
+				saveResult += line;
 			}
 			
 		} catch (ClientProtocolException e) {
@@ -99,4 +100,10 @@ public class WebUtils {
 		}
 		return loadResult;
 	}
+
+	
+	
+	
+	
+	
 }

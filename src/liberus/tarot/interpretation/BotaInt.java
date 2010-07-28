@@ -26,10 +26,10 @@ public class BotaInt extends Interpretation {
 	public static int secondSetStrongest = 79;
 	public static Deck myDeck;
 	
-	private static Integer[] yod;
-	private static Integer[] heh1;
-	private static Integer[] vau;
-	private static Integer[] heh2;
+	public static Integer[] yod;
+	public static Integer[] heh1;
+	public static Integer[] vau;
+	public static Integer[] heh2;
 
 	private static int significatorIn=79;
 	public static Querant myQuerant;
@@ -204,16 +204,17 @@ public class BotaInt extends Interpretation {
 		
 		
 		for (int i: working) {
-			String title = context.getString(getEnTitle(i)); 
-			if (title.contains("Wands"))
+			int cardIndex = context.getResources().getInteger(getCardNum(i))-100;
+			//String title = context.getString(getEnTitle(i)); 
+			if (cardIndex >= 22 && cardIndex < 36)
 				wands++;
-			if (title.contains("Cups"))
+			if (cardIndex >= 36 && cardIndex < 50)
 				cups++;
-			if (title.contains("Swords"))
+			if (cardIndex >= 50 && cardIndex < 64)
 				swords++;
-			if (title.contains("Pentacles"))
+			if (cardIndex >= 64)
 				pentacles++;
-			if (!title.contains(" of ")) {
+			if (cardIndex < 22) {
 				trumps++;
 				if (Deck.firetrumps.contains(i))
 					wands++;
@@ -224,36 +225,38 @@ public class BotaInt extends Interpretation {
 				if (Deck.earthtrumps.contains(i))
 					pentacles++;
 			}
-			else if (!title.contains("King")) {
+			else if (cardIndex == 35 || cardIndex == 49 || cardIndex == 63 || cardIndex == 77) {
 				kings++;
 				courted++;
-			} else if (!title.contains("Queen")) {
+			} else if (cardIndex == 34 || cardIndex == 48 || cardIndex == 62 || cardIndex == 76) {
 				queens++;
 				courted++;
-			} else if (!title.contains("Knight")) {
+			} else if (cardIndex == 33 || cardIndex == 47 || cardIndex == 61 || cardIndex == 75) {
 				knights++;
 				courted++;
-			} else if (!title.contains("Page")) {
+			} else if (cardIndex == 32 || cardIndex == 46 || cardIndex == 60 || cardIndex == 74) {
 				pages++;
 				courted++;
-			} else if (!title.contains("Ten"))
+			} else if (cardIndex == 31 || cardIndex == 45 || cardIndex == 59 || cardIndex == 73)
 				tens++;
-			else if (!title.contains("Nine"))
+			else if (cardIndex == 30 || cardIndex == 44 || cardIndex == 58 || cardIndex == 72)
 				nines++;
-			else if (!title.contains("Eight"))
+			else if (cardIndex == 29 || cardIndex == 43 || cardIndex == 57 || cardIndex == 71)
 				eights++;
-			else if (!title.contains("Seven"))
+			else if (cardIndex == 28 || cardIndex == 42 || cardIndex == 56 || cardIndex == 70)
 				sevens++;
-			else if (!title.contains("Six"))
+			else if (cardIndex == 27 || cardIndex == 41 || cardIndex == 55 || cardIndex == 69)
 				sixes++;
-			else if (!title.contains("Five"))
+			else if (cardIndex == 26 || cardIndex == 40 || cardIndex == 54 || cardIndex == 68)
 				fives++;
-			else if (!title.contains("Four"))
+			else if (cardIndex == 25 || cardIndex == 39 || cardIndex == 53 || cardIndex == 67)
 				fours++;
-			else if (!title.contains("Three"))
+			else if (cardIndex == 24 || cardIndex == 38 || cardIndex == 52 || cardIndex == 66)
 				threes++;
-			else if (!title.contains("Two"))
+			else if (cardIndex == 23 || cardIndex == 37 || cardIndex == 51 || cardIndex == 65)
 				twos++;
+			else if (cardIndex == 22 || cardIndex == 36 || cardIndex == 50 || cardIndex == 64)
+				aces++;
 		}
 		String returner = "";
 		if (wands > cups && wands > swords && wands > pentacles)

@@ -14,6 +14,7 @@ public abstract class Deck {
 	protected static String[] deck = new String[78];
 	protected boolean[] direction = new boolean[78];
 	public Boolean[] reversed = new Boolean[78];
+	public Boolean[] noreversal = new Boolean[78];
 	protected Interpretation meaning;
 	private static Integer[] cards = new Integer[78];
 	public static ArrayList<Integer> firetrumps = new ArrayList<Integer>();
@@ -160,8 +161,10 @@ public abstract class Deck {
 	
 	private void establishReversal() {
 		Random myRandom = new Random();
-		for (int i=0; i < reversed.length; i++)
+		for (int i=0; i < reversed.length; i++) {
 			reversed[i] = myRandom.nextBoolean();
+			noreversal[i] = false;
+		}
 	}
 	public static int cut(Integer[] deck) {
 		int min = (int)Math.floor((deck.length*(.50)));

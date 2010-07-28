@@ -40,17 +40,6 @@
     android:layout_height="wrap_content"
     android:prompt="@string/status_prompt"
     />
-<TextView
-	android:id="@+id/questionprompt"  
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:layout_gravity="center"
-    android:background="#000000"
-    android:textColor="#FFFFFF"
-    android:paddingBottom="20dip"
-    android:text="@string/questionprompt"
-    /> 
 <Button 
 	android:id ="@+id/initbutton"
 	android:gravity="center"
@@ -59,5 +48,16 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	/>
+<CheckBox
+	android:id="@+id/reversalcheck"
+	android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:background="#000000"
+    android:textColor="#FFFFFF"
+    android:checked="false"
+    android:text="@string/reversalprompt"
+    />		
 </LinearLayout>
 </RelativeLayout>

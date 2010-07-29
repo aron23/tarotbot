@@ -73,19 +73,13 @@ public class WebUtils {
 			      response.getEntity().getContent()
 			    )
 			  );
-			
-			
-			
-			ArrayList<String> tester = new ArrayList<String>();
-			tester.add("116,129,167,171,149,113,130,144,160,136,166,110,104,117,172,161,140,139,159;1,0,1,1,1,0,0,0,0,1,1,0,0,1,0,1,0,1,0");
-			tester.add("107,176,126,177,118,161,153,158,103,137,129,114,173,172,141,142,133,160,102,167;0,1,0,0,1,1,0,1,1,0,1,1,0,1,0,1,1,1,1,0");
-			for (String line: tester) {
-			//String line = null;
-			//while ((line = reader.readLine()) != null){	
-				String[] reading = new String[2];
-				reading[0] = line.split(";")[0];
-				reading[1] = line.split(";")[1];
-				loadResult.add(reading);
+			String reading= reader.readLine();
+			while (reading != null) {
+				if (reading.length() > 0) {
+				String[] read = reading.split(",");
+				loadResult.add(read);				
+				}
+				reading= reader.readLine();
 			}
 			
 		} catch (ClientProtocolException e) {
@@ -99,6 +93,42 @@ public class WebUtils {
 			e.printStackTrace();
 		}
 		return loadResult;
+	}
+
+	public static ArrayList<String[]> loadTarotBotReading(Context applicationContext, int id) {
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpContext localContext = new BasicHttpContext();
+		ArrayList<String[]> deck = new ArrayList<String[]>();
+		HttpGet httpGet = new HttpGet("http://liber.us/tarotbot/pullspread.php?id="+id);
+		
+		try {
+			HttpResponse response = httpClient.execute(httpGet, localContext);
+			 
+			BufferedReader reader = new BufferedReader(
+			    new InputStreamReader(
+			      response.getEntity().getContent()
+			    )
+			  );
+			String reading= reader.readLine();
+			while (reading != null) {
+				if (reading.length() > 0) {
+					String[] decked = reading.split(",");
+					deck.add(decked);
+				}
+				reading= reader.readLine();
+			}
+			
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return deck;
 	}
 
 	

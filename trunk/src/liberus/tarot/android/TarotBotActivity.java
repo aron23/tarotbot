@@ -32,6 +32,7 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -99,7 +100,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private ArrayList<Integer> type = new ArrayList<Integer>();
 	private ArrayList<Integer> flipdex = new ArrayList<Integer>();
 	private ArrayList<RelativeLayout> laidout = new ArrayList<RelativeLayout>();
-	private BotaInt myInt;
+	private static BotaInt myInt;
 	private String saveTitle;
 	private EditText input;
 	private boolean infoDisplayed;
@@ -108,6 +109,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private boolean sharing;
 	private ViewFlipper oldFlipper;
 	private String saveResult;
+	private boolean begun = false;
+	private ArrayList<String[]> savedReadings;
+	public boolean loaded = false;
 	public static boolean cardfortheday = false;
 
 
@@ -212,13 +216,38 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 
 	/* Creates the menu items */
-	@Override
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menu.add(0, MENU_LOAD, 0, R.string.load_menu).setIcon(android.R.drawable.ic_menu_set_as);
 	    menu.add(0, MENU_SAVE, 1, R.string.save_menu).setIcon(android.R.drawable.ic_menu_save);
 	    menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
 	    return true;
+	}*/
+	
+	@Override
+
+	public boolean onPrepareOptionsMenu(Menu menu) {
+
+	menu.clear();
+	
+	menu.add(0, MENU_LOAD, 0, R.string.load_menu).setIcon(android.R.drawable.ic_menu_set_as);
+    menu.add(0, MENU_SAVE, 1, R.string.save_menu).setIcon(android.R.drawable.ic_menu_save);
+    menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
+    
+
+	if(!begun) {
+		menu.findItem(MENU_SAVE).setEnabled(false);
+		if (!loaded)
+			menu.findItem(MENU_SHARE).setEnabled(false);
+	} else {
+		menu.findItem(MENU_SAVE).setEnabled(true);
+		menu.findItem(MENU_SHARE).setEnabled(true);
 	}
+
+	return super.onPrepareOptionsMenu(menu);
+
+	}
+
 
 	/* Handles item selections */
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -246,11 +275,21 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		}
 
 	private void displaySaved() {
-		ArrayList<String[]> savedReadings = WebUtils.loadTarotBot(getApplicationContext());
-		
-		PopupWindow pw = new PopupWindow(inflater.inflate(R.layout.individual,null),0,0);
-        pw.showAtLocation(this.findViewById(R.id.activecard),Gravity.NO_GRAVITY, 20, 20);
-        pw.update(50,50,300,400);
+		savedReadings = WebUtils.loadTarotBot(getApplicationContext());
+		ArrayList<String> readingLabels = new ArrayList<String>();
+		for (String[] reading: savedReadings) {
+			
+			if (reading[1].length() > 0)
+				readingLabels.add(reading[1]+" - "+reading[2]);
+			else
+				readingLabels.add(reading[2]);
+		}
+		final String[] items = readingLabels.toArray(new String[0]);
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Pick a color");
+		builder.setItems(items, this);
+		AlertDialog alert = builder.create();
+		alert.show();
 	}
 
 	private String reversalsToString() {
@@ -439,9 +478,12 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 	private void beginSecondStage() {
 		firstpass=false;
-		if (!reversalCheck.isChecked())
+		if (!reversalCheck.isChecked() &! loaded) {
 			BotaInt.myDeck.reversed = BotaInt.myDeck.noreversal;
-		BotaInt.firstOperation();
+		}
+		if (!loaded) {
+			BotaInt.firstOperation();
+		}
 		BotaInt.secondOperation(getApplicationContext());
 		
 		displaySecondStage(secondSetIndex);		
@@ -486,6 +528,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		
 		
 		ImageView divine = (ImageView) v.findViewById(R.id.divine);
+		
 		if (BotaInt.myDeck.reversed[flipdex.get(flipper.indexOfChild(v))]) {			
 			Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(v))));
 			int w = bmp.getWidth();
@@ -600,6 +643,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	public void onClick(View v) {	
 		if (v.equals(this.findViewById(R.id.initbutton))) {
+			begun = true;
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
 			beginSecondStage();//beginReading();	
 		} else
@@ -655,18 +699,68 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 
 	public void onClick(DialogInterface dialog, int which) {
+		/*new DialogInterface.OnClickListener() {
+		    public void onClick(DialogInterface dialog, int item) {
+		    	ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(item)[0]));
+		    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
+		    	ArrayList<Integer> working = new ArrayList<Integer>();
+		    	int significator = 0;
+		    	for(String[] card: deck) {
+		    		if (card[2] == "1")
+		    			reversals.add(true);
+		    		else
+		    			reversals.add(false);
+		    		if (card[3].equals("1"))
+		    			working.add(Integer.valueOf(card[0])-100);
+		    		
+		    		significator = Integer.valueOf(card[4]);
+		    	}
+		    	loaded=true;
+		    	BotaInt.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
+		    	BotaInt.myQuerant = new Querant(significator);
+		    	BotaInt.working = working;
+		    	BotaInt.loaded = true;
+		    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+		    	beginSecondStage();
+		    }
+		}*/
 		if (dialog instanceof AlertDialog) {
 				switch (which) {
 				case -1: { 					
 					saveTitle = input.getText().toString();
 					saveTitle = saveTitle.replaceAll("\\s+", "+");					
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,getApplicationContext());																
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,getApplicationContext());
+					
 					break; 
 				}
 				case -2: { 
 					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,getApplicationContext());
 					break; 
-				}				
+				}
+				default: {
+					ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
+			    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
+			    	ArrayList<Integer> working = new ArrayList<Integer>();
+			    	int significator = 0;
+			    	for(String[] card: deck) {
+			    		if (card[2] == "1")
+			    			reversals.add(true);
+			    		else
+			    			reversals.add(false);
+			    		if (card[3].equals("1"))
+			    			working.add(Integer.valueOf(card[0])-100);
+			    		
+			    		significator = Integer.valueOf(card[4]);
+			    	}
+			    	loaded=true;
+			    	BotaInt.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
+			    	BotaInt.myQuerant = new Querant(significator);
+			    	BotaInt.working = working;
+			    	BotaInt.loaded = true;
+			    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+			    	beginSecondStage();
+			    	break;
+				}
 			}
 				Toast.makeText(this, saveResult, Toast.LENGTH_LONG);
 				if (sharing) {
@@ -735,7 +829,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		ed.putInt("querantstatus", statusselected);
 		ed.putInt("activeCard", secondSetIndex);		
 		ed.commit();
-		if (flipper != null) {
+		/*if (flipper != null) {
 			SharedPreferences.Editor read = readingPrefs.edit();
 			read.clear();
 			for(Integer card: BotaInt.working) 
@@ -746,7 +840,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			
 			read.commit();
 			flipper.stopFlipping();
-		}
+		}*/
 		
 		
 				
@@ -862,6 +956,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				}			
 				
 	}
+
 		
 	public void postFlip(View v) {
 

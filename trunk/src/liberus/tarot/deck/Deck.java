@@ -166,6 +166,9 @@ public abstract class Deck {
 			noreversal[i] = false;
 		}
 	}
+	public void establishReversal(Boolean[] revved) {
+		reversed = revved;
+	}
 	public static int cut(Integer[] deck) {
 		int min = (int)Math.floor((deck.length*(.50)));
 		int max = (int)Math.ceil(deck.length*(.50));

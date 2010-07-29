@@ -1,4 +1,5 @@
 package liberus.tarot.deck;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -9,7 +10,10 @@ public class RiderWaiteDeck extends Deck {
 	public RiderWaiteDeck() {
 		super();
 	}
-	
+	public RiderWaiteDeck(Boolean[] rev) {
+		super();
+		establishReversal(rev);
+	}
 	public void initDirection() {
 		direction[0]=true;
 		direction[1]=true;

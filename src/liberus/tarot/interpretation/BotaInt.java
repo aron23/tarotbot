@@ -15,6 +15,7 @@ import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 import liberus.tarot.android.R;
+import liberus.tarot.android.TarotBotActivity;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.querant.Querant;
@@ -35,12 +36,23 @@ public class BotaInt extends Interpretation {
 	public static Querant myQuerant;
 	public static ArrayList<Integer> working;
 	public static ArrayList<Integer> circles;
+	public static boolean loaded = false;
+	private static int loadedsignificator;
 	
 	
 	public BotaInt(RiderWaiteDeck deck, Querant q) {
 		super(deck);
 		myDeck = deck;
 		myQuerant = q;
+		loaded=false;
+	}
+	
+	public BotaInt(RiderWaiteDeck deck, Querant q, ArrayList<Integer> loading) {
+		super(deck);
+		myDeck = deck;
+		myQuerant = q;
+		working = loading;
+		loaded = true;
 	}
 	
 	public static String firstOperation() {
@@ -114,7 +126,7 @@ public class BotaInt extends Interpretation {
 		boolean circling = true;
 		boolean begun = false;
 		ArrayList<Integer> hits = new ArrayList<Integer>();
-		System.err.println(BotaInt.getSignificator());
+
 		int circle_index = working.indexOf(BotaInt.getSignificator());
 		while (circling) {
 			if (circle_index == working.indexOf(BotaInt.getSignificator()) && circles.size() < 1) {
@@ -720,54 +732,54 @@ public class BotaInt extends Interpretation {
 		return false;
 	}
 	public static int getSignificator() {
-		System.err.println(myQuerant.getElement());
+		int num = 0;
 		switch (myQuerant.getElement()) {
 		case 0: if (myQuerant.partnered) {
 					if (myQuerant.male)
-						return 35;
+						num =35;
 					else if (!myQuerant.male) 
-						return 34;
+						num =34;
 				} else {
 					if (myQuerant.male)
-						return 33;
+						num =33;
 					else if (!myQuerant.male)
-						return 32;
+						num =32;
 				} break;				
 		case 1: if (myQuerant.partnered) {
 					if (myQuerant.male)
-						return 49;
+						num =49;
 					else if (!myQuerant.male)
-						return 48;
+						num =48;
 				} else {
 					if (myQuerant.male)
-						return 47;
+						num =47;
 					else if (!myQuerant.male)
-						return 46;
+						num =46;
 				} break;				
 		case 2: if (myQuerant.partnered) {
 					if (myQuerant.male)
-						return 63;
+						num =63;
 					else if (!myQuerant.male)
-						return 62;
+						num =62;
 				} else {
 					if (myQuerant.male)
-						return 61;
+						num =61;
 					else if (!myQuerant.male)
-						return 60;
+						num =60;
 				} break;
 		case 3: if (myQuerant.partnered) {
 					if (myQuerant.male)
-						return 77;
+						num =77;
 					else if (!myQuerant.male)
-						return 76;
+						num =76;
 				} else {
 					if (myQuerant.male)
-						return 75;
+						num =75;
 					else if (!myQuerant.male)
-						return 74;
+						num =74;
 				} break;				
 		}		
-		return 0;
+		return num;
 	}
 
 	public static int getCardToTheRight(Integer mid) {
@@ -784,7 +796,9 @@ public class BotaInt extends Interpretation {
 			return working.get(working.size()-1);
 	}
 
-	public static void getSecondSetDeck() {		
+	public static void getSecondSetDeck() {	
+		if (loaded)
+			return;
 		switch (significatorIn) {
 		case 0: working = new ArrayList<Integer> (Arrays.asList(yod));System.err.println("second operation yod");break;
 		case 1: working = new ArrayList<Integer> (Arrays.asList(heh1));System.err.println("second operation heh1");break;

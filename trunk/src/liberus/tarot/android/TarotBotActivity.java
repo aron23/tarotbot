@@ -286,7 +286,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		}
 		final String[] items = readingLabels.toArray(new String[0]);
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("Pick a color");
+		builder.setTitle("Select a reading to load");
 		builder.setItems(items, this);
 		AlertDialog alert = builder.create();
 		alert.show();
@@ -762,9 +762,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			    	break;
 				}
 			}
-				Toast.makeText(this, saveResult, Toast.LENGTH_LONG);
+				//Toast.makeText(this, saveResult, Toast.LENGTH_LONG);
 				if (sharing) {
-					share(getString(R.string.share_subject),"http://liber.us/tarotbot/reading.new.php?id="+saveResult);
+					share(getString(R.string.share_subject),"http://liber.us/tarotbot/reading.php?id="+saveResult);
 				}
 		} else {
 			switch (which) {

@@ -35,7 +35,7 @@ public class TarotBotSmallWidget extends AppWidgetProvider
 		thisWidget = new ComponentName(context, TarotBotSmallWidget.class);
 		
 		//remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay());
-		if (BotaInt.randomReversed(context)) {			
+		/*if (BotaInt.randomReversed(context)) {			
 			//Toast.makeText(this, "reversed", Toast.LENGTH_SHORT).show();
 			Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), BotaInt.getCardForTheDay(context));
 			int w = bmp.getWidth();
@@ -44,7 +44,7 @@ public class TarotBotSmallWidget extends AppWidgetProvider
 			mtx.postRotate(180);
 			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 			remoteViews.setImageViewBitmap(R.id.activecard, rotatedBMP);
-		} else
+		} else*/
 			remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay(context));
 		
 		

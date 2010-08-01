@@ -159,7 +159,7 @@ public abstract class Deck {
 		return toReturn;
 	}
 	
-	private void establishReversal() {
+	public void establishReversal() {
 		Random myRandom = new Random();
 		for (int i=0; i < reversed.length; i++) {
 			reversed[i] = myRandom.nextBoolean();

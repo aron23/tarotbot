@@ -3,6 +3,7 @@ package liberus.utils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import liberus.tarot.interpretation.BotaInt;
@@ -94,7 +95,40 @@ public class WebUtils {
 		}
 		return loadResult;
 	}
-
+//
+	public static String bitly(String saveResult) {
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpContext localContext = new BasicHttpContext();
+		HttpGet httpGet = new HttpGet("http://api.bit.ly/v3/shorten?login=aron23&apiKey=R_ae5060608a3d31022536ce4eac996546&format=txt&longUrl="+URLEncoder.encode("http://liber.us/tarotbot/reading.php?id="+saveResult));
+		//Toast.makeText(context, "http://liber.us/tarotbot/postspread.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaInt.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId(), Toast.LENGTH_LONG).show();
+		String encoded = "";
+		try {
+			HttpResponse response = httpClient.execute(httpGet, localContext);
+			 
+			BufferedReader reader = new BufferedReader(
+			    new InputStreamReader(
+			      response.getEntity().getContent()
+			    )
+			  );
+			
+			String line = null;
+			while ((line = reader.readLine()) != null){				
+				encoded += line;
+			}
+			
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return encoded;
+	}
 	public static ArrayList<String[]> loadTarotBotReading(Context applicationContext, int id) {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpContext localContext = new BasicHttpContext();

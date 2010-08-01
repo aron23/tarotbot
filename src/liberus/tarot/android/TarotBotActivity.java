@@ -67,6 +67,11 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private Spinner statusspin;
 	private Button initbutton;
 
+	String whatUrl = "http://liber.us/tarotbot/what-is-this";
+	String howUrl = "http://liber.us/tarotbot/how-does-it-work";
+	String tarotUrl = "http://liber.us/tarotbot/what-is-tarot";
+	String[] helpUrls = new String[]{whatUrl,howUrl,tarotUrl};
+	
 	private Querant aq;
 	//private RelativeLayout mainlayout;
 	private boolean male = false;
@@ -114,6 +119,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private boolean begun = false;
 	private ArrayList<String[]> savedReadings;
 	public boolean loaded = false;
+	private boolean helping;
 	public static boolean cardfortheday = false;
 
 
@@ -272,10 +278,17 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 	
 	private void launchHelp() {
-		String url = "http://liber.us/tarotbot/what-is-this";
-		Intent intent = new Intent(Intent.ACTION_VIEW);
-		intent.setData(Uri.parse(url));
-		startActivity(intent);
+		helping = true;
+		String what = "What is this?";
+		String how = "How does this work?";
+		String tarot = "What is tarot?";
+		String[] items = new String[]{what,how,tarot};				
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("What do you need to know?");
+		builder.setItems(items, this);
+		AlertDialog alert = builder.create();
+		alert.show();		
 	}
 
 	public void share(String subject,String text) {
@@ -714,31 +727,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 
 	public void onClick(DialogInterface dialog, int which) {
-		/*new DialogInterface.OnClickListener() {
-		    public void onClick(DialogInterface dialog, int item) {
-		    	ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(item)[0]));
-		    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-		    	ArrayList<Integer> working = new ArrayList<Integer>();
-		    	int significator = 0;
-		    	for(String[] card: deck) {
-		    		if (card[2] == "1")
-		    			reversals.add(true);
-		    		else
-		    			reversals.add(false);
-		    		if (card[3].equals("1"))
-		    			working.add(Integer.valueOf(card[0])-100);
-		    		
-		    		significator = Integer.valueOf(card[4]);
-		    	}
-		    	loaded=true;
-		    	BotaInt.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
-		    	BotaInt.myQuerant = new Querant(significator);
-		    	BotaInt.working = working;
-		    	BotaInt.loaded = true;
-		    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
-		    	beginSecondStage();
-		    }
-		}*/
+		
 		if (dialog instanceof AlertDialog) {
 				switch (which) {
 				case -1: { 					
@@ -753,28 +742,35 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 					break; 
 				}
 				default: {
-					ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
-			    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-			    	ArrayList<Integer> working = new ArrayList<Integer>();
-			    	int significator = 0;
-			    	for(String[] card: deck) {
-			    		if (card[2] == "1")
-			    			reversals.add(true);
-			    		else
-			    			reversals.add(false);
-			    		if (card[3].equals("1"))
-			    			working.add(Integer.valueOf(card[0])-100);
-			    		
-			    		significator = Integer.valueOf(card[4]);
-			    	}
-			    	loaded=true;
-			    	BotaInt.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
-			    	BotaInt.myQuerant = new Querant(significator);
-			    	BotaInt.working = working;
-			    	BotaInt.loaded = true;
-			    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
-			    	beginSecondStage();
-			    	break;
+					if (helping) {
+						Intent intent = new Intent(Intent.ACTION_VIEW);
+						intent.setData(Uri.parse(helpUrls[which]));
+						startActivityForResult(intent,1);
+						break;
+					} else {
+						ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
+				    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
+				    	ArrayList<Integer> working = new ArrayList<Integer>();
+				    	int significator = 0;
+				    	for(String[] card: deck) {
+				    		if (card[2] == "1")
+				    			reversals.add(true);
+				    		else
+				    			reversals.add(false);
+				    		if (card[3].equals("1"))
+				    			working.add(Integer.valueOf(card[0])-100);
+				    		
+				    		significator = Integer.valueOf(card[4]);
+				    	}
+				    	loaded=true;
+				    	BotaInt.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
+				    	BotaInt.myQuerant = new Querant(significator);
+				    	BotaInt.working = working;
+				    	BotaInt.loaded = true;
+				    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+				    	beginSecondStage();
+				    	break;
+					}
 				}
 			}
 				//Toast.makeText(this, saveResult, Toast.LENGTH_LONG);

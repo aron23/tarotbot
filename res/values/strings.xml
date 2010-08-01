@@ -17,6 +17,7 @@
     <string name="load_menu">load</string>
     <string name="save_menu">save</string>
     <string name="share_menu">share</string>
+    <string name="help_menu">help</string>
     <string name="share_intent">share your reading</string>
     <string name="share_subject">TarotBot reading</string>
     <string name="save_label">label your reading</string>

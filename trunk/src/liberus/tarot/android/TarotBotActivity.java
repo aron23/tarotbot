@@ -83,6 +83,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private static final int MENU_SAVE = 0;
 	private static final int MENU_SHARE = 1;
 	private static final int MENU_LOAD = 2;
+	private static final int MENU_HELP = 3;
 	private GestureDetector gestureDetector;
 	View.OnTouchListener gestureListener;
 	//private ViewFlipper display;
@@ -234,6 +235,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	menu.add(0, MENU_LOAD, 0, R.string.load_menu).setIcon(android.R.drawable.ic_menu_set_as);
     menu.add(0, MENU_SAVE, 1, R.string.save_menu).setIcon(android.R.drawable.ic_menu_save);
     menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
+    menu.add(0, MENU_HELP, 3, R.string.help_menu).setIcon(android.R.drawable.ic_menu_help);
     
 
 	if(!begun) {
@@ -262,13 +264,23 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	    case MENU_LOAD:
 	        displaySaved();
 	        return true;
+	    case MENU_HELP:
+	        launchHelp();
+	        return true;
 	    }
 	    return false;
 	}
 	
+	private void launchHelp() {
+		String url = "http://liber.us/tarotbot/what-is-this";
+		Intent intent = new Intent(Intent.ACTION_VIEW);
+		intent.setData(Uri.parse(url));
+		startActivity(intent);
+	}
+
 	public void share(String subject,String text) {
 		sharing = true;
-		 final Intent intent = new Intent(Intent.ACTION_SEND);
+		 Intent intent = new Intent(Intent.ACTION_SEND);
 		 intent.setType("text/plain");
 		 intent.putExtra(Intent.EXTRA_SUBJECT, subject);
 		 intent.putExtra(Intent.EXTRA_TEXT, text);
@@ -285,7 +297,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			else
 				readingLabels.add(reading[2]);
 		}
-		final String[] items = readingLabels.toArray(new String[0]);
+		String[] items = readingLabels.toArray(new String[0]);
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Select a reading to load");
 		builder.setItems(items, this);

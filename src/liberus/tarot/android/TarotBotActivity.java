@@ -1,5 +1,6 @@
 package liberus.tarot.android;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -480,6 +481,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		firstpass=false;
 		if (!reversalCheck.isChecked() &! loaded) {
 			BotaInt.myDeck.reversed = BotaInt.myDeck.noreversal;
+		} else {
+			BotaInt.myDeck.establishReversal();
 		}
 		if (!loaded) {
 			BotaInt.firstOperation();
@@ -764,7 +767,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			}
 				//Toast.makeText(this, saveResult, Toast.LENGTH_LONG);
 				if (sharing) {
-					share(getString(R.string.share_subject),"http://liber.us/tarotbot/reading.php?id="+saveResult);
+					String url = WebUtils.bitly(saveResult);
+					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}
 		} else {
 			switch (which) {

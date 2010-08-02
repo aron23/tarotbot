@@ -99,7 +99,7 @@ public class WebUtils {
 	public static String bitly(String saveResult) {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpContext localContext = new BasicHttpContext();
-		HttpGet httpGet = new HttpGet("http://api.bit.ly/v3/shorten?login=aron23&apiKey=R_ae5060608a3d31022536ce4eac996546&format=txt&longUrl="+URLEncoder.encode("http://liber.us/tarotbot/reading.php?id="+saveResult));
+		HttpGet httpGet = new HttpGet("http://api.bit.ly/v3/shorten?login=aron23&apiKey=R_ae5060608a3d31022536ce4eac996546&format=txt&longUrl="+URLEncoder.encode("http://liber.us/tarotbot/reading?id="+saveResult));
 		//Toast.makeText(context, "http://liber.us/tarotbot/postspread.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaInt.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId(), Toast.LENGTH_LONG).show();
 		String encoded = "";
 		try {

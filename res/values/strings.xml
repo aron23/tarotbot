@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">To begin select your status and birthdate:</string>
+    <string name="spread_prompt">choose a spread</string>
     <string name="status_prompt">select which best describes you</string>
     <string name="birthdate_prompt">enter your birthdate</string>
+	<string-array name="spread_array">
+        <item>BOTA</item>
+        <item>Celtic Cross</item>
+        <item>Chaos Star</item>
+    </string-array>
 	<string-array name="status_array">
         <item>Single Female</item>
         <item>Single Male</item>
@@ -11,7 +17,7 @@
     </string-array>
     <string name="app_name">TarotBot</string>
     <string name="questionprompt">set your birthdate, choose the appropriate status, and consider your question</string>
-    <string name="reversalprompt">enable reversal</string>
+    <string name="reversalprompt">\t\tenable reversal</string>
     <string name="portraitnavigation">swipe your finger up or down to display interpretation, left or right to navigate the spread</string>
     <string name="landscapenavigation">swipe left or right to navigate the spread</string>
     <string name="load_menu">load</string>

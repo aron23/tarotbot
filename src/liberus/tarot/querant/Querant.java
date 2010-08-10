@@ -69,7 +69,7 @@ public class Querant {
 	}
 	public static void main(String[] args) {
 		BotaInt myBota = new BotaInt(new RiderWaiteDeck(), new Querant(true,true,new GregorianCalendar(1976,10,4)));
-		myBota.findMeaning();
+		//myBota.findMeaning();
 		
 	}
 	public int getElement() {

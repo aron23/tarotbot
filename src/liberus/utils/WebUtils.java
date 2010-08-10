@@ -7,6 +7,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.spread.BotaSpread;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -23,13 +24,16 @@ import android.telephony.TelephonyManager;
 public class WebUtils {
 
     
-	public static String saveTarotBot(String spread, String deck, String reversals, String title, Context context) {
+	public static String saveTarotBot(String spread, String deck, String reversals, String title, String style, Context context) {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpContext localContext = new BasicHttpContext();
 		String saveResult = "";
 		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-		
-		HttpGet httpGet = new HttpGet("http://liber.us/tarotbot/postspread.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaInt.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId());
+		HttpGet httpGet;
+		if (style == "bota")
+			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaSpread.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId()+"&sytle="+style);
+		else
+			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+0+"&title="+title+"&uid="+tel.getDeviceId()+"&style="+style);
 		//Toast.makeText(context, "http://liber.us/tarotbot/postspread.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaInt.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId(), Toast.LENGTH_LONG).show();
 		try {
 			HttpResponse response = httpClient.execute(httpGet, localContext);
@@ -64,7 +68,7 @@ public class WebUtils {
 		ArrayList<String[]> loadResult = new ArrayList<String[]>();
 		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		
-		HttpGet httpGet = new HttpGet("http://liber.us/tarotbot/readspread.php?uid="+tel.getDeviceId());
+		HttpGet httpGet = new HttpGet("http://liber.us/tarotbot/readspread.test.php?uid="+tel.getDeviceId());
 		
 		try {
 			HttpResponse response = httpClient.execute(httpGet, localContext);

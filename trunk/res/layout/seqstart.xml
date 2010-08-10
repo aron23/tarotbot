@@ -27,24 +27,8 @@
     android:visibility="invisible"
     android:paddingBottom="100dip"
     />    
-<DatePicker 
-    android:id="@+id/birthdatepicker"
-    android:gravity="center"
-    android:layout_gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:prompt="@string/birthdate_prompt"
-    />
-<Spinner 
-    android:id="@+id/statusspinner"
-    android:gravity="center"
-    android:layout_gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:prompt="@string/status_prompt"
-    />
 <Button 
-	android:id ="@+id/initbutton"
+	android:id ="@+id/initseqbutton"
 	android:gravity="center"
     android:layout_gravity="center"
 	android:text="begin"

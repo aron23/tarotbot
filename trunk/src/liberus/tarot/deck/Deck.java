@@ -11,12 +11,13 @@ import liberus.tarot.interpretation.Interpretation;
 
 
 public abstract class Deck {
-	protected static String[] deck = new String[78];
+	public static String[] deck = new String[78];
 	protected boolean[] direction = new boolean[78];
 	public Boolean[] reversed = new Boolean[78];
 	public Boolean[] noreversal = new Boolean[78];
 	protected Interpretation meaning;
-	private static Integer[] cards = new Integer[78];
+	public static Integer[] shuffled;
+	public static Integer[] cards = new Integer[78];
 	public static ArrayList<Integer> firetrumps = new ArrayList<Integer>();
 	public static ArrayList<Integer> watertrumps = new ArrayList<Integer>();
 	public static ArrayList<Integer> airtrumps = new ArrayList<Integer>();

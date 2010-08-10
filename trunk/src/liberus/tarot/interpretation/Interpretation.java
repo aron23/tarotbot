@@ -4,23 +4,31 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Pattern;
+
+import android.content.Context;
 
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
+import liberus.tarot.querant.Querant;
 
 
 public abstract class Interpretation {
 	protected static Integer[] cards = new Integer[78];
-	
-	
-	
+	public static Querant myQuerant;
+	public static Pattern suitpat = Pattern.compile("(Wands|Cups|Swords|Pentacles)");
+	public static Deck myDeck;
 	
 	public Interpretation(Deck deck) {
-		
+		myDeck = deck;
 	}
-
-	public abstract ArrayList<HashMap<String,String>> findMeaning();
-	
+		
+	public void setQuerant(Querant q) {
+		myQuerant = q;
+	}
+	public Querant getQuerant() {
+		return myQuerant;
+	}
 	public static int getCard(int index) {
 		switch (index) {
 			case 0:return R.drawable.the_fool_00;

@@ -27,6 +27,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -34,6 +35,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -44,6 +46,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -72,11 +75,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private Spinner statusspin;
 	private Button initbutton;
 
-	String whatUrl = "http://liber.us/tarotbot/what-is-this";
-	String howUrl = "http://liber.us/tarotbot/how-does-it-work";
-	String tarotUrl = "http://liber.us/tarotbot/what-is-tarot";
-	String updatesUrl = "http://liber.us/tarotbot/updates";
-	String[] helpUrls = new String[]{whatUrl,howUrl,tarotUrl,updatesUrl};
+	
 	
 	private Querant aq;
 	//private RelativeLayout mainlayout;
@@ -127,32 +126,25 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	public boolean loaded = false;
 	private boolean helping;
 	private Spread mySpread;
-	private String[] chaosStar = new String[] {"red: external conflicts",
-												"orange: mental state",
-												"purple: sex,passion",
-												"yellow: ego,self confidence",
-												"green: love,relationships",
-												"blue: wealth",
-												"black: self destructive habits",
-												"octarine: magical self"};
 	
-	private String[] celticCross = new String[] {"heart of the matter",
-			"opposing factor",
-			"root cause",
-			"past",
-			"attitudes and beliefs",
-			"future",
-			"you as you are",
-			"outside environment",
-			"guidance",
-			"outcome"};
+	String whatUrl;
+	String howUrl;
+	String tarotUrl;
+	String updatesUrl;
+	String[] helpUrls;
+	Resources res;
+	private String[] chaosStar;
+	
+	private String[] celticCross;
+	
 	private boolean spreading = true;
 	private String[] spreadLabels;
-	private int spreadNum;
+
 	private String style = "";
 	private Spinner spreadspin;
 	public static boolean cardfortheday = false;
-
+	private SharedPreferences.Editor readingPrefsEd;
+	private boolean init = false;
 
 
 	/** Called when the activity is first created. */
@@ -161,42 +153,62 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		super.onCreate(savedInstanceState);
 
 		setFullscreen();
-
-		inflater = LayoutInflater.from(this);
-		
-		gestureDetector = new GestureDetector(new MyGestureDetector());
-		gestureListener = new View.OnTouchListener() {
-			public boolean onTouch(View v, MotionEvent event) {
-				if (gestureDetector.onTouchEvent(event)) {
-					return true;
-				}
-				return false;
-			} 
-		};
-		
 		setContentView(R.layout.tarotbotstart);
+		inflater = LayoutInflater.from(this);
+		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
+		readingPrefsEd = readingPrefs.edit();
+		gestureDetector = new GestureDetector(new MyGestureDetector());
+		gestureListener = getGestureListener(gestureDetector);
+
+		initText();		
+		initSpreadChoice();		
+	}
+	
+	private void initText() {
+		whatUrl = getString(R.string.whatUrl);
+		howUrl = getString(R.string.howUrl);
+		tarotUrl = getString(R.string.tarotUrl);
+		updatesUrl = getString(R.string.updatesUrl);
+		helpUrls = new String[]{whatUrl,howUrl,tarotUrl,updatesUrl};
+		res = getResources();
+		chaosStar = res.getStringArray(R.array.chaosStar);
+		
+		celticCross = res.getStringArray(R.array.celticCross);
+	}
+
+	private void initSpreadChoice() {
+		init = true;
 		spreadspin = (Spinner) findViewById(R.id.spreadspinner);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
 				this, R.array.spread_array, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spreadspin.setAdapter(adapter);
+		spreadspin.setSelection(readingPrefs.getInt("spread", 0));
 		spreadspin.setOnItemSelectedListener(this);
 		spreadspin.setContentDescription("spread");
 		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
+		reversalCheck.setChecked(readingPrefs.getBoolean("reversal", false));
+		reversalCheck.setOnClickListener(this);
+		reversalCheck.setContentDescription("reversalPref");
 		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
 		
 		
 		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
 		initbutton.setOnClickListener(this);
-
-//		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//		builder.setTitle("Select a spread");
-//		builder.setItems(items, this);
-//		AlertDialog alert = builder.create();
-//		alert.show();
-		
+		init = false;
 	}
-	
+
+	private OnTouchListener getGestureListener(final GestureDetector gd) {
+		return new View.OnTouchListener() {
+			public boolean onTouch(View v, MotionEvent event) {
+				if (gd.onTouchEvent(event)) {
+					return true;
+				}
+				return false;
+			} 
+		};
+	}
+
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
@@ -209,12 +221,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				Toast.makeText(this, R.string.landscapenavigation, Toast.LENGTH_LONG).show();
 	  } else if (spreading) {
 		  redisplaySpreadStart();
-		  //setContentView(R.layout.botastart);
 	  } else {
 		  redisplayMain();
-		  //setContentView(R.layout.botastart);
 	  }
-	  //setContentView(R.layout.myLayout);
 	}
 
 	private void redisplaySpreadStart() {
@@ -238,8 +247,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		setContentView(R.layout.botastart);		
 		
 		querantPrefs = getSharedPreferences("tarotbot", 0);
-		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
-		
+				
 		sharing = false;
 		
 		statusspin = (Spinner) findViewById(R.id.statusspinner);
@@ -253,8 +261,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		statusspin.setContentDescription("querant");
 		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
 
-		
-		
 		Calendar today = Calendar.getInstance();
 		 
 		if (querantPrefs.contains("birthyear"))
@@ -262,9 +268,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		else
 			dp.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), this);
 
-		//dp.init(1976, 9, 4, this);
-
-		
 		changeQuerant();		
 		
 		if (canBeRestored()) {
@@ -288,7 +291,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		setContentView(R.layout.seqstart);		
 		
 		querantPrefs = getSharedPreferences("tarotbot", 0);
-		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
+		
 		
 		sharing = false;
 
@@ -392,14 +395,14 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	
 	private void launchHelp() {
 		helping = true;
-		String what = "What is this?";
-		String how = "How does this work?";
-		String tarot = "What is tarot?";
-		String updates = "What is next?";
+		String what = getString(R.string.helpwhat);
+		String how = getString(R.string.helphow);
+		String tarot = getString(R.string.helptarot);
+		String updates = getString(R.string.helpupdate);
 		String[] items = new String[]{what,how,tarot,updates};				
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("What do you need to know?");
+		builder.setTitle(getString(R.string.helpprompt));
 		builder.setItems(items, this);
 		AlertDialog alert = builder.create();
 		alert.show();		
@@ -428,7 +431,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		}
 		String[] items = readingLabels.toArray(new String[0]);
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("Select a reading to load");
+		builder.setTitle(getString(R.string.loadprompt));
 		builder.setItems(items, this);
 		AlertDialog alert = builder.create();
 		alert.show();
@@ -563,7 +566,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			showing = inflater.inflate(R.layout.interpretation, null);
 			infotext = (TextView) showing.findViewById(R.id.interpretation);		
-			infotext.setText("\n\n\n\n"+mySpread.myLabels[secondSetIndex] + "\n\n"+interpretation);			
+			infotext.setText(Html.fromHtml("<br/><i>"+mySpread.myLabels[secondSetIndex]+"</i><br/><br/>"+interpretation));			
 			ArrayList<View> toShow = new ArrayList<View>();
 			toShow.add(showing);
 			View v = flipper.getCurrentView();
@@ -573,7 +576,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			View v = flipper.getCurrentView();
 			infotext = (TextView)v.findViewById(R.id.interpretation);		
-			infotext.setText("\n"+mySpread.myLabels[secondSetIndex] + "\n"+interpretation);
+			infotext.setText(Html.fromHtml("<br/><i>"+mySpread.myLabels[secondSetIndex]+"</i><br/><br/>"+interpretation));
 			//((RelativeLayout)v.findViewById(R.id.secondsetlayout)).addView(infotext);
 		}
 		/*closure = (Button) showing.findViewById(R.id.closeinterpretation);
@@ -801,12 +804,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			changeQuerant();
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
 			mySpread = new BotaSpread(myInt);
-			beginSecondStage();
-		} else if (v.equals(this.findViewById(R.id.initseqbutton))) {
-			begun = true;
-			myInt = new BotaInt(new RiderWaiteDeck(), aq);
-			mySpread = new SeqSpread(myInt,spreadNum,spreadLabels);
-			beginSecondStage();//beginReading();	
+			beginSecondStage();	
 		} else if (v.equals(this.findViewById(R.id.initspreadbutton))) {
 			switch (spreadspin.getSelectedItemPosition()) {
 			case 0: {
@@ -818,38 +816,28 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			case 1: {
 				//seqSpread();
 				spreadLabels = celticCross;
-				spreadNum = 10;
 				style = "celtic";
-				spreading=false;
-				
-				secondSetIndex = 0;
-				
-				begun = true;
-				myInt = new BotaInt(new RiderWaiteDeck(), aq);
-				mySpread = new SeqSpread(myInt,spreadNum,spreadLabels);
-				beginSecondStage();
-				return;
 			}
 			case 2: {
 				//seqSpread();
 				spreadLabels = chaosStar;
-				spreadNum = 8;
 				style = "chaos";
-				spreading=false;
-				
-				secondSetIndex = 0;
-				
-				begun = true;
-				myInt = new BotaInt(new RiderWaiteDeck(), aq);
-				mySpread = new SeqSpread(myInt,spreadNum,spreadLabels);
-				beginSecondStage();
-				return;
 			}
 		}
+			spreading=false;
+			
+			secondSetIndex = 0;
+			
 			begun = true;
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
-			mySpread = new SeqSpread(myInt,spreadNum,spreadLabels);
-			beginSecondStage();//beginReading();	
+			mySpread = new SeqSpread(myInt,spreadLabels);
+			beginSecondStage();
+			return;	
+		} else if (v.getContentDescription().equals("reversalPref")) {
+			if (!init) {
+				readingPrefsEd.putBoolean("reversal", reversalCheck.isChecked());
+				readingPrefsEd.commit();
+			}
 		} else
 			incrementSecondSet(secondSetIndex);
 	}
@@ -949,11 +937,11 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				    		mySpread = new BotaSpread(myInt);
 				    		BotaInt.setMyQuerant(new Querant(significator));
 				    	} else if (savedReadings.get(which)[3].equals("celtic")) {
-				    		mySpread = new SeqSpread(myInt,10,celticCross);
+				    		mySpread = new SeqSpread(myInt,celticCross);
 				    		Spread.circles = Spread.working;
 				    	} else if (savedReadings.get(which)[3].equals("chaos")) {
 				    		Spread.circles = Spread.working;
-				    		mySpread = new SeqSpread(myInt,8,chaosStar);
+				    		mySpread = new SeqSpread(myInt,chaosStar);
 				    	}
 				    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
 				    	beginSecondStage();
@@ -966,12 +954,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 					String url = WebUtils.bitly(saveResult);
 					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}
-		} else {
-			switch (which) {
-				case -1: beginSecondStage(); break;
-				case -2: Toast.makeText(this, "The cards are not ready to answer your question wait at least two hours before trying again.", Toast.LENGTH_LONG).show(); break;
-			}		
-		}
+		} 
 	}
 	
 
@@ -981,7 +964,10 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			statusselected = statusspin.getSelectedItemPosition();
 			changeQuerant();
 		} else if (spinner.getContentDescription().equals("spread")) {
-			
+			if (!init && spreadspin != null) {
+				readingPrefsEd.putInt("spread", spreadspin.getSelectedItemPosition());
+				readingPrefsEd.commit();
+			}
 		}
 
 	}
@@ -1037,22 +1023,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			ed.putInt("querantstatus", statusselected);
 			ed.putInt("activeCard", secondSetIndex);		
 			ed.commit();
-		}
-		/*if (flipper != null) {
-			SharedPreferences.Editor read = readingPrefs.edit();
-			read.clear();
-			for(Integer card: BotaSpread.working) 
-				read.putInt("position"+String.valueOf(BotaSpread.working.indexOf(card)), card);	
-			
-			for(int i = 0; i < BotaInt.myDeck.reversed.length; i++) 
-				read.putBoolean("reversal"+String.valueOf(i), BotaInt.isReversed(i));
-			
-			read.commit();
-			flipper.stopFlipping();
-		}*/
-		
-		
-				
+		}			
 	}
 
 	
@@ -1102,52 +1073,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	
 	public void preFlip(View v) {
 		
-				/*ImageView lefty = (ImageView)v.findViewById(R.id.left);
-				ImageView ls = (ImageView)v.findViewById(R.id.leftshadow);
-				{
-					
-					Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(BotaInt.getCardToTheLeft(flipdex.get(flipper.indexOfChild(v)))));
-					int w = bmp.getWidth();
-					int h = bmp.getHeight();
-					Matrix mtx = new Matrix();
-					mtx.postScale(.3f, .3f);
-		
-					if (BotaInt.myDeck.reversed[BotaInt.getCardToTheLeft(flipdex.get(flipper.indexOfChild(v)))]) 			
-						mtx.postRotate(180);
-		
-					Bitmap scaledBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-					BitmapDrawable bmd = new BitmapDrawable(scaledBMP);
-					lefty.setBackgroundDrawable(bmd);
-					//lefty.setClickable(true);
-					//lefty.setOnClickListener(this);
-					ls.setBackgroundColor(Color.BLACK);
-					ls.setMinimumHeight(bmd.getBitmap().getHeight());
-					ls.setMinimumWidth(bmd.getBitmap().getWidth());
-					ls.setAlpha(100);
-				}
-		
-				ImageView righty = (ImageView)v.findViewById(R.id.right);
-				ImageView rs = (ImageView)v.findViewById(R.id.rightshadow);
-				{
-					
-					Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(BotaInt.getCardToTheRight(flipdex.get(flipper.indexOfChild(v)))));
-					int w = bmp.getWidth();
-					int h = bmp.getHeight();
-					Matrix mtx = new Matrix();
-					mtx.postScale(.3f, .3f);
-					if (BotaInt.myDeck.reversed[BotaInt.getCardToTheRight(flipdex.get(flipper.indexOfChild(v)))]) 			
-						mtx.postRotate(180);
-		
-					Bitmap scaledBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-					BitmapDrawable bmd = new BitmapDrawable(scaledBMP);	
-					righty.setBackgroundDrawable(bmd);
-					//righty.setClickable(true);
-					//righty.setOnClickListener(this);
-					rs.setBackgroundColor(Color.BLACK);
-					rs.setMinimumHeight(bmd.getBitmap().getHeight());
-					rs.setMinimumWidth(bmd.getBitmap().getWidth());
-					rs.setAlpha(100);
-				}*/
 				ImageView divine = (ImageView) v.findViewById(R.id.divine);
 				if (BotaInt.myDeck.reversed[flipdex.get(flipper.indexOfChild(v))]) {			
 					

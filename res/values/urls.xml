@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="whatUrl">http://liber.us/tarotbot/what-is-this</string>
+	<string name="howUrl">http://liber.us/tarotbot/how-does-it-work</string>
+	<string name="tarotUrl">http://liber.us/tarotbot/what-is-tarot</string>
+	<string name="updatesUrl">http://liber.us/tarotbot/updates</string>
+</resources>

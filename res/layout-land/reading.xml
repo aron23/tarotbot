@@ -14,5 +14,8 @@
     android:layout_height="300dip"
     android:scaleType="fitXY"
     />    
-    <include android:id="@+id/includedinterpretation" layout="@layout/interpretation" />
+<include 
+	android:id="@+id/includedinterpretation" 
+	layout="@layout/interpretation" 
+	/>
 </RelativeLayout>

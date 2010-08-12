@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="liberus.tarot.android"
-      android:versionName="1.18" android:versionCode="18">
+      android:versionCode="19" android:versionName="1.19">
     <application android:icon="@drawable/logo" android:label="@string/app_name" android:debuggable="false">
         <activity android:name=".TarotBotActivity"
                   android:label="@string/app_name"
@@ -14,7 +14,7 @@
 				<action android:name="android.intent.action.VIEW"></action>
 				<category android:name="android.intent.category.DEFAULT"></category>
 				<category android:name="android.intent.category.BROWSABLE"></category>
-				<data android:scheme="liberus.tarot.android.TarotBotActivity" android:host="twitter"></data>
+				<data android:scheme="liberus.tarot.android.TarotBotActivity"></data>
 			</intent-filter>
         </activity>
         <activity android:name=".CardForTheDayActivity"

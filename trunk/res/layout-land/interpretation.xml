@@ -4,6 +4,8 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
     >
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
@@ -24,8 +26,8 @@
 	android:layout_marginLeft="168dip"
     android:background="#000000"
     android:textColor="#FFFFFF"
-    android:gravity="center"
-    android:layout_gravity="right"
+    android:gravity="left"
+    android:layout_gravity="left"
     />  
 </RelativeLayout>
 </ScrollView>

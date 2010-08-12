@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="spread_array">
+        <item>BOTA</item>
+        <item>Celtic Cross</item>
+        <item>Chaos Star</item>
+    </string-array>
+	<string-array name="status_array">
+        <item>Single Female</item>
+        <item>Single Male</item>
+        <item>Partnered Female</item>
+        <item>Partnered Male</item>
+    </string-array>
+	<string-array name="chaosStar">
+        <item>red: external conflicts</item>
+        <item>orange: mental state</item>
+        <item>purple: sex,passion</item>
+        <item>yellow: ego,self confidence</item>
+        <item>green: love,relationships</item>
+        <item>blue: wealth</item>
+        <item>black: self destructive habits</item>
+        <item>octarine: magical self</item>
+    </string-array>
+    <string-array name="celticCross">
+        <item>heart of the matter</item>
+        <item>opposing factor</item>
+        <item>root cause</item>
+        <item>past</item>
+        <item>attitudes and beliefs</item>
+        <item>future</item>
+        <item>you as you are</item>
+        <item>outside environment</item>
+        <item>guidance</item>
+        <item>outcome</item>
+    </string-array>
+</resources>

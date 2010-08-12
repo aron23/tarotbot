@@ -4,6 +4,8 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
     >
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
@@ -25,17 +27,6 @@
     android:gravity="center"
     android:layout_gravity="bottom"
     />  
-<ImageView 
-	android:id="@+id/liberus" 
-	android:src="@drawable/logo"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:background="#000000"
-    android:gravity="center"
-    android:layout_marginTop="15px"
-    android:layout_gravity="top"
-    />
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

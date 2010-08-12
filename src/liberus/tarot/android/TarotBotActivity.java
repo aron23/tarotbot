@@ -185,11 +185,11 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		spreadspin.setAdapter(adapter);
 		spreadspin.setSelection(readingPrefs.getInt("spread", 0));
 		spreadspin.setOnItemSelectedListener(this);
-		spreadspin.setContentDescription("spread");
+		//spreadspin.setContentDescription("spread");
 		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		reversalCheck.setChecked(readingPrefs.getBoolean("reversal", false));
 		reversalCheck.setOnClickListener(this);
-		reversalCheck.setContentDescription("reversalPref");
+		//reversalCheck.setContentDescription("reversalPref");
 		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
 		
 		
@@ -234,7 +234,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spreadspin.setAdapter(adapter);
 		spreadspin.setOnItemSelectedListener(this);
-		spreadspin.setContentDescription("status");
+		//spreadspin.setContentDescription("spread");
 		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
 		
@@ -258,7 +258,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		statusspin.setOnItemSelectedListener(this);
 		statusspin.setSelection(3);
 		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
-		statusspin.setContentDescription("querant");
+		//statusspin.setContentDescription("querant");
 		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
 
 		Calendar today = Calendar.getInstance();
@@ -833,7 +833,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			mySpread = new SeqSpread(myInt,spreadLabels);
 			beginSecondStage();
 			return;	
-		} else if (v.getContentDescription().equals("reversalPref")) {
+		} else if (v.equals(this.findViewById(R.id.reversalcheck))) {
 			if (!init) {
 				readingPrefsEd.putBoolean("reversal", reversalCheck.isChecked());
 				readingPrefsEd.commit();
@@ -958,12 +958,12 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 	
 
-	public void onItemSelected(AdapterView<?> spinner, View arg1, int arg2,
+	public void onItemSelected(AdapterView<?> spinnerAdapter, View spinner, int arg2,
 			long arg3) {
-		if (spinner.getContentDescription().equals("querant")) {
+		if (spinner.equals(this.findViewById(R.id.statusspinner))) {//.getContentDescription().equals("querant")
 			statusselected = statusspin.getSelectedItemPosition();
 			changeQuerant();
-		} else if (spinner.getContentDescription().equals("spread")) {
+		} else if (spinner.equals(this.findViewById(R.id.spreadspinner))) {
 			if (!init && spreadspin != null) {
 				readingPrefsEd.putInt("spread", spreadspin.getSelectedItemPosition());
 				readingPrefsEd.commit();

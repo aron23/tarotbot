@@ -184,12 +184,34 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spreadspin.setAdapter(adapter);
 		spreadspin.setSelection(readingPrefs.getInt("spread", 0));
-		spreadspin.setOnItemSelectedListener(this);
+		
 		//spreadspin.setContentDescription("spread");
 		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		reversalCheck.setChecked(readingPrefs.getBoolean("reversal", false));
-		reversalCheck.setOnClickListener(this);
 		//reversalCheck.setContentDescription("reversalPref");
+		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
+		
+		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
+		
+		spreadspin.setOnItemSelectedListener(this);
+		reversalCheck.setOnClickListener(this);
+		initbutton.setOnClickListener(this);
+		
+		init = false;
+	}
+	
+	private void redisplaySpreadStart() {
+		init = true;
+		setContentView(R.layout.tarotbotstart);
+		spreadspin = (Spinner) findViewById(R.id.spreadspinner);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+				this, R.array.spread_array, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spreadspin.setAdapter(adapter);
+		spreadspin.setSelection(readingPrefs.getInt("spread", 0));
+		spreadspin.setOnItemSelectedListener(this);
+		//spreadspin.setContentDescription("spread");
+		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
 		
 		
@@ -226,22 +248,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	  }
 	}
 
-	private void redisplaySpreadStart() {
-		setContentView(R.layout.tarotbotstart);
-		spreadspin = (Spinner) findViewById(R.id.spreadspinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.spread_array, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spreadspin.setAdapter(adapter);
-		spreadspin.setOnItemSelectedListener(this);
-		//spreadspin.setContentDescription("spread");
-		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
-		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
-		
-		
-		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
-		initbutton.setOnClickListener(this);
-	}
+	
 
 	public void botaSpread() {
 		setContentView(R.layout.botastart);		
@@ -553,11 +560,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		//Toast.makeText(this, dp.getMonth(), Toast.LENGTH_SHORT).show();
 		aq = new Querant(male,partnered,new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth()));
 		
-
-		//mainlayout.setBackgroundDrawable(getSignificatorImage(aq));
-		//if(firstpass)
-			//showInfo();
-		
 	}
 	private void showInfo(int type) {
 		if (type == Configuration.ORIENTATION_PORTRAIT) {
@@ -577,12 +579,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			View v = flipper.getCurrentView();
 			infotext = (TextView)v.findViewById(R.id.interpretation);		
 			infotext.setText(Html.fromHtml("<br/><i>"+mySpread.myLabels[secondSetIndex]+"</i><br/><br/>"+interpretation));
-			//((RelativeLayout)v.findViewById(R.id.secondsetlayout)).addView(infotext);
-		}
-		/*closure = (Button) showing.findViewById(R.id.closeinterpretation);
-		closure.setClickable(true);
-		closure.setOnClickListener(this);*/
-				
+		}			
 	}
 
 	protected void setFullscreen() { 
@@ -636,6 +633,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 	private void beginSecondStage() {
 		firstpass=false;
+		secondSetIndex=0;
 		if (!reversalCheck.isChecked() &! loaded) {
 			BotaInt.myDeck.reversed = BotaInt.myDeck.noreversal;
 		} else if (!loaded) {
@@ -670,7 +668,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
 			divine.setClickable(true);
 			divine.setOnTouchListener(gestureListener);
-			//divine.setOnClickListener(this);									
+			activeView.setOnTouchListener(gestureListener);								
 			
 			flipper.addView(activeView);
 			type.add(0);
@@ -709,40 +707,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		
 	}
 
-	private void redisplayMain() {
-		View activeView = inflater.inflate(R.layout.botastart, null);
-		setContentView(activeView);
-		
-		statusspin = (Spinner) findViewById(R.id.statusspinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.status_array, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		statusspin.setAdapter(adapter);
-		statusspin.setOnItemSelectedListener(this);
-		statusspin.setSelection(3);
-		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
-
-		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
-
-		Calendar today = Calendar.getInstance();
-		 
-		if (querantPrefs.contains("birthyear"))
-			dp.init(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR)), querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)), querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH)), this);        
-		else
-			dp.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), this);
-		
-		
-		
-			secondSetIndex = 0;
-			laidout.add((RelativeLayout) this.findViewById(R.id.mainlayout));			
-			((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
-			
-	
-			initbutton = (Button) this.findViewById(R.id.initbotabutton);
-			initbutton.setOnClickListener(this);
-		
-	}
-	
 	private void redisplaySecondStage(int indexin) {
 		setContentView(R.layout.transition);
 		flipper = (ViewFlipper) this.findViewById(R.id.flipper);
@@ -792,6 +756,42 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		
 		
 	}
+	
+	private void redisplayMain() {
+		View activeView = inflater.inflate(R.layout.botastart, null);
+		setContentView(activeView);
+		
+		statusspin = (Spinner) findViewById(R.id.statusspinner);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+				this, R.array.status_array, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		statusspin.setAdapter(adapter);
+		statusspin.setOnItemSelectedListener(this);
+		statusspin.setSelection(3);
+		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
+
+		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
+
+		Calendar today = Calendar.getInstance();
+		 
+		if (querantPrefs.contains("birthyear"))
+			dp.init(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR)), querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)), querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH)), this);        
+		else
+			dp.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), this);
+		
+		
+		
+			secondSetIndex = 0;
+			laidout.add((RelativeLayout) this.findViewById(R.id.mainlayout));			
+			((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
+			
+	
+			initbutton = (Button) this.findViewById(R.id.initbotabutton);
+			initbutton.setOnClickListener(this);
+		
+	}
+	
+
 
 	private int getRandomCard() {
 		return BotaInt.getCard((int)(Math.random() * 78));
@@ -817,11 +817,13 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				//seqSpread();
 				spreadLabels = celticCross;
 				style = "celtic";
+				break;
 			}
 			case 2: {
 				//seqSpread();
 				spreadLabels = chaosStar;
 				style = "chaos";
+				break;
 			}
 		}
 			spreading=false;
@@ -960,10 +962,10 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	public void onItemSelected(AdapterView<?> spinnerAdapter, View spinner, int arg2,
 			long arg3) {
-		if (spinner.equals(this.findViewById(R.id.statusspinner))) {//.getContentDescription().equals("querant")
+		if (spinnerAdapter.equals(this.findViewById(R.id.statusspinner))) {//.getContentDescription().equals("querant")
 			statusselected = statusspin.getSelectedItemPosition();
 			changeQuerant();
-		} else if (spinner.equals(this.findViewById(R.id.spreadspinner))) {
+		} else if (spinnerAdapter.equals(this.findViewById(R.id.spreadspinner))) {
 			if (!init && spreadspin != null) {
 				readingPrefsEd.putInt("spread", spreadspin.getSelectedItemPosition());
 				readingPrefsEd.commit();

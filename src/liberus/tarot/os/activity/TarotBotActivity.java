@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
-import liberus.tarot.os.R;
+import liberus.tarot.android.R;
 import liberus.tarot.os.service.IDeckService;
 import liberus.tarot.querant.Querant;
 import liberus.tarot.spread.BotaSpread;

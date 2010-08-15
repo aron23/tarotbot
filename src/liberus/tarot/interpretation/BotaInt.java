@@ -14,7 +14,7 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
-import liberus.tarot.os.R;
+import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.os.activity.TarotBotActivity;

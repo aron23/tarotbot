@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 
-import liberus.tarot.android.R;
+import liberus.tarot.os.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;

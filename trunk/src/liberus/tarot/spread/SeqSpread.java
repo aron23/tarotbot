@@ -38,6 +38,7 @@ public class SeqSpread extends Spread {
 	}
 
 	public String getInterpretation(int circled, Context appcontext) {
+		
 		int pos = working.indexOf(circled);
 		String context = getContext(circled, appcontext);
 		String returner = "";

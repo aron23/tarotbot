@@ -1,12 +1,13 @@
-package liberus.tarot.android;
+package liberus.tarot.os.widget;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import liberus.tarot.android.R;
-import liberus.tarot.android.R.id;
-import liberus.tarot.android.R.layout;
+import liberus.tarot.os.R;
+import liberus.tarot.os.R.id;
+import liberus.tarot.os.R.layout;
+import liberus.tarot.os.activity.CardForTheDayActivity;
 import liberus.tarot.interpretation.BotaInt;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -17,11 +18,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.net.Uri;
-import android.telephony.TelephonyManager;
 import android.widget.RemoteViews;
 
-public class TarotBotLargeWidget extends AppWidgetProvider
+public class TarotBotMediumWidget extends AppWidgetProvider
 {    
 	RemoteViews remoteViews;
 	AppWidgetManager appWidgetManager;
@@ -34,7 +33,7 @@ public class TarotBotLargeWidget extends AppWidgetProvider
 		int[] appWidgetIds) {
 		this.appWidgetManager = appWidgetManager;
 		remoteViews = new RemoteViews(context.getPackageName(), R.layout.individual);
-		thisWidget = new ComponentName(context, TarotBotLargeWidget.class);
+		thisWidget = new ComponentName(context, TarotBotMediumWidget.class);
 		
 		//remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay());
 		/*if (BotaInt.randomReversed(context)) {			
@@ -51,7 +50,7 @@ public class TarotBotLargeWidget extends AppWidgetProvider
 		
 		
 //		Intent i = new Intent(context,TarotBotActivity.class); 
-//        //i.setClassName("liberus.tarot.android", "liberus.tarot.android.TarotBotActivity"); 
+//        //i.setClassName("liberus.tarot.os", "liberus.tarot.os.TarotBotActivity"); 
 //        PendingIntent myPI = PendingIntent.getService(context, 0, i, 0); 
 //        //intent to start service 
 //

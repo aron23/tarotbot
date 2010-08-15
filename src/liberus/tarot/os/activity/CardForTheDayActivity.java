@@ -1,14 +1,14 @@
-package liberus.tarot.android;
+package liberus.tarot.os.activity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import liberus.tarot.android.R;
-import liberus.tarot.android.R.id;
-import liberus.tarot.android.R.layout;
-import liberus.tarot.android.TarotBotActivity.MyGestureDetector;
+import liberus.tarot.os.R;
+import liberus.tarot.os.R.id;
+import liberus.tarot.os.R.layout;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.os.activity.TarotBotActivity.MyGestureDetector;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;

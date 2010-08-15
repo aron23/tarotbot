@@ -14,10 +14,10 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
-import liberus.tarot.android.R;
-import liberus.tarot.android.TarotBotActivity;
+import liberus.tarot.os.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
+import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.querant.Querant;
 
 

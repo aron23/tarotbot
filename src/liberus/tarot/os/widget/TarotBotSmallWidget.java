@@ -1,12 +1,13 @@
-package liberus.tarot.android;
+package liberus.tarot.os.widget;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import liberus.tarot.android.R;
-import liberus.tarot.android.R.id;
-import liberus.tarot.android.R.layout;
+import liberus.tarot.os.R;
+import liberus.tarot.os.R.id;
+import liberus.tarot.os.R.layout;
+import liberus.tarot.os.activity.CardForTheDayActivity;
 import liberus.tarot.interpretation.BotaInt;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -49,7 +50,7 @@ public class TarotBotSmallWidget extends AppWidgetProvider
 		
 		
 //		Intent i = new Intent(context,TarotBotActivity.class); 
-//        //i.setClassName("liberus.tarot.android", "liberus.tarot.android.TarotBotActivity"); 
+//        //i.setClassName("liberus.tarot.os", "liberus.tarot.os.TarotBotActivity"); 
 //        PendingIntent myPI = PendingIntent.getService(context, 0, i, 0); 
 //        //intent to start service 
 //

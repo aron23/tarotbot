@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 import android.content.Context;
 
-import liberus.tarot.os.R;
+import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.querant.Querant;
 

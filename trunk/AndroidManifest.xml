@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="liberus.tarot.android" android:versionCode="24" android:versionName="1.24">
+      package="liberus.tarot.android" android:versionName="1.25" android:versionCode="25">
     <application android:icon="@drawable/logo" android:label="@string/app_name" android:debuggable="false">
         <activity android:name=".TarotBotBeta"
                   android:label="@string/app_name"
@@ -20,10 +20,6 @@
            		android:screenOrientation="portrait"
                   android:label="card for the day">
         </activity>
-        <service android:name="liberus.tarot.os.service.DeckService">
-        	<intent-filter>
-        		<action android:name="liberus.tarot.actions.ACTION_VIEWTAROT"/>		</intent-filter>
-        </service>
          
         <receiver android:name="liberus.tarot.os.widget.TarotBotLargeWidget" android:label="TarotBot Card of the Day 4x4">
             <intent-filter>

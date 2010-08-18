@@ -17,6 +17,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -99,7 +100,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
 		String interpretation = BotaInt.getGeneralInterpretation(i,reverse,getApplicationContext());
 		showing = inflater.inflate(R.layout.interpretation, null);
 		TextView infotext = (TextView) showing.findViewById(R.id.interpretation);		
-		infotext.setText("\n\n\n\n"+interpretation);
+		infotext.setText(Html.fromHtml(interpretation));
 		/*closure = (Button) showing.findViewById(R.id.closeinterpretation);
 		closure.setClickable(true);
 

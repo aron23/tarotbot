@@ -55,47 +55,7 @@ public class BotaInt extends Interpretation {
 		loaded = true;
 	}
 	
-	public static String getGeneralInterpretation(int i, boolean reverse, Context context) {
-		String returner = "\n\n";
-		
-		if (getTitle(i) > 0 && context.getString(getTitle(i)).length() > 0)
-			returner += context.getString(getTitle(i))+"\n\n";
-		if (getJourney(i) > 0 && context.getString(getJourney(i)).length() > 0)
-			returner += context.getString(getJourney(i))+"\n";
-		if (getTimePeriod(i) > 0 && context.getString(getTimePeriod(i)).length() > 0)
-			returner += "time period: "+context.getString(getTimePeriod(i))+"\n";
-		if (getAstrology(i) > 0 && context.getString(getAstrology(i)).length() > 0)
-			returner += "astrology: "+context.getString(getAstrology(i))+"\n";
-		if (getArchetype(i) > 0 && context.getString(getArchetype(i)).length() > 0)
-			returner += "Jungian archetype: "+context.getString(getArchetype(i))+", ";
-		if (getKeyword(i) > 0 && context.getString(getKeyword(i)).length() > 0)
-			returner += "keyword: "+context.getString(getKeyword(i))+"\n";
-		if (getElement(i) > 0 && context.getString(getElement(i)).length() > 0)
-			returner += "element: "+context.getString(getElement(i))+"\n";
-		if (getHebrew(i) > 0 && context.getString(getHebrew(i)).length() > 0)
-			returner += "hebrew: "+context.getString(getHebrew(i))+"\n";
-		returner += "\n\n";
-		
-		if (context.getString(getOccultTitle(i)).length() > 0)
-			returner += context.getString(getOccultTitle(i))+"\n\n";
-		if (context.getString(getAbst(i)).length() > 0)
-			returner += context.getString(getAbst(i))+"\n\n";
-		if (context.getString(getMeanings(i)).length() > 0)
-			returner += context.getString(getMeanings(i))+"\n\n";
-		if (context.getString(getInSpiritualMatters(i)).length() > 0)
-			returner += context.getString(R.string.spiritual_matters_label)+":\n"+context.getString(getInSpiritualMatters(i))+"\n\n";
-		if (context.getString(getInMaterialMatters(i)).length() > 0)
-			returner += context.getString(R.string.material_matters_label)+":\n"+context.getString(getInMaterialMatters(i))+"\n\n";
-		if (context.getString(getWellDignified(i)).length() > 0 &! reverse)
-			returner += context.getString(R.string.strengthened_by_label)+context.getString(getWellDignified(i))+"\n\n";
-		if (context.getString(getIllDignified(i)).length() > 0 && reverse)
-			returner += context.getString(R.string.impacted_by_label)+context.getString(getIllDignified(i))+"\n\n";
-		
-		if (context.getString(getActions(i)).length() > 0)
-			returner += context.getString(R.string.related_label)+context.getString(getActions(i))+"\n\n";
-		
-		return returner;
-	}
+
 	
 	public static boolean isWellDignified(int[] context) {
 		return (context[0] == 1 || context[1] == 1);

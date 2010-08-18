@@ -83,25 +83,25 @@ public class BotaInt extends Interpretation {
 		if (context.getString(getMeanings(i)).length() > 0)
 			returner += context.getString(getMeanings(i))+"\n\n";
 		if (context.getString(getInSpiritualMatters(i)).length() > 0)
-			returner += "in spiritual matters:\n"+context.getString(getInSpiritualMatters(i))+"\n\n";
+			returner += context.getString(R.string.spiritual_matters_label)+":\n"+context.getString(getInSpiritualMatters(i))+"\n\n";
 		if (context.getString(getInMaterialMatters(i)).length() > 0)
-			returner += "in material matters:\n"+context.getString(getInMaterialMatters(i))+"\n\n";
+			returner += context.getString(R.string.material_matters_label)+":\n"+context.getString(getInMaterialMatters(i))+"\n\n";
 		if (context.getString(getWellDignified(i)).length() > 0 &! reverse)
-			returner += "When stregthened by surrounding cards: "+context.getString(getWellDignified(i))+"\n\n";
+			returner += context.getString(R.string.strengthened_by_label)+context.getString(getWellDignified(i))+"\n\n";
 		if (context.getString(getIllDignified(i)).length() > 0 && reverse)
-			returner += "When negatively impacted by surrounding cards: "+context.getString(getIllDignified(i))+"\n\n";
+			returner += context.getString(R.string.impacted_by_label)+context.getString(getIllDignified(i))+"\n\n";
 		
 		if (context.getString(getActions(i)).length() > 0)
-			returner += "related behaviors: "+context.getString(getActions(i))+"\n\n";
+			returner += context.getString(R.string.related_label)+context.getString(getActions(i))+"\n\n";
 		
 		return returner;
 	}
 	
-	public static boolean isWellDignified(String context) {
-		return (context.contains("Well-Dignified"));
+	public static boolean isWellDignified(int[] context) {
+		return (context[0] == 1 || context[1] == 1);
 	}
-	public static boolean isIllDignified(String context) {
-		return (context.contains("Ill-Dignified"));
+	public static boolean isIllDignified(int[] context) {
+		return (context[0] == -1 || context[1] == -1);
 	}
 
 	public static boolean isReversed(int i) {

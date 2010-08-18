@@ -75,10 +75,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	public IDeckService deckService;
 	
 	private Querant aq;
-	//private RelativeLayout mainlayout;
 	private boolean male = false;
 	private boolean partnered = false;
-	private boolean unselected = true;
 	private boolean firstpass=true;
 
 	private static int secondSetIndex=79;
@@ -93,13 +91,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private static final int MENU_HELP = 3;
 	private GestureDetector gestureDetector;
 	View.OnTouchListener gestureListener;
-	//private ViewFlipper display;
 	protected LayoutInflater inflater;
 	protected View showing;
-	//private RelativeLayout wasShowing;
 	private TextView infotext;
-	private Button agreebutton;
-	private Button disagreebutton;
 	protected TextView closure;
 
 	private SharedPreferences querantPrefs;
@@ -116,7 +110,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private int myRandomCard;
 	private CheckBox reversalCheck;
 	private boolean sharing;
-	private ViewFlipper oldFlipper;
+
 	private String saveResult;
 	private boolean begun = false;
 	private ArrayList<String[]> savedReadings;
@@ -161,7 +155,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		readingPrefsEd = readingPrefs.edit();
 		gestureDetector = new GestureDetector(new MyGestureDetector());
 		gestureListener = getGestureListener(gestureDetector);
-		initDeck();
+		//initDeck();
 		initText();		
 		initSpreadChoice();		
 	}
@@ -171,7 +165,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		    conn = new DeckServiceConnection();
 		    
 		    Intent i = new Intent("liberus.tarot.actions.ACTION_VIEWTAROT");
-		    bindService(i, conn, Context.BIND_AUTO_CREATE);//Intent.createChooser(i, "choose a deck")
+		    bindService(i, conn, Context.BIND_AUTO_CREATE);
 		  } 
 	}
 
@@ -200,10 +194,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		spreadspin.setAdapter(adapter);
 		spreadspin.setSelection(readingPrefs.getInt("spread", 0));
 		
-		//spreadspin.setContentDescription("spread");
 		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		reversalCheck.setChecked(readingPrefs.getBoolean("reversal", false));
-		//reversalCheck.setContentDescription("reversalPref");
 		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
 		
 		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
@@ -225,7 +217,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		spreadspin.setAdapter(adapter);
 		spreadspin.setSelection(readingPrefs.getInt("spread", 0));
 		spreadspin.setOnItemSelectedListener(this);
-		//spreadspin.setContentDescription("spread");
 		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
 		
@@ -250,7 +241,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
 	  if (!firstpass) {
-		  oldFlipper = flipper;
 		  redisplaySecondStage(secondSetIndex);
 		  if (Spread.circles.size() > 1) {
 			  if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
@@ -282,7 +272,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		statusspin.setOnItemSelectedListener(this);
 		statusspin.setSelection(3);
 		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
-		//statusspin.setContentDescription("querant");
 		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
 
 		Calendar today = Calendar.getInstance();
@@ -363,15 +352,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		secondSetIndex = querantPrefs.getInt("activeCard", 0);
 	}
 
-	/* Creates the menu items */
-	/*@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, MENU_LOAD, 0, R.string.load_menu).setIcon(android.R.drawable.ic_menu_set_as);
-	    menu.add(0, MENU_SAVE, 1, R.string.save_menu).setIcon(android.R.drawable.ic_menu_save);
-	    menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
-	    return true;
-	}*/
-	
+		
 	@Override
 
 	public boolean onPrepareOptionsMenu(Menu menu) {
@@ -707,9 +688,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			//Uri allTitles = Uri.parse("content://liberus.tarot.os.addon.riderwaiteprovider/cards/"+flipdex.get(flipper.indexOfChild(v)));
 			//Cursor c = managedQuery(allTitles, null, null, null, "title desc");
 			Bitmap bmp;
-			try {
-				bmp = BitmapFactory.decodeResource(getResources(), deckService.getCard(flipdex.get(flipper.indexOfChild(v))));
-				//Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(v))));
+			//try {
+				//bmp = BitmapFactory.decodeResource(getResources(), deckService.getCard(flipdex.get(flipper.indexOfChild(v))));
+				bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(v))));
 				int w = bmp.getWidth();
 				int h = bmp.getHeight();
 				Matrix mtx = new Matrix();
@@ -717,26 +698,26 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 				BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
 				divine.setBackgroundDrawable(bmd);
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	
+//			} catch (RemoteException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}	
 
 		} else {
 			//Uri allTitles = Uri.parse("content://liberus.tarot.os.addon.riderwaiteprovider/cards/"+flipdex.get(flipper.indexOfChild(v)));
 		    //Cursor c = managedQuery(allTitles, null, null, null, null);
 		    //c.moveToFirst();
-			try {
-				divine.setBackgroundDrawable(getResources().getDrawable(deckService.getCard(flipdex.get(flipper.indexOfChild(v)))));
-			} catch (NotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			try {
+//				divine.setBackgroundDrawable(getResources().getDrawable(deckService.getCard(flipdex.get(flipper.indexOfChild(v)))));
+//			} catch (NotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (RemoteException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 			//divine.setBackgroundDrawable(getResources().getDrawable(c.getInt(0)));
-			//divine.setBackgroundDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(v)))));
+			divine.setBackgroundDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(v)))));
 		}
 		
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
@@ -780,10 +761,10 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		if (BotaInt.myDeck.reversed[flipdex.get(flipper.indexOfChild(v))]) {			
 			//Uri allTitles = Uri.parse("content://liberus.tarot.os.addon.riderwaiteprovider/cards/"+flipdex.get(flipper.indexOfChild(v)));
 			//Cursor c = managedQuery(allTitles, null, null, null, "title desc");
-			Bitmap bmp;
-			try {
-				bmp = BitmapFactory.decodeResource(getResources(), deckService.getCard(flipdex.get(flipper.indexOfChild(v))));
-				//Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(v))));
+//			Bitmap bmp;
+//			try {
+				//bmp = BitmapFactory.decodeResource(getResources(), deckService.getCard(flipdex.get(flipper.indexOfChild(v))));
+				Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(v))));
 				int w = bmp.getWidth();
 				int h = bmp.getHeight();
 				Matrix mtx = new Matrix();
@@ -791,24 +772,24 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 				BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
 				divine.setBackgroundDrawable(bmd);
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			} catch (RemoteException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 
 		} else {
 			//Uri allTitles = Uri.parse("content://liberus.tarot.os.addon.riderwaiteprovider/cards/"+flipdex.get(flipper.indexOfChild(v)));
 			//Cursor c = managedQuery(allTitles, null, null, null, "title desc");
-			try {
-				divine.setBackgroundDrawable(getResources().getDrawable(deckService.getCard(flipdex.get(flipper.indexOfChild(v)))));
-			} catch (NotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			//divine.setBackgroundDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(v)))));
+//			try {
+//				divine.setBackgroundDrawable(getResources().getDrawable(deckService.getCard(flipdex.get(flipper.indexOfChild(v)))));
+//			} catch (NotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (RemoteException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			divine.setBackgroundDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(v)))));
 		}
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
 			showInfo(getResources().getConfiguration().orientation);
@@ -1179,10 +1160,10 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				if (BotaInt.myDeck.reversed[flipdex.get(flipper.indexOfChild(v))]) {			
 					//Uri allTitles = Uri.parse("content://liberus.tarot.os.addon.riderwaiteprovider/cards/"+flipdex.get(flipper.indexOfChild(v)));
 					//Cursor c = managedQuery(allTitles, null, null, null, "title desc");
-					Bitmap bmp;
-					try {
-						bmp = BitmapFactory.decodeResource(getResources(), deckService.getCard(flipdex.get(flipper.indexOfChild(v))));
-						//Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(v))));
+//					Bitmap bmp;
+//					try {
+//						bmp = BitmapFactory.decodeResource(getResources(), deckService.getCard(flipdex.get(flipper.indexOfChild(v))));
+						Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(v))));
 						int w = bmp.getWidth();
 						int h = bmp.getHeight();
 						Matrix mtx = new Matrix();
@@ -1190,24 +1171,24 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 						Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 						BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
 						divine.setBackgroundDrawable(bmd);
-					} catch (RemoteException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+//					} catch (RemoteException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
 					
 				} else {
 					//Uri allTitles = Uri.parse("content://liberus.tarot.os.addon.riderwaiteprovider/cards/"+flipdex.get(flipper.indexOfChild(v)));
 					//Cursor c = managedQuery(allTitles, null, null, null, "title desc");
-					try {
-						divine.setBackgroundDrawable(getResources().getDrawable(deckService.getCard(flipdex.get(flipper.indexOfChild(v)))));
-					} catch (NotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (RemoteException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					//divine.setBackgroundDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(v)))));
+//					try {
+//						divine.setBackgroundDrawable(getResources().getDrawable(deckService.getCard(flipdex.get(flipper.indexOfChild(v)))));
+//					} catch (NotFoundException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					} catch (RemoteException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+					divine.setBackgroundDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(v)))));
 				}			
 				
 	}

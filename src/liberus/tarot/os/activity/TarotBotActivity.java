@@ -5,11 +5,10 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 
+import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
-import liberus.tarot.android.R;
-import liberus.tarot.os.service.IDeckService;
 import liberus.tarot.querant.Querant;
 import liberus.tarot.spread.BotaSpread;
 import liberus.tarot.spread.SeqSpread;
@@ -17,45 +16,42 @@ import liberus.tarot.spread.Spread;
 import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.content.res.Resources.NotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.RemoteException;
 import android.text.Html;
 import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.GestureDetector.OnGestureListener;
-import android.view.GestureDetector.SimpleOnGestureListener;
-import android.view.View.OnTouchListener;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -63,16 +59,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.DatePicker.OnDateChangedListener;
 
 
 public class TarotBotActivity extends Activity  implements OnClickListener, View.OnClickListener, OnItemSelectedListener, OnDateChangedListener {
 	private DatePicker dp;
 	private Spinner statusspin;
 	private Button initbutton;
-
-	public IDeckService deckService;
 	
 	private Querant aq;
 	private boolean male = false;
@@ -140,7 +132,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private String[] timeArrow;
 	private String[] dialectic;
 	private String[] pentagram;
-	private DeckServiceConnection conn;
 
 
 	/** Called when the activity is first created. */
@@ -158,15 +149,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		//initDeck();
 		initText();		
 		initSpreadChoice();		
-	}
-	
-	private void initDeck() {
-		if( conn == null ) {
-		    conn = new DeckServiceConnection();
-		    
-		    Intent i = new Intent("liberus.tarot.actions.ACTION_VIEWTAROT");
-		    bindService(i, conn, Context.BIND_AUTO_CREATE);
-		  } 
 	}
 
 	private void initText() {
@@ -1213,15 +1195,5 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		return false;
 	}
 	
-	class DeckServiceConnection implements ServiceConnection {
-		
-        public void onServiceConnected(ComponentName className, 
-			IBinder boundService ) {
-        	deckService = IDeckService.Stub.asInterface((IBinder)boundService);
-        }
 
-        public void onServiceDisconnected(ComponentName className) {
-        	deckService = null;
-        }
-    };
 }

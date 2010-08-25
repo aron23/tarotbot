@@ -139,6 +139,8 @@ public abstract class Deck {
 	
 	public Deck() {
 		initDirection();
+		for (int i=0; i < cards.length; i++)
+			cards[i] = i;
 	}
 	public abstract void initDirection();
 	public abstract HashMap<Integer,String> getCards();

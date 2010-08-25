@@ -36,19 +36,15 @@ public abstract class Interpretation {
 		if (getTitle(i) > 0 && context.getString(getTitle(i)).length() > 0)
 			returner += "<big><b>"+context.getString(getTitle(i))+"</b></big><br/>";
 		if (getJourney(i) > 0 && context.getString(getJourney(i)).length() > 0)
-			returner += "<i>"+context.getString(getJourney(i))+"</i><br/>";
-		if (getTimePeriod(i) > 0 && context.getString(getTimePeriod(i)).length() > 0)
-			returner += "<i>"+context.getString(R.string.time_period_label)+":</i> "+context.getString(getTimePeriod(i))+"<br/>";
+			returner += "<i>"+context.getString(getJourney(i))+"</i><br/><br/>";
 		if (getAstrology(i) > 0 && context.getString(getAstrology(i)).length() > 0)
-			returner += "<i>"+context.getString(R.string.astrology_label)+":</i> "+context.getString(getAstrology(i))+"<br/>";
+			returner += "&nbsp;&nbsp;<i>"+context.getString(R.string.astrology_label)+":</i> "+context.getString(getAstrology(i))+"<br/>";
 		if (getArchetype(i) > 0 && context.getString(getArchetype(i)).length() > 0)
-			returner += "<i>"+context.getString(R.string.archetype_label)+":</i> "+context.getString(getArchetype(i))+", ";
+			returner += "&nbsp;&nbsp;<i>"+context.getString(R.string.archetype_label)+":</i> "+context.getString(getArchetype(i))+"<br/>";
 		if (getKeyword(i) > 0 && context.getString(getKeyword(i)).length() > 0)
-			returner += "<i>"+context.getString(R.string.keyword_label)+":</i> "+context.getString(getKeyword(i))+"<br/>";
+			returner += "&nbsp;&nbsp;<i>"+context.getString(R.string.keyword_label)+":</i> "+context.getString(getKeyword(i))+"<br/>";
 		if (getElement(i) > 0 && context.getString(getElement(i)).length() > 0)
-			returner += "<i>"+context.getString(R.string.element_label)+":</i> "+context.getString(getElement(i))+"<br/>";
-		if (getHebrew(i) > 0 && context.getString(getHebrew(i)).length() > 0)
-			returner += "<i>"+context.getString(R.string.hebrew_label)+":</i> "+context.getString(getHebrew(i))+"<br/>";
+			returner += "&nbsp;&nbsp;<i>"+context.getString(R.string.element_label)+":</i> "+context.getString(getElement(i))+"<br/>";
 		returner += "<br/>";
 		
 		if (context.getString(getOccultTitle(i)).length() > 0)
@@ -57,17 +53,6 @@ public abstract class Interpretation {
 			returner += context.getString(getAbst(i))+"<br/><br/>";
 		if (context.getString(getMeanings(i)).length() > 0)
 			returner += context.getString(getMeanings(i))+"<br/><br/>";
-		if (context.getString(getInSpiritualMatters(i)).length() > 0)
-			returner += "<i>"+context.getString(R.string.spiritual_matters_label)+":</i> "+context.getString(getInSpiritualMatters(i))+"<br/>";
-		if (context.getString(getInMaterialMatters(i)).length() > 0)
-			returner += "<i>"+context.getString(R.string.material_matters_label)+":</i> "+context.getString(getInMaterialMatters(i))+"<br/>";
-		if (context.getString(getWellDignified(i)).length() > 0 &! reverse)
-			returner += "<i>"+context.getString(R.string.strengthened_by_label)+":</i> "+context.getString(getWellDignified(i))+"<br/>";
-		if (context.getString(getIllDignified(i)).length() > 0 && reverse)
-			returner += "<i>"+context.getString(R.string.impacted_by_label)+":</i> "+context.getString(getIllDignified(i))+"<br/>";
-		
-		if (context.getString(getActions(i)).length() > 0)
-			returner += "<i>"+context.getString(R.string.related_label)+":</i> "+context.getString(getActions(i))+"<br/>";
 		
 		return returner;
 	}

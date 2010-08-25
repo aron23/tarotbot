@@ -60,7 +60,7 @@ public class SeqSpread extends Spread {
 			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getIllDignified(circled))+"<br/>";
 		else if (BotaInt.getMeanings(circled) > 0 && appcontext.getString(BotaInt.getMeanings(circled)).length() > 0)
 			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getMeanings(circled))+"<br/>";
-		if (BotaInt.getOppositionNumber(circled) > 0) {
+		/*if (BotaInt.getOppositionNumber(circled) > 0) {
 			List oppNumList = Arrays.asList(appcontext.getResources().getIntArray(BotaInt.getOppositionNumber(circled)));
 			String lefty = String.valueOf(getCardToTheLeft(circled));
 			if (getCardToTheLeft(circled) < 10)
@@ -96,7 +96,7 @@ public class SeqSpread extends Spread {
 				righty = "1"+righty;
 			if (reNumList != null && reNumList.contains(righty))
 				returner += appcontext.getString(R.string.will_be_reinforced_label)+": "+appcontext.getResources().getIntArray(BotaInt.getReinforcementText(circled))[reNumList.indexOf(righty)]+"<br/>";
-		}
+		}*/
 		/*if (getActions(circled) > 0 && appcontext.getString(getActions(circled)).length() > 0)
 			returner += appcontext.getString(getActions(circled))+"<br/><br/>";*/
 		

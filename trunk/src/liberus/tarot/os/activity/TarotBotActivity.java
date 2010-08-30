@@ -10,8 +10,13 @@ import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.querant.Querant;
+import liberus.tarot.spread.ArrowSpread;
 import liberus.tarot.spread.BotaSpread;
+import liberus.tarot.spread.BrowseSpread;
+import liberus.tarot.spread.DialecticSpread;
+import liberus.tarot.spread.PentagramSpread;
 import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
 import liberus.utils.WebUtils;
@@ -83,9 +88,10 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private static final int MENU_LOAD = 2;
 	private static final int MENU_HELP = 3;
 	private static final int MENU_BROWSE = 4;
+	private static final int MENU_NAVIGATE = 5;
 	private GestureDetector gestureDetector;
 	View.OnTouchListener gestureListener;
-	protected LayoutInflater inflater;
+	public static LayoutInflater inflater;
 	protected View showing;
 	private TextView infotext;
 	protected TextView closure;
@@ -95,7 +101,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private int statusselected;
 
 	private ArrayList<Integer> type = new ArrayList<Integer>();
-	private ArrayList<Integer> flipdex = new ArrayList<Integer>();
+	public ArrayList<Integer> flipdex = new ArrayList<Integer>();
 	private ArrayList<RelativeLayout> laidout = new ArrayList<RelativeLayout>();
 	private static BotaInt myInt;
 	private String saveTitle;
@@ -134,6 +140,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private String[] timeArrow;
 	private String[] dialectic;
 	private String[] pentagram;
+	private boolean browsing = false;
+	private AlertDialog navigator;
 
 
 	/** Called when the activity is first created. */
@@ -348,14 +356,18 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
     menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
     menu.add(0, MENU_HELP, 3, R.string.help_menu).setIcon(android.R.drawable.ic_menu_help);
     menu.add(0, MENU_BROWSE, 4, R.string.browse_menu).setIcon(android.R.drawable.ic_menu_gallery);
+    menu.add(0, MENU_NAVIGATE, 5, R.string.navigate_menu).setIcon(android.R.drawable.ic_menu_mapmode);
 
 	if(!begun) {
 		menu.findItem(MENU_SAVE).setEnabled(false);
+		if (!browsing )
+			menu.findItem(MENU_NAVIGATE).setEnabled(false);
 		if (!loaded)
 			menu.findItem(MENU_SHARE).setEnabled(false);
 	} else {
 		menu.findItem(MENU_SAVE).setEnabled(true);
 		menu.findItem(MENU_SHARE).setEnabled(true);
+		menu.findItem(MENU_NAVIGATE).setEnabled(true);
 	}
 
 	return super.onPrepareOptionsMenu(menu);
@@ -381,11 +393,23 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	    case MENU_BROWSE:
 	        launchBrowse();
 	        return true;
+	    case MENU_NAVIGATE:
+	        navigate();
+	        return true;
 	    }
 	    return false;
 	}
 	
+	private void navigate() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(getString(R.string.navigate_prompt));
+		builder.setView(mySpread.navigate(inflater.inflate(mySpread.getLayout(), null), this, getApplicationContext()));
+		navigator = builder.create();
+		navigator.show();
+	}
+
 	private void launchBrowse() {
+		browsing = true;
 		ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
     	for(int card: RiderWaiteDeck.cards) {
     		reversals.add(false);
@@ -394,7 +418,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
     	BotaInt.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));	
     	BotaInt.loaded = true;
     	
-		mySpread = new SeqSpread(myInt,new String[78]);
+		mySpread = new BrowseSpread(myInt);
 		Spread.working = new ArrayList<Integer>(Arrays.asList(RiderWaiteDeck.cards));
 		Spread.circles = Spread.working;
 		
@@ -429,6 +453,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		}
 
 	private void displaySaved() {
+		browsing = false;
 		savedReadings = WebUtils.loadTarotBot(getApplicationContext());
 		ArrayList<String> readingLabels = new ArrayList<String>();
 		for (String[] reading: savedReadings) {
@@ -887,6 +912,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	public void onClick(View v) {	
 		if (v.equals(this.findViewById(R.id.initbotabutton))) {
 			begun = true;
+			browsing = false;
 			changeQuerant();
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
 			mySpread = new BotaSpread(myInt);
@@ -941,8 +967,16 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			secondSetIndex = 0;
 			
 			begun = true;
+			browsing = false;
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
-			mySpread = new SeqSpread(myInt,spreadLabels);
+			if (style.equals("arrow"))
+				mySpread = new ArrowSpread(myInt,timeArrow);
+			else if (style.equals("dialectic"))
+				mySpread = new DialecticSpread(myInt,dialectic);
+			else if (style.equals("pentagram"))
+				mySpread = new PentagramSpread(myInt,pentagram);
+			else
+				mySpread = new SeqSpread(myInt,spreadLabels);
 			beginSecondStage();
 			return;	
 		} else if (v.equals(this.findViewById(R.id.reversalcheck))) {
@@ -950,8 +984,27 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				readingPrefsEd.putBoolean("reversal", reversalCheck.isChecked());
 				readingPrefsEd.commit();
 			}
-		} else
+		} else if (v instanceof ImageView && v.getId() > -1) {
+			if (navigator != null) {
+				navigator.dismiss();
+				navigator = null;
+			}
+			if (browsing) {
+				if (Interpretation.getCardIndex(v.getId()) > 0)
+					secondSetIndex = Interpretation.getCardIndex(v.getId())-1;
+				else
+					secondSetIndex = Spread.working.size();
+			} else {
+				if (v.getId() == 0)
+					secondSetIndex = Spread.working.size();
+				else
+					secondSetIndex = v.getId()-1;
+					
+			}
 			incrementSecondSet(secondSetIndex);
+			
+		}
+			//incrementSecondSet(secondSetIndex);
 	}
 	protected void redisplay() {
 		infoDisplayed = false;
@@ -1059,14 +1112,14 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				    		mySpread = new SeqSpread(myInt,single);
 				    		Spread.circles = Spread.working;
 				    	} else if (savedReadings.get(which)[3].equals("arrow")) {
-				    		Spread.circles = Spread.working;
-				    		mySpread = new SeqSpread(myInt,timeArrow);
+				    		mySpread = new ArrowSpread(myInt,timeArrow);
+				    		Spread.circles = Spread.working;				    		
 				    	} else if (savedReadings.get(which)[3].equals("dialectic")) {
 				    		Spread.circles = Spread.working;
-				    		mySpread = new SeqSpread(myInt,dialectic);
+				    		mySpread = new DialecticSpread(myInt,dialectic);
 				    	} else if (savedReadings.get(which)[3].equals("pentagram")) {
 				    		Spread.circles = Spread.working;
-				    		mySpread = new SeqSpread(myInt,pentagram);
+				    		mySpread = new PentagramSpread(myInt,pentagram);
 				    	}
 				    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
 				    	beginSecondStage();

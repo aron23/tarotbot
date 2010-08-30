@@ -3,6 +3,7 @@
     <string name="app_name">TarotBot</string>
     
     <string name="spread_prompt">choose a spread</string>
+    <string name="navigate_prompt">select a card</string>
     <string name="launch_reading">read</string>
     <string name="reversalprompt">\t\tenable reversal</string>
        
@@ -14,6 +15,7 @@
     <string name="share_menu">share</string>
     <string name="help_menu">help</string>
     <string name="browse_menu">browse</string>
+    <string name="navigate_menu">navigate</string>
     
     <string name="loadprompt">Select a reading to load</string>
     

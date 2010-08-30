@@ -10,8 +10,11 @@ import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
+import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.querant.Querant;
 import android.content.Context;
+import android.view.View;
+import android.view.View.OnTouchListener;
 
 public class BotaSpread extends Spread {
 	
@@ -336,6 +339,20 @@ public class BotaSpread extends Spread {
 		}
 		
 		return false;
+	}
+
+
+	@Override
+	public int getLayout() {
+		if (working.size() == 19)
+			return R.layout.botalayout19;
+		return R.layout.botalayout20;
+	}
+
+	@Override
+	public View navigate(View layout, TarotBotActivity act, Context ctx) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

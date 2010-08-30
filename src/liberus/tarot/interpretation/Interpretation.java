@@ -145,6 +145,94 @@ public abstract class Interpretation {
 		return 0;
 	}
 	
+	public static int getCardIndex(int card) {
+		switch (card) {
+			case R.id.the_fool_00:return 0;
+			case R.id.the_magician_01:return 1;
+			case R.id.the_high_priestess_02:return 2;
+			case R.id.the_empress_03:return 3;
+			case R.id.the_emperor_04:return 4;
+			case R.id.the_hierophant_05:return 5;
+			case R.id.the_lovers_06:return 6;
+			case R.id.the_chariot_07:return 7;
+			case R.id.strength_08:return 8;
+			case R.id.the_hermit_09:return 9;
+			case R.id.the_wheel_of_fortune_10:return 10;
+			case R.id.justice_11:return 11;
+			case R.id.the_hanged_man_12:return 12;
+			case R.id.death_13:return 13;
+			case R.id.temperance_14:return 14;
+			case R.id.the_devil_15:return 15;
+			case R.id.the_tower_16:return 16;
+			case R.id.the_star_17:return 17;
+			case R.id.the_moon_18:return 18;		
+			case R.id.the_sun_19:return 19;
+			case R.id.judgement_20:return 20;
+			case R.id.the_world_21:return 21;
+	
+			case R.id.wands_01:return 22;
+			case R.id.wands_02:return 23;
+			case R.id.wands_03:return 24;
+			case R.id.wands_04:return 25;
+			case R.id.wands_05:return 26;
+			case R.id.wands_06:return 27;
+			case R.id.wands_07:return 28;
+			case R.id.wands_08:return 29;
+			case R.id.wands_09:return 30;
+			case R.id.wands_10:return 31;
+			case R.id.wands_page:return 32;
+			case R.id.wands_knight:return 33;
+			case R.id.wands_queen:return 34;
+			case R.id.wands_king:return 35;
+	
+			case R.id.cups_01:return 36;
+			case R.id.cups_02:return 37;
+			case R.id.cups_03:return 38;
+			case R.id.cups_04:return 39;
+			case R.id.cups_05:return 40;
+			case R.id.cups_06:return 41;
+			case R.id.cups_07:return 42;
+			case R.id.cups_08:return 43;
+			case R.id.cups_09:return 44;
+			case R.id.cups_10:return 45;
+			case R.id.cups_page:return 46;
+			case R.id.cups_knight:return 47;
+			case R.id.cups_queen:return 48;
+			case R.id.cups_king:return 49;
+	
+			case R.id.swords_01:return 50;
+			case R.id.swords_02:return 51;
+			case R.id.swords_03:return 52;
+			case R.id.swords_04:return 53;
+			case R.id.swords_05:return 54;
+			case R.id.swords_06:return 55;
+			case R.id.swords_07:return 56;
+			case R.id.swords_08:return 57;
+			case R.id.swords_09:return 58;
+			case R.id.swords_10:return 59;
+			case R.id.swords_page:return 60;
+			case R.id.swords_knight:return 61;
+			case R.id.swords_queen:return 62;
+			case R.id.swords_king:return 63;
+	
+			case R.id.pent_01:return 64;
+			case R.id.pent_02:return 65;
+			case R.id.pent_03:return 66;
+			case R.id.pent_04:return 67;
+			case R.id.pent_05:return 68;
+			case R.id.pent_06:return 69;
+			case R.id.pent_07:return 70;
+			case R.id.pent_08:return 71;
+			case R.id.pent_09:return 72;
+			case R.id.pent_10:return 73;
+			case R.id.pent_page:return 74;
+			case R.id.pent_knight:return 75;
+			case R.id.pent_queen:return 76;
+			case R.id.pent_king:return 77;				
+		}
+		return 0;
+	}
+	
 	public static int getCardNum(int index) {
 		switch (index) {
 			case 0:return R.integer.the_fool_00_index;

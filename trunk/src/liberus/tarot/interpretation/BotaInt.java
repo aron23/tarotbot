@@ -68,44 +68,35 @@ public class BotaInt extends Interpretation {
 		return myDeck.reversed[i];
 	}
 	
-	public static int getCardForTheDay(Context context) {
+	public static int getCardForTheDay(Context context, int seed) {
+		return getCard(getRandom(context).nextInt(78));		 
+	}
+	
+	public static Random getRandom(Context context) {
 		Calendar begin = Calendar.getInstance();
 		begin.set(Calendar.MILLISECOND,0);
 		begin.set(Calendar.SECOND,0);
 		begin.set(Calendar.MINUTE,0);
-		begin.set(Calendar.HOUR,-16);
-		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE); 		
-		Random r = new Random(begin.get(Calendar.DAY_OF_MONTH)*(begin.get(Calendar.MONTH)+1)*begin.get(Calendar.YEAR)*(Long.valueOf((tel.getLine1Number().replaceAll("\\D", "")+"1"))));
-		return getCard(r.nextInt(78));		 
+		begin.set(Calendar.HOUR,0);		
+		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		String seed = tel.getDeviceId();
+		if (seed == null || seed.length() < 1 || seed.matches("^0+$"))
+			seed = "10000";
+		seed = seed.replaceAll("[\\D0]", "1");
+		return new Random((begin.get(Calendar.DAY_OF_MONTH))*(begin.get(Calendar.MONTH)+1)*begin.get(Calendar.YEAR)*Integer.valueOf(seed.substring(0,5)));
 	}
 	
-	public static int getCardForTheDayIndex(Context context) {
-		Calendar begin = Calendar.getInstance();		
-		
-		
-		begin.set(Calendar.MILLISECOND,0);
-		begin.set(Calendar.SECOND,0);
-		begin.set(Calendar.MINUTE,0);
-		begin.set(Calendar.HOUR,-16);
-		//Toast.makeText(context, begin.getTime().toGMTString(), Toast.LENGTH_SHORT).show();
-		TelephonyManager tel = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE); 		
-		Random r = new Random(begin.get(Calendar.DAY_OF_MONTH)*(begin.get(Calendar.MONTH)+1)*begin.get(Calendar.YEAR)*(Long.valueOf((tel.getLine1Number().replaceAll("\\D", "")+"1"))));
-		return r.nextInt(78);		 
+	public static int getCardForTheDayIndex(Context context, int seed) {
+		 		
+		return getRandom(context).nextInt(78);		 
 	}
 	
-	public static boolean randomReversed(Context context) {
-		Calendar begin = Calendar.getInstance();
-		begin.set(Calendar.HOUR,0);
-		begin.set(Calendar.MINUTE,0);
-		begin.set(Calendar.SECOND,0);
-		begin.set(Calendar.MILLISECOND,0);
-		TelephonyManager tel = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE); 		
-		Random r = new Random(begin.get(Calendar.DAY_OF_MONTH)*(begin.get(Calendar.MONTH)+1)*begin.get(Calendar.YEAR)*(Long.valueOf((tel.getLine1Number().replaceAll("\\D", "")+"1"))));
-		return r.nextBoolean();		 
+	public static boolean randomReversed(Context context, int seed) {
+
+		return getRandom(context).nextBoolean();		 
 	}
 
 	public static void setMyQuerant(Querant aq) {
 		myQuerant = aq;
-		
 	}
 }

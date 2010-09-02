@@ -2,6 +2,7 @@ package liberus.tarot.os.activity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Random;
 
 import liberus.tarot.android.R;
 import liberus.tarot.android.R.id;
@@ -11,6 +12,7 @@ import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.os.activity.TarotBotActivity.MyGestureDetector;
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -48,6 +50,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
 	private ImageView divine;
 	private View showing;
 	private Button closure;
+	private int seed;
 	private static BotaInt myInt;
 	@Override
     public void onCreate(Bundle savedInstanceState)
@@ -61,23 +64,17 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
         
         secondlayout = (RelativeLayout) this.findViewById(R.id.individuallayout);
         myInt = new BotaInt(new RiderWaiteDeck(), null);
-        /*if (BotaInt.randomReversed(this.getApplicationContext())) {			
-			//Toast.makeText(this, "reversed", Toast.LENGTH_SHORT).show();
-			Bitmap bmp = BitmapFactory.decodeResource(this.getApplicationContext().getResources(), BotaInt.getCardForTheDay(this.getApplicationContext()));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);		
-			((ImageView) this.findViewById(R.id.activecard)).setBackgroundDrawable(bmd);
-		} else*/
-			((ImageView) this.findViewById(R.id.activecard)).setBackgroundDrawable(getResources().getDrawable(BotaInt.getCardForTheDay(this.getApplicationContext())));
+        
+        SharedPreferences readingPrefs = getSharedPreferences("tarotbot.random", 0);
+
+		Random rand = new Random();
+		seed = (readingPrefs.getInt("seed", BotaInt.getRandom(getApplicationContext()).nextInt()));
+
+        ((ImageView) this.findViewById(R.id.activecard)).setImageDrawable(getResources().getDrawable(BotaInt.getCardForTheDay(this.getApplicationContext(),seed)));
+        //(getResources().getDrawable(BotaInt.getCardForTheDay(this.getApplicationContext())));
         
         ((ImageView) this.findViewById(R.id.activecard)).setClickable(true);
-        //((ImageView) this.findViewById(R.id.activecard)).setOnClickListener(this);
-        //Button initbutton = (Button) this.findViewById(R.id.initbutton);
-        //initbutton.setOnClickListener(this);
+
         
         gestureDetector = new GestureDetector(new MyGestureDetector());
         gestureListener = new View.OnTouchListener() {
@@ -134,7 +131,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
 	            	// vertical swipe
 	            	
 	            	if (secondlayout.findViewById(R.id.interpretation) == null)
-	            		showInfo(BotaInt.getCardForTheDayIndex(getApplicationContext()),BotaInt.randomReversed(getApplicationContext()));
+	            		showInfo(BotaInt.getCardForTheDayIndex(getApplicationContext(),seed),false);
 					else
 						redisplay();
 		            return true;		         

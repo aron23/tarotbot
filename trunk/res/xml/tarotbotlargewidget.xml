@@ -4,4 +4,4 @@
 	android:minWidth="310dip" 
 	android:minHeight="310dip" 
 	android:initialLayout="@layout/individual"
-android:updatePeriodMillis="7200000"/>
+android:updatePeriodMillis="3600000"/>

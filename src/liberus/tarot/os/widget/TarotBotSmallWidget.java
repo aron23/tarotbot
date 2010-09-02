@@ -2,7 +2,9 @@ package liberus.tarot.os.widget;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Locale;
+import java.util.Random;
 
 import liberus.tarot.android.R;
 import liberus.tarot.android.R.id;
@@ -15,6 +17,8 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -25,44 +29,28 @@ public class TarotBotSmallWidget extends AppWidgetProvider
 	RemoteViews remoteViews;
 	AppWidgetManager appWidgetManager;
 	ComponentName thisWidget;
-	DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM,
-	Locale.getDefault());
+	private int seed;
 
 	@Override
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 		int[] appWidgetIds) {
+		SharedPreferences readingPrefs = context.getSharedPreferences("tarotbot.random", 0);
+		Editor readingPrefsEd = readingPrefs.edit();
+		
+		seed = (readingPrefs.getInt("seed", BotaInt.getRandom(context).nextInt()));
+		readingPrefsEd.putInt("seed", seed);
+		
 		this.appWidgetManager = appWidgetManager;
-		remoteViews = new RemoteViews(context.getPackageName(), R.layout.individual);
 		thisWidget = new ComponentName(context, TarotBotSmallWidget.class);
-		
-		//remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay());
-		/*if (BotaInt.randomReversed(context)) {			
-			//Toast.makeText(this, "reversed", Toast.LENGTH_SHORT).show();
-			Bitmap bmp = BitmapFactory.decodeResource(context.getResources(), BotaInt.getCardForTheDay(context));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			remoteViews.setImageViewBitmap(R.id.activecard, rotatedBMP);
-		} else*/
-			remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay(context));
-		
-		
-//		Intent i = new Intent(context,TarotBotActivity.class); 
-//        //i.setClassName("liberus.tarot.os", "liberus.tarot.os.TarotBotActivity"); 
-//        PendingIntent myPI = PendingIntent.getService(context, 0, i, 0); 
-//        //intent to start service 
-//
-//        //attach the click listener for the service start command intent 
-//        remoteViews.setOnClickPendingIntent(R.id.activecard, myPI); 
-		
-		//Intent defineIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
-		Intent defineIntent = new Intent(context,CardForTheDayActivity.class);
-		PendingIntent pendingIntent = PendingIntent.getActivity(context,0,defineIntent,0);
-        remoteViews.setOnClickPendingIntent(R.id.activecard, pendingIntent);
-		appWidgetManager.updateAppWidget(thisWidget, remoteViews);
-			
+		for (int appWidgetId : appWidgetIds) {
+	        RemoteViews remoteView = new RemoteViews(context.getPackageName(), R.layout.individual);
+	        remoteView.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay(context,seed));
+	        appWidgetManager.updateAppWidget(appWidgetId, remoteView);
+	        Intent defineIntent = new Intent(context,CardForTheDayActivity.class);
+			PendingIntent pendingIntent = PendingIntent.getActivity(context,0,defineIntent,0);
+	        remoteView.setOnClickPendingIntent(R.id.activecard, pendingIntent);
+			appWidgetManager.updateAppWidget(thisWidget, remoteView);
+	    }
 	}
 	
 	@Override
@@ -76,6 +64,8 @@ public class TarotBotSmallWidget extends AppWidgetProvider
 			if (appWidgetId != AppWidgetManager.INVALID_APPWIDGET_ID) {
 				this.onDeleted(context, new int[] { appWidgetId });
 			}
+		} else if (AppWidgetManager.ACTION_APPWIDGET_UPDATE.equals(action)) {
+			super.onReceive(context, intent);
 		} else {
 			super.onReceive(context, intent);
 		}

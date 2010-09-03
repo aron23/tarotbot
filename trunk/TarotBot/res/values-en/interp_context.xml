@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="has_been_opposed_label">Has been opposed by</string>
+    <string name="will_be_opposed_label">Will be opposed by</string>
+    <string name="has_been_reinforced_label">Has been reinforced by</string>
+    <string name="will_be_reinforced_label">Will be reinforced by</string>
+    <string name="reversed_label">being reversed the energy of this card is muted, its potential is there but is either not currently being expressed or is effectively suppressed</string>
+    <string name="wand_major_label">there will be much mental energy expended in the matter, some opposition, and possible quarrels</string>
+    <string name="cup_major_label">intense emotional element is present; in general, intimate pleasure, social activity</string>
+    <string name="sword_major_label">sickness, sadness, trouble, or death</string>
+    <string name="pent_major_label">the emphasis will be on business, money or possessions</string>
+    <string name="trump_major_label">strong forces are at work in the matter under consideration, likely beyond the ones control, whether for good or evil</string>
+    <string name="court_major_label">the influence of others will be exerted in the shaping of things to come</string>
+    <string name="four_kings">meetings with the great</string>
+    <string name="three_kings">rank and honor</string>
+    <string name="four_queens">authority, influence, help from women</string>
+    <string name="three_queens">strong friends, or partners</string>
+    <string name="four_knights">the events in the matter move swiftly</string>
+    <string name="three_knights">sudden changes, news, unexpected meetings</string>
+    <string name="four_pages">new ideas or plans, youthful associates</string>
+    <string name="three_pages">help from the young, or from inferiors</string>
+    <string name="four_tens">the burden of anxiety; too many irons</string>
+    <string name="three_tens">commerce, speculation, buying and selling</string>
+    <string name="four_nines">new responsibilities, firm foundations</string>
+    <string name="three_nines">much correspondence, delays</string>
+    <string name="four_eights">news, rumors, gossip</string>
+    <string name="three_eights">much moving about, short journeys</string>
+    <string name="four_sevens">disappointments</string>
+    <string name="three_sevens">contracts, alliances, partnerships</string>
+    <string name="four_sixes">pleasure, control over conditions</string>
+    <string name="three_sixes">success, gain, balance of power</string>
+    <string name="four_fives">magic power, unusual strength</string>
+    <string name="three_fives">competition, fights, dissension</string>
+    <string name="four_fours">order, regularity, rest, peace</string>
+    <string name="three_fours">abundance, industry</string>
+    <string name="four_threes">determination, definite plans</string>
+    <string name="three_threes">deceit, misunderstanding, uncertainty</string>
+    <string name="four_twos">conferences, conversations, adjustments</string>
+    <string name="three_twos">cliques, separations, reorganizations</string>
+    <string name="four_aces">great power and force</string>
+    <string name="three_aces">wealth, success</string>
+</resources>

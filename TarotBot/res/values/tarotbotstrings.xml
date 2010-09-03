@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TarotBot</string>
+    
+    <string name="spread_prompt">choose a spread</string>
+    <string name="navigate_prompt">select a card</string>
+    <string name="launch_reading">read</string>
+    <string name="reversalprompt">\t\tenable reversal</string>
+       
+    <string name="portraitnavigation">swipe your finger up or down to display interpretation, left or right to navigate the spread</string>
+    <string name="landscapenavigation">swipe left or right to navigate the spread</string>
+    
+    <string name="load_menu">load</string>
+    <string name="save_menu">save</string>
+    <string name="share_menu">share</string>
+    <string name="help_menu">help</string>
+    <string name="browse_menu">browse</string>
+    <string name="navigate_menu">navigate</string>
+    
+    <string name="loadprompt">Select a reading to load</string>
+    
+    <string name="share_intent">share your reading</string>
+    <string name="share_subject">TarotBot reading</string>
+    
+    <string name="save_label">label your reading</string>
+    <string name="save_label_ok">ok</string>
+    <string name="save_label_no">no thanks</string>
+</resources>

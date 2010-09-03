@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="liberus.tarot.android" android:versionCode="30" android:versionName="1.30">
+    <application android:icon="@drawable/logo" android:label="@string/app_name" android:debuggable="false">
+        <activity android:name=".TarotBotBeta"
+                  android:label="@string/app_name"
+                  android:configChanges="keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+				<action android:name="android.intent.action.VIEW"></action>
+				<category android:name="android.intent.category.DEFAULT"></category>
+				<category android:name="android.intent.category.BROWSABLE"></category>
+				<data android:scheme=".TarotBotBeta"></data>
+			</intent-filter>
+        </activity>
+        <activity android:name="liberus.tarot.os.activity.CardForTheDayActivity"
+           		android:screenOrientation="portrait"
+                  android:label="card for the day">
+        </activity>
+    
+        <receiver android:name="liberus.tarot.os.widget.TarotBotLargeWidget" android:label="TarotBot Card of the Day 4x4">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tarotbotlargewidget" />
+        </receiver>
+        <receiver android:name="liberus.tarot.os.widget.TarotBotMediumWidget" android:label="TarotBot Card of the Day 2x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tarotbotmediumwidget" />
+        </receiver>
+        <receiver android:name="liberus.tarot.os.widget.TarotBotSmallWidget" android:label="TarotBot Card of the Day 1x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tarotbotsmallwidget" />
+        </receiver>        
+    </application>
+
+
+
+
+
+<uses-sdk android:minSdkVersion="3"></uses-sdk>
+
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+
+
+<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+</manifest> 

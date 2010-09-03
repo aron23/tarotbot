@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="time_period_label">time period</string>
+	<string name="astrology_label">astrology</string>
+    <string name="keyword_label">keyword</string>
+    <string name="element_label">element</string>
+    <string name="archetype_label">Jungian archetype</string>
+    <string name="hebrew_label">Hebrew</string>
+    <string name="spiritual_matters_label">in spiritual matters</string>
+    <string name="material_matters_label">in material matters</string>
+    <string name="strengthened_by_label">When stregthened by surrounding cards</string>
+    <string name="impacted_by_label">When negatively impacted by surrounding cards</string>
+    <string name="related_label">related behaviors</string>
+    <string name="querant_label">This card represents you.</string>
+    <string name="personal_label">this reading is particularly personal</string>
+    <string name="significant_label">this card is the most significant of the reading</string>
+    <string name="general_label">In general</string>
+    <string name="directly_label">More directly</string>
+</resources>

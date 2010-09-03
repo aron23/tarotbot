@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="spread_array">
+	<item>Einzelne Karte</item>
+	<item>Pfeil der Zeit</item>
+	<item>Dialektik</item>
+	<item>Pentagramm</item>
+	<item>Chaosstern</item>
+	<item>Keltisches Kreuz</item>
+	<item>BOTA</item>
+   </string-array>
+	<string-array name="status_array">
+	<item>weiblich, Single</item>
+	<item>männlich, Single</item>
+	<item>weiblich, in einer Beziehung</item>
+	<item>männlich, in einer Beziehung </item>
+   </string-array>
+    <string-array name="single">
+	<item></item>
+   </string-array>
+    <string-array name="timeArrow">
+	<item>Vergangenheit</item>
+	<item>Gegenwart</item>
+	<item>Zukunft</item>
+   </string-array>
+    <string-array name="dialectic">
+	<item>These</item>
+	<item>Antithese</item>
+	<item>Synthese</item>
+   </string-array>
+    <string-array name="pentagram">
+	<item>Feuer: Wille/Kraft/Aktvität</item>
+	<item>Wasser: Beziehungen/Emotion</item>
+	<item>Luft: Denken/Intellekt/Konflikt</item>
+	<item>Erde: Karriere/Geld/Materie/Praktisches </item>
+	<item>Spirituelle Dimension</item>
+   </string-array>
+	<string-array name="chaosStar">
+	<item>rot: äußere Konflikte</item>
+	<item>orange: mentaler Zustand</item>
+	<item>Purpur: Sex, Leidenschaft</item>
+	<item>gelb: Ego, Selbstvertrauen</item>
+	<item>grün: Liebe, Beziehungen</item>
+	<item>blau: Reichtum</item>
+	<item>schwarz: selbstzerstörerische Tendenzen</item>
+	<item>octarine: das magische Ich</item>
+   </string-array>
+    <string-array name="celticCross">
+	<item>Darum geht es</item>
+	<item>Weitere Einflüsse</item>
+	<item>Ursache</item>
+	<item>Vergangenheit</item>
+	<item>Hoffnungen, Erwartungen oder Ängste</item>
+	<item>Zukunft</item>
+	<item>so sehe ich es</item>
+	<item>so sehen es die anderen</item>
+	<item>Wegleitung</item>
+	<item>Dorthin führt es </item>
+   </string-array>
+</resources>

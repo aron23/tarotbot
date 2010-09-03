@@ -1,0 +1,42 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<resources>
+    <string name="has_been_opposed_label"> Wurde abgelehnt durch</string>
+    <string name="will_be_opposed_label">Wird abgelehnt werden durch</string>
+    <string name="has_been_reinforced_label">Wurde unterstützt durch</string>
+    <string name="will_be_reinforced_label"> Wird unterstützt werden durch</string>
+    <string name="reversed_label">Wenn die Karte umgekehrt ist, wird die Energie ausgeschaltet. Das Potenzial besteht, aber es ist entweder nicht vorhanden oder unterdrückt.</string>
+    <string name="wand_major_label">es wird viel mentale Energie in der Materie aufgewendet werden, einiger Widerstand und möglicherweise Streit</string>
+    <string name="cup_major_label">intensives emotionales Element ist vorhanden, im allgemeinen: inniges Vergnügen, soziale Aktivität</string>
+    <string name="sword_major_label">Krankheit, Traurigkeit, Ärger oder Tod</string>
+    <string name="pent_major_label">Schwerpunkt liegt im Geschäft, Geld oder Besitztum</string>
+    <string name="trump_major_label">starke Kräfte sind am Werk in der Ausgangssituation; vermutlich unkontrollierbar, ob Gut oder Böse</string>
+    <string name="court_major_label">der Einfluss anderer wird im ausgeübt in Gestalt der Dinge, die noch kommen</string>
+    <string name="four_kings">Treffen mit dem Großen</string>
+    <string name="three_kings">Rang und Ehre</string>
+    <string name="four_queens">Autorität, Einfluss, Hilfe von Frauen </string>
+    <string name="three_queens">starke Freunde oder Partner</string>
+    <string name="four_knights">die Ereignisse in der Angelegenheit bewegen sich rasch</string>
+    <string name="three_knights">plötzliche Veränderungen, Neuigkeiten, unerwartete Treffen</string>
+    <string name="four_pages">neue Ideen oder Pläne, junge Mitarbeiter</string>
+    <string name="three_pages">Hilfe von Jüngeren oder Untergebenen</string>
+    <string name="four_tens">die Last der Angst, zu viele Eisen im Feuer</string>
+    <string name="three_tens">Handel, Spekulation, Kauf und Verkauf</string>
+    <string name="four_nines">neuen Verantwortung, feste Grundlagen</string>
+    <string name="three_nines">viel Korrespondenz, Verzögerungen</string>
+    <string name="four_eights">Neuigkeiten, Gerüchte, Klatsch, Lästern</string>
+    <string name="three_eights">viel Bewegung, kurze Reisen</string>
+    <string name="four_sevens">Enttäuschungen</string>
+    <string name="three_sevens">Verträge, Allianzen, Partnerschaften</string>
+    <string name="four_sixes">Vergnügen, Kontrolle über die Bedingungen</string>
+    <string name="three_sixes">Erfolg, Gewinn, Gleichgewicht der Macht</string>
+    <string name="four_fives">magische Kraft, ungewöhnliche Stärke</string>
+    <string name="three_fives">Wettbewerb, Konflikt, Streit</string>
+    <string name="four_fours">Ordnung, Regelmäßigkeit, Ruhe, Frieden</string>
+    <string name="three_fours">Wohlstand, Industrie</string>
+    <string name="four_threes">Entschlossenheit, konkrete Pläne</string>
+    <string name="three_threes">Trug, Missverständnisse, Unsicherheit</string>
+    <string name="four_twos">Konferenzen, Gespräche, Anpassungen</string>
+    <string name="three_twos">Cliquen, Trennungen, Neuordnung</string>
+    <string name="four_aces">große Stärke, Macht und Gewalt</string>
+    <string name="three_aces">Reichtum, Erfolg</string>
+</resources>

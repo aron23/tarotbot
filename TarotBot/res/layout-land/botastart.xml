@@ -3,6 +3,7 @@
 	android:id="@+id/mainlayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#000000"
     >
 <ImageView
 	android:id="@+id/randomcard"
@@ -24,22 +25,39 @@
     android:gravity="center"
     android:layout_gravity="right"
     >    
-<DatePicker 
-    android:id="@+id/birthdatepicker"
-    android:gravity="center"
-    android:layout_gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:prompt="@string/birthdate_prompt"
-    />
-<Spinner 
-    android:id="@+id/statusspinner"
-    android:gravity="center"
-    android:layout_gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:prompt="@string/status_prompt"
-    />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:paddingLeft="12dp"
+		android:paddingRight="12dp"
+		android:paddingTop="15dp">
+	  
+	  	<kankan.wheel.widget.WheelView android:id="@+id/birthmonth"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:layout_weight="1"/>
+		<kankan.wheel.widget.WheelView android:id="@+id/birthday"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:layout_weight="1"/>
+		<kankan.wheel.widget.WheelView android:id="@+id/birthyear"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:layout_weight="1"/>	
+	</LinearLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:paddingLeft="12dp"
+		android:paddingRight="12dp"
+		android:paddingTop="15dp"
+		android:paddingBottom="15dp">
+	
+	<kankan.wheel.widget.WheelView android:id="@+id/statusspinner"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"/>
+		
+	</LinearLayout>
 <Button 
 	android:id ="@+id/initbotabutton"
 	android:gravity="center"

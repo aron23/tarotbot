@@ -13,8 +13,14 @@ import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.querant.Querant;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.ImageView;
 
 public class BotaSpread extends Spread {
 	
@@ -350,10 +356,466 @@ public class BotaSpread extends Spread {
 	}
 
 	@Override
-	public View navigate(View layout, TarotBotActivity act, Context ctx) {
-		// TODO Auto-generated method stub
-		return null;
+	public View navigate(View layout, TarotBotActivity act,Context ctx) {
+		return populateSpread(layout,act,ctx);
 	}
-	
 
+	private View populateSpread(View layout, TarotBotActivity act, Context ctx) {
+		
+		ImageView card = (ImageView) layout.findViewById(R.id.bota_00);
+		if (BotaInt.myDeck.reversed[working.get(0)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(0)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(0))));
+		}	
+		
+		if (circles.contains(working.get(0))) {
+			card.setId(circles.indexOf(working.get(0)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 0)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_01);
+		if (BotaInt.myDeck.reversed[working.get(1)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(1)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(270);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(1)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(90);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		}	
+		if (circles.contains(working.get(1))) {
+			card.setId(circles.indexOf(working.get(1)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 1)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_02);
+		if (BotaInt.myDeck.reversed[working.get(2)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(2)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(2))));
+		}	
+		if (circles.contains(working.get(2))) {
+			card.setId(circles.indexOf(working.get(2)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 2)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_03);
+		if (BotaInt.myDeck.reversed[working.get(3)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(3)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(3))));
+		}	
+		if (circles.contains(working.get(3))) {
+			card.setId(circles.indexOf(working.get(3)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 3)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_04);
+		if (BotaInt.myDeck.reversed[working.get(4)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(4)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(4))));
+		}	
+		if (circles.contains(working.get(4))) {
+			card.setId(circles.indexOf(working.get(4)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 4)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_05);
+		if (BotaInt.myDeck.reversed[working.get(5)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(5)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(5))));
+		}	
+		if (circles.contains(working.get(5))) {
+			card.setId(circles.indexOf(working.get(5)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 5)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_06);
+		if (BotaInt.myDeck.reversed[working.get(6)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(6)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(6))));
+		}	
+		if (circles.contains(working.get(6))) {
+			card.setId(circles.indexOf(working.get(6)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 6)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_07);
+		if (BotaInt.myDeck.reversed[working.get(7)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(7)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(7))));
+		}	
+		if (circles.contains(working.get(7))) {
+			card.setId(circles.indexOf(working.get(7)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 7)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_08);
+		if (BotaInt.myDeck.reversed[working.get(8)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(8)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(8))));
+		}	
+		if (circles.contains(working.get(8))) {
+			card.setId(circles.indexOf(working.get(8)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 8)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_09);
+		if (BotaInt.myDeck.reversed[working.get(9)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(9)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(9))));
+		}	
+		if (circles.contains(working.get(9))) {
+			card.setId(circles.indexOf(working.get(9)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 9)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_10);
+		if (BotaInt.myDeck.reversed[working.get(10)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(10)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(10))));
+		}	
+		if (circles.contains(working.get(10))) {
+			card.setId(circles.indexOf(working.get(10)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 10)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_11);
+		if (BotaInt.myDeck.reversed[working.get(11)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(11)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(11))));
+		}	
+		if (circles.contains(working.get(11))) {
+			card.setId(circles.indexOf(working.get(11)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 11)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_12);
+		if (BotaInt.myDeck.reversed[working.get(12)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(12)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(12))));
+		}	
+		if (circles.contains(working.get(12))) {
+			card.setId(circles.indexOf(working.get(12)));
+
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 12)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_13);
+		if (BotaInt.myDeck.reversed[working.get(13)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(13)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(13))));
+		}	
+		if (circles.contains(working.get(13))) {
+			card.setId(circles.indexOf(working.get(13)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 13)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_14);
+		if (BotaInt.myDeck.reversed[working.get(14)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(14)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(14))));
+		}	
+		if (circles.contains(working.get(14))) {
+			card.setId(circles.indexOf(working.get(14)));
+
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 14)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		
+		card = (ImageView) layout.findViewById(R.id.bota_15);
+		if (BotaInt.myDeck.reversed[working.get(15)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(15)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(15))));
+		}	
+		if (circles.contains(working.get(15))) {
+			card.setId(circles.indexOf(working.get(15)));
+
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 15)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_16);
+		if (BotaInt.myDeck.reversed[working.get(16)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(16)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(16))));
+		}	
+		if (circles.contains(working.get(16))) {
+			card.setId(circles.indexOf(working.get(16)));
+
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 16)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_17);
+		if (BotaInt.myDeck.reversed[working.get(17)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(17)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(17))));
+		}	
+		if (circles.contains(working.get(17))) {
+			card.setId(circles.indexOf(working.get(17)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 17)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		card = (ImageView) layout.findViewById(R.id.bota_18);
+		if (BotaInt.myDeck.reversed[working.get(18)]) {			
+			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(18)));
+			int w = bmp.getWidth();
+			int h = bmp.getHeight();
+			Matrix mtx = new Matrix();
+			mtx.postRotate(180);
+			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+			card.setImageDrawable(bmd);
+		} else {
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(18))));
+		}	
+		if (circles.contains(working.get(18))) {
+			card.setId(circles.indexOf(working.get(18)));
+			card.setOnClickListener(act);
+			if (TarotBotActivity.secondSetIndex == 18)
+				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		} else {
+			card.setAlpha(75);
+		}
+		
+		if (working.size() == 20) {
+			card = (ImageView) layout.findViewById(R.id.bota_19);
+			if (BotaInt.myDeck.reversed[working.get(19)]) {			
+				Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(19)));
+				int w = bmp.getWidth();
+				int h = bmp.getHeight();
+				Matrix mtx = new Matrix();
+				mtx.postRotate(180);
+				Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+				BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
+				card.setImageDrawable(bmd);
+			} else {
+				card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(19))));
+			}	
+			if (circles.contains(working.get(19))) {
+				card.setId(circles.indexOf(working.get(19)));
+				card.setOnClickListener(act);
+				if (TarotBotActivity.secondSetIndex == 19)
+					card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			} else {
+				card.setAlpha(75);
+		}
+		}
+		return layout;
+	}
 }

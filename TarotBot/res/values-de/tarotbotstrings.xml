@@ -11,8 +11,8 @@
     <string name="save_menu">Speichern</string>
     <string name="share_menu">Weiterempfehlen</string>
     <string name="help_menu">Hilfe</string>
-    <string name="browse_menu">Suche</string>
-    <string name="navigate_menu">Navigation</string>
+    <string name="browse_menu">Deck durchblättern</string>
+    <string name="navigate_menu">Legung ansehen</string>
     <string name="loadprompt">Eine Lesung laden</string>
     <string name="share_intent">Eine Lesung weiterleiten</string>
     <string name="share_subject">TarotBot-Lesung</string>

@@ -145,6 +145,94 @@ public abstract class Interpretation {
 		return 0;
 	}
 	
+	public static int getCardThumb(int index) {
+		switch (index) {
+			case 0:return R.drawable.th_the_fool_00;
+			case 1:return R.drawable.th_the_magician_01;
+			case 2:return R.drawable.th_the_high_priestess_02;
+			case 3:return R.drawable.th_the_empress_03;
+			case 4:return R.drawable.th_the_emperor_04;
+			case 5:return R.drawable.th_the_hierophant_05;
+			case 6:return R.drawable.th_the_lovers_06;
+			case 7:return R.drawable.th_the_chariot_07;
+			case 8:return R.drawable.th_strength_08;
+			case 9:return R.drawable.th_the_hermit_09;
+			case 10:return R.drawable.th_the_wheel_of_fortune_10;
+			case 11:return R.drawable.th_justice_11;
+			case 12:return R.drawable.th_the_hanged_man_12;
+			case 13:return R.drawable.th_death_13;
+			case 14:return R.drawable.th_temperance_14;
+			case 15:return R.drawable.th_the_devil_15;
+			case 16:return R.drawable.th_the_tower_16;
+			case 17:return R.drawable.th_the_star_17;
+			case 18:return R.drawable.th_the_moon_18;		
+			case 19:return R.drawable.th_the_sun_19;
+			case 20:return R.drawable.th_judgement_20;
+			case 21:return R.drawable.th_the_world_21;
+	
+			case 22:return R.drawable.th_wands_01;
+			case 23:return R.drawable.th_wands_02;
+			case 24:return R.drawable.th_wands_03;
+			case 25:return R.drawable.th_wands_04;
+			case 26:return R.drawable.th_wands_05;
+			case 27:return R.drawable.th_wands_06;
+			case 28:return R.drawable.th_wands_07;
+			case 29:return R.drawable.th_wands_08;
+			case 30:return R.drawable.th_wands_09;
+			case 31:return R.drawable.th_wands_10;
+			case 32:return R.drawable.th_wands_page;
+			case 33:return R.drawable.th_wands_knight;
+			case 34:return R.drawable.th_wands_queen;
+			case 35:return R.drawable.th_wands_king;
+	
+			case 36:return R.drawable.th_cups_01;
+			case 37:return R.drawable.th_cups_02;
+			case 38:return R.drawable.th_cups_03;
+			case 39:return R.drawable.th_cups_04;
+			case 40:return R.drawable.th_cups_05;
+			case 41:return R.drawable.th_cups_06;
+			case 42:return R.drawable.th_cups_07;
+			case 43:return R.drawable.th_cups_08;
+			case 44:return R.drawable.th_cups_09;
+			case 45:return R.drawable.th_cups_10;
+			case 46:return R.drawable.th_cups_page;
+			case 47:return R.drawable.th_cups_knight;
+			case 48:return R.drawable.th_cups_queen;
+			case 49:return R.drawable.th_cups_king;
+	
+			case 50:return R.drawable.th_swords_01;
+			case 51:return R.drawable.th_swords_02;
+			case 52:return R.drawable.th_swords_03;
+			case 53:return R.drawable.th_swords_04;
+			case 54:return R.drawable.th_swords_05;
+			case 55:return R.drawable.th_swords_06;
+			case 56:return R.drawable.th_swords_07;
+			case 57:return R.drawable.th_swords_08;
+			case 58:return R.drawable.th_swords_09;
+			case 59:return R.drawable.th_swords_10;
+			case 60:return R.drawable.th_swords_page;
+			case 61:return R.drawable.th_swords_knight;
+			case 62:return R.drawable.th_swords_queen;
+			case 63:return R.drawable.th_swords_king;
+	
+			case 64:return R.drawable.th_pent_01;
+			case 65:return R.drawable.th_pent_02;
+			case 66:return R.drawable.th_pent_03;
+			case 67:return R.drawable.th_pent_04;
+			case 68:return R.drawable.th_pent_05;
+			case 69:return R.drawable.th_pent_06;
+			case 70:return R.drawable.th_pent_07;
+			case 71:return R.drawable.th_pent_08;
+			case 72:return R.drawable.th_pent_09;
+			case 73:return R.drawable.th_pent_10;
+			case 74:return R.drawable.th_pent_page;
+			case 75:return R.drawable.th_pent_knight;
+			case 76:return R.drawable.th_pent_queen;
+			case 77:return R.drawable.th_pent_king;				
+		}
+		return 0;
+	}
+	
 	public static int getCardIndex(int card) {
 		switch (card) {
 			case R.id.the_fool_00:return 0;

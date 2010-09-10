@@ -13,9 +13,9 @@
     <string name="load_menu">load</string>
     <string name="save_menu">save</string>
     <string name="share_menu">share</string>
-    <string name="help_menu">help</string>
-    <string name="browse_menu">browse</string>
-    <string name="navigate_menu">navigate</string>
+    <string name="help_menu"></string>
+    <string name="browse_menu">browse deck</string>
+    <string name="navigate_menu">view spread</string>
     
     <string name="loadprompt">Select a reading to load</string>
     

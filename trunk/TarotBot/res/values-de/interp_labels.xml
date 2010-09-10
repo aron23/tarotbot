@@ -15,5 +15,5 @@
     <string name="personal_label">dieser Lesung ist besonders persönlich</string>
     <string name="significant_label">dieser Karte ist die bedeutendste der Lesung</string>
     <string name="general_label">Im Allgemeinen</string>
-    <string name="directly_label">Eher direkt</string>
+    <string name="directly_label">Im Speziellen</string>
 </resources>

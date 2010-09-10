@@ -42,7 +42,6 @@ public class BotaInt extends Interpretation {
 	
 	public BotaInt(RiderWaiteDeck deck, Querant q) {
 		super(deck);
-		myDeck = deck;
 		myQuerant = q;
 		loaded=false;
 	}

@@ -1,10 +1,23 @@
 package liberus.tarot.os.activity;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+
+import kankan.wheel.widget.ArrayWheelAdapter;
+import kankan.wheel.widget.NumericWheelAdapter;
+import kankan.wheel.widget.WheelView;
 
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
@@ -37,10 +50,13 @@ import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Html;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -70,8 +86,8 @@ import android.widget.ViewFlipper;
 
 
 public class TarotBotActivity extends Activity  implements OnClickListener, View.OnClickListener, OnItemSelectedListener, OnDateChangedListener {
-	private DatePicker dp;
-	private Spinner statusspin;
+	//private DatePicker dp;
+	private WheelView statusspin;
 	private Button initbutton;
 	
 	private Querant aq;
@@ -79,7 +95,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private boolean partnered = false;
 	private boolean firstpass=true;
 
-	private static int secondSetIndex=79;
+	public static int secondSetIndex=79;
 	protected RelativeLayout secondlayout;
 
 	private static final int SWIPE_MIN_DISTANCE = 80;
@@ -115,7 +131,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	private String saveResult;
 	private boolean begun = false;
-	private ArrayList<String[]> savedReadings;
+	private HashMap<String,HashMap<String,String>> savedReadings = new HashMap<String,HashMap<String,String>>();
 	public boolean loaded = false;
 	private boolean helping;
 	private Spread mySpread;
@@ -134,7 +150,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private String[] spreadLabels;
 
 	private String style = "";
-	private Spinner spreadspin;
+	private WheelView spreadspin;
 	public static boolean cardfortheday = false;
 	private SharedPreferences.Editor readingPrefsEd;
 	private boolean init = false;
@@ -144,6 +160,10 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private String[] pentagram;
 	private boolean browsing = false;
 	private AlertDialog navigator;
+	private ArrayList<String> savedList = new ArrayList<String>();
+	private WheelView dp_month_spin;
+	private WheelView dp_day_spin;
+	private WheelView dp_year_spin;
 
 
 	/** Called when the activity is first created. */
@@ -159,8 +179,64 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		gestureDetector = new GestureDetector(new MyGestureDetector());
 		gestureListener = getGestureListener(gestureDetector);
 		//initDeck();
+		initSaved();
 		initText();		
 		initSpreadChoice();		
+	}
+	
+	private void initSaved() {
+		try{
+			File f = new File(Environment.getExternalStorageDirectory()+"/tarotbot.store");
+			if (!f.exists())
+				return;
+			FileInputStream fileIS = new FileInputStream(f);
+			BufferedReader buf = new BufferedReader(new InputStreamReader(fileIS));
+			String readString = new String(); 
+			   //just reading each line and pass it on the debugger
+			
+			while((readString = buf.readLine())!= null){
+				HashMap<String,String> read = new HashMap<String,String>();
+				String[] saved = readString.split(":::");
+			    read.put("spread", saved[0]);
+			    read.put("deck", saved[1]);
+			    read.put("reversals", saved[2]);
+			    read.put("label", saved[3]);
+			    read.put("type", saved[4]);
+			    if (saved.length > 5)
+			    	read.put("date", saved[5]);
+			    else
+			    	read.put("date", "dated");
+			    System.err.println(saved[0]);
+			    System.err.println(saved[1]);
+			    savedReadings.put(saved[0]+saved[1],read);
+			    if (!savedList.contains(saved[0]+saved[1]))
+			    	savedList.add(saved[0]+saved[1]);
+			}
+		} catch (FileNotFoundException e) {
+		   e.printStackTrace();
+		} catch (IOException e){
+		   e.printStackTrace();
+		}
+	}
+
+	private void reInit() {
+		setContentView(R.layout.tarotbotstart);
+		flipdex = new ArrayList<Integer>();
+		inflater = LayoutInflater.from(this);
+		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
+		readingPrefsEd = readingPrefs.edit();
+		gestureDetector = new GestureDetector(new MyGestureDetector());
+		gestureListener = getGestureListener(gestureDetector);
+		begun = false;
+		browsing = false;
+		loaded = false;
+		Spread.circles = new ArrayList<Integer>();
+		Spread.working = new ArrayList<Integer>();
+		myInt = new BotaInt(new RiderWaiteDeck(), aq);
+		//mySpread.myDeck = myInt.myDeck;
+		
+		initText();		
+		initSpreadChoice();	
 	}
 
 	private void initText() {
@@ -181,12 +257,19 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	private void initSpreadChoice() {
 		init = true;
-		spreadspin = (Spinner) findViewById(R.id.spreadspinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.spread_array, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spreadspin = (WheelView) findViewById(R.id.spreadspinner);
+		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.spread_array));
+		
 		spreadspin.setAdapter(adapter);
-		spreadspin.setSelection(readingPrefs.getInt("spread", 0));
+		spreadspin.setVisibleItems(3);
+		spreadspin.setCurrentItem(readingPrefs.getInt("spread", 0));
+		
+//		WheelView city = (WheelView) findViewById(R.id.city);
+//        String cities[] = new String[] {"New York", "Washington", "Chicago",
+//        		"Los Angeles", "Atlanta", "Boston", "Miami", "Orlando"};
+//        city.setAdapter(new ArrayWheelAdapter<String>(cities));
+//        city.setVisibleItems(7);
+//        city.setCurrentItem(5);
 		
 		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		reversalCheck.setChecked(readingPrefs.getBoolean("reversal", false));
@@ -194,7 +277,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		
 		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
 		
-		spreadspin.setOnItemSelectedListener(this);
+		//spreadspin.setOnItemSelectedListener(this);
 		reversalCheck.setOnClickListener(this);
 		initbutton.setOnClickListener(this);
 		
@@ -204,13 +287,12 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private void redisplaySpreadStart() {
 		init = true;
 		setContentView(R.layout.tarotbotstart);
-		spreadspin = (Spinner) findViewById(R.id.spreadspinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.spread_array, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spreadspin = (WheelView) findViewById(R.id.spreadspinner);
+		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.spread_array));
+		
 		spreadspin.setAdapter(adapter);
-		spreadspin.setSelection(readingPrefs.getInt("spread", 0));
-		spreadspin.setOnItemSelectedListener(this);
+		spreadspin.setCurrentItem(readingPrefs.getInt("spread", 0));
+		spreadspin.setVisibleItems(3);
 		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
 		
@@ -258,24 +340,54 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				
 		sharing = false;
 		
-		statusspin = (Spinner) findViewById(R.id.statusspinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.status_array, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		init = true;
+		statusspin = (WheelView) findViewById(R.id.statusspinner);
+		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.status_array));
+		
 		statusspin.setAdapter(adapter);
-		statusspin.setOnItemSelectedListener(this);
-		statusspin.setSelection(3);
-		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
-		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
-
+		statusspin.setVisibleItems(3);
+		statusspin.setCurrentItem(querantPrefs.getInt("querantstatus", 0));
+		
+//		statusspin = (Spinner) findViewById(R.id.statusspinner);
+//		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+//				this, R.array.status_array, android.R.layout.simple_spinner_item);
+//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//		statusspin.setAdapter(adapter);
+//		statusspin.setOnItemSelectedListener(this);
+//		statusspin.setSelection(3);
+//		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
+		
 		Calendar today = Calendar.getInstance();
-		 
-		if (querantPrefs.contains("birthyear"))
-			dp.init(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR)), querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)), querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH)), this);        
-		else
-			dp.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), this);
+		
+		dp_month_spin = (WheelView) findViewById(R.id.birthmonth);
+		ArrayWheelAdapter<String> dpmadapter = new ArrayWheelAdapter<String>(new String[] {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"});
+		
+		dp_month_spin.setAdapter(dpmadapter);
+		dp_month_spin.setVisibleItems(3);
 
-		changeQuerant();		
+		dp_day_spin = (WheelView) findViewById(R.id.birthday);
+		
+		dp_day_spin.setAdapter(new NumericWheelAdapter(1, 31));
+		dp_day_spin.setVisibleItems(3);
+		
+		dp_year_spin = (WheelView) findViewById(R.id.birthyear);
+		
+		dp_year_spin.setAdapter(new NumericWheelAdapter(1910, 2010));
+		dp_year_spin.setVisibleItems(3);
+		
+		
+		 
+		if (querantPrefs.contains("birthyear")) {
+			dp_year_spin.setCurrentItem(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR))-1910);
+			dp_month_spin.setCurrentItem(querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)));
+			dp_day_spin.setCurrentItem(querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH))-1);     
+		}else {
+			dp_month_spin.setCurrentItem(querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)));
+			dp_day_spin.setCurrentItem(querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH))-1);
+			dp_year_spin.setCurrentItem(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR))-1910);
+		}
+
+		//changeQuerant();		
 		
 		if (canBeRestored()) {
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
@@ -362,10 +474,13 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	if(!begun) {
 		menu.findItem(MENU_SAVE).setEnabled(false);
-		if (!browsing )
-			menu.findItem(MENU_NAVIGATE).setEnabled(false);
-		if (!loaded)
+		if (loaded || browsing) {
 			menu.findItem(MENU_SHARE).setEnabled(false);
+			menu.findItem(MENU_NAVIGATE).setEnabled(true);
+		} else {
+			menu.findItem(MENU_NAVIGATE).setEnabled(false);
+			menu.findItem(MENU_SHARE).setEnabled(false);
+		}
 	} else {
 		menu.findItem(MENU_SAVE).setEnabled(true);
 		menu.findItem(MENU_SHARE).setEnabled(true);
@@ -456,14 +571,14 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	private void displaySaved() {
 		browsing = false;
-		savedReadings = WebUtils.loadTarotBot(getApplicationContext());
+		//savedReadings = WebUtils.loadTarotBot(getApplicationContext());			
 		ArrayList<String> readingLabels = new ArrayList<String>();
-		for (String[] reading: savedReadings) {
-			
-			if (reading[1].length() > 0)
-				readingLabels.add(reading[3]+":"+reading[1]+" - "+reading[2]);
+		for (String reader: savedList) {
+			HashMap<String,String> reading = savedReadings.get(reader);
+			if (reading.get("label").length() > 0)
+				readingLabels.add(reading.get("date")+":"+reading.get("type")+" - "+reading.get("label"));
 			else
-				readingLabels.add(reading[3]+":"+reading[2]);
+				readingLabels.add(reading.get("date")+":"+reading.get("type"));
 		}
 		String[] items = readingLabels.toArray(new String[0]);
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -549,6 +664,18 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		}
 	    return toReturn;
 	  }
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			if (!spreading) {
+				spreading=true;
+				reInit();
+				return true;
+			}
+		}
+		return super.onKeyDown(keyCode,event);		
+	}
 
 	private void save(boolean share) {
 		sharing = share;
@@ -572,23 +699,28 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private void changeQuerant() {
 
 					
-			if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_sm))) {
+			if (statusspin.getAdapter().getItem(statusspin.getCurrentItem()).toString().contains(getString(R.string.status_sm))) {
 				male = true;
 				partnered=false;
-			} else if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_pf))) {
+			} else if (statusspin.getAdapter().getItem(statusspin.getCurrentItem()).toString().contains(getString(R.string.status_pf))) {
 				male=false;
 				partnered = true;    	
-			} else if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_pm))) {
+			} else if (statusspin.getAdapter().getItem(statusspin.getCurrentItem()).toString().contains(getString(R.string.status_pm))) {
 				male = true;
 				partnered = true;
 			} else {
 				male = false;
 				partnered = false;
 			}
-		
+
 		//Toast.makeText(this, dp.getMonth(), Toast.LENGTH_SHORT).show();
-		aq = new Querant(male,partnered,new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth()));
-		
+		aq = new Querant(male,partnered,new GregorianCalendar(dp_year_spin.getCurrentItem()+1910,dp_month_spin.getCurrentItem(),dp_day_spin.getCurrentItem()+1));
+		SharedPreferences.Editor ed = querantPrefs.edit();
+		ed.putInt("birthyear", aq.birth.get(Calendar.YEAR));
+		ed.putInt("birthmonth", aq.birth.get(Calendar.MONTH));
+		ed.putInt("birthday", aq.birth.get(Calendar.DAY_OF_MONTH));
+		ed.putInt("querantstatus", statusspin.getCurrentItem());		
+		ed.commit();
 	}
 	private void showInfo(int type) {
 		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
@@ -701,6 +833,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		flipper.stopFlipping();
 	}
 	private void beginSecondStage() {
+		
 		firstpass=false;
 		secondSetIndex=0;
 		if (!reversalCheck.isChecked() &! loaded) {
@@ -873,24 +1006,50 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private void redisplayMain() {
 		View activeView = inflater.inflate(R.layout.botastart, null);
 		setContentView(activeView);
+		statusspin = (WheelView) findViewById(R.id.statusspinner);
+		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.status_array));
 		
-		statusspin = (Spinner) findViewById(R.id.statusspinner);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.status_array, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		statusspin.setAdapter(adapter);
-		statusspin.setOnItemSelectedListener(this);
-		statusspin.setSelection(3);
-		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
-
-		dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
+		statusspin.setVisibleItems(3);
+		statusspin.setCurrentItem(querantPrefs.getInt("querantstatus", 0));
+//		statusspin = (Spinner) findViewById(R.id.statusspinner);
+//		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+//				this, R.array.status_array, android.R.layout.simple_spinner_item);
+//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//		statusspin.setAdapter(adapter);
+//		statusspin.setOnItemSelectedListener(this);
+//		statusspin.setSelection(3);
+//		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
 
 		Calendar today = Calendar.getInstance();
+		
+		dp_month_spin = (WheelView) findViewById(R.id.birthmonth);
+		ArrayWheelAdapter<String> dpmadapter = new ArrayWheelAdapter<String>(new String[] {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"});
+		
+		dp_month_spin.setAdapter(dpmadapter);
+		dp_month_spin.setVisibleItems(3);
+
+		dp_day_spin = (WheelView) findViewById(R.id.birthday);
+		
+		dp_day_spin.setAdapter(new NumericWheelAdapter(1, 31));
+		dp_day_spin.setVisibleItems(3);
+		
+		dp_year_spin = (WheelView) findViewById(R.id.birthyear);
+		
+		dp_year_spin.setAdapter(new NumericWheelAdapter(1910, 2010));
+		dp_year_spin.setVisibleItems(3);
+		
+		
 		 
-		if (querantPrefs.contains("birthyear"))
-			dp.init(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR)), querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)), querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH)), this);        
-		else
-			dp.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), this);
+		if (querantPrefs.contains("birthyear")) {
+			dp_year_spin.setCurrentItem(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR))-1910);
+			dp_month_spin.setCurrentItem(querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)));
+			dp_day_spin.setCurrentItem(querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH))-1);     
+		}else {
+			dp_month_spin.setCurrentItem(querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)));
+			dp_day_spin.setCurrentItem(querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH))-1);
+			dp_year_spin.setCurrentItem(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR))-1910);
+		}
 		
 		
 		
@@ -920,7 +1079,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			mySpread = new BotaSpread(myInt);
 			beginSecondStage();	
 		} else if (v.equals(this.findViewById(R.id.initspreadbutton))) {
-			switch (spreadspin.getSelectedItemPosition()) {
+			readingPrefsEd.putInt("spread", spreadspin.getCurrentItem());
+			readingPrefsEd.commit();
+			switch (spreadspin.getCurrentItem()) {
 			case 0: {
 				//seqSpread();
 				spreadLabels = single;
@@ -1066,15 +1227,76 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		
 		if (dialog instanceof AlertDialog) {
 				switch (which) {
-				case -1: { 					
+				case -1: { 															
 					saveTitle = input.getText().toString();
-					saveTitle = saveTitle.replaceAll("\\s+", "+");					
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
+					saveTitle = saveTitle.replaceAll("\\s+", "+"); 
+					HashMap<String,String> read = new HashMap<String,String>();
+				    read.put("spread", spreadToString());
+				    read.put("deck", deckToString());
+				    read.put("reversals", reversalsToString());
+				    read.put("label", saveTitle);
+				    read.put("type", style);
+//				    if (saved.length > 5)
+//				    	read.put("date", saved[5]);
+//				    else
+				    	read.put("date", "dated");
+				    savedReadings.put(read.get("spread")+read.get("deck"),read);
+				    if (!savedList.contains(read.get("spread")+read.get("deck")))
+				    	savedList.add(read.get("spread")+read.get("deck"));
 					
+					try {
+						Environment.getExternalStorageState();
+					    File root = Environment.getExternalStorageDirectory();
+					    
+					    //if (root.canWrite()){
+					        File gpxfile = new File(root, "tarotbot.store");
+					        FileWriter gpxwriter = new FileWriter(gpxfile);
+					        BufferedWriter out = new BufferedWriter(gpxwriter);
+					        for (String reader: savedList) {
+					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+"\n");
+					        }
+					        
+					        out.close();
+					    //}
+					} catch (IOException e) {
+					    //Log.e(TAG, "Could not write file " + e.getMessage());
+					}
 					break; 
 				}
 				case -2: { 
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
+					//saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
+					
+					HashMap<String,String> read = new HashMap<String,String>();
+				    read.put("spread", spreadToString());
+				    read.put("deck", deckToString());
+				    read.put("reversals", reversalsToString());
+				    read.put("label", saveTitle);
+				    read.put("type", style);
+//				    if (saved.length > 5)
+//				    	read.put("date", saved[5]);
+//				    else
+				    	read.put("date", "dated");
+				    savedReadings.put(read.get("spread")+read.get("deck"),read);
+				    if (!savedList.contains(read.get("spread")+read.get("deck")))
+				    	savedList.add(read.get("spread")+read.get("deck"));
+					
+					try {
+						Environment.getExternalStorageState();
+					    File root = Environment.getExternalStorageDirectory();
+					    
+					    //if (root.canWrite()){
+					        File gpxfile = new File(root, "tarotbot.store");
+					        FileWriter gpxwriter = new FileWriter(gpxfile);
+					        BufferedWriter out = new BufferedWriter(gpxwriter);
+					        for (String reader: savedList) {
+					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+"\n");
+					        }
+					        
+					        out.close();
+					    //}
+					} catch (IOException e) {
+					    //Log.e(TAG, "Could not write file " + e.getMessage());
+					}
 					break; 
 				}
 				default: {
@@ -1087,43 +1309,58 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 						Spread.circles = new ArrayList<Integer>();
 						Spread.working = new ArrayList<Integer>();
 						flipdex = new ArrayList<Integer>();
-						ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
+						//ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
+						ArrayList<String[]> deck = new ArrayList<String[]>();
 				    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
 				    	ArrayList<Integer> working = new ArrayList<Integer>();
 				    	int significator = 0;
-				    	for(String[] card: deck) {
-				    		if (card[2] == "1")
+				    	int count = 0;
+				    	String[] reversed = savedReadings.get(savedList.get(which)).get("reversals").split(",");
+				    	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(which)).get("spread").split(",")));
+				    	for(String card: savedReadings.get(savedList.get(which)).get("deck").split(",")) {
+				    		String rev = "0";
+				    		String spr = "0";
+				    		if (reversed[count].equals("R")) {
 				    			reversals.add(true);
-				    		else
+				    			rev = "1";
+				    		} else
 				    			reversals.add(false);
-				    		if (card[3].equals("1"))
-				    			working.add(Integer.valueOf(card[0])-100);
 				    		
-				    		significator = Integer.valueOf(card[4]);
+				    		if (spreaded.contains(card)) {
+				    			spr = "1";
+				    			working.add(Integer.valueOf(card)-100);
+				    		}
+				    		
+				    		if (count == 0)
+				    			significator = Integer.valueOf(card)-100;
+				    		
+				    		deck.add(new String[] {card,String.valueOf(count+1),rev,spr});
+				    		count++;
 				    	}
 				    	loaded=true;
-				    	BotaInt.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));				    	
+				    	//BotaInt.myDeck = ;	
+				    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
 				    	Spread.working = working;
 				    	BotaInt.loaded = true;
-				    	if (savedReadings.get(which)[3].equals("bota")) {
-				    		mySpread = new BotaSpread(myInt);
+				    	if (savedReadings.get(savedList.get(which)).get("type").equals("bota")) {
 				    		BotaInt.setMyQuerant(new Querant(significator));
-				    	} else if (savedReadings.get(which)[3].equals("celtic")) {
+				    		mySpread = new BotaSpread(myInt);				    		
+				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("celtic")) {
 				    		mySpread = new CelticSpread(myInt,celticCross);
 				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(which)[3].equals("chaos")) {
+				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("chaos")) {
 				    		Spread.circles = Spread.working;
 				    		mySpread = new ChaosSpread(myInt,chaosStar);
-				    	} else if (savedReadings.get(which)[3].equals("single")) {
+				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("single")) {
 				    		mySpread = new SeqSpread(myInt,single);
 				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(which)[3].equals("arrow")) {
+				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("arrow")) {
 				    		mySpread = new ArrowSpread(myInt,timeArrow);
 				    		Spread.circles = Spread.working;				    		
-				    	} else if (savedReadings.get(which)[3].equals("dialectic")) {
+				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("dialectic")) {
 				    		Spread.circles = Spread.working;
 				    		mySpread = new DialecticSpread(myInt,dialectic);
-				    	} else if (savedReadings.get(which)[3].equals("pentagram")) {
+				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("pentagram")) {
 				    		Spread.circles = Spread.working;
 				    		mySpread = new PentagramSpread(myInt,pentagram);
 				    	}
@@ -1135,6 +1372,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			}
 				//Toast.makeText(this, saveResult, Toast.LENGTH_oLONG);
 				if (sharing) {
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
 					String url = WebUtils.bitly(saveResult);
 					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}
@@ -1145,11 +1383,11 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	public void onItemSelected(AdapterView<?> spinnerAdapter, View spinner, int arg2,
 			long arg3) {
 		if (spinnerAdapter.equals(this.findViewById(R.id.statusspinner))) {//.getContentDescription().equals("querant")
-			statusselected = statusspin.getSelectedItemPosition();
+			statusselected = statusspin.getCurrentItem();
 			changeQuerant();
 		} else if (spinnerAdapter.equals(this.findViewById(R.id.spreadspinner))) {
 			if (!init && spreadspin != null) {
-				readingPrefsEd.putInt("spread", spreadspin.getSelectedItemPosition());
+				readingPrefsEd.putInt("spread", spreadspin.getCurrentItem());
 				readingPrefsEd.commit();
 			}
 		}
@@ -1200,15 +1438,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			Spread.circles = new ArrayList<Integer>();
 			Spread.working = new ArrayList<Integer>();
 		}
-		if (style.equals("bota")) {
-			SharedPreferences.Editor ed = querantPrefs.edit();
-			ed.putInt("birthyear", aq.birth.get(Calendar.YEAR));
-			ed.putInt("birthmonth", aq.birth.get(Calendar.MONTH));
-			ed.putInt("birthday", aq.birth.get(Calendar.DAY_OF_MONTH));
-			ed.putInt("querantstatus", statusselected);
-			ed.putInt("activeCard", secondSetIndex);		
-			ed.commit();
-		}			
 	}
 
 	

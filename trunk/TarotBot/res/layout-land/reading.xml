@@ -4,15 +4,15 @@
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#000000"
     >
 <ImageView 
 	android:id="@+id/divine"
     android:layout_centerVertical="true"
     android:gravity="left"
-    android:layout_gravity="fill_vertical"
-	android:layout_width="168dip"
-    android:layout_height="300dip"
-    android:scaleType="fitXY"
+	android:layout_width="176dip"
+    android:layout_height="320dip"
+    android:scaleType="fitCenter"
     />    
 <include 
 	android:id="@+id/includedinterpretation" 

@@ -642,7 +642,7 @@
     android:scaleType="fitXY"></ImageView>     
 
 <ImageView android:id="@+id/pent_queen" 
-	android:src="@drawable/th_judgement_20" 
+	android:src="@drawable/th_pent_queen" 
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"

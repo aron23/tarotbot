@@ -20,17 +20,7 @@
     android:layout_marginTop="5dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
-    
 <ImageView android:id="@+id/bota_01" 
-	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="100dip"
-    android:layout_marginTop="20dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/bota_02" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -38,89 +28,38 @@
     android:layout_marginTop="20dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView> 
-    
-<ImageView android:id="@+id/bota_03" 
-	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="73dip"
-    android:layout_marginTop="40dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/bota_04" 
+<ImageView android:id="@+id/bota_02" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
     android:layout_marginLeft="181dip"
     android:layout_marginTop="40dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
+    android:scaleType="fitXY"></ImageView>     
+<ImageView android:id="@+id/bota_03" 
 
-<ImageView android:id="@+id/bota_05" 
-	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="46dip"
-    android:layout_marginTop="65dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/bota_06" 
-	
 	android:layout_width="22dip"
     android:layout_height="40dip"
     android:layout_marginLeft="208dip"
     android:layout_marginTop="65dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>  
-    
-<ImageView android:id="@+id/bota_07" 
-	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="19dip"
-    android:layout_marginTop="90dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
-
-<ImageView android:id="@+id/bota_08" 
-	
+    android:scaleType="fitXY"></ImageView>
+<ImageView android:id="@+id/bota_04" 
 	android:layout_width="22dip"
     android:layout_height="40dip"
     android:layout_marginLeft="235dip"
     android:layout_marginTop="90dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/bota_09" 
-	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="5dip"
-    android:layout_marginTop="135dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/bota_10" 
+<ImageView android:id="@+id/bota_05" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
     android:layout_marginLeft="249dip"
     android:layout_marginTop="135dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>  
-    
-<ImageView android:id="@+id/bota_11" 
-	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="32dip"
-    android:layout_marginTop="180dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
-    
-<ImageView android:id="@+id/bota_12" 
+    android:scaleType="fitXY"></ImageView>    
+<ImageView android:id="@+id/bota_06" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -128,35 +67,15 @@
     android:layout_marginTop="180dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/bota_13" 
-	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="59dip"
-    android:layout_marginTop="205dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/bota_14" 
+<ImageView android:id="@+id/bota_07" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
     android:layout_marginLeft="195dip"
     android:layout_marginTop="205dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>  
-    
-<ImageView android:id="@+id/bota_15" 
-	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="86dip"
-    android:layout_marginTop="230dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
-
-<ImageView android:id="@+id/bota_16" 
+    android:scaleType="fitXY"></ImageView>    
+<ImageView android:id="@+id/bota_08" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -164,24 +83,83 @@
     android:layout_marginTop="230dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/bota_17" 
-	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="113dip"
-    android:layout_marginTop="250dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/bota_18" 
+<ImageView android:id="@+id/bota_09" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
     android:layout_marginLeft="141dip"
     android:layout_marginTop="250dip"
     android:clickable="true"
+    android:scaleType="fitXY"></ImageView>      
+<ImageView android:id="@+id/bota_10" 
+	
+	android:layout_width="22dip"
+    android:layout_height="40dip"
+    android:layout_marginLeft="113dip"
+    android:layout_marginTop="250dip"
+    android:clickable="true"
     android:scaleType="fitXY"></ImageView>    
+<ImageView android:id="@+id/bota_11" 
+	
+	android:layout_width="22dip"
+    android:layout_height="40dip"
+    android:layout_marginLeft="86dip"
+    android:layout_marginTop="230dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView> 
+<ImageView android:id="@+id/bota_12" 
+	
+	android:layout_width="22dip"
+    android:layout_height="40dip"
+    android:layout_marginLeft="59dip"
+    android:layout_marginTop="205dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+<ImageView android:id="@+id/bota_13" 
+	
+	android:layout_width="22dip"
+    android:layout_height="40dip"
+    android:layout_marginLeft="32dip"
+    android:layout_marginTop="180dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView> 
+<ImageView android:id="@+id/bota_14" 
+	
+	android:layout_width="22dip"
+    android:layout_height="40dip"
+    android:layout_marginLeft="5dip"
+    android:layout_marginTop="135dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+<ImageView android:id="@+id/bota_15" 
+
+	android:layout_width="22dip"
+    android:layout_height="40dip"
+    android:layout_marginLeft="19dip"
+    android:layout_marginTop="90dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+<ImageView android:id="@+id/bota_16" 
+	android:layout_width="22dip"
+    android:layout_height="40dip"
+    android:layout_marginLeft="46dip"
+    android:layout_marginTop="65dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+<ImageView android:id="@+id/bota_17" 
+	android:layout_width="22dip"
+    android:layout_height="40dip"
+    android:layout_marginLeft="73dip"
+    android:layout_marginTop="40dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+<ImageView android:id="@+id/bota_18" 
+	android:layout_width="22dip"
+    android:layout_height="40dip"
+    android:layout_marginLeft="100dip"
+    android:layout_marginTop="20dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>  
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

@@ -34,6 +34,7 @@
 		android:layout_gravity="center_horizontal"
 		android:paddingLeft="12dp"
 		android:paddingRight="12dp"
+		android:width="150dp"
 		android:paddingTop="15dp">
 	  
 	  	<kankan.wheel.widget.WheelView android:id="@+id/birthmonth"

@@ -21,7 +21,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
     
-<ImageView android:id="@+id/bota_01" 
+<ImageView android:id="@+id/bota_19" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -30,7 +30,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
     
-<ImageView android:id="@+id/bota_02" 
+<ImageView android:id="@+id/bota_01" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -39,7 +39,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView> 
     
-<ImageView android:id="@+id/bota_03" 
+<ImageView android:id="@+id/bota_18" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -48,7 +48,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
     
-<ImageView android:id="@+id/bota_04" 
+<ImageView android:id="@+id/bota_02" 
 	
 	android:layout_width="22dip"
     android:layout_height="35dip"
@@ -57,7 +57,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView> 
 
-<ImageView android:id="@+id/bota_05" 
+<ImageView android:id="@+id/bota_17" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -66,7 +66,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
     
-<ImageView android:id="@+id/bota_06" 
+<ImageView android:id="@+id/bota_03" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -75,7 +75,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
     
-<ImageView android:id="@+id/bota_07" 
+<ImageView android:id="@+id/bota_16" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -84,7 +84,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView> 
 
-<ImageView android:id="@+id/bota_08" 
+<ImageView android:id="@+id/bota_04" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -93,7 +93,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
     
-<ImageView android:id="@+id/bota_09" 
+<ImageView android:id="@+id/bota_15" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -102,7 +102,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
     
-<ImageView android:id="@+id/bota_10" 
+<ImageView android:id="@+id/bota_05" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -111,7 +111,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
     
-<ImageView android:id="@+id/bota_11" 
+<ImageView android:id="@+id/bota_14" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -120,7 +120,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView> 
     
-<ImageView android:id="@+id/bota_12" 
+<ImageView android:id="@+id/bota_06" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -138,7 +138,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
     
-<ImageView android:id="@+id/bota_14" 
+<ImageView android:id="@+id/bota_07" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -147,7 +147,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
     
-<ImageView android:id="@+id/bota_15" 
+<ImageView android:id="@+id/bota_12" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -156,7 +156,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView> 
 
-<ImageView android:id="@+id/bota_16" 
+<ImageView android:id="@+id/bota_08" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -165,7 +165,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
     
-<ImageView android:id="@+id/bota_17" 
+<ImageView android:id="@+id/bota_11" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -174,7 +174,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
     
-<ImageView android:id="@+id/bota_18" 
+<ImageView android:id="@+id/bota_09" 
 	
 	android:layout_width="22dip"
     android:layout_height="40dip"
@@ -183,8 +183,8 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>    
     
-<ImageView android:id="@+id/bota_19" 
-	
+<ImageView android:id="@+id/bota_10" 
+	android:src="@drawable/th_the_fool_00"
 	android:layout_width="22dip"
     android:layout_height="40dip"
     android:layout_marginLeft="127dip"

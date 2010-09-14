@@ -379,7 +379,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(0))) {
 			card.setId(circles.indexOf(working.get(0)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 0)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(0)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -408,7 +408,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(1))) {
 			card.setId(circles.indexOf(working.get(1)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 1)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(1)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -430,7 +430,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(2))) {
 			card.setId(circles.indexOf(working.get(2)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 2)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(2)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -452,7 +452,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(3))) {
 			card.setId(circles.indexOf(working.get(3)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 3)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(3)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -474,7 +474,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(4))) {
 			card.setId(circles.indexOf(working.get(4)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 4)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(4)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -496,7 +496,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(5))) {
 			card.setId(circles.indexOf(working.get(5)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 5)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(5)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -518,7 +518,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(6))) {
 			card.setId(circles.indexOf(working.get(6)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 6)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(6)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -540,7 +540,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(7))) {
 			card.setId(circles.indexOf(working.get(7)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 7)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(7)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -562,7 +562,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(8))) {
 			card.setId(circles.indexOf(working.get(8)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 8)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(8)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -584,7 +584,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(9))) {
 			card.setId(circles.indexOf(working.get(9)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 9)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(9)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -606,7 +606,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(10))) {
 			card.setId(circles.indexOf(working.get(10)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 10)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(10)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -628,7 +628,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(11))) {
 			card.setId(circles.indexOf(working.get(11)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 11)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(11)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -651,7 +651,7 @@ public class BotaSpread extends Spread {
 			card.setId(circles.indexOf(working.get(12)));
 
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 12)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(12)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -673,7 +673,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(13))) {
 			card.setId(circles.indexOf(working.get(13)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 13)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(13)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -696,7 +696,7 @@ public class BotaSpread extends Spread {
 			card.setId(circles.indexOf(working.get(14)));
 
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 14)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(14)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -720,7 +720,7 @@ public class BotaSpread extends Spread {
 			card.setId(circles.indexOf(working.get(15)));
 
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 15)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(15)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -743,7 +743,7 @@ public class BotaSpread extends Spread {
 			card.setId(circles.indexOf(working.get(16)));
 
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 16)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(16)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -765,7 +765,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(17))) {
 			card.setId(circles.indexOf(working.get(17)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 17)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(17)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -787,7 +787,7 @@ public class BotaSpread extends Spread {
 		if (circles.contains(working.get(18))) {
 			card.setId(circles.indexOf(working.get(18)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == 18)
+			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(18)))
 				card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		} else {
 			card.setAlpha(75);
@@ -810,7 +810,7 @@ public class BotaSpread extends Spread {
 			if (circles.contains(working.get(19))) {
 				card.setId(circles.indexOf(working.get(19)));
 				card.setOnClickListener(act);
-				if (TarotBotActivity.secondSetIndex == 19)
+				if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(19)))
 					card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 			} else {
 				card.setAlpha(75);

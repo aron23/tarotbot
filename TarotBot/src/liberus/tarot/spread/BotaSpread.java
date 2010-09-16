@@ -396,14 +396,7 @@ public class BotaSpread extends Spread {
 			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
 			card.setImageDrawable(bmd);
 		} else {
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(1)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(90);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
+			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(1))));
 		}	
 		if (circles.contains(working.get(1))) {
 			card.setId(circles.indexOf(working.get(1)));

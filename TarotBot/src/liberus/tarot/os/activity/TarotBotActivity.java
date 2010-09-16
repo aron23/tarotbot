@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -165,6 +166,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private WheelView dp_day_spin;
 	private WheelView dp_year_spin;
 	private boolean bota;
+	private ArrayList<String> sortedSaved;
 
 
 	/** Called when the activity is first created. */
@@ -203,15 +205,21 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			    read.put("reversals", saved[2]);
 			    read.put("label", saved[3]);
 			    read.put("type", saved[4]);
-			    if (saved.length > 5)
+			    if (saved.length > 5 &! saved[5].equals("dated"))
 			    	read.put("date", saved[5]);
 			    else
-			    	read.put("date", "dated");
+			    	read.put("date", "0000-00-00.00");
+			    if (saved.length > 6)
+			    	read.put("significator", saved[6]);
+			    else if (saved[4].equals("bota"))
+			    	continue;
+			    else
+			    	read.put("significator", "0");
 			    System.err.println(saved[0]);
 			    System.err.println(saved[1]);
-			    savedReadings.put(saved[0]+saved[1],read);
-			    if (!savedList.contains(saved[0]+saved[1]))
-			    	savedList.add(saved[0]+saved[1]);
+			    savedReadings.put(read.get("date")+saved[0]+saved[1],read);
+			    if (!savedList.contains(read.get("date")+saved[0]+saved[1]))
+			    	savedList.add(read.get("date")+saved[0]+saved[1]);
 			}
 		} catch (FileNotFoundException e) {
 		   e.printStackTrace();
@@ -320,17 +328,18 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
 	  if (spreading) {
+		  redisplaySpreadStart();
+		  
+	  } else if (!begun) {
+		  redisplayMain();
+	  } else {
 		  rotateDisplay();
 		  if (Spread.circles.size() > 1) {
 			  if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
 					Toast.makeText(this, R.string.portraitnavigation, Toast.LENGTH_LONG).show();
 				else
 					Toast.makeText(this, R.string.landscapenavigation, Toast.LENGTH_LONG).show();
-		  }
-	  } else if (!begun) {
-		  redisplayMain();
-	  } else {
-		  redisplaySpreadStart();		  
+		  }  
 	  }
 	}
 
@@ -629,12 +638,15 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		browsing = false;
 		//savedReadings = WebUtils.loadTarotBot(getApplicationContext());			
 		ArrayList<String> readingLabels = new ArrayList<String>();
-		for (String reader: savedList) {
+		sortedSaved = new ArrayList<String>(savedList);
+		Collections.sort(sortedSaved);
+		Collections.reverse(sortedSaved);
+		for (String reader: sortedSaved) {
 			HashMap<String,String> reading = savedReadings.get(reader);
 			if (reading.get("label").length() > 0)
-				readingLabels.add(reading.get("date")+":"+reading.get("type")+" - "+reading.get("label"));
+				readingLabels.add(reading.get("date")+": "+reading.get("label")+" - "+reading.get("type"));
 			else
-				readingLabels.add(reading.get("date")+":"+reading.get("type"));
+				readingLabels.add(reading.get("date")+": "+reading.get("type"));
 		}
 		String[] items = readingLabels.toArray(new String[0]);
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -1271,20 +1283,26 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				switch (which) {
 				case -1: { 															
 					saveTitle = input.getText().toString();
-					saveTitle = saveTitle.replaceAll("\\s+", "+"); 
+					//saveTitle = saveTitle.replaceAll("\\s+", "+"); 
 					HashMap<String,String> read = new HashMap<String,String>();
 				    read.put("spread", spreadToString());
 				    read.put("deck", deckToString());
 				    read.put("reversals", reversalsToString());
 				    read.put("label", saveTitle);
 				    read.put("type", style);
+				    if (style.equals("bota"))
+				    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
+				    else
+				    	read.put("significator", String.valueOf(0));
 //				    if (saved.length > 5)
 //				    	read.put("date", saved[5]);
 //				    else
-				    	read.put("date", "dated");
-				    savedReadings.put(read.get("spread")+read.get("deck"),read);
-				    if (!savedList.contains(read.get("spread")+read.get("deck")))
-				    	savedList.add(read.get("spread")+read.get("deck"));
+				    Calendar cal = Calendar.getInstance();
+				    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
+				    read.put("date", sdf.format(cal.getTime()));
+				    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
+				    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
+				    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
 					
 					try {
 						Environment.getExternalStorageState();
@@ -1295,7 +1313,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 					        FileWriter gpxwriter = new FileWriter(gpxfile);
 					        BufferedWriter out = new BufferedWriter(gpxwriter);
 					        for (String reader: savedList) {
-					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+"\n");
+					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
 					        }
 					        
 					        out.close();
@@ -1314,13 +1332,16 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				    read.put("reversals", reversalsToString());
 				    read.put("label", saveTitle);
 				    read.put("type", style);
-//				    if (saved.length > 5)
-//				    	read.put("date", saved[5]);
-//				    else
-				    	read.put("date", "dated");
-				    savedReadings.put(read.get("spread")+read.get("deck"),read);
-				    if (!savedList.contains(read.get("spread")+read.get("deck")))
-				    	savedList.add(read.get("spread")+read.get("deck"));
+				    Calendar cal = Calendar.getInstance();
+				    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
+				    read.put("date", sdf.format(cal.getTime()));
+				    if (style.equals("bota"))
+				    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
+				    else
+				    	read.put("significator", String.valueOf(0));
+				    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
+				    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
+				    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
 					
 					try {
 						Environment.getExternalStorageState();
@@ -1331,7 +1352,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 					        FileWriter gpxwriter = new FileWriter(gpxfile);
 					        BufferedWriter out = new BufferedWriter(gpxwriter);
 					        for (String reader: savedList) {
-					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+"\n");
+					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
 					        }
 					        
 					        out.close();
@@ -1355,11 +1376,11 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 						ArrayList<String[]> deck = new ArrayList<String[]>();
 				    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
 				    	ArrayList<Integer> working = new ArrayList<Integer>();
-				    	int significator = 0;
+				    	int significator = Integer.valueOf(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("significator"));
 				    	int count = 0;
-				    	String[] reversed = savedReadings.get(savedList.get(which)).get("reversals").split(",");
-				    	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(which)).get("spread").split(",")));
-				    	for(String card: savedReadings.get(savedList.get(which)).get("deck").split(",")) {
+				    	String[] reversed = savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("reversals").split(",");
+				    	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("spread").split(",")));
+				    	for(String card: savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("deck").split(",")) {
 				    		String rev = "0";
 				    		String spr = "0";
 				    		if (reversed[count].equals("R")) {
@@ -1373,8 +1394,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				    			working.add(Integer.valueOf(card)-100);
 				    		}
 				    		
-				    		if (count == 0)
-				    			significator = Integer.valueOf(card)-100;
+				    		
+				    			
 				    		
 				    		deck.add(new String[] {card,String.valueOf(count+1),rev,spr});
 				    		count++;
@@ -1384,25 +1405,25 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
 				    	Spread.working = working;
 				    	BotaInt.loaded = true;
-				    	if (savedReadings.get(savedList.get(which)).get("type").equals("bota")) {
+				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("bota")) {
 				    		BotaInt.setMyQuerant(new Querant(significator));
 				    		mySpread = new BotaSpread(myInt);				    		
-				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("celtic")) {
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("celtic")) {
 				    		mySpread = new CelticSpread(myInt,celticCross);
 				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("chaos")) {
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("chaos")) {
 				    		Spread.circles = Spread.working;
 				    		mySpread = new ChaosSpread(myInt,chaosStar);
-				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("single")) {
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("single")) {
 				    		mySpread = new SeqSpread(myInt,single);
 				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("arrow")) {
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arrow")) {
 				    		mySpread = new ArrowSpread(myInt,timeArrow);
 				    		Spread.circles = Spread.working;				    		
-				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("dialectic")) {
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("dialectic")) {
 				    		Spread.circles = Spread.working;
 				    		mySpread = new DialecticSpread(myInt,dialectic);
-				    	} else if (savedReadings.get(savedList.get(which)).get("type").equals("pentagram")) {
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("pentagram")) {
 				    		Spread.circles = Spread.working;
 				    		mySpread = new PentagramSpread(myInt,pentagram);
 				    	}

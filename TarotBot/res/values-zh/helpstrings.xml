@@ -1,8 +1,0 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-<resources>
-	<string name="helpprompt">Was möchtest Du wissen?</string>
-	<string name="helpwhat">Was ist das?</string>
-	<string name="helphow">Wie funktioniert das?</string>
-	<string name="helptarot">Was ist Tarot?</string>
-	<string name="helpupdate">Was kommt als nächstes?</string>
-</resources>

@@ -10,9 +10,9 @@
 	android:id="@+id/divine"
     android:layout_centerVertical="true"
     android:gravity="left"
-	android:layout_width="176dip"
-    android:layout_height="320dip"
-    android:scaleType="fitCenter"
+	android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:scaleType="fitStart"
     />    
 <include 
 	android:id="@+id/includedinterpretation" 

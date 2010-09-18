@@ -389,7 +389,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			preFlip(v);
 			
 			if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-				showInfo(getResources().getConfiguration().orientation);
+				showInfo(Configuration.ORIENTATION_LANDSCAPE);
 			
 			flipper.setAnimationCacheEnabled(false);
 			flipper.setPersistentDrawingCache(ViewGroup.PERSISTENT_NO_CACHE);
@@ -1474,6 +1474,9 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		if (!sharing) {
 			
 			
+			Spread.circles = new ArrayList<Integer>();
+			Spread.working = new ArrayList<Integer>();
+				
 		/*if (flipper != null) {
 			for (int i = 0; i < flipper.getChildCount(); i++) {
 				View v = flipper.getChildAt(i);
@@ -1497,10 +1500,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	protected void onPause() {
 		super.onPause();
-		if (!sharing) {
-			Spread.circles = new ArrayList<Integer>();
-			Spread.working = new ArrayList<Integer>();
-		}
+		
 	}
 
 	

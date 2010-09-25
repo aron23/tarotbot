@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/secondsetlayout"
     android:orientation="horizontal"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#000000"
     >
 <ImageView 
 	android:id="@+id/divine"
-    android:layout_centerVertical="true"
-    android:gravity="left"
-	android:layout_width="wrap_content"
+	android:layout_width="200dip"
     android:layout_height="wrap_content"
     android:scaleType="fitStart"
-    />    
-<include 
-	android:id="@+id/includedinterpretation" 
-	layout="@layout/interpretation" 
-	/>
-</RelativeLayout>
+    />    	     
+<ScrollView android:id="@+id/ScrollView01"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent">    
+<TextView 
+	android:id="@+id/interpretation" 
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:layout_marginTop="5dip"
+	android:layout_marginBottom="5dip"
+	android:layout_marginLeft="5dip"
+    android:background="#000000"
+    android:textColor="#FFFFFF"
+    />  
+    </ScrollView>
+</LinearLayout>

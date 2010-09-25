@@ -2,28 +2,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/readinglayout"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_marginLeft="20dip"
-    android:layout_marginRight="20dip"
-    >
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/readinglayout"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
+	android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >		     
+<ScrollView android:id="@+id/ScrollView01"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent">    
 <TextView 
 	android:id="@+id/interpretation" 
 	android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-	android:layout_marginTop="10dip"
-	android:layout_marginBottom="10dip"
-	android:layout_marginLeft="176dip"
+	android:layout_marginTop="5dip"
+	android:layout_marginBottom="5dip"
+	android:layout_marginLeft="5dip"
     android:background="#000000"
     android:textColor="#FFFFFF"
     android:gravity="left"
     android:layout_gravity="left"
     />  
+    </ScrollView>
 </RelativeLayout>
-</RelativeLayout>
+

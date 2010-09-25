@@ -121,7 +121,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	private ArrayList<Integer> type = new ArrayList<Integer>();
 	public ArrayList<Integer> flipdex = new ArrayList<Integer>();
-	private ArrayList<RelativeLayout> laidout = new ArrayList<RelativeLayout>();
+	private ArrayList<ViewGroup> laidout = new ArrayList<ViewGroup>();
 	private static BotaInt myInt;
 	private String saveTitle;
 	private EditText input;
@@ -334,12 +334,12 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		  redisplayMain();
 	  } else {
 		  rotateDisplay();
-		  if (Spread.circles.size() > 1) {
-			  if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
-					Toast.makeText(this, R.string.portraitnavigation, Toast.LENGTH_LONG).show();
-				else
-					Toast.makeText(this, R.string.landscapenavigation, Toast.LENGTH_LONG).show();
-		  }  
+//		  if (Spread.circles.size() > 1) {
+//			  if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+//					Toast.makeText(this, R.string.portraitnavigation, Toast.LENGTH_LONG).show();
+//				else
+//					Toast.makeText(this, R.string.landscapenavigation, Toast.LENGTH_LONG).show();
+//		  }  
 	  }
 	}
 
@@ -354,7 +354,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		
 		View activeView = inflater.inflate(R.layout.reading, null);
 		if (activeView.findViewById(R.id.secondsetlayout) != null)
-			laidout.add((RelativeLayout) activeView.findViewById(R.id.secondsetlayout));
+			laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 		//else continue;
 
 		ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
@@ -378,25 +378,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 				BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
 				divine.setImageDrawable(bmd);
-//			} catch (RemoteException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}	
 
 		} else {
-			//Uri allTitles = Uri.parse("content://liberus.tarot.os.addon.riderwaiteprovider/cards/"+flipdex.get(flipper.indexOfChild(v)));
-		    //Cursor c = managedQuery(allTitles, null, null, null, null);
-		    //c.moveToFirst();
-//			try {
-//				divine.setImageDrawable(getResources().getDrawable(deckService.getCard(flipdex.get(flipper.indexOfChild(v)))));
-//			} catch (NotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (RemoteException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-			//divine.setImageDrawable(getResources().getDrawable(c.getInt(0)));
 			divine.setImageDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(secondSetIndex))));
 		}
 		
@@ -407,62 +390,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		flipper.setPersistentDrawingCache(ViewGroup.PERSISTENT_NO_CACHE);
 		flipper.setDrawingCacheEnabled(false);
 		flipper.setDisplayedChild(secondSetIndex);
-
-		
-		
-		
-		
-		
-//			setContentView(R.layout.transition);
-//			ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
-//			laidout = new ArrayList<RelativeLayout>();
-//			int counter = 0;
-//			for (int index:Spread.circles) {			
-//				View activeView = inflater.inflate(R.layout.reading, null);
-//				
-//				if (secondSetIndex > 0 && secondSetIndex < (Spread.circles.size()-1)) {
-//					if (counter == (secondSetIndex-1) || counter == secondSetIndex || counter == (secondSetIndex+1)) {
-//						preFlip(activeView);
-//					}
-//				} else if (secondSetIndex == 0 ) {
-//					if (counter == (Spread.circles.size()-1) || counter == secondSetIndex || counter == (secondSetIndex+1)) {
-//						preFlip(activeView);
-//					}
-//				} else if (secondSetIndex == 0 ) {
-//					if (counter == (secondSetIndex-1) || counter == secondSetIndex || counter == 0) {
-//						preFlip(activeView);
-//					}
-//				}
-//					
-//				counter++;
-//				if (activeView.findViewById(R.id.secondsetlayout) != null)
-//					laidout.add((RelativeLayout) activeView.findViewById(R.id.secondsetlayout));
-//				//else continue;
-//
-//				ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
-//				divine.setClickable(true);
-//				divine.setOnTouchListener(gestureListener);
-//				//divine.setOnClickListener(this);									
-//
-//				flipper.addView(activeView);
-//				type.add(0);
-//				flipdex.add(index);
-//			}
-//			
-//			flipper.setClickable(true);
-//			
-//			flipper.setOnTouchListener(gestureListener);
-//			View v = flipper.getChildAt(secondSetIndex);
-//			preFlip(v);
-//			
-//			if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-//				showInfo(Configuration.ORIENTATION_LANDSCAPE);
-//			
-//			flipper.setAnimationCacheEnabled(false);
-//			flipper.setPersistentDrawingCache(ViewGroup.PERSISTENT_NO_CACHE);
-//			flipper.setDrawingCacheEnabled(false);
-//			flipper.setDisplayedChild(secondSetIndex);
-//			flipper.forceLayout();
 		}
 
 	public void botaSpread() {
@@ -479,15 +406,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		statusspin.setAdapter(adapter);
 		statusspin.setVisibleItems(3);
 		statusspin.setCurrentItem(querantPrefs.getInt("querantstatus", 0));
-		
-//		statusspin = (Spinner) findViewById(R.id.statusspinner);
-//		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-//				this, R.array.status_array, android.R.layout.simple_spinner_item);
-//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//		statusspin.setAdapter(adapter);
-//		statusspin.setOnItemSelectedListener(this);
-//		statusspin.setSelection(3);
-//		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
 		
 		Calendar today = Calendar.getInstance();
 		
@@ -527,7 +445,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			restoreSecondStage();
 		} else {
 			secondSetIndex = 0;
-			laidout.add((RelativeLayout) this.findViewById(R.id.mainlayout));
+			laidout.add((ViewGroup) this.findViewById(R.id.mainlayout));
 			myRandomCard = getRandomCard();
 			((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
 			
@@ -565,7 +483,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			restoreSecondStage();
 		} else {
 			secondSetIndex = 0;
-			laidout.add((RelativeLayout) this.findViewById(R.id.mainlayout));
+			laidout.add((ViewGroup) this.findViewById(R.id.mainlayout));
 			myRandomCard = getRandomCard();
 			((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
 			
@@ -905,7 +823,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 		View activeView = inflater.inflate(R.layout.reading, null);
 		if (activeView.findViewById(R.id.secondsetlayout) != null)
-			laidout.add((RelativeLayout) activeView.findViewById(R.id.secondsetlayout));
+			laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 		//else continue;
 
 		ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
@@ -925,6 +843,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			showInfo(getResources().getConfiguration().orientation);
 			
 		
+		
 		postFlip(flipper.getChildAt(0));
 		flipper.stopFlipping();
 	}
@@ -943,7 +862,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 		View activeView = inflater.inflate(R.layout.reading, null);
 		if (activeView.findViewById(R.id.secondsetlayout) != null)
-			laidout.add((RelativeLayout) activeView.findViewById(R.id.secondsetlayout));
+			laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 		//else continue;
 
 		ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
@@ -978,13 +897,15 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		}
 		mySpread.operate(getApplicationContext(), loaded);
 		
-		displaySecondStage(secondSetIndex);	
-		if (Spread.circles.size() > 1) {
-			if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
-				Toast.makeText(this, R.string.portraitnavigation, Toast.LENGTH_LONG).show();
-			else
-				Toast.makeText(this, R.string.landscapenavigation, Toast.LENGTH_LONG).show();
+		if (style == "bota") {
+			int end = mySpread.circles.size();
+			spreadLabels = new String[end];
+			for (int i = 0; i < end; i++) {
+				spreadLabels[i]="position "+i;
+			}
 		}
+		
+		displaySecondStage(secondSetIndex);	
 	}
 	
 	private void restoreSecondStage() {
@@ -1009,7 +930,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		
 		View activeView = inflater.inflate(R.layout.reading, null);
 		if (activeView.findViewById(R.id.secondsetlayout) != null)
-			laidout.add((RelativeLayout) activeView.findViewById(R.id.secondsetlayout));
+			laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 		//else continue;
 
 		ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
@@ -1018,28 +939,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		activeView.setOnTouchListener(gestureListener);	
 		
 		flipper.addView(activeView);
-
 		
-		if (BotaInt.myDeck.reversed[flipdex.get(flipper.indexOfChild(activeView))]) {	
-			//Uri allTitles = Uri.parse("content://liberus.tarot.os.addon.riderwaiteprovider/cards/"+flipdex.get(flipper.indexOfChild(v)));
-			//Cursor c = managedQuery(allTitles, null, null, null, "title desc");
-			Bitmap bmp;
-			//try {
-				//bmp = BitmapFactory.decodeResource(getResources(), deckService.getCard(flipdex.get(flipper.indexOfChild(v))));
-				bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(activeView))));
-				int w = bmp.getWidth();
-				int h = bmp.getHeight();
-				Matrix mtx = new Matrix();
-				mtx.postRotate(180);
-				
-				Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-				BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-				divine.setImageDrawable(bmd);
-
-
-		} else {
-			divine.setImageDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(activeView)))));
-		}
+		divine = placeImage(flipper.indexOfChild(activeView),divine,getApplicationContext(),flipdex);
 		
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
 			showInfo(getResources().getConfiguration().orientation);
@@ -1049,7 +950,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		flipper.setDrawingCacheEnabled(false);
 		flipper.setDisplayedChild(0);
 		
-		
+		toastSpread();
 	}
 
 	private void redisplaySecondStage(int indexin) {
@@ -1060,7 +961,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		for (int index:Spread.circles) {			
 			View activeView = inflater.inflate(R.layout.reading, null);
 			if (activeView.findViewById(R.id.secondsetlayout) != null)
-				laidout.add((RelativeLayout) activeView.findViewById(R.id.secondsetlayout));
+				laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 			//else continue;
 			counter++;
 			ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
@@ -1077,21 +978,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		//flipper.setOnClickListener(this);
 		flipper.setOnTouchListener(gestureListener);
 		View v = flipper.getChildAt(indexin);
-		//View oldV = oldFlipper.getChildAt(indexin);		
-//		ImageView divine = (ImageView) v.findViewById(R.id.divine);
-//		if (BotaInt.myDeck.reversed[flipdex.get(flipper.indexOfChild(v))]) {			
-//				Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(flipper.indexOfChild(v))));
-//				int w = bmp.getWidth();
-//				int h = bmp.getHeight();
-//				Matrix mtx = new Matrix();
-//				mtx.postRotate(180);
-//				Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-//				BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-//				divine.setImageDrawable(bmd);
-//
-//		} else {
-//			divine.setImageDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(flipper.indexOfChild(v)))));
-//		}
 		
 		preFlip(v);
 		
@@ -1115,14 +1001,6 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		statusspin.setVisibleItems(3);
 		statusspin.setCurrentItem(querantPrefs.getInt("querantstatus", 0));
 		statusspin.forceLayout();
-//		statusspin = (Spinner) findViewById(R.id.statusspinner);
-//		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-//				this, R.array.status_array, android.R.layout.simple_spinner_item);
-//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//		statusspin.setAdapter(adapter);
-//		statusspin.setOnItemSelectedListener(this);
-//		statusspin.setSelection(3);
-//		statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
 
 		Calendar today = Calendar.getInstance();
 		
@@ -1160,7 +1038,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		
 		
 			secondSetIndex = 0;
-			laidout.add((RelativeLayout) this.findViewById(R.id.mainlayout));			
+			laidout.add((ViewGroup) this.findViewById(R.id.mainlayout));			
 			((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
 			
 	
@@ -1184,6 +1062,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
 			mySpread = new BotaSpread(myInt);
 			beginSecondStage();	
+			
 		} else if (v.equals(this.findViewById(R.id.initspreadbutton))) {
 			readingPrefsEd.putInt("spread", spreadspin.getCurrentItem());
 			readingPrefsEd.commit();
@@ -1485,7 +1364,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 					}
 				}
 			}
-				//Toast.makeText(this, saveResult, Toast.LENGTH_oLONG);
+				
 				if (sharing) {
 					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
 					String url = WebUtils.bitly(saveResult);
@@ -1598,35 +1477,52 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		}
 
 	}
+	
+	public ImageView placeImage(int index, ImageView toPlace, Context con, ArrayList<Integer> flipdex) {
+		Bitmap bmp;
+		bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(flipdex.get(index)));
+		int w = bmp.getWidth();
+		int h = bmp.getHeight();
+		Matrix mtx = new Matrix();
+		int diff = h-w;
+		if (diff < (h/4)*-1) {
+			mtx.postRotate(90);
+		}
+		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+
+		
+		if (BotaInt.myDeck.reversed[flipdex.get(index)]) {		
+			mtx = new Matrix();
+			mtx.postRotate(180);
+			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		} 
+		
+		BitmapDrawable bmd = new BitmapDrawable(bmp);			
+		toPlace.setImageDrawable(bmd);
+		return toPlace;
+	}
 
 	
 	public void preFlip(View v) {
 				
 				ImageView divine = (ImageView) v.findViewById(R.id.divine);
-				if (BotaInt.myDeck.reversed[flipdex.get(secondSetIndex)]) {			
-						Bitmap bmp = BitmapFactory.decodeResource(getResources(), BotaInt.getCard(flipdex.get(secondSetIndex)));
-						int w = bmp.getWidth();
-						int h = bmp.getHeight();
-						Matrix mtx = new Matrix();
-						mtx.postRotate(180);
-						Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-						BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-						divine.setImageDrawable(bmd);
-
-				} else {
-
-					divine.setImageDrawable(getResources().getDrawable(BotaInt.getCard(flipdex.get(secondSetIndex))));
-				}			
+				
+				divine = placeImage(secondSetIndex,divine,getApplicationContext(),flipdex);
 				
 	}
 
 		
 	public void postFlip(View v) {
+		toastSpread();
 		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
 		flipper.removeView(v);
-
 	}
 	
+	private void toastSpread() {
+		if (spreadLabels.length > 1 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+			Toast.makeText(this, spreadLabels[secondSetIndex], Toast.LENGTH_SHORT).show();
+	}
+
 	@Override
 	public Object onRetainNonConfigurationInstance() {
 		return 1;

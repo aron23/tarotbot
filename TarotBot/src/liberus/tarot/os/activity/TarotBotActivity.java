@@ -446,8 +446,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		} else {
 			secondSetIndex = 0;
 			laidout.add((ViewGroup) this.findViewById(R.id.mainlayout));
-			myRandomCard = getRandomCard();
-			((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
+			//myRandomCard = getRandomCard();
+			//((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
 			
 	
 			initbutton = (Button) this.findViewById(R.id.initbotabutton);
@@ -484,8 +484,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		} else {
 			secondSetIndex = 0;
 			laidout.add((ViewGroup) this.findViewById(R.id.mainlayout));
-			myRandomCard = getRandomCard();
-			((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
+			//myRandomCard = getRandomCard();
+			//((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
 			
 	
 			initbutton = (Button) this.findViewById(R.id.initseqbutton);
@@ -1039,7 +1039,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		
 			secondSetIndex = 0;
 			laidout.add((ViewGroup) this.findViewById(R.id.mainlayout));			
-			((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
+			//((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
 			
 	
 			initbutton = (Button) this.findViewById(R.id.initbotabutton);
@@ -1519,7 +1519,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 	
 	private void toastSpread() {
-		if (spreadLabels.length > 1 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+		if (spreadLabels.length > 1 && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
 			Toast.makeText(this, spreadLabels[secondSetIndex], Toast.LENGTH_SHORT).show();
 	}
 

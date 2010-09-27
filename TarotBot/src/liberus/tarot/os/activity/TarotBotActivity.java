@@ -1519,7 +1519,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	}
 	
 	private void toastSpread() {
-		if (spreadLabels.length > 1 && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+		if (spreadLabels != null && spreadLabels.length > 1 && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
 			Toast.makeText(this, spreadLabels[secondSetIndex], Toast.LENGTH_SHORT).show();
 	}
 

@@ -330,7 +330,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	  if (spreading) {
 		  redisplaySpreadStart();
 		  
-	  } else if (!begun) {
+	  } else if (!begun && !browsing) {
 		  redisplayMain();
 	  } else {
 		  rotateDisplay();
@@ -524,9 +524,12 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	
 		if(!begun) {
 			menu.findItem(MENU_SAVE).setEnabled(false);
-			if (loaded || browsing) {
-				menu.findItem(MENU_SHARE).setEnabled(false);
+			if (loaded &! browsing) {
+				menu.findItem(MENU_SHARE).setEnabled(true);
 				menu.findItem(MENU_NAVIGATE).setEnabled(true);
+			} else if (browsing) {
+				menu.findItem(MENU_NAVIGATE).setEnabled(true);
+				menu.findItem(MENU_SHARE).setEnabled(false);
 			} else {
 				menu.findItem(MENU_NAVIGATE).setEnabled(false);
 				menu.findItem(MENU_SHARE).setEnabled(false);
@@ -577,6 +580,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 
 	private void launchBrowse() {
 		browsing = true;
+		spreading = false;
 		ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
     	for(int card: RiderWaiteDeck.cards) {
     		reversals.add(false);

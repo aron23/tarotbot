@@ -1345,23 +1345,32 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				    		mySpread = new BotaSpread(myInt);				    		
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("celtic")) {
 				    		mySpread = new CelticSpread(myInt,celticCross);
+				    		spreadLabels = celticCross;
 				    		Spread.circles = Spread.working;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("chaos")) {
 				    		Spread.circles = Spread.working;
 				    		mySpread = new ChaosSpread(myInt,chaosStar);
+				    		spreadLabels = chaosStar;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("single")) {
 				    		mySpread = new SeqSpread(myInt,single);
 				    		Spread.circles = Spread.working;
+				    		spreadLabels = single;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arrow")) {
 				    		mySpread = new ArrowSpread(myInt,timeArrow);
+				    		spreadLabels = timeArrow;
 				    		Spread.circles = Spread.working;				    		
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("dialectic")) {
 				    		Spread.circles = Spread.working;
+				    		spreadLabels = dialectic;
 				    		mySpread = new DialecticSpread(myInt,dialectic);
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("pentagram")) {
 				    		Spread.circles = Spread.working;
+				    		spreadLabels = pentagram;
 				    		mySpread = new PentagramSpread(myInt,pentagram);
 				    	}
+				    	spreading=false;
+						begun = true;
+						browsing = false;
 				    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
 				    	beginSecondStage();
 				    	break;

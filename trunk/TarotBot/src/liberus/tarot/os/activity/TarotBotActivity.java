@@ -1493,7 +1493,11 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	
 	public ImageView placeImage(int index, ImageView toPlace, Context con, ArrayList<Integer> flipdex) {
 		Bitmap bmp;
-		bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(flipdex.get(index)));
+		BitmapFactory.Options options;
+		options=new BitmapFactory.Options();
+		if (browsing)
+			options.inSampleSize = 2;
+		bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(flipdex.get(index)),options);
 		int w = bmp.getWidth();
 		int h = bmp.getHeight();
 		Matrix mtx = new Matrix();
@@ -1529,10 +1533,11 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		toastSpread();
 		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
 		flipper.removeView(v);
+		v=null;
 	}
 	
 	private void toastSpread() {
-		if (spreadLabels != null && spreadLabels.length > 1 && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+		if (spreadLabels != null && spreadLabels.length >= secondSetIndex && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
 			Toast.makeText(this, spreadLabels[secondSetIndex], Toast.LENGTH_SHORT).show();
 	}
 

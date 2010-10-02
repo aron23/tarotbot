@@ -9,7 +9,7 @@
 <ImageView 
 	android:id="@+id/divine"
 	android:layout_width="250dip"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:scaleType="fitStart"
     />    	     
 <ScrollView android:id="@+id/ScrollView01"

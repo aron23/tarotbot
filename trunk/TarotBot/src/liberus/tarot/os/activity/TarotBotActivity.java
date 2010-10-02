@@ -1495,8 +1495,10 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		Bitmap bmp;
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
-		if (browsing)
+		if (browsing)// && 
 			options.inSampleSize = 2;
+		options.inPurgeable = true;
+		
 		bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(flipdex.get(index)),options);
 		int w = bmp.getWidth();
 		int h = bmp.getHeight();
@@ -1505,8 +1507,8 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 		if (diff < (h/4)*-1) {
 			mtx.postRotate(90);
 		}
+		
 		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-
 		
 		if (BotaInt.myDeck.reversed[flipdex.get(index)]) {		
 			mtx = new Matrix();

@@ -112,7 +112,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	View.OnTouchListener gestureListener;
 	public static LayoutInflater inflater;
 	protected View showing;
-	private TextView infotext;
+	protected TextView infotext;
 	protected TextView closure;
 
 	private SharedPreferences querantPrefs;
@@ -125,7 +125,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private static BotaInt myInt;
 	private String saveTitle;
 	private EditText input;
-	private boolean infoDisplayed;
+	protected boolean infoDisplayed;
 	private int myRandomCard;
 	private CheckBox reversalCheck;
 	private boolean sharing;
@@ -135,7 +135,7 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 	private HashMap<String,HashMap<String,String>> savedReadings = new HashMap<String,HashMap<String,String>>();
 	public boolean loaded = false;
 	private boolean helping;
-	private Spread mySpread;
+	protected Spread mySpread;
 	
 	String whatUrl;
 	String howUrl;
@@ -792,10 +792,13 @@ public class TarotBotActivity extends Activity  implements OnClickListener, View
 				infotext.setText(Html.fromHtml("<br/><i>"+mySpread.myLabels[secondSetIndex]+"</i><br/><br/>"+interpretation));			
 			else
 				infotext.setText(Html.fromHtml(interpretation));
-			ArrayList<View> toShow = new ArrayList<View>();
-			toShow.add(showing);
-			View v = flipper.getCurrentView();
-			((RelativeLayout)v.findViewById(R.id.secondsetlayout)).addView(showing);
+			
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+			builder.setView(showing);
+			
+			AlertDialog interpretor = builder.create();
+			interpretor.show();
 		} else if (type == Configuration.ORIENTATION_LANDSCAPE) {
 			int i = Spread.circles.get(secondSetIndex);
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());

@@ -187,6 +187,8 @@ public class BotaSpread extends Spread {
 			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getWellDignified(circled))+"<br/>";
 		else if (BotaInt.isIllDignified(context) &! BotaInt.isWellDignified(context) && BotaInt.getIllDignified(circled) > 0 && appcontext.getString(BotaInt.getIllDignified(circled)).length() > 0)
 			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getIllDignified(circled))+"<br/>";
+		else if (myDeck.isReversed(circled) && appcontext.getString(BotaInt.getReversed(circled)).length() > 0)
+			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getReversed(circled))+"<br/>";
 		else if (BotaInt.getMeanings(circled) > 0 && appcontext.getString(BotaInt.getMeanings(circled)).length() > 0)
 			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getMeanings(circled))+"<br/>";
 		if (BotaInt.getOppositionNumber(circled) > 0) {
@@ -230,7 +232,8 @@ public class BotaSpread extends Spread {
 			returner += appcontext.getString(getActions(circled))+"<br/><br/>";*/
 		
 		//returner += context;
-		if (myDeck.isReversed(circled))
+		String holder = appcontext.getString(BotaInt.getReversed(circled));
+		if (myDeck.isReversed(circled) &! (appcontext.getString(BotaInt.getReversed(circled)).length() > 0))
 			returner += "<br/>"+appcontext.getString(R.string.reversed_label);
 		return returner;
 	}

@@ -1905,6 +1905,94 @@ public abstract class Interpretation {
 		return 0;
 	}
 	
+	public static int getReversed(int index) {
+		switch (index) {
+			case 0:return R.string.the_fool_00_reversed;
+			case 1:return R.string.the_magician_01_reversed;
+			case 2:return R.string.the_high_priestess_02_reversed;
+			case 3:return R.string.the_empress_03_reversed;
+			case 4:return R.string.the_emperor_04_reversed;
+			case 5:return R.string.the_hierophant_05_reversed;
+			case 6:return R.string.the_lovers_06_reversed;
+			case 7:return R.string.the_chariot_07_reversed;
+			case 8:return R.string.strength_08_reversed;
+			case 9:return R.string.the_hermit_09_reversed;
+			case 10:return R.string.the_wheel_of_fortune_10_reversed;
+			case 11:return R.string.justice_11_reversed;
+			case 12:return R.string.the_hanged_man_12_reversed;
+			case 13:return R.string.death_13_reversed;
+			case 14:return R.string.temperance_14_reversed;
+			case 15:return R.string.the_devil_15_reversed;
+			case 16:return R.string.the_tower_16_reversed;
+			case 17:return R.string.the_star_17_reversed;
+			case 18:return R.string.the_moon_18_reversed;		
+			case 19:return R.string.the_sun_19_reversed;
+			case 20:return R.string.judgement_20_reversed;
+			case 21:return R.string.the_world_21_reversed;
+	
+			case 22:return R.string.wands_01_reversed;
+			case 23:return R.string.wands_02_reversed;
+			case 24:return R.string.wands_03_reversed;
+			case 25:return R.string.wands_04_reversed;
+			case 26:return R.string.wands_05_reversed;
+			case 27:return R.string.wands_06_reversed;
+			case 28:return R.string.wands_07_reversed;
+			case 29:return R.string.wands_08_reversed;
+			case 30:return R.string.wands_09_reversed;
+			case 31:return R.string.wands_10_reversed;
+			case 32:return R.string.wands_page_reversed;
+			case 33:return R.string.wands_knight_reversed;
+			case 34:return R.string.wands_queen_reversed;
+			case 35:return R.string.wands_king_reversed;
+	
+			case 36:return R.string.cups_01_reversed;
+			case 37:return R.string.cups_02_reversed;
+			case 38:return R.string.cups_03_reversed;
+			case 39:return R.string.cups_04_reversed;
+			case 40:return R.string.cups_05_reversed;
+			case 41:return R.string.cups_06_reversed;
+			case 42:return R.string.cups_07_reversed;
+			case 43:return R.string.cups_08_reversed;
+			case 44:return R.string.cups_09_reversed;
+			case 45:return R.string.cups_10_reversed;
+			case 46:return R.string.cups_page_reversed;
+			case 47:return R.string.cups_knight_reversed;
+			case 48:return R.string.cups_queen_reversed;
+			case 49:return R.string.cups_king_reversed;
+	
+			case 50:return R.string.swords_01_reversed;
+			case 51:return R.string.swords_02_reversed;
+			case 52:return R.string.swords_03_reversed;
+			case 53:return R.string.swords_04_reversed;
+			case 54:return R.string.swords_05_reversed;
+			case 55:return R.string.swords_06_reversed;
+			case 56:return R.string.swords_07_reversed;
+			case 57:return R.string.swords_08_reversed;
+			case 58:return R.string.swords_09_reversed;
+			case 59:return R.string.swords_10_reversed;
+			case 60:return R.string.swords_page_reversed;
+			case 61:return R.string.swords_knight_reversed;
+			case 62:return R.string.swords_queen_reversed;
+			case 63:return R.string.swords_king_reversed;
+	
+			case 64:return R.string.pentacles_01_reversed;
+			case 65:return R.string.pentacles_02_reversed;
+			case 66:return R.string.pentacles_03_reversed;
+			case 67:return R.string.pentacles_04_reversed;
+			case 68:return R.string.pentacles_05_reversed;
+			case 69:return R.string.pentacles_06_reversed;
+			case 70:return R.string.pentacles_07_reversed;
+			case 71:return R.string.pentacles_08_reversed;
+			case 72:return R.string.pentacles_09_reversed;
+			case 73:return R.string.pentacles_10_reversed;
+			case 74:return R.string.pentacles_page_reversed;
+			case 75:return R.string.pentacles_knight_reversed;
+			case 76:return R.string.pentacles_queen_reversed;
+			case 77:return R.string.pentacles_king_reversed;				
+		}
+		return 0;
+	}
+	
 	public static int getActions(int index) {
 		switch (index) {
 			case 0:return R.string.the_fool_00_actions;

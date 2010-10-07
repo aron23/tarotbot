@@ -30,10 +30,11 @@ public class WebUtils {
 		String saveResult = "";
 		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		HttpGet httpGet;
+		title = title.replaceAll("\\s+", "+");
 		if (style == "bota")
-			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaSpread.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId()+"&sytle="+style);
+			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaSpread.getSignificator()+"&title="+title+"&uid=private&sytle="+style);
 		else
-			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+0+"&title="+title+"&uid="+tel.getDeviceId()+"&style="+style);
+			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+0+"&title="+title+"&uid=private&style="+style);
 		//Toast.makeText(context, "http://liber.us/tarotbot/postspread.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaInt.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId(), Toast.LENGTH_LONG).show();
 		try {
 			HttpResponse response = httpClient.execute(httpGet, localContext);
@@ -68,7 +69,7 @@ public class WebUtils {
 		ArrayList<String[]> loadResult = new ArrayList<String[]>();
 		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		
-		HttpGet httpGet = new HttpGet("http://liber.us/tarotbot/readspread.test.php?uid="+tel.getDeviceId());
+		HttpGet httpGet = new HttpGet("http://liber.us/tarotbot/readspread.test.php?uid=private");
 		
 		try {
 			HttpResponse response = httpClient.execute(httpGet, localContext);

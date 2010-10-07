@@ -6,6 +6,7 @@ import java.util.List;
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -118,14 +119,9 @@ public class ArrowSpread extends Spread {
 	@Override
 	public int getLayout() {
 		return R.layout.arrowlayout;
-	}
+	}	
 
-	@Override
-	public View navigate(View layout, TarotBotActivity act,Context ctx) {
-		return populateSpread(layout,act,ctx);
-	}
-
-	private View populateSpread(View layout, TarotBotActivity act, Context ctx) {
+	protected View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.arrow_past);
 		if (BotaInt.myDeck.reversed[act.flipdex.get(0)]) {			
 			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(act.flipdex.get(0)));

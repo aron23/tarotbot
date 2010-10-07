@@ -9,7 +9,7 @@ import liberus.tarot.android.R.id;
 import liberus.tarot.android.R.layout;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
-import liberus.tarot.os.activity.TarotBotActivity.MyGestureDetector;
+import liberus.tarot.os.activity.AbstractTarotBotActivity.MyGestureDetector;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;

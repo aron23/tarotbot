@@ -7,6 +7,7 @@ import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
+import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
 import android.view.View;
@@ -25,7 +26,13 @@ public abstract class Spread {
 	public abstract void operate(Context context,boolean loaded);
 	public abstract String getInterpretation(int card, Context context);
 	public abstract int getLayout();
-	public abstract View navigate(View layout, TarotBotActivity act, Context ctx);
+	
+	public View navigate(View layout, AbstractTarotBotActivity act,Context ctx) {
+		return populateSpread(layout,act,ctx);
+	}
+	
+	abstract View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx);
+	
 	public String getPre(Context context) {
 		int trumps = 0;
 		int wands = 0;

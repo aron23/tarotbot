@@ -6,6 +6,7 @@ import java.util.List;
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
 import android.view.View;
@@ -108,12 +109,7 @@ public class BrowseSpread extends Spread {
 		return R.layout.browserlayout;
 	}
 
-	@Override
-	public View navigate(View layout, TarotBotActivity act,Context ctx) {
-		return populateSpread(layout,act,ctx);
-	}
-
-	private View populateSpread(View layout, TarotBotActivity act,Context ctx) {
+	protected View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
 		layout = populateTrumps(layout,act,ctx);
 		layout = populateWands(layout,act,ctx);
 		layout = populateCups(layout,act,ctx);
@@ -122,7 +118,7 @@ public class BrowseSpread extends Spread {
 		return layout;
 	}
 
-	private View populateWands(View layout, TarotBotActivity act,Context ctx) {
+	private View populateWands(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.wands_01);
 		card.setId(R.id.wands_01);
 		card.setOnClickListener(act);
@@ -183,7 +179,7 @@ public class BrowseSpread extends Spread {
 		return layout;
 	}
 
-	private View populateCups(View layout, TarotBotActivity act,Context ctx) {
+	private View populateCups(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.cups_01);
 		card.setId(R.id.cups_01);
 		card.setOnClickListener(act);
@@ -244,7 +240,7 @@ public class BrowseSpread extends Spread {
 		return layout;
 	}
 	
-	private View populateSwords(View layout, TarotBotActivity act,Context ctx) {
+	private View populateSwords(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.swords_01);
 		card.setId(R.id.swords_01);
 		card.setOnClickListener(act);
@@ -305,7 +301,7 @@ public class BrowseSpread extends Spread {
 		return layout;
 	}
 	
-	private View populatePentacles(View layout, TarotBotActivity act,Context ctx) {
+	private View populatePentacles(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.pent_01);
 		card.setId(R.id.pent_01);
 		card.setOnClickListener(act);
@@ -366,7 +362,7 @@ public class BrowseSpread extends Spread {
 		return layout;
 	}
 	
-	private View populateTrumps(View layout, TarotBotActivity act,Context ctx) {
+	private View populateTrumps(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.the_fool_00);
 		card.setId(R.id.the_fool_00);
 		card.setOnClickListener(act);

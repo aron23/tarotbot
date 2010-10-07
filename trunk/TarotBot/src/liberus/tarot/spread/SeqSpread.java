@@ -6,6 +6,7 @@ import java.util.List;
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
 import android.view.View;
@@ -115,10 +116,8 @@ public class SeqSpread extends Spread {
 		return R.layout.arrowlayout;
 	}
 
-	@Override
-	public View navigate(View layout, TarotBotActivity act, Context ctx) {
-		// TODO Auto-generated method stub
-		return null;
+	protected View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
+		return layout;
 	}
 
 

@@ -6,6 +6,7 @@ import java.util.List;
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -121,12 +122,7 @@ public class DialecticSpread extends Spread {
 		return R.layout.dialecticlayout;
 	}
 
-	@Override
-	public View navigate(View layout, TarotBotActivity act,Context ctx) {
-		return populateSpread(layout,act,ctx);
-	}
-
-	private View populateSpread(View layout, TarotBotActivity act, Context ctx) {
+	protected View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.dialectic_thesis);
 		if (BotaInt.myDeck.reversed[act.flipdex.get(0)]) {			
 			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(act.flipdex.get(0)));

@@ -14,7 +14,7 @@
   android:layout_height="fill_parent">
   
 <ImageView android:id="@+id/the_fool_00" 
-	android:src="@drawable/th_the_fool_00" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -22,7 +22,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/the_magician_01" 
-	android:src="@drawable/th_the_magician_01" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -30,7 +30,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/the_high_priestess_02" 
-	android:src="@drawable/th_the_high_priestess_02" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -38,7 +38,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/the_empress_03" 
-	android:src="@drawable/th_the_empress_03" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -47,7 +47,7 @@
     android:scaleType="fitXY"></ImageView> 
 
 <ImageView android:id="@+id/the_emperor_04" 
-	android:src="@drawable/th_the_emperor_04" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -55,7 +55,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/the_hierophant_05" 
-	android:src="@drawable/th_the_hierophant_05" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -63,7 +63,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/the_lovers_06" 
-	android:src="@drawable/th_the_lovers_06" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -71,7 +71,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/the_chariot_07" 
-	android:src="@drawable/th_the_chariot_07" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -80,7 +80,7 @@
     android:scaleType="fitXY"></ImageView> 
 
 <ImageView android:id="@+id/strength_08" 
-	android:src="@drawable/th_strength_08" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -88,7 +88,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/the_hermit_09" 
-	android:src="@drawable/th_the_hermit_09" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -96,7 +96,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/the_wheel_of_fortune_10" 
-	android:src="@drawable/th_the_wheel_of_fortune_10" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -104,7 +104,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/justice_11" 
-	android:src="@drawable/th_justice_11" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -113,7 +113,7 @@
     android:scaleType="fitXY"></ImageView> 
     
 <ImageView android:id="@+id/the_hanged_man_12" 
-	android:src="@drawable/th_the_hanged_man_12" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -121,7 +121,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/death_13" 
-	android:src="@drawable/th_death_13" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -129,7 +129,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/temperance_14" 
-	android:src="@drawable/th_temperance_14" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -137,7 +137,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/the_devil_15" 
-	android:src="@drawable/th_the_devil_15" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -146,7 +146,7 @@
     android:scaleType="fitXY"></ImageView> 
 
 <ImageView android:id="@+id/the_tower_16" 
-	android:src="@drawable/th_the_tower_16" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -154,7 +154,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/the_star_17" 
-	android:src="@drawable/th_the_star_17" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -162,7 +162,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/the_moon_18" 
-	android:src="@drawable/th_the_moon_18" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -170,7 +170,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/the_sun_19" 
-	android:src="@drawable/th_the_sun_19" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -179,7 +179,7 @@
     android:scaleType="fitXY"></ImageView>     
 
 <ImageView android:id="@+id/judgement_20" 
-	android:src="@drawable/th_judgement_20" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -187,7 +187,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/the_world_21" 
-	android:src="@drawable/th_the_world_21" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -196,7 +196,7 @@
     android:scaleType="fitXY"></ImageView>     
     
 <ImageView android:id="@+id/wands_01" 
-	android:src="@drawable/th_wands_01" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -204,7 +204,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/wands_02" 
-	android:src="@drawable/th_wands_02" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -212,7 +212,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/wands_03" 
-	android:src="@drawable/th_wands_03" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -220,7 +220,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/wands_04" 
-	android:src="@drawable/th_wands_04" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -229,7 +229,7 @@
     android:scaleType="fitXY"></ImageView> 
     
 <ImageView android:id="@+id/wands_05" 
-	android:src="@drawable/th_wands_05" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -237,7 +237,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/wands_06" 
-	android:src="@drawable/th_wands_06" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -245,7 +245,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/wands_07" 
-	android:src="@drawable/th_wands_07" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -253,7 +253,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/wands_08" 
-	android:src="@drawable/th_wands_08" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -262,7 +262,7 @@
     android:scaleType="fitXY"></ImageView> 
 
 <ImageView android:id="@+id/wands_09" 
-	android:src="@drawable/th_wands_09" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -270,7 +270,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/wands_10" 
-	android:src="@drawable/th_wands_10" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -278,7 +278,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/wands_page" 
-	android:src="@drawable/th_wands_page" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -286,7 +286,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/wands_knight" 
-	android:src="@drawable/th_wands_knight" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -295,7 +295,7 @@
     android:scaleType="fitXY"></ImageView>     
 
 <ImageView android:id="@+id/wands_queen" 
-	android:src="@drawable/th_wands_queen" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -303,7 +303,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/wands_king" 
-	android:src="@drawable/th_wands_king" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -312,7 +312,7 @@
     android:scaleType="fitXY"></ImageView>    
     
 <ImageView android:id="@+id/cups_01" 
-	android:src="@drawable/th_cups_01" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -320,7 +320,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/cups_02" 
-	android:src="@drawable/th_cups_02" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -328,7 +328,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/cups_03" 
-	android:src="@drawable/th_cups_03" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -336,7 +336,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/cups_04" 
-	android:src="@drawable/th_cups_04" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -345,7 +345,7 @@
     android:scaleType="fitXY"></ImageView> 
     
 <ImageView android:id="@+id/cups_05" 
-	android:src="@drawable/th_cups_05" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -353,7 +353,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/cups_06" 
-	android:src="@drawable/th_cups_06" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -361,7 +361,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/cups_07" 
-	android:src="@drawable/th_cups_07" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -369,7 +369,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/cups_08" 
-	android:src="@drawable/th_cups_08" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -378,7 +378,7 @@
     android:scaleType="fitXY"></ImageView> 
 
 <ImageView android:id="@+id/cups_09" 
-	android:src="@drawable/th_cups_09" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -386,7 +386,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/cups_10" 
-	android:src="@drawable/th_cups_10" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -394,7 +394,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/cups_page" 
-	android:src="@drawable/th_cups_page" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -402,7 +402,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/cups_knight" 
-	android:src="@drawable/th_cups_knight" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -411,7 +411,7 @@
     android:scaleType="fitXY"></ImageView>     
 
 <ImageView android:id="@+id/cups_queen" 
-	android:src="@drawable/th_cups_queen" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -419,7 +419,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/cups_king" 
-	android:src="@drawable/th_cups_king" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -428,7 +428,7 @@
     android:scaleType="fitXY"></ImageView>  
 
 <ImageView android:id="@+id/swords_01" 
-	android:src="@drawable/th_swords_01" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -436,7 +436,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/swords_02" 
-	android:src="@drawable/th_swords_02" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -444,7 +444,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/swords_03" 
-	android:src="@drawable/th_swords_03" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -452,7 +452,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/swords_04" 
-	android:src="@drawable/th_swords_04" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -461,7 +461,7 @@
     android:scaleType="fitXY"></ImageView> 
     
 <ImageView android:id="@+id/swords_05" 
-	android:src="@drawable/th_swords_05" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -469,7 +469,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/swords_06" 
-	android:src="@drawable/th_swords_06" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -477,7 +477,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/swords_07" 
-	android:src="@drawable/th_swords_07" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -485,7 +485,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/swords_08" 
-	android:src="@drawable/th_swords_08" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -494,7 +494,7 @@
     android:scaleType="fitXY"></ImageView> 
 
 <ImageView android:id="@+id/swords_09" 
-	android:src="@drawable/th_swords_09" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -502,7 +502,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/swords_10" 
-	android:src="@drawable/th_swords_10" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -510,7 +510,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/swords_page" 
-	android:src="@drawable/th_swords_page" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -518,7 +518,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/swords_knight" 
-	android:src="@drawable/th_swords_knight" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -527,7 +527,7 @@
     android:scaleType="fitXY"></ImageView>     
 
 <ImageView android:id="@+id/swords_queen" 
-	android:src="@drawable/th_swords_queen" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -535,7 +535,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/swords_king" 
-	android:src="@drawable/th_swords_king" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -544,7 +544,7 @@
     android:scaleType="fitXY"></ImageView>   
     
 <ImageView android:id="@+id/pent_01" 
-	android:src="@drawable/th_pent_01" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -552,7 +552,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/pent_02" 
-	android:src="@drawable/th_pent_02" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -560,7 +560,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/pent_03" 
-	android:src="@drawable/th_pent_03" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -568,7 +568,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/pent_04" 
-	android:src="@drawable/th_pent_04" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -577,7 +577,7 @@
     android:scaleType="fitXY"></ImageView> 
     
 <ImageView android:id="@+id/pent_05" 
-	android:src="@drawable/th_pent_05" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -585,7 +585,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/pent_06" 
-	android:src="@drawable/th_pent_06" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -593,7 +593,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/pent_07" 
-	android:src="@drawable/th_pent_07" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -601,7 +601,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/pent_08" 
-	android:src="@drawable/th_pent_08" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -610,7 +610,7 @@
     android:scaleType="fitXY"></ImageView> 
 
 <ImageView android:id="@+id/pent_09" 
-	android:src="@drawable/th_pent_09" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="5dip"
@@ -618,7 +618,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/pent_10" 
-	android:src="@drawable/th_pent_10" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -626,7 +626,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/pent_page" 
-	android:src="@drawable/th_pent_page" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"
@@ -634,7 +634,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
 <ImageView android:id="@+id/pent_knight" 
-	android:src="@drawable/th_pent_knight" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="224dip"
@@ -643,7 +643,7 @@
     android:scaleType="fitXY"></ImageView>     
 
 <ImageView android:id="@+id/pent_queen" 
-	android:src="@drawable/th_pent_queen" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="79dip"
@@ -651,7 +651,7 @@
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
 <ImageView android:id="@+id/pent_king" 
-	android:src="@drawable/th_pent_king" 
+	
 	android:layout_width="63dip"
     android:layout_height="115dip"
     android:layout_marginLeft="151dip"

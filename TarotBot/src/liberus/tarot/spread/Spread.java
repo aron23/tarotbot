@@ -5,12 +5,17 @@ import java.util.regex.Matcher;
 
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
-import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
+import android.widget.ImageView;
 
 public abstract class Spread {
 	
@@ -31,7 +36,7 @@ public abstract class Spread {
 		return populateSpread(layout,act,ctx);
 	}
 	
-	abstract View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx);
+	public abstract View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx);
 	
 	public String getPre(Context context) {
 		int trumps = 0;
@@ -58,7 +63,7 @@ public abstract class Spread {
 		
 		
 		for (int i: working) {
-			int cardIndex = context.getResources().getInteger(BotaInt.getCardNum(i))-100;
+			int cardIndex = context.getResources().getInteger(Interpretation.getCardNum(i))-100;
 			//String title = context.getString(getEnTitle(i)); 
 			if (cardIndex >= 22 && cardIndex < 36)
 				wands++;
@@ -200,6 +205,76 @@ public abstract class Spread {
 		return returner;
 	}
 
+	public ImageView placeImage(int index, ImageView toPlace, Context con) {
+		Bitmap bmp;
+		BitmapFactory.Options options;
+		options=new BitmapFactory.Options();
+		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
+			options.inSampleSize = 4;
+		options.inPurgeable = true;
+		
+		bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
+		int w = bmp.getWidth();
+		int h = bmp.getHeight();
+		Matrix mtx = new Matrix();
+		int diff = h-w;
+		if (diff < (h/4)*-1) {
+			mtx.postRotate(90);
+		}
+		
+		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		
+		if (Interpretation.myDeck.reversed[index]) {		
+			mtx = new Matrix();
+			mtx.postRotate(180);
+			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		} 
+		
+		BitmapDrawable bmd = new BitmapDrawable(bmp);			
+		toPlace.setImageDrawable(bmd);
+		return toPlace;
+	}
+	
+	public ImageView placeLandscapeImage(int index, ImageView toPlace, Context con) {
+		Bitmap bmp;
+		BitmapFactory.Options options;
+		options=new BitmapFactory.Options();
+		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
+			options.inSampleSize = 4;
+		options.inPurgeable = true;
+		
+		bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
+		int w = bmp.getWidth();
+		int h = bmp.getHeight();
+		Matrix mtx = new Matrix();
+		int diff = h-w;
+		if (diff < (h/4)*-1) {
+			mtx.postRotate(90);
+		}
+		
+		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		
+		if (Interpretation.myDeck.reversed[index]) {		
+			mtx = new Matrix();
+			mtx.postRotate(180);
+			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		} 
+		
+		if (Interpretation.myDeck.reversed[index]) {			
+			mtx = new Matrix();
+			mtx.postRotate(270);
+			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		} else {
+			mtx = new Matrix();
+			mtx.postRotate(90);
+			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		}
+		
+		BitmapDrawable bmd = new BitmapDrawable(bmp);			
+		toPlace.setImageDrawable(bmd);
+		return toPlace;
+	}
+	
 	public String getPost(Context context) {
 		// TODO Auto-generated method stub
 		return null;
@@ -225,7 +300,7 @@ public abstract class Spread {
 		Integer left;
 		int[] dignity = new int[]{0,0};
 		
-		String entitle = context.getString(BotaInt.getEnTitle(mid));
+		String entitle = context.getString(Interpretation.getEnTitle(mid));
 		
 		if (working.indexOf(mid)+1 < working.size())			
 			right = working.get(working.indexOf(mid)+1);
@@ -237,7 +312,7 @@ public abstract class Spread {
 		else
 			left = working.get(working.size()-1);
 						
-		Matcher suitmatch = BotaInt.suitpat.matcher(entitle);
+		Matcher suitmatch = Interpretation.suitpat.matcher(entitle);
 		String type;
 		if (suitmatch.find()) 
 			type = suitmatch.group(1);
@@ -252,8 +327,8 @@ public abstract class Spread {
 				type = "Pentacles";
 		}
 		
-		String entitleLeft = context.getString(BotaInt.getEnTitle(left));
-		suitmatch = BotaInt.suitpat.matcher(entitleLeft);
+		String entitleLeft = context.getString(Interpretation.getEnTitle(left));
+		suitmatch = Interpretation.suitpat.matcher(entitleLeft);
 		String lefttype;
 		if (suitmatch.find()) 
 			lefttype = suitmatch.group(1);
@@ -268,8 +343,8 @@ public abstract class Spread {
 				lefttype = "Pentacles";
 		}
 		
-		String entitleRight = context.getString(BotaInt.getEnTitle(right));
-		suitmatch = BotaInt.suitpat.matcher(entitleRight);
+		String entitleRight = context.getString(Interpretation.getEnTitle(right));
+		suitmatch = Interpretation.suitpat.matcher(entitleRight);
 		String righttype;
 		if (suitmatch.find()) 
 			righttype = suitmatch.group(1);

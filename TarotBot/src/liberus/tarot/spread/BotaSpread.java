@@ -32,8 +32,8 @@ public class BotaSpread extends Spread {
 	public static Integer[] yod;
 	private Integer secondSetStrongest;
 
-	public BotaSpread(BotaInt in) {
-		super(in);
+	public BotaSpread(Interpretation myInt) {
+		super(myInt);
 	}
 	
 	
@@ -359,21 +359,10 @@ public class BotaSpread extends Spread {
 		return R.layout.botalayout20;
 	}
 
-	protected View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
+	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
 		
 		ImageView card = (ImageView) layout.findViewById(R.id.bota_00);
-		if (BotaInt.myDeck.reversed[working.get(0)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(0)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(0))));
-		}	
+		placeImage(working.get(0),card,ctx);	
 		
 		if (circles.contains(working.get(0))) {
 			card.setId(circles.indexOf(working.get(0)));
@@ -385,18 +374,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_01);
-		if (BotaInt.myDeck.reversed[working.get(1)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(1)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(270);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(1))));
-		}	
+		placeImage(working.get(1),card,ctx);
 		if (circles.contains(working.get(1))) {
 			card.setId(circles.indexOf(working.get(1)));
 			card.setOnClickListener(act);
@@ -407,18 +385,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_02);
-		if (BotaInt.myDeck.reversed[working.get(2)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(2)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(2))));
-		}	
+		placeImage(working.get(2),card,ctx);
 		if (circles.contains(working.get(2))) {
 			card.setId(circles.indexOf(working.get(2)));
 			card.setOnClickListener(act);
@@ -429,18 +396,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_03);
-		if (BotaInt.myDeck.reversed[working.get(3)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(3)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(3))));
-		}	
+		placeImage(working.get(3),card,ctx);
 		if (circles.contains(working.get(3))) {
 			card.setId(circles.indexOf(working.get(3)));
 			card.setOnClickListener(act);
@@ -451,18 +407,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_04);
-		if (BotaInt.myDeck.reversed[working.get(4)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(4)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(4))));
-		}	
+		placeImage(working.get(4),card,ctx);
 		if (circles.contains(working.get(4))) {
 			card.setId(circles.indexOf(working.get(4)));
 			card.setOnClickListener(act);
@@ -473,18 +418,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_05);
-		if (BotaInt.myDeck.reversed[working.get(5)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(5)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(5))));
-		}	
+		placeImage(working.get(5),card,ctx);
 		if (circles.contains(working.get(5))) {
 			card.setId(circles.indexOf(working.get(5)));
 			card.setOnClickListener(act);
@@ -495,18 +429,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_06);
-		if (BotaInt.myDeck.reversed[working.get(6)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(6)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(6))));
-		}	
+		placeImage(working.get(6),card,ctx);
 		if (circles.contains(working.get(6))) {
 			card.setId(circles.indexOf(working.get(6)));
 			card.setOnClickListener(act);
@@ -517,18 +440,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_07);
-		if (BotaInt.myDeck.reversed[working.get(7)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(7)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(7))));
-		}	
+		placeImage(working.get(7),card,ctx);
 		if (circles.contains(working.get(7))) {
 			card.setId(circles.indexOf(working.get(7)));
 			card.setOnClickListener(act);
@@ -539,18 +451,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_08);
-		if (BotaInt.myDeck.reversed[working.get(8)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(8)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(8))));
-		}	
+		placeImage(working.get(8),card,ctx);
 		if (circles.contains(working.get(8))) {
 			card.setId(circles.indexOf(working.get(8)));
 			card.setOnClickListener(act);
@@ -561,18 +462,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_09);
-		if (BotaInt.myDeck.reversed[working.get(9)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(9)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(9))));
-		}	
+		placeImage(working.get(9),card,ctx);
 		if (circles.contains(working.get(9))) {
 			card.setId(circles.indexOf(working.get(9)));
 			card.setOnClickListener(act);
@@ -583,18 +473,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_10);
-		if (BotaInt.myDeck.reversed[working.get(10)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(10)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(10))));
-		}	
+		placeImage(working.get(10),card,ctx);
 		if (circles.contains(working.get(10))) {
 			card.setId(circles.indexOf(working.get(10)));
 			card.setOnClickListener(act);
@@ -605,18 +484,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_11);
-		if (BotaInt.myDeck.reversed[working.get(11)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(11)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(11))));
-		}	
+		placeImage(working.get(11),card,ctx);
 		if (circles.contains(working.get(11))) {
 			card.setId(circles.indexOf(working.get(11)));
 			card.setOnClickListener(act);
@@ -627,18 +495,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_12);
-		if (BotaInt.myDeck.reversed[working.get(12)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(12)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(12))));
-		}	
+		placeImage(working.get(12),card,ctx);
 		if (circles.contains(working.get(12))) {
 			card.setId(circles.indexOf(working.get(12)));
 
@@ -650,18 +507,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_13);
-		if (BotaInt.myDeck.reversed[working.get(13)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(13)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(13))));
-		}	
+		placeImage(working.get(13),card,ctx);
 		if (circles.contains(working.get(13))) {
 			card.setId(circles.indexOf(working.get(13)));
 			card.setOnClickListener(act);
@@ -672,18 +518,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_14);
-		if (BotaInt.myDeck.reversed[working.get(14)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(14)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(14))));
-		}	
+		placeImage(working.get(14),card,ctx);
 		if (circles.contains(working.get(14))) {
 			card.setId(circles.indexOf(working.get(14)));
 
@@ -696,18 +531,7 @@ public class BotaSpread extends Spread {
 		
 		
 		card = (ImageView) layout.findViewById(R.id.bota_15);
-		if (BotaInt.myDeck.reversed[working.get(15)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(15)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(15))));
-		}	
+		placeImage(working.get(15),card,ctx);
 		if (circles.contains(working.get(15))) {
 			card.setId(circles.indexOf(working.get(15)));
 
@@ -719,18 +543,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_16);
-		if (BotaInt.myDeck.reversed[working.get(16)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(16)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(16))));
-		}	
+		placeImage(working.get(16),card,ctx);
 		if (circles.contains(working.get(16))) {
 			card.setId(circles.indexOf(working.get(16)));
 
@@ -742,18 +555,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_17);
-		if (BotaInt.myDeck.reversed[working.get(17)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(17)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(17))));
-		}	
+		placeImage(working.get(17),card,ctx);
 		if (circles.contains(working.get(17))) {
 			card.setId(circles.indexOf(working.get(17)));
 			card.setOnClickListener(act);
@@ -764,18 +566,7 @@ public class BotaSpread extends Spread {
 		}
 		
 		card = (ImageView) layout.findViewById(R.id.bota_18);
-		if (BotaInt.myDeck.reversed[working.get(18)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(18)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(18))));
-		}	
+		placeImage(working.get(18),card,ctx);
 		if (circles.contains(working.get(18))) {
 			card.setId(circles.indexOf(working.get(18)));
 			card.setOnClickListener(act);
@@ -787,18 +578,7 @@ public class BotaSpread extends Spread {
 		
 		if (working.size() == 20) {
 			card = (ImageView) layout.findViewById(R.id.bota_19);
-			if (BotaInt.myDeck.reversed[working.get(19)]) {			
-				Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(working.get(19)));
-				int w = bmp.getWidth();
-				int h = bmp.getHeight();
-				Matrix mtx = new Matrix();
-				mtx.postRotate(180);
-				Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-				BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-				card.setImageDrawable(bmd);
-			} else {
-				card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(working.get(19))));
-			}	
+			placeImage(working.get(19),card,ctx);
 			if (circles.contains(working.get(19))) {
 				card.setId(circles.indexOf(working.get(19)));
 				card.setOnClickListener(act);
@@ -810,4 +590,5 @@ public class BotaSpread extends Spread {
 		}
 		return layout;
 	}
+	
 }

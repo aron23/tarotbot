@@ -185,7 +185,6 @@
     android:scaleType="fitXY"></ImageView>    
     
 <ImageView android:id="@+id/bota_10" 
-	android:src="@drawable/th_the_fool_00"
 	android:layout_width="22dip"
     android:layout_height="40dip"
     android:layout_marginLeft="127dip"

@@ -6,6 +6,7 @@ import java.util.List;
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
@@ -19,8 +20,8 @@ public class SeqSpread extends Spread {
 	private int myNum;
 
 
-	public SeqSpread(BotaInt in, String[] labels) {
-		super(in);
+	public SeqSpread(Interpretation myInt, String[] labels) {
+		super(myInt);
 		myNum = labels.length;
 		myLabels = labels;
 	}
@@ -116,7 +117,7 @@ public class SeqSpread extends Spread {
 		return R.layout.arrowlayout;
 	}
 
-	protected View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
+	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
 		return layout;
 	}
 

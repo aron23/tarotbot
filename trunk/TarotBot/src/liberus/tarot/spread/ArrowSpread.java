@@ -6,6 +6,7 @@ import java.util.List;
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
+import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
@@ -25,7 +26,7 @@ public class ArrowSpread extends Spread {
 	private int myNum;
 
 
-	public ArrowSpread(BotaInt in, String[] labels) {
+	public ArrowSpread(Interpretation in, String[] labels) {
 		super(in);
 		myNum = labels.length;
 		myLabels = labels;
@@ -121,56 +122,23 @@ public class ArrowSpread extends Spread {
 		return R.layout.arrowlayout;
 	}	
 
-	protected View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
+	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.arrow_past);
-		if (BotaInt.myDeck.reversed[act.flipdex.get(0)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(act.flipdex.get(0)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(act.flipdex.get(0))));
-		}	
+		placeImage(act.flipdex.get(0),card,ctx);
 		card.setId(0);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 0)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
 		card = (ImageView) layout.findViewById(R.id.arrow_present);
-		if (BotaInt.myDeck.reversed[act.flipdex.get(1)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(act.flipdex.get(1)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(act.flipdex.get(1))));
-		}	
+		placeImage(act.flipdex.get(1),card,ctx);
 		card.setId(1);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 1)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
 		card = (ImageView) layout.findViewById(R.id.arrow_future);
-		if (BotaInt.myDeck.reversed[act.flipdex.get(2)]) {			
-			Bitmap bmp = BitmapFactory.decodeResource(act.getResources(), BotaInt.getCardThumb(act.flipdex.get(2)));
-			int w = bmp.getWidth();
-			int h = bmp.getHeight();
-			Matrix mtx = new Matrix();
-			mtx.postRotate(180);
-			Bitmap rotatedBMP = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-			BitmapDrawable bmd = new BitmapDrawable(rotatedBMP);			
-			card.setImageDrawable(bmd);
-		} else {
-			card.setImageDrawable(act.getResources().getDrawable(BotaInt.getCardThumb(act.flipdex.get(2))));
-		}	
+		placeImage(act.flipdex.get(2),card,ctx);
 		card.setId(2);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 2)

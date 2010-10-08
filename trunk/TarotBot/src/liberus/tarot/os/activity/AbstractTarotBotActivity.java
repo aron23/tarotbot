@@ -122,7 +122,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 	protected ArrayList<Integer> type = new ArrayList<Integer>();
 	public ArrayList<Integer> flipdex = new ArrayList<Integer>();
 	protected ArrayList<ViewGroup> laidout = new ArrayList<ViewGroup>();
-	protected static BotaInt myInt;
+	protected static Interpretation myInt;
 	protected String saveTitle;
 	protected EditText input;
 	protected boolean infoDisplayed;
@@ -338,7 +338,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 	
 	protected void navigate() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(getString(R.string.navigate_prompt));
+		//builder.setTitle(getString(R.string.navigate_prompt));
 		builder.setView(mySpread.navigate(inflater.inflate(mySpread.getLayout(), null), this, getApplicationContext()));
 		navigator = builder.create();
 		navigator.show();

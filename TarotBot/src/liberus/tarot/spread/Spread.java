@@ -275,6 +275,46 @@ public abstract class Spread {
 		return toPlace;
 	}
 	
+	public ImageView placeCustomImage(int angle, int index, ImageView toPlace, Context con) {
+		Bitmap bmp;
+		BitmapFactory.Options options;
+		options=new BitmapFactory.Options();
+		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
+			options.inSampleSize = 4;
+		options.inPurgeable = true;
+		
+		bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
+		int w = bmp.getWidth();
+		int h = bmp.getHeight();
+		Matrix mtx = new Matrix();
+		int diff = h-w;
+		if (diff < (h/4)*-1) {
+			mtx.postRotate(90);
+		}
+		
+		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		
+		if (Interpretation.myDeck.reversed[index]) {		
+			mtx = new Matrix();
+			mtx.postRotate(180);
+			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		} 
+		
+		if (Interpretation.myDeck.reversed[index]) {			
+			mtx = new Matrix();
+			mtx.postRotate(360-angle);
+			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		} else {
+			mtx = new Matrix();
+			mtx.postRotate(angle);
+			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		}
+		
+		BitmapDrawable bmd = new BitmapDrawable(bmp);			
+		toPlace.setImageDrawable(bmd);
+		return toPlace;
+	}
+	
 	public String getPost(Context context) {
 		// TODO Auto-generated method stub
 		return null;

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+<ScrollView android:id="@+id/textAreaScroller" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" 
+	>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">  
+    
+<ImageView android:id="@+id/triangle_left" 
+	android:layout_width="88dip"
+    android:layout_height="160dip"
+    android:layout_marginLeft="5dip"
+    android:layout_marginTop="5dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+
+<ImageView android:id="@+id/triangle_center" 
+	android:layout_width="88dip"
+    android:layout_height="160dip"
+    android:layout_marginLeft="102dip"
+    android:layout_marginTop="5dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>        
+
+<ImageView android:id="@+id/triangle_right"  
+	android:layout_width="88dip"
+    android:layout_height="160dip"
+    android:layout_marginLeft="199dip"
+    android:layout_marginTop="5dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>  
+</RelativeLayout>
+</ScrollView>
+</RelativeLayout>

@@ -20,14 +20,14 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 
-public class TriangleSpread extends Spread {
+public class Missionary extends Spread {
 	
 	
 	private static int significatorIn;
 	private int myNum;
 
 
-	public TriangleSpread(Interpretation myInt, String[] labels) {
+	public Missionary(Interpretation myInt, String[] labels) {
 		super(myInt);
 		myNum = labels.length;
 		myLabels = labels;
@@ -121,30 +121,24 @@ public class TriangleSpread extends Spread {
 	
 	@Override
 	public int getLayout() {
-		return R.layout.dialecticlayout;
+		return R.layout.missionarylayout;
 	}
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
-		ImageView card = (ImageView) layout.findViewById(R.id.dialectic_thesis);
-		placeImage(act.flipdex.get(0),card,ctx);
+		ImageView card = (ImageView) layout.findViewById(R.id.missionary_top);
+		placeLandscapeImage(act.flipdex.get(0),card,ctx);
 		card.setId(0);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 0)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
-		card = (ImageView) layout.findViewById(R.id.dialectic_antithesis);
-		placeImage(act.flipdex.get(1),card,ctx);
+		card = (ImageView) layout.findViewById(R.id.missionary_bottom);
+		placeLandscapeImage(act.flipdex.get(1),card,ctx);
 		card.setId(1);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 1)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
-		card = (ImageView) layout.findViewById(R.id.dialectic_synthesis);
-		placeImage(act.flipdex.get(2),card,ctx);
-		card.setId(2);
-		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 2)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		return layout;
 	}
 

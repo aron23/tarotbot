@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="erotic_spread_array">        
+        <item>Single Card</item>
+        <item>Missionary</item>
+        <item>Eat Him</item>
+        <item>Triangle</item>
+        <item>Eat Her</item>
+        <item>69</item>
+    </string-array>
+    <string-array name="erotic_triangle">
+        <item>left</item>
+        <item>center</item>
+        <item>right</item>
+    </string-array>
+    <string-array name="erotic_eat_her">
+        <item>left leg</item>
+        <item>tongue</item>
+        <item>right leg</item>
+    </string-array>
+    <string-array name="erotic_eat_him">
+        <item>erect</item>
+        <item>bobbing</item>
+    </string-array>
+	<string-array name="erotic_missionary">
+        <item>top</item>
+        <item>bottom</item>
+    </string-array>
+    <string-array name="erotic_69">
+        <item>suck</item>
+        <item>cream</item>
+        <item>swallow</item>
+        <item>cum</item>        
+    </string-array>
+</resources>

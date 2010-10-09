@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+<ScrollView android:id="@+id/textAreaScroller" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" 
+	>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">  
+    
+<ImageView android:id="@+id/erotic_suck" 
+	android:layout_width="200dip"
+    android:layout_height="110dip"
+    android:layout_marginLeft="40dip"
+    android:layout_marginTop="5dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+
+<ImageView android:id="@+id/erotic_cream" 
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="50dip"
+    android:layout_marginTop="30dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>        
+
+<ImageView android:id="@+id/erotic_swallow"  
+	android:layout_width="200dip"
+    android:layout_height="110dip"
+    android:layout_marginLeft="50dip"
+    android:layout_marginTop="140dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>  
+<ImageView android:id="@+id/erotic_cum"  
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="174dip"
+    android:layout_marginTop="115dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+</RelativeLayout>
+</ScrollView>
+</RelativeLayout>

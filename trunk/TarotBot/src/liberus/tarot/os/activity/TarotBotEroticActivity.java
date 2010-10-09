@@ -36,7 +36,11 @@ import liberus.tarot.spread.DialecticSpread;
 import liberus.tarot.spread.PentagramSpread;
 import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
-import liberus.tarot.spread.erotic.TriangleSpread;
+import liberus.tarot.spread.erotic.EatHer;
+import liberus.tarot.spread.erotic.EatHim;
+import liberus.tarot.spread.erotic.Missionary;
+import liberus.tarot.spread.erotic.SixtyNine;
+import liberus.tarot.spread.erotic.Triangle;
 import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -90,7 +94,11 @@ import android.widget.ViewFlipper;
 
 public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 
-
+	protected String[] triangle;
+	protected String[] eatHer;
+	protected String[] eatHim;
+	private String[] missionary;
+	private String[] sixtyNine;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -175,14 +183,53 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		res = getResources();
 		
 		single = res.getStringArray(R.array.single);
-		timeArrow = res.getStringArray(R.array.timeArrow);
-		dialectic = res.getStringArray(R.array.dialectic);
-		pentagram = res.getStringArray(R.array.pentagram);
-		chaosStar = res.getStringArray(R.array.chaosStar);
-		celticCross = res.getStringArray(R.array.celticCross);
+		triangle = res.getStringArray(R.array.erotic_triangle);
+		eatHer = res.getStringArray(R.array.erotic_eat_her);
+		eatHim = res.getStringArray(R.array.erotic_eat_him);
+		missionary = res.getStringArray(R.array.erotic_missionary);
+		sixtyNine = res.getStringArray(R.array.erotic_69);
 	}
-
-
+	@Override
+	protected void initSpreadChoice() {
+		init = true;
+		spreadspin = (WheelView) findViewById(R.id.spreadspinner);
+		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.erotic_spread_array));
+		
+		spreadspin.setAdapter(adapter);
+		spreadspin.setVisibleItems(3);
+		spreadspin.setCurrentItem(readingPrefs.getInt("spread", 0));
+		
+		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
+		reversalCheck.setChecked(readingPrefs.getBoolean("reversal", false));
+		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
+		
+		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
+		
+		reversalCheck.setOnClickListener(this);
+		initbutton.setOnClickListener(this);
+		
+		init = false;
+	}
+	@Override
+	protected void redisplaySpreadStart() {
+		init = true;
+		setContentView(R.layout.tarotbotstart);
+		spreadspin = (WheelView) findViewById(R.id.spreadspinner);
+		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.erotic_spread_array));
+		
+		spreadspin.setAdapter(adapter);
+		spreadspin.setCurrentItem(readingPrefs.getInt("spread", 0));
+		spreadspin.setVisibleItems(3);
+		spreadspin.forceLayout();
+		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
+		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
+		
+		
+		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
+		initbutton.setOnClickListener(this);
+		spreadspin.forceLayout();
+		init = false;
+	}
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
@@ -447,40 +494,35 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			}
 			case 1: {
 				//seqSpread();
-				spreadLabels = timeArrow;
-				style = "arrow";
+				spreadLabels = missionary;
+				style = "missionary";
 				break;
 			}
 			case 2: {
 				//seqSpread();
-				spreadLabels = dialectic;
-				style = "dialectic";
+				spreadLabels = eatHim;
+				style = "eatHim";
 				break;
 			}
 			case 3: {
 				//seqSpread();
-				spreadLabels = pentagram;
-				style = "pentagram";
+				spreadLabels = triangle;
+				style = "triangle";
 				break;
 			}
 			case 4: {
 				//seqSpread();
-				spreadLabels = chaosStar;
-				style = "chaos";
+				spreadLabels = eatHer;
+				style = "eatHer";
 				break;
 			}
 			case 5: {
 				//seqSpread();
-				spreadLabels = celticCross;
-				style = "celtic";
+				spreadLabels = sixtyNine;
+				style = "sixtyNine";
 				break;
 			}
-			case 6: {
-				botaSpread();		
-				style = "bota";
-				spreading=false;
-				return;
-			}
+			
 		}
 			spreading=false;
 			
@@ -489,16 +531,16 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			begun = true;
 			browsing = false;
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
-			if (style.equals("arrow"))
-				mySpread = new ArrowSpread(myInt,timeArrow);
-			else if (style.equals("dialectic"))
-				mySpread = new DialecticSpread(myInt,dialectic);
-			else if (style.equals("pentagram"))
-				mySpread = new PentagramSpread(myInt,pentagram);
-			else if (style.equals("chaos"))
-				mySpread = new ChaosSpread(myInt,chaosStar);
-			else if (style.equals("celtic"))
-				mySpread = new CelticSpread(myInt,celticCross);
+			if (style.equals("triangle"))
+				mySpread = new Triangle(myInt,triangle);
+			else if (style.equals("sixtyNine"))
+				mySpread = new SixtyNine(myInt,sixtyNine);
+			else if (style.equals("eatHim"))
+				mySpread = new EatHim(myInt,eatHim);
+			else if (style.equals("eatHer"))
+				mySpread = new EatHer(myInt,eatHer);
+			else if (style.equals("missionary"))
+				mySpread = new Missionary(myInt,missionary);
 			else
 				mySpread = new SeqSpread(myInt,spreadLabels);
 			beginSecondStage();
@@ -659,34 +701,30 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 				    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
 				    	Spread.working = working;
 				    	BotaInt.loaded = true;
-				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("celtic")) {
-				    		mySpread = new CelticSpread(myInt,celticCross);
-				    		spreadLabels = celticCross;
+				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("triangle")) {
+				    		mySpread = new Triangle(myInt,triangle);
+				    		spreadLabels = triangle;
 				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("chaos")) {
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("sixtyNine")) {
+				    		mySpread = new SixtyNine(myInt,sixtyNine);
+				    		spreadLabels = sixtyNine;
 				    		Spread.circles = Spread.working;
-				    		mySpread = new ChaosSpread(myInt,chaosStar);
-				    		spreadLabels = chaosStar;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("triangle")) {
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("missionary")) {
+				    		mySpread = new Missionary(myInt,missionary);
+				    		spreadLabels = missionary;
 				    		Spread.circles = Spread.working;
-				    		mySpread = new TriangleSpread(myInt,chaosStar);
-				    		spreadLabels = chaosStar;
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("eatHer")) {
+				    		mySpread = new EatHer(myInt,eatHer);
+				    		spreadLabels = eatHer;
+				    		Spread.circles = Spread.working;
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("eatHim")) {
+				    		mySpread = new EatHim(myInt,eatHim);
+				    		spreadLabels = eatHim;
+				    		Spread.circles = Spread.working;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("single")) {
 				    		mySpread = new SeqSpread(myInt,single);
 				    		Spread.circles = Spread.working;
 				    		spreadLabels = single;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arrow")) {
-				    		mySpread = new ArrowSpread(myInt,timeArrow);
-				    		spreadLabels = timeArrow;
-				    		Spread.circles = Spread.working;				    		
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("dialectic")) {
-				    		Spread.circles = Spread.working;
-				    		spreadLabels = dialectic;
-				    		mySpread = new DialecticSpread(myInt,dialectic);
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("pentagram")) {
-				    		Spread.circles = Spread.working;
-				    		spreadLabels = pentagram;
-				    		mySpread = new PentagramSpread(myInt,pentagram);
 				    	}
 				    	spreading=false;
 						begun = true;

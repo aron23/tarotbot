@@ -173,6 +173,41 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		initText();		
 		initSpreadChoice();	
 	}
+	
+	@Override
+
+	public boolean onPrepareOptionsMenu(Menu menu) {
+
+		menu.clear();
+		
+		menu.add(0, MENU_LOAD, 0, R.string.load_menu).setIcon(android.R.drawable.ic_menu_set_as);
+	    menu.add(0, MENU_SAVE, 1, R.string.save_menu).setIcon(android.R.drawable.ic_menu_save);
+	   // menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
+	    menu.add(0, MENU_HELP, 3, R.string.help_menu).setIcon(android.R.drawable.ic_menu_help);
+	    menu.add(0, MENU_BROWSE, 4, R.string.browse_menu).setIcon(android.R.drawable.ic_menu_gallery);
+	    menu.add(0, MENU_NAVIGATE, 5, R.string.navigate_menu).setIcon(android.R.drawable.ic_menu_mapmode);
+	
+		if(!begun) {
+			menu.findItem(MENU_SAVE).setEnabled(false);
+			if (loaded &! browsing) {
+				//menu.findItem(MENU_SHARE).setEnabled(true);
+				menu.findItem(MENU_NAVIGATE).setEnabled(true);
+			} else if (browsing) {
+				menu.findItem(MENU_NAVIGATE).setEnabled(true);
+				//menu.findItem(MENU_SHARE).setEnabled(false);
+			} else {
+				menu.findItem(MENU_NAVIGATE).setEnabled(false);
+				//menu.findItem(MENU_SHARE).setEnabled(false);
+			}
+		} else {
+			menu.findItem(MENU_SAVE).setEnabled(true);
+			//menu.findItem(MENU_SHARE).setEnabled(true);
+			menu.findItem(MENU_NAVIGATE).setEnabled(true);
+		}
+	
+		return super.onPrepareOptionsMenu(menu);
+
+	}
 
 	protected void initText() {
 		whatUrl = getString(R.string.whatUrl);

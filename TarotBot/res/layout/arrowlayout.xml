@@ -2,7 +2,8 @@
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
+  android:layout_height="fill_parent"
+  android:background="#000000">
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent" 
@@ -10,7 +11,11 @@
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent">  
+  android:layout_height="fill_parent"
+  android:layout_centerHorizontal="true"
+  android:layout_centerVertical="true"
+  android:gravity="center"
+  android:layout_gravity="center">    
     
 <ImageView android:id="@+id/arrow_past" 
 	android:layout_width="88dip"

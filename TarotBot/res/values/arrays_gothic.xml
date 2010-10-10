@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="gothic_spread_array">        
+        <item>Single Card</item>
+        <item>Arrow of Time</item>
+        <item>Dialectic</item>
+        <item>Gothic Arch</item>
+        <item>Pentagram</item>
+        <item>The Mystic 7</item>
+        <item>Vampire&quot;s Kiss</item>
+        <item>Chaos Star</item>
+        <item>Celtic Cross</item>
+        <item>BOTA</item>
+    </string-array>
+    <string-array name="gothic_arch">
+        <item>Current Situation</item>
+        <item>Immediate Past</item>
+        <item>Imminent Future</item>
+        <item>Distant Past</item>
+        <item>Distant Future</item>
+    </string-array>
+    <string-array name="gothic_pentagram">
+        <item>You</item>
+        <item>Love</item>
+        <item>Health</item>
+        <item>Wealth</item>
+        <item>Spirit</item>
+        <item>Hand of Fate</item>
+    </string-array>
+	<string-array name="gothic_mystic">
+        <item>Past</item>
+        <item>Present</item>
+        <item>Future</item>
+        <item>Advised Path</item>
+        <item>Influences</item>
+        <item>Obstacles</item>
+        <item>Outcome</item>
+    </string-array>
+	<string-array name="gothic_vampire">
+        <item>Your Past</item>
+        <item>Your Soulmate&quot;s Past</item>
+        <item>Your Future</item>
+        <item>Your Soulmate&quot;s Future</item>
+        <item>You</item>
+        <item>Your Soulmate</item>
+        <item>Union</item>
+    </string-array>    
+    <string-array name="gothic_celticCross">
+        <item>Present</item>
+        <item>Obstacles</item>
+        <item>Future Influences</item>
+        <item>Past Influences</item>
+        <item>Past Events</item>
+        <item>Future Influences</item>
+        <item>Attitude</item>
+        <item>House</item>
+        <item>Concerns</item>
+        <item>Future Events</item>
+    </string-array>
+</resources>

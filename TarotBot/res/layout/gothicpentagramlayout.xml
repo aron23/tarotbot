@@ -16,47 +16,54 @@
   android:layout_centerVertical="true"
   android:gravity="center"
   android:layout_gravity="center">  
-  
-<ImageView android:id="@+id/pentagram_spirit" 
+    
+<ImageView android:id="@+id/gothic_pent_one" 
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="116dip"
+    android:layout_marginTop="110dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+
+<ImageView android:id="@+id/gothic_pent_two" 
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="172dip"
+    android:layout_marginTop="220dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>        
+
+<ImageView android:id="@+id/gothic_pent_three"  
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="5dip"
+    android:layout_marginTop="90dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>  
+
+<ImageView android:id="@+id/gothic_pent_four" 
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="222dip"
+    android:layout_marginTop="90dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+
+<ImageView android:id="@+id/gothic_pent_five" 
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="57dip"
+    android:layout_marginTop="220dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>        
+
+<ImageView android:id="@+id/gothic_pent_six"  
 	android:layout_width="66dip"
     android:layout_height="120dip"
     android:layout_marginLeft="116dip"
     android:layout_marginTop="5dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
-    
-<ImageView android:id="@+id/pentagram_fire" 
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="5dip"
-    android:layout_marginTop="90dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/pentagram_earth" 
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="222dip"
-    android:layout_marginTop="90dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>  
-
-<ImageView android:id="@+id/pentagram_water"  
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="57dip"
-    android:layout_marginTop="220dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
-
-<ImageView android:id="@+id/pentagram_air"  
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="172dip"
-    android:layout_marginTop="220dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
-        
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

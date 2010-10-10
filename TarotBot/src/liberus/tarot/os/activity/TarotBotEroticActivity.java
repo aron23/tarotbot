@@ -97,8 +97,8 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	protected String[] triangle;
 	protected String[] eatHer;
 	protected String[] eatHim;
-	private String[] missionary;
-	private String[] sixtyNine;
+	protected String[] missionary;
+	protected String[] sixtyNine;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

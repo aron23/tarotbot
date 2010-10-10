@@ -57,6 +57,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -174,26 +175,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 
 	abstract void initText();
 
-	protected void initSpreadChoice() {
-		init = true;
-		spreadspin = (WheelView) findViewById(R.id.spreadspinner);
-		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.gothic_spread_array));
-		
-		spreadspin.setAdapter(adapter);
-		spreadspin.setVisibleItems(3);
-		spreadspin.setCurrentItem(readingPrefs.getInt("spread", 0));
-		
-		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
-		reversalCheck.setChecked(readingPrefs.getBoolean("reversal", false));
-		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
-		
-		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
-		
-		reversalCheck.setOnClickListener(this);
-		initbutton.setOnClickListener(this);
-		
-		init = false;
-	}
+	abstract void initSpreadChoice();
 	
 	protected void redisplaySpreadStart() {
 		init = true;
@@ -594,7 +576,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 	
 	protected void restoreSecondStage() {
 		mySpread.operate(getApplicationContext(), loaded);
-		Toast.makeText(this, String.valueOf(secondSetIndex), 60).show();
+		//Toast.makeText(this, String.valueOf(secondSetIndex), 60).show();
 		displaySecondStage(secondSetIndex);
 	}
 
@@ -846,9 +828,26 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		System.gc();
 	}
 	
+	protected void toastText(String text) {
+		if (spreadLabels != null && spreadLabels.length >= secondSetIndex && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT && spreadLabels[secondSetIndex] != null && spreadLabels[secondSetIndex].length() > 0) {
+			Toast toast = new Toast(getApplicationContext());
+			View toaster = inflater.inflate(R.layout.gothic_toast,(ViewGroup) findViewById(R.id.toast_layout_root));
+			toast.setView(toaster);
+			((TextView)toaster.findViewById(R.id.toast_text)).setText(text);
+			toast.setDuration(Toast.LENGTH_SHORT);			
+			toast.show();
+		}
+	}
+	
 	protected void toastSpread() {
-		if (spreadLabels != null && spreadLabels.length >= secondSetIndex && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT && spreadLabels[secondSetIndex] != null && spreadLabels[secondSetIndex].length() > 0)
-			Toast.makeText(this, spreadLabels[secondSetIndex], Toast.LENGTH_SHORT).show();
+		if (spreadLabels != null && spreadLabels.length >= secondSetIndex && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT && spreadLabels[secondSetIndex] != null && spreadLabels[secondSetIndex].length() > 0) {
+			Toast toast = new Toast(getApplicationContext());
+			View toaster = inflater.inflate(R.layout.gothic_toast,(ViewGroup) findViewById(R.id.toast_layout_root));
+			toast.setView(toaster);
+			((TextView)toaster.findViewById(R.id.toast_text)).setText(spreadLabels[secondSetIndex]);			
+			toast.setDuration(Toast.LENGTH_SHORT);			
+			toast.show();
+		}
 	}
 
 	@Override

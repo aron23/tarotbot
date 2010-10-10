@@ -63,6 +63,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -344,7 +345,8 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	
 			initbutton = (Button) this.findViewById(R.id.initbotabutton);
 			initbutton.setOnClickListener(this);
-			Toast.makeText(this, R.string.questionprompt, Toast.LENGTH_LONG).show(); 
+			toastText(getString(R.string.questionprompt));
+			//Toast.makeText(this, R.string.questionprompt, Toast.LENGTH_LONG).show(); 
 		}
 	}
 	

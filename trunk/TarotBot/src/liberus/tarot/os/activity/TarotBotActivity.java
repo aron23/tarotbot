@@ -57,6 +57,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -105,6 +106,27 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		initSaved();
 		initText();		
 		initSpreadChoice();		
+	}
+	@Override
+	protected void initSpreadChoice() {
+		init = true;
+		spreadspin = (WheelView) findViewById(R.id.spreadspinner);
+		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.spread_array));
+		
+		spreadspin.setAdapter(adapter);
+		spreadspin.setVisibleItems(3);
+		spreadspin.setCurrentItem(readingPrefs.getInt("spread", 0));
+		
+		reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
+		reversalCheck.setChecked(readingPrefs.getBoolean("reversal", false));
+		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
+		
+		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
+		
+		reversalCheck.setOnClickListener(this);
+		initbutton.setOnClickListener(this);
+		
+		init = false;
 	}
 	
 	protected void initSaved() {
@@ -299,7 +321,8 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	
 			initbutton = (Button) this.findViewById(R.id.initbotabutton);
 			initbutton.setOnClickListener(this);
-			Toast.makeText(this, R.string.questionprompt, Toast.LENGTH_LONG).show(); 
+			
+			toastText(getString(R.string.questionprompt)); 
 		}
 	}
 	

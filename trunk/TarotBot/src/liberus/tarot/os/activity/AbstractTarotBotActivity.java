@@ -83,7 +83,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ViewFlipper;
+import android.widget.ViewSwitcher;
 
 
 public abstract class AbstractTarotBotActivity extends Activity  implements OnClickListener, View.OnClickListener, OnItemSelectedListener, OnDateChangedListener {
@@ -177,7 +177,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 	protected void initSpreadChoice() {
 		init = true;
 		spreadspin = (WheelView) findViewById(R.id.spreadspinner);
-		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.spread_array));
+		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.gothic_spread_array));
 		
 		spreadspin.setAdapter(adapter);
 		spreadspin.setVisibleItems(3);
@@ -230,7 +230,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 	protected void rotateDisplay() {
 		setContentView(R.layout.transition);
 		
-		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
+		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		flipper.setClickable(true);
 		flipper.setOnTouchListener(gestureListener);
 		
@@ -501,7 +501,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		else 
 			secondSetIndex++;
 		
-		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
+		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		flipper.setClickable(true);
 		flipper.setOnTouchListener(gestureListener);
 
@@ -517,7 +517,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		
 		preFlip(activeView);
 		flipper.addView(activeView);
-		flipper.startFlipping();
+		//flipper.startFlipping();
 		
 		flipper.setInAnimation(inFromRightAnimation());
 	    flipper.setOutAnimation(outToLeftAnimation());	        
@@ -529,7 +529,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		
 		
 		postFlip(flipper.getChildAt(0));
-		flipper.stopFlipping();
+		//flipper.stopFlipping();
 	}
 
 
@@ -540,7 +540,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 			secondSetIndex--;
 		
 		
-		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
+		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		flipper.setClickable(true);
 		flipper.setOnTouchListener(gestureListener);
 
@@ -556,7 +556,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		
 		preFlip(activeView);
 		flipper.addView(activeView);
-		flipper.startFlipping();
+		//flipper.startFlipping();
 
 		if (flipper != null) {
 			flipper.setInAnimation(inFromLeftAnimation());
@@ -568,7 +568,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 			showInfo(getResources().getConfiguration().orientation);
 		
 		postFlip(flipper.getChildAt(0));
-		flipper.stopFlipping();
+		//flipper.stopFlipping();
 	}
 	protected void beginSecondStage() {
 		
@@ -608,7 +608,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 			flipdex.add(index);
 		}
 		
-		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
+		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		flipper.setClickable(true);
 		flipper.setOnTouchListener(gestureListener);
 		
@@ -639,7 +639,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 
 	protected void redisplaySecondStage(int indexin) {
 		setContentView(R.layout.transition);
-		 ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
+		 ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		
 		int counter = 1;  
 		for (int index:Spread.circles) {			
@@ -682,7 +682,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 	
 	protected void redisplay() {
 		infoDisplayed = false;
-		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
+		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		View v = flipper.getCurrentView();
 		View toRemove = v.findViewById(R.id.readinglayout);
 		if (toRemove != null) {
@@ -799,8 +799,8 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		Bitmap bmp;
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
-		if (browsing || Runtime.getRuntime().maxMemory() < 20165824)// && 
-			options.inSampleSize = 2;
+		//if (browsing || Runtime.getRuntime().maxMemory() < 20165824)// && 
+			//options.inSampleSize = 2;
 		options.inPurgeable = true;
 		
 		bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(flipdex.get(index)),options);
@@ -837,14 +837,17 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		
 	public void postFlip(View v) {
 		toastSpread();
-		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
+		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		flipper.removeView(v);
+		v.destroyDrawingCache();
+		((ImageView) v.findViewById(R.id.divine)).getDrawable().setCallback(null);
+		((ImageView) v.findViewById(R.id.divine)).setImageDrawable(null);
 		v=null;
 		System.gc();
 	}
 	
 	protected void toastSpread() {
-		if (spreadLabels != null && spreadLabels.length >= secondSetIndex && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+		if (spreadLabels != null && spreadLabels.length >= secondSetIndex && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT && spreadLabels[secondSetIndex] != null && spreadLabels[secondSetIndex].length() > 0)
 			Toast.makeText(this, spreadLabels[secondSetIndex], Toast.LENGTH_SHORT).show();
 	}
 

@@ -35,6 +35,10 @@ import liberus.tarot.spread.DialecticSpread;
 import liberus.tarot.spread.PentagramSpread;
 import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
+import liberus.tarot.spread.gothic.GothicArch;
+import liberus.tarot.spread.gothic.GothicPentagram;
+import liberus.tarot.spread.gothic.MysticSeven;
+import liberus.tarot.spread.gothic.VampireKiss;
 import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -52,6 +56,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -86,18 +91,27 @@ import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 
-public class TarotBotActivity extends AbstractTarotBotActivity  {
+public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 
-
+	protected static String key = "";
+	
+	protected String[] mystic;
+	protected String[] vampire;
+	protected String[] gothicPentagram;
+	protected String[] arch;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		TelephonyManager tel = (TelephonyManager) getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
+		String seed = tel.getDeviceId();
+		int in = 5;
+		initPolicy(getApplicationContext(),seed,key);
 		setFullscreen();
 		setContentView(R.layout.tarotbotstart);
 		inflater = LayoutInflater.from(this);
-		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
+		readingPrefs = getSharedPreferences("tarotbot.gothic.reading", 0);
 		readingPrefsEd = readingPrefs.edit();
 		gestureDetector = new GestureDetector(new MyGestureDetector());
 		gestureListener = getGestureListener(gestureDetector);
@@ -109,7 +123,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	
 	protected void initSaved() {
 		try{
-			File f = new File(Environment.getExternalStorageDirectory()+"/tarotbot.store");
+			File f = new File(Environment.getExternalStorageDirectory()+"/tarotbot.gothic.store");
 			if (!f.exists())
 				return;
 			FileInputStream fileIS = new FileInputStream(f);
@@ -152,7 +166,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		setContentView(R.layout.tarotbotstart);
 		flipdex = new ArrayList<Integer>();
 		inflater = LayoutInflater.from(this);
-		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
+		readingPrefs = getSharedPreferences("tarotbot.gothic.reading", 0);
 		readingPrefsEd = readingPrefs.edit();
 		gestureDetector = new GestureDetector(new MyGestureDetector());
 		gestureListener = getGestureListener(gestureDetector);
@@ -176,7 +190,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		
 		menu.add(0, MENU_LOAD, 0, R.string.load_menu).setIcon(android.R.drawable.ic_menu_set_as);
 	    menu.add(0, MENU_SAVE, 1, R.string.save_menu).setIcon(android.R.drawable.ic_menu_save);
-	    menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
+	    //menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
 	    menu.add(0, MENU_HELP, 3, R.string.help_menu).setIcon(android.R.drawable.ic_menu_help);
 	    menu.add(0, MENU_BROWSE, 4, R.string.browse_menu).setIcon(android.R.drawable.ic_menu_gallery);
 	    menu.add(0, MENU_NAVIGATE, 5, R.string.navigate_menu).setIcon(android.R.drawable.ic_menu_mapmode);
@@ -184,18 +198,18 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		if(!begun) {
 			menu.findItem(MENU_SAVE).setEnabled(false);
 			if (loaded &! browsing) {
-				menu.findItem(MENU_SHARE).setEnabled(true);
+				//menu.findItem(MENU_SHARE).setEnabled(true);
 				menu.findItem(MENU_NAVIGATE).setEnabled(true);
 			} else if (browsing) {
 				menu.findItem(MENU_NAVIGATE).setEnabled(true);
-				menu.findItem(MENU_SHARE).setEnabled(false);
+				//menu.findItem(MENU_SHARE).setEnabled(false);
 			} else {
 				menu.findItem(MENU_NAVIGATE).setEnabled(false);
-				menu.findItem(MENU_SHARE).setEnabled(false);
+				//menu.findItem(MENU_SHARE).setEnabled(false);
 			}
 		} else {
 			menu.findItem(MENU_SAVE).setEnabled(true);
-			menu.findItem(MENU_SHARE).setEnabled(true);
+			//menu.findItem(MENU_SHARE).setEnabled(true);
 			menu.findItem(MENU_NAVIGATE).setEnabled(true);
 		}
 	
@@ -214,9 +228,12 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		single = res.getStringArray(R.array.single);
 		timeArrow = res.getStringArray(R.array.timeArrow);
 		dialectic = res.getStringArray(R.array.dialectic);
-		pentagram = res.getStringArray(R.array.pentagram);
+		arch = res.getStringArray(R.array.gothic_arch);
+		gothicPentagram = res.getStringArray(R.array.gothic_pentagram);
+		mystic = res.getStringArray(R.array.gothic_mystic);
+		vampire = res.getStringArray(R.array.gothic_vampire);
 		chaosStar = res.getStringArray(R.array.chaosStar);
-		celticCross = res.getStringArray(R.array.celticCross);
+		celticCross = res.getStringArray(R.array.gothic_celticCross);
 	}
 
 
@@ -504,23 +521,41 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 			}
 			case 3: {
 				//seqSpread();
-				spreadLabels = pentagram;
-				style = "pentagram";
+				spreadLabels = arch;
+				style = "arch";
 				break;
 			}
 			case 4: {
+				//seqSpread();
+				spreadLabels = gothicPentagram;
+				style = "gothicPentagram";
+				break;
+			}
+			case 5: {
+				//seqSpread();
+				spreadLabels = mystic;
+				style = "mystic";
+				break;
+			}
+			case 6: {
+				//seqSpread();
+				spreadLabels = vampire;
+				style = "vampire";
+				break;
+			}
+			case 7: {
 				//seqSpread();
 				spreadLabels = chaosStar;
 				style = "chaos";
 				break;
 			}
-			case 5: {
+			case 8: {
 				//seqSpread();
 				spreadLabels = celticCross;
 				style = "celtic";
 				break;
 			}
-			case 6: {
+			case 9: {
 				botaSpread();		
 				style = "bota";
 				spreading=false;
@@ -538,8 +573,14 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 				mySpread = new ArrowSpread(myInt,timeArrow);
 			else if (style.equals("dialectic"))
 				mySpread = new DialecticSpread(myInt,dialectic);
-			else if (style.equals("pentagram"))
-				mySpread = new PentagramSpread(myInt,pentagram);
+			else if (style.equals("arch"))
+				mySpread = new GothicArch(myInt,arch);
+			else if (style.equals("gothicPentagram"))
+				mySpread = new GothicPentagram(myInt,gothicPentagram);
+			else if (style.equals("mystic"))
+				mySpread = new MysticSeven(myInt,mystic);
+			else if (style.equals("vampire"))
+				mySpread = new VampireKiss(myInt,vampire);
 			else if (style.equals("chaos"))
 				mySpread = new ChaosSpread(myInt,chaosStar);
 			else if (style.equals("celtic"))
@@ -608,7 +649,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 					    File root = Environment.getExternalStorageDirectory();
 					    
 					    //if (root.canWrite()){
-					        File gpxfile = new File(root, "tarotbot.store");
+					        File gpxfile = new File(root, "tarotbot.gothic.store");
 					        FileWriter gpxwriter = new FileWriter(gpxfile);
 					        BufferedWriter out = new BufferedWriter(gpxwriter);
 					        for (String reader: savedList) {
@@ -647,7 +688,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 					    File root = Environment.getExternalStorageDirectory();
 					    
 					    //if (root.canWrite()){
-					        File gpxfile = new File(root, "tarotbot.store");
+					        File gpxfile = new File(root, "tarotbot.gothic.store");
 					        FileWriter gpxwriter = new FileWriter(gpxfile);
 					        BufferedWriter out = new BufferedWriter(gpxwriter);
 					        for (String reader: savedList) {
@@ -727,10 +768,22 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 				    		Spread.circles = Spread.working;
 				    		spreadLabels = dialectic;
 				    		mySpread = new DialecticSpread(myInt,dialectic);
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("pentagram")) {
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("gothicPentagram")) {
 				    		Spread.circles = Spread.working;
-				    		spreadLabels = pentagram;
-				    		mySpread = new PentagramSpread(myInt,pentagram);
+				    		spreadLabels = gothicPentagram;
+				    		mySpread = new GothicPentagram(myInt,gothicPentagram);
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arch")) {
+				    		Spread.circles = Spread.working;
+				    		spreadLabels = arch;
+				    		mySpread = new GothicArch(myInt,arch);
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("mystic")) {
+				    		Spread.circles = Spread.working;
+				    		spreadLabels = mystic;
+				    		mySpread = new MysticSeven(myInt,mystic);
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("vampire")) {
+				    		Spread.circles = Spread.working;
+				    		spreadLabels = vampire;
+				    		mySpread = new VampireKiss(myInt,vampire);
 				    	}
 				    	spreading=false;
 						begun = true;

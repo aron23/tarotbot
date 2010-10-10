@@ -7,6 +7,7 @@
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent" 
+    android:background="#000000"
 	>
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,47 +17,62 @@
   android:layout_centerVertical="true"
   android:gravity="center"
   android:layout_gravity="center">  
-  
-<ImageView android:id="@+id/pentagram_spirit" 
+    
+<ImageView android:id="@+id/mystic_one" 
 	android:layout_width="66dip"
     android:layout_height="120dip"
     android:layout_marginLeft="116dip"
     android:layout_marginTop="5dip"
     android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+
+<ImageView android:id="@+id/mystic_two" 
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="222dip"
+    android:layout_marginTop="220dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>        
+
+<ImageView android:id="@+id/mystic_three"  
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="5dip"
+    android:layout_marginTop="220dip"
+    android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
-    
-<ImageView android:id="@+id/pentagram_fire" 
+
+<ImageView android:id="@+id/mystic_four" 
+	android:layout_width="66dip"
+    android:layout_height="120dip"
+    android:layout_marginLeft="116dip"
+    android:layout_marginTop="260dip"
+    android:clickable="true"
+    android:scaleType="fitXY"></ImageView>
+
+<ImageView android:id="@+id/mystic_five" 
 	android:layout_width="66dip"
     android:layout_height="120dip"
     android:layout_marginLeft="5dip"
     android:layout_marginTop="90dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/pentagram_earth" 
+    android:scaleType="fitXY"></ImageView>        
+
+<ImageView android:id="@+id/mystic_six"  
 	android:layout_width="66dip"
     android:layout_height="120dip"
     android:layout_marginLeft="222dip"
     android:layout_marginTop="90dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>  
-
-<ImageView android:id="@+id/pentagram_water"  
+    android:scaleType="fitXY"></ImageView> 
+    
+<ImageView android:id="@+id/mystic_seven"  
 	android:layout_width="66dip"
     android:layout_height="120dip"
-    android:layout_marginLeft="57dip"
-    android:layout_marginTop="220dip"
+    android:layout_marginLeft="116dip"
+    android:layout_marginTop="130dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView> 
-
-<ImageView android:id="@+id/pentagram_air"  
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="172dip"
-    android:layout_marginTop="220dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
-        
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

@@ -249,10 +249,6 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
 			showInfo(getResources().getConfiguration().orientation);
-		
-		flipper.setAnimationCacheEnabled(false);
-		flipper.setPersistentDrawingCache(ViewGroup.PERSISTENT_NO_CACHE);
-		flipper.setDrawingCacheEnabled(false);
 		flipper.setDisplayedChild(secondSetIndex);
 		}
 

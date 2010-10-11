@@ -792,6 +792,9 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		
 		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 		
+		w = bmp.getWidth();
+		h = bmp.getHeight();
+		
 		if (BotaInt.myDeck.reversed[flipdex.get(index)]) {		
 			mtx = new Matrix();
 			mtx.postRotate(180);

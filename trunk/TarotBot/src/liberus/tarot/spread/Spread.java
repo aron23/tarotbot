@@ -224,6 +224,9 @@ public abstract class Spread {
 		
 		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 		
+		w = bmp.getWidth();
+		h = bmp.getHeight();
+		
 		if (Interpretation.myDeck.reversed[index]) {		
 			mtx = new Matrix();
 			mtx.postRotate(180);
@@ -254,21 +257,22 @@ public abstract class Spread {
 		
 		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 		
+		w = bmp.getWidth();
+		h = bmp.getHeight();
+		
 		if (Interpretation.myDeck.reversed[index]) {		
 			mtx = new Matrix();
 			mtx.postRotate(180);
 			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 		} 
 		
-		if (Interpretation.myDeck.reversed[index]) {			
-			mtx = new Matrix();
-			mtx.postRotate(270);
-			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-		} else {
-			mtx = new Matrix();
-			mtx.postRotate(90);
-			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-		}
+		w = bmp.getWidth();
+		h = bmp.getHeight();
+		
+		mtx = new Matrix();
+		mtx.postRotate(90);
+		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		
 		
 		BitmapDrawable bmd = new BitmapDrawable(bmp);			
 		toPlace.setImageDrawable(bmd);
@@ -294,22 +298,22 @@ public abstract class Spread {
 		
 		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 		
+		w = bmp.getWidth();
+		h = bmp.getHeight();
+		
 		if (Interpretation.myDeck.reversed[index]) {		
 			mtx = new Matrix();
 			mtx.postRotate(180);
 			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 		} 
 		
-		if (Interpretation.myDeck.reversed[index]) {			
-			mtx = new Matrix();
-			mtx.postRotate(360-angle);
-			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-		} else {
-			mtx = new Matrix();
-			mtx.postRotate(angle);
-			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-		}
+		w = bmp.getWidth();
+		h = bmp.getHeight();
 		
+		mtx = new Matrix();
+		mtx.postRotate(angle);
+		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+				
 		BitmapDrawable bmd = new BitmapDrawable(bmp);			
 		toPlace.setImageDrawable(bmd);
 		return toPlace;

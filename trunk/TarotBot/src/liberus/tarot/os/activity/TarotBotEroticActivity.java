@@ -90,7 +90,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ViewFlipper;
+import android.widget.ViewSwitcher;
 
 
 public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
@@ -430,7 +430,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	}
 	
 	protected void showInfo(int type) {
-		ViewFlipper flipper = (ViewFlipper) this.findViewById(R.id.flipper);
+		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 
 		if (type == Configuration.ORIENTATION_PORTRAIT) {
 			infoDisplayed = true;

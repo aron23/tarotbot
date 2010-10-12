@@ -16,6 +16,13 @@
   android:layout_centerVertical="true"
   android:gravity="center"
   android:layout_gravity="center">    
+
+<ImageView android:id="@+id/arrow_past_back" 
+	android:layout_width="90dip"
+    android:layout_height="162dip"
+    android:layout_marginLeft="4dip"
+    android:layout_marginTop="4dip"
+    android:background="#000000"></ImageView>
     
 <ImageView android:id="@+id/arrow_past" 
 	android:layout_width="88dip"
@@ -24,6 +31,13 @@
     android:layout_marginTop="5dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>
+    
+<ImageView android:id="@+id/arrow_present_back" 
+	android:layout_width="90dip"
+    android:layout_height="162dip"
+    android:layout_marginLeft="101dip"
+    android:layout_marginTop="4dip"
+    android:background="#000000"></ImageView>
 
 <ImageView android:id="@+id/arrow_present" 
 	android:layout_width="88dip"
@@ -31,7 +45,14 @@
     android:layout_marginLeft="102dip"
     android:layout_marginTop="5dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>        
+    android:scaleType="fitXY"></ImageView> 
+    
+<ImageView android:id="@+id/arrow_future_back" 
+	android:layout_width="90dip"
+    android:layout_height="162dip"
+    android:layout_marginLeft="198dip"
+    android:layout_marginTop="4dip"
+    android:background="#000000"></ImageView>
 
 <ImageView android:id="@+id/arrow_future"  
 	android:layout_width="88dip"

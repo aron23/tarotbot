@@ -12,6 +12,7 @@ import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
@@ -124,25 +125,26 @@ public class ArrowSpread extends Spread {
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.arrow_past);
+		ImageView shadow = (ImageView)layout.findViewById(R.id.arrow_past_back);
 		placeImage(act.flipdex.get(0),card,ctx);
 		card.setId(0);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 0)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.arrow_past_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.arrow_present);
 		placeImage(act.flipdex.get(1),card,ctx);
 		card.setId(1);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 1)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.arrow_present_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.arrow_future);
 		placeImage(act.flipdex.get(2),card,ctx);
 		card.setId(2);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 2)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.arrow_future_back).setBackgroundColor(Color.RED);
 		
 		return layout;
 	}

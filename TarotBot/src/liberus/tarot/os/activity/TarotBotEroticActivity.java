@@ -276,7 +276,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		  redisplayMain();
 	  } else {
 		  rotateDisplay();
-//		  if (Spread.circles.size() > 1) {
+//		  if (GothicSpread.circles.size() > 1) {
 //			  if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
 //					Toast.makeText(this, R.string.portraitnavigation, Toast.LENGTH_LONG).show();
 //				else

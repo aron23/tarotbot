@@ -211,7 +211,7 @@ public abstract class Spread {
 		options=new BitmapFactory.Options();
 		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
 			options.inSampleSize = 4;
-		options.inPurgeable = true;
+		
 		
 		bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
 		int w = bmp.getWidth();
@@ -244,7 +244,7 @@ public abstract class Spread {
 		options=new BitmapFactory.Options();
 		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
 			options.inSampleSize = 4;
-		options.inPurgeable = true;
+		
 		
 		bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
 		int w = bmp.getWidth();
@@ -285,7 +285,7 @@ public abstract class Spread {
 		options=new BitmapFactory.Options();
 		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
 			options.inSampleSize = 4;
-		options.inPurgeable = true;
+		
 		
 		bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
 		int w = bmp.getWidth();

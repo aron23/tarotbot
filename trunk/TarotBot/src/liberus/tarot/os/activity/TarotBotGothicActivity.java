@@ -26,17 +26,16 @@ import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.querant.Querant;
-import liberus.tarot.spread.ArrowSpread;
-import liberus.tarot.spread.BotaSpread;
-import liberus.tarot.spread.BrowseSpread;
-import liberus.tarot.spread.CelticSpread;
-import liberus.tarot.spread.ChaosSpread;
-import liberus.tarot.spread.DialecticSpread;
-import liberus.tarot.spread.PentagramSpread;
+
 import liberus.tarot.spread.SeqSpread;
-import liberus.tarot.spread.Spread;
 import liberus.tarot.spread.gothic.GothicArch;
+import liberus.tarot.spread.gothic.GothicArrowSpread;
+import liberus.tarot.spread.gothic.GothicBotaSpread;
+import liberus.tarot.spread.gothic.GothicCelticSpread;
+import liberus.tarot.spread.gothic.GothicChaosSpread;
+import liberus.tarot.spread.gothic.GothicDialecticSpread;
 import liberus.tarot.spread.gothic.GothicPentagram;
+import liberus.tarot.spread.gothic.GothicSpread;
 import liberus.tarot.spread.gothic.MysticSeven;
 import liberus.tarot.spread.gothic.VampireKiss;
 import liberus.utils.WebUtils;
@@ -195,8 +194,8 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 		begun = false;
 		browsing = false;
 		loaded = false;
-		Spread.circles = new ArrayList<Integer>();
-		Spread.working = new ArrayList<Integer>();
+		GothicSpread.circles = new ArrayList<Integer>();
+		GothicSpread.working = new ArrayList<Integer>();
 		myInt = new BotaInt(new RiderWaiteDeck(), aq);
 		//mySpread.myDeck = myInt.myDeck;
 		
@@ -269,7 +268,7 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 		  redisplayMain();
 	  } else {
 		  rotateDisplay();
-//		  if (Spread.circles.size() > 1) {
+//		  if (GothicSpread.circles.size() > 1) {
 //			  if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
 //					Toast.makeText(this, R.string.portraitnavigation, Toast.LENGTH_LONG).show();
 //				else
@@ -390,7 +389,7 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 			positions.add(readingPrefs.getInt(keys.get(i),-1));
 		for (int i = positions.size(); i < keys.size(); i++)
 			reversals.add(readingPrefs.getBoolean(keys.get(i),false));
-		BotaSpread.working = positions;
+		GothicBotaSpread.working = positions;
 		BotaInt.myDeck.reversed = reversals.toArray(new Boolean[0]);
 		secondSetIndex = querantPrefs.getInt("activeCard", 0);
 	}
@@ -427,7 +426,7 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 
 		if (type == Configuration.ORIENTATION_PORTRAIT) {
 			infoDisplayed = true;
-			int i = Spread.circles.get(secondSetIndex);
+			int i = GothicSpread.circles.get(secondSetIndex);
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			showing = inflater.inflate(R.layout.interpretation, null);
 			infotext = (TextView) showing.findViewById(R.id.interpretation);		
@@ -443,7 +442,7 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 			AlertDialog interpretor = builder.create();
 			interpretor.show();
 		} else if (type == Configuration.ORIENTATION_LANDSCAPE) {
-			int i = Spread.circles.get(secondSetIndex);
+			int i = GothicSpread.circles.get(secondSetIndex);
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			View v = flipper.getCurrentView();
 			infotext = (TextView)v.findViewById(R.id.interpretation);		
@@ -517,7 +516,7 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 			browsing = false;
 			changeQuerant();
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
-			mySpread = new BotaSpread(myInt);
+			mySpread = new GothicBotaSpread(myInt);
 			beginSecondStage();	
 			
 		} else if (v.equals(this.findViewById(R.id.initspreadbutton))) {
@@ -593,9 +592,9 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 			browsing = false;
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
 			if (style.equals("arrow"))
-				mySpread = new ArrowSpread(myInt,timeArrow);
+				mySpread = new GothicArrowSpread(myInt,timeArrow);
 			else if (style.equals("dialectic"))
-				mySpread = new DialecticSpread(myInt,dialectic);
+				mySpread = new GothicDialecticSpread(myInt,dialectic);
 			else if (style.equals("arch"))
 				mySpread = new GothicArch(myInt,arch);
 			else if (style.equals("gothicPentagram"))
@@ -605,9 +604,9 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 			else if (style.equals("vampire"))
 				mySpread = new VampireKiss(myInt,vampire);
 			else if (style.equals("chaos"))
-				mySpread = new ChaosSpread(myInt,chaosStar);
+				mySpread = new GothicChaosSpread(myInt,chaosStar);
 			else if (style.equals("celtic"))
-				mySpread = new CelticSpread(myInt,celticCross);
+				mySpread = new GothicCelticSpread(myInt,celticCross);
 			else
 				mySpread = new SeqSpread(myInt,spreadLabels);
 			beginSecondStage();
@@ -626,10 +625,10 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 				if (Interpretation.getCardIndex(v.getId()) > 0)
 					secondSetIndex = Interpretation.getCardIndex(v.getId())-1;
 				else
-					secondSetIndex = Spread.working.size();
+					secondSetIndex = GothicSpread.working.size();
 			} else {
 				if (v.getId() == 0)
-					secondSetIndex = Spread.working.size();
+					secondSetIndex = GothicSpread.working.size();
 				else
 					secondSetIndex = v.getId()-1;
 					
@@ -654,7 +653,7 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 				    read.put("label", saveTitle);
 				    read.put("type", style);
 				    if (style.equals("bota"))
-				    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
+				    	read.put("significator", String.valueOf(GothicBotaSpread.getSignificator()));
 				    else
 				    	read.put("significator", String.valueOf(0));
 //				    if (saved.length > 5)
@@ -699,7 +698,7 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 				    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
 				    read.put("date", sdf.format(cal.getTime()));
 				    if (style.equals("bota"))
-				    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
+				    	read.put("significator", String.valueOf(GothicBotaSpread.getSignificator()));
 				    else
 				    	read.put("significator", String.valueOf(0));
 				    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
@@ -732,8 +731,8 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 						startActivityForResult(intent,1);
 						break;
 					} else {
-						Spread.circles = new ArrayList<Integer>();
-						Spread.working = new ArrayList<Integer>();
+						GothicSpread.circles = new ArrayList<Integer>();
+						GothicSpread.working = new ArrayList<Integer>();
 						flipdex = new ArrayList<Integer>();
 						//ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
 						ArrayList<String[]> deck = new ArrayList<String[]>();
@@ -766,45 +765,45 @@ public class TarotBotGothicActivity extends AbstractPremiumActivity  {
 				    	loaded=true;
 				    	//BotaInt.myDeck = ;	
 				    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
-				    	Spread.working = working;
+				    	GothicSpread.working = working;
 				    	BotaInt.loaded = true;
 				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("bota")) {
 				    		BotaInt.setMyQuerant(new Querant(significator));
-				    		mySpread = new BotaSpread(myInt);				    		
+				    		mySpread = new GothicBotaSpread(myInt);				    		
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("celtic")) {
-				    		mySpread = new CelticSpread(myInt,celticCross);
+				    		mySpread = new GothicCelticSpread(myInt,celticCross);
 				    		spreadLabels = celticCross;
-				    		Spread.circles = Spread.working;
+				    		GothicSpread.circles = GothicSpread.working;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("chaos")) {
-				    		Spread.circles = Spread.working;
-				    		mySpread = new ChaosSpread(myInt,chaosStar);
+				    		GothicSpread.circles = GothicSpread.working;
+				    		mySpread = new GothicChaosSpread(myInt,chaosStar);
 				    		spreadLabels = chaosStar;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("single")) {
 				    		mySpread = new SeqSpread(myInt,single);
-				    		Spread.circles = Spread.working;
+				    		GothicSpread.circles = GothicSpread.working;
 				    		spreadLabels = single;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arrow")) {
-				    		mySpread = new ArrowSpread(myInt,timeArrow);
+				    		mySpread = new GothicArrowSpread(myInt,timeArrow);
 				    		spreadLabels = timeArrow;
-				    		Spread.circles = Spread.working;				    		
+				    		GothicSpread.circles = GothicSpread.working;				    		
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("dialectic")) {
-				    		Spread.circles = Spread.working;
+				    		GothicSpread.circles = GothicSpread.working;
 				    		spreadLabels = dialectic;
-				    		mySpread = new DialecticSpread(myInt,dialectic);
+				    		mySpread = new GothicDialecticSpread(myInt,dialectic);
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("gothicPentagram")) {
-				    		Spread.circles = Spread.working;
+				    		GothicSpread.circles = GothicSpread.working;
 				    		spreadLabels = gothicPentagram;
 				    		mySpread = new GothicPentagram(myInt,gothicPentagram);
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arch")) {
-				    		Spread.circles = Spread.working;
+				    		GothicSpread.circles = GothicSpread.working;
 				    		spreadLabels = arch;
 				    		mySpread = new GothicArch(myInt,arch);
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("mystic")) {
-				    		Spread.circles = Spread.working;
+				    		GothicSpread.circles = GothicSpread.working;
 				    		spreadLabels = mystic;
 				    		mySpread = new MysticSeven(myInt,mystic);
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("vampire")) {
-				    		Spread.circles = Spread.working;
+				    		GothicSpread.circles = GothicSpread.working;
 				    		spreadLabels = vampire;
 				    		mySpread = new VampireKiss(myInt,vampire);
 				    	}

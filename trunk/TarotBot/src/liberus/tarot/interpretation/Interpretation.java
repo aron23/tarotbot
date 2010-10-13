@@ -1995,355 +1995,355 @@ public abstract class Interpretation {
 		return 0;
 	}
 
-	public static int getOppositionNumber(int index) {
-		switch (index) {
-			case 0:return R.array.the_fool_00_opposition_number;
-			case 1:return R.array.the_magician_01_opposition_number;
-			case 2:return R.array.the_high_priestess_02_opposition_number;
-			case 3:return R.array.the_empress_03_opposition_number;
-			case 4:return R.array.the_emperor_04_opposition_number;
-			case 5:return R.array.the_hierophant_05_opposition_number;
-			case 6:return R.array.the_lovers_06_opposition_number;
-			case 7:return R.array.the_chariot_07_opposition_number;
-			case 8:return R.array.strength_08_opposition_number;
-			case 9:return R.array.the_hermit_09_opposition_number;
-			case 10:return R.array.the_wheel_of_fortune_10_opposition_number;
-			case 11:return R.array.justice_11_opposition_number;
-			case 12:return R.array.the_hanged_man_12_opposition_number;
-			case 13:return R.array.death_13_opposition_number;
-			case 14:return R.array.temperance_14_opposition_number;
-			case 15:return R.array.the_devil_15_opposition_number;
-			case 16:return R.array.the_tower_16_opposition_number;
-			case 17:return R.array.the_star_17_opposition_number;
-			case 18:return R.array.the_moon_18_opposition_number;		
-			case 19:return R.array.the_sun_19_opposition_number;
-			case 20:return R.array.judgement_20_opposition_number;
-			case 21:return R.array.the_world_21_opposition_number;
-	
-			case 22:return 0;
-			case 23:return R.array.wands_02_opposition_number;
-			case 24:return R.array.wands_03_opposition_number;
-			case 25:return R.array.wands_04_opposition_number;
-			case 26:return R.array.wands_05_opposition_number;
-			case 27:return R.array.wands_06_opposition_number;
-			case 28:return R.array.wands_07_opposition_number;
-			case 29:return R.array.wands_08_opposition_number;
-			case 30:return R.array.wands_09_opposition_number;
-			case 31:return R.array.wands_10_opposition_number;
-			case 32:return 0;
-			case 33:return 0;
-			case 34:return 0;
-			case 35:return 0;
-	
-			case 36:return 0;
-			case 37:return R.array.cups_02_opposition_number;
-			case 38:return R.array.cups_03_opposition_number;
-			case 39:return R.array.cups_04_opposition_number;
-			case 40:return R.array.cups_05_opposition_number;
-			case 41:return R.array.cups_06_opposition_number;
-			case 42:return R.array.cups_07_opposition_number;
-			case 43:return R.array.cups_08_opposition_number;
-			case 44:return R.array.cups_09_opposition_number;
-			case 45:return R.array.cups_10_opposition_number;
-			case 46:return 0;
-			case 47:return 0;
-			case 48:return 0;
-			case 49:return 0;
-	
-			case 50:return 0;
-			case 51:return R.array.swords_02_opposition_number;
-			case 52:return R.array.swords_03_opposition_number;
-			case 53:return R.array.swords_04_opposition_number;
-			case 54:return R.array.swords_05_opposition_number;
-			case 55:return R.array.swords_06_opposition_number;
-			case 56:return R.array.swords_07_opposition_number;
-			case 57:return R.array.swords_08_opposition_number;
-			case 58:return R.array.swords_09_opposition_number;
-			case 59:return R.array.swords_10_opposition_number;
-			case 60:return 0;
-			case 61:return 0;
-			case 62:return 0;
-			case 63:return 0;
-	
-			case 64:return 0;
-			case 65:return R.array.pentacles_02_opposition_number;
-			case 66:return R.array.pentacles_03_opposition_number;
-			case 67:return R.array.pentacles_04_opposition_number;
-			case 68:return R.array.pentacles_05_opposition_number;
-			case 69:return 0;
-			case 70:return R.array.pentacles_07_opposition_number;
-			case 71:return R.array.pentacles_08_opposition_number;
-			case 72:return R.array.pentacles_09_opposition_number;
-			case 73:return R.array.pentacles_10_opposition_number;
-			case 74:return 0;
-			case 75:return 0;
-			case 76:return 0;
-			case 77:return 0;				
-		}
-		return 0;
-	}
-	
-	public static int getOppositionText(int index) {
-		switch (index) {
-			case 0:return R.array.the_fool_00_opposition_text;
-			case 1:return R.array.the_magician_01_opposition_text;
-			case 2:return R.array.the_high_priestess_02_opposition_text;
-			case 3:return R.array.the_empress_03_opposition_text;
-			case 4:return R.array.the_emperor_04_opposition_text;
-			case 5:return R.array.the_hierophant_05_opposition_text;
-			case 6:return R.array.the_lovers_06_opposition_text;
-			case 7:return R.array.the_chariot_07_opposition_text;
-			case 8:return R.array.strength_08_opposition_text;
-			case 9:return R.array.the_hermit_09_opposition_text;
-			case 10:return R.array.the_wheel_of_fortune_10_opposition_text;
-			case 11:return R.array.justice_11_opposition_text;
-			case 12:return R.array.the_hanged_man_12_opposition_text;
-			case 13:return R.array.death_13_opposition_text;
-			case 14:return R.array.temperance_14_opposition_text;
-			case 15:return R.array.the_devil_15_opposition_text;
-			case 16:return R.array.the_tower_16_opposition_text;
-			case 17:return R.array.the_star_17_opposition_text;
-			case 18:return R.array.the_moon_18_opposition_text;		
-			case 19:return R.array.the_sun_19_opposition_text;
-			case 20:return R.array.judgement_20_opposition_text;
-			case 21:return R.array.the_world_21_opposition_text;
-	
-			case 22:return 0;
-			case 23:return R.array.wands_02_opposition_text;
-			case 24:return R.array.wands_03_opposition_text;
-			case 25:return R.array.wands_04_opposition_text;
-			case 26:return R.array.wands_05_opposition_text;
-			case 27:return R.array.wands_06_opposition_text;
-			case 28:return R.array.wands_07_opposition_text;
-			case 29:return R.array.wands_08_opposition_text;
-			case 30:return R.array.wands_09_opposition_text;
-			case 31:return R.array.wands_10_opposition_text;
-			case 32:return 0;
-			case 33:return 0;
-			case 34:return 0;
-			case 35:return 0;
-	
-			case 36:return 0;
-			case 37:return R.array.cups_02_opposition_text;
-			case 38:return R.array.cups_03_opposition_text;
-			case 39:return R.array.cups_04_opposition_text;
-			case 40:return R.array.cups_05_opposition_text;
-			case 41:return R.array.cups_06_opposition_text;
-			case 42:return R.array.cups_07_opposition_text;
-			case 43:return R.array.cups_08_opposition_text;
-			case 44:return R.array.cups_09_opposition_text;
-			case 45:return R.array.cups_10_opposition_text;
-			case 46:return 0;
-			case 47:return 0;
-			case 48:return 0;
-			case 49:return 0;
-	
-			case 50:return 0;
-			case 51:return R.array.swords_02_opposition_text;
-			case 52:return R.array.swords_03_opposition_text;
-			case 53:return R.array.swords_04_opposition_text;
-			case 54:return R.array.swords_05_opposition_text;
-			case 55:return R.array.swords_06_opposition_text;
-			case 56:return R.array.swords_07_opposition_text;
-			case 57:return R.array.swords_08_opposition_text;
-			case 58:return R.array.swords_09_opposition_text;
-			case 59:return R.array.swords_10_opposition_text;
-			case 60:return 0;
-			case 61:return 0;
-			case 62:return 0;
-			case 63:return 0;
-	
-			case 64:return 0;
-			case 65:return R.array.pentacles_02_opposition_text;
-			case 66:return R.array.pentacles_03_opposition_text;
-			case 67:return R.array.pentacles_04_opposition_text;
-			case 68:return R.array.pentacles_05_opposition_text;
-			case 69:return 0;
-			case 70:return R.array.pentacles_07_opposition_text;
-			case 71:return R.array.pentacles_08_opposition_text;
-			case 72:return R.array.pentacles_09_opposition_text;
-			case 73:return R.array.pentacles_10_opposition_text;
-			case 74:return 0;
-			case 75:return 0;
-			case 76:return 0;
-			case 77:return 0;				
-		}
-		return 0;
-	}
-
-	public static int getReinforcementNumber(int index) {
-		switch (index) {
-			case 0:return R.array.the_fool_00_reinforcement_number;
-			case 1:return R.array.the_magician_01_reinforcement_number;
-			case 2:return R.array.the_high_priestess_02_reinforcement_number;
-			case 3:return R.array.the_empress_03_reinforcement_number;
-			case 4:return R.array.the_emperor_04_reinforcement_number;
-			case 5:return R.array.the_hierophant_05_reinforcement_number;
-			case 6:return R.array.the_lovers_06_reinforcement_number;
-			case 7:return R.array.the_chariot_07_reinforcement_number;
-			case 8:return R.array.strength_08_reinforcement_number;
-			case 9:return R.array.the_hermit_09_reinforcement_number;
-			case 10:return R.array.the_wheel_of_fortune_10_reinforcement_number;
-			case 11:return R.array.justice_11_reinforcement_number;
-			case 12:return R.array.the_hanged_man_12_reinforcement_number;
-			case 13:return R.array.death_13_reinforcement_number;
-			case 14:return R.array.temperance_14_reinforcement_number;
-			case 15:return R.array.the_devil_15_reinforcement_number;
-			case 16:return R.array.the_tower_16_reinforcement_number;
-			case 17:return R.array.the_star_17_reinforcement_number;
-			case 18:return R.array.the_moon_18_reinforcement_number;		
-			case 19:return R.array.the_sun_19_reinforcement_number;
-			case 20:return R.array.judgement_20_reinforcement_number;
-			case 21:return R.array.the_world_21_reinforcement_number;
-	
-			case 22:return R.array.wands_01_reinforcement_number;
-			case 23:return R.array.wands_02_reinforcement_number;
-			case 24:return R.array.wands_03_reinforcement_number;
-			case 25:return R.array.wands_04_reinforcement_number;
-			case 26:return R.array.wands_05_reinforcement_number;
-			case 27:return R.array.wands_06_reinforcement_number;
-			case 28:return R.array.wands_07_reinforcement_number;
-			case 29:return R.array.wands_08_reinforcement_number;
-			case 30:return R.array.wands_09_reinforcement_number;
-			case 31:return R.array.wands_10_reinforcement_number;
-			case 32:return 0;
-			case 33:return 0;
-			case 34:return 0;
-			case 35:return 0;
-	
-			case 36:return R.array.cups_01_reinforcement_number;
-			case 37:return R.array.cups_02_reinforcement_number;
-			case 38:return R.array.cups_03_reinforcement_number;
-			case 39:return R.array.cups_04_reinforcement_number;
-			case 40:return R.array.cups_05_reinforcement_number;
-			case 41:return R.array.cups_06_reinforcement_number;
-			case 42:return R.array.cups_07_reinforcement_number;
-			case 43:return R.array.cups_08_reinforcement_number;
-			case 44:return R.array.cups_09_reinforcement_number;
-			case 45:return R.array.cups_10_reinforcement_number;
-			case 46:return 0;
-			case 47:return 0;
-			case 48:return 0;
-			case 49:return 0;
-	
-			case 50:return R.array.swords_01_reinforcement_number;
-			case 51:return R.array.swords_02_reinforcement_number;
-			case 52:return R.array.swords_03_reinforcement_number;
-			case 53:return R.array.swords_04_reinforcement_number;
-			case 54:return R.array.swords_05_reinforcement_number;
-			case 55:return R.array.swords_06_reinforcement_number;
-			case 56:return R.array.swords_07_reinforcement_number;
-			case 57:return R.array.swords_08_reinforcement_number;
-			case 58:return R.array.swords_09_reinforcement_number;
-			case 59:return R.array.swords_10_reinforcement_number;
-			case 60:return 0;
-			case 61:return 0;
-			case 62:return 0;
-			case 63:return 0;
-	
-			case 64:return R.array.pentacles_01_reinforcement_number;
-			case 65:return R.array.pentacles_02_reinforcement_number;
-			case 66:return R.array.pentacles_03_reinforcement_number;
-			case 67:return R.array.pentacles_04_reinforcement_number;
-			case 68:return R.array.pentacles_05_reinforcement_number;
-			case 69:return R.array.pentacles_06_reinforcement_number;
-			case 70:return R.array.pentacles_07_reinforcement_number;
-			case 71:return R.array.pentacles_08_reinforcement_number;
-			case 72:return R.array.pentacles_09_reinforcement_number;
-			case 73:return R.array.pentacles_10_reinforcement_number;
-			case 74:return 0;
-			case 75:return 0;
-			case 76:return 0;
-			case 77:return 0;				
-		}
-		return 0;
-	}
-	
-	public static int getReinforcementText(int index) {
-		switch (index) {
-			case 0:return R.array.the_fool_00_reinforcement_text;
-			case 1:return R.array.the_magician_01_reinforcement_text;
-			case 2:return R.array.the_high_priestess_02_reinforcement_text;
-			case 3:return R.array.the_empress_03_reinforcement_text;
-			case 4:return R.array.the_emperor_04_reinforcement_text;
-			case 5:return R.array.the_hierophant_05_reinforcement_text;
-			case 6:return R.array.the_lovers_06_reinforcement_text;
-			case 7:return R.array.the_chariot_07_reinforcement_text;
-			case 8:return R.array.strength_08_reinforcement_text;
-			case 9:return R.array.the_hermit_09_reinforcement_text;
-			case 10:return R.array.the_wheel_of_fortune_10_reinforcement_text;
-			case 11:return R.array.justice_11_reinforcement_text;
-			case 12:return R.array.the_hanged_man_12_reinforcement_text;
-			case 13:return R.array.death_13_reinforcement_text;
-			case 14:return R.array.temperance_14_reinforcement_text;
-			case 15:return R.array.the_devil_15_reinforcement_text;
-			case 16:return R.array.the_tower_16_reinforcement_text;
-			case 17:return R.array.the_star_17_reinforcement_text;
-			case 18:return R.array.the_moon_18_reinforcement_text;		
-			case 19:return R.array.the_sun_19_reinforcement_text;
-			case 20:return R.array.judgement_20_reinforcement_text;
-			case 21:return R.array.the_world_21_reinforcement_text;
-	
-			case 22:return R.array.wands_01_reinforcement_text;
-			case 23:return R.array.wands_02_reinforcement_text;
-			case 24:return R.array.wands_03_reinforcement_text;
-			case 25:return R.array.wands_04_reinforcement_text;
-			case 26:return R.array.wands_05_reinforcement_text;
-			case 27:return R.array.wands_06_reinforcement_text;
-			case 28:return R.array.wands_07_reinforcement_text;
-			case 29:return R.array.wands_08_reinforcement_text;
-			case 30:return R.array.wands_09_reinforcement_text;
-			case 31:return R.array.wands_10_reinforcement_text;
-			case 32:return 0;
-			case 33:return 0;
-			case 34:return 0;
-			case 35:return 0;
-	
-			case 36:return R.array.cups_01_reinforcement_text;
-			case 37:return R.array.cups_02_reinforcement_text;
-			case 38:return R.array.cups_03_reinforcement_text;
-			case 39:return R.array.cups_04_reinforcement_text;
-			case 40:return R.array.cups_05_reinforcement_text;
-			case 41:return R.array.cups_06_reinforcement_text;
-			case 42:return R.array.cups_07_reinforcement_text;
-			case 43:return R.array.cups_08_reinforcement_text;
-			case 44:return R.array.cups_09_reinforcement_text;
-			case 45:return R.array.cups_10_reinforcement_text;
-			case 46:return 0;
-			case 47:return 0;
-			case 48:return 0;
-			case 49:return 0;
-	
-			case 50:return R.array.swords_01_reinforcement_text;
-			case 51:return R.array.swords_02_reinforcement_text;
-			case 52:return R.array.swords_03_reinforcement_text;
-			case 53:return R.array.swords_04_reinforcement_text;
-			case 54:return R.array.swords_05_reinforcement_text;
-			case 55:return R.array.swords_06_reinforcement_text;
-			case 56:return R.array.swords_07_reinforcement_text;
-			case 57:return R.array.swords_08_reinforcement_text;
-			case 58:return R.array.swords_09_reinforcement_text;
-			case 59:return R.array.swords_10_reinforcement_text;
-			case 60:return 0;
-			case 61:return 0;
-			case 62:return 0;
-			case 63:return 0;
-	
-			case 64:return R.array.pentacles_01_reinforcement_text;
-			case 65:return R.array.pentacles_02_reinforcement_text;
-			case 66:return R.array.pentacles_03_reinforcement_text;
-			case 67:return R.array.pentacles_04_reinforcement_text;
-			case 68:return R.array.pentacles_05_reinforcement_text;
-			case 69:return R.array.pentacles_06_reinforcement_text;
-			case 70:return R.array.pentacles_07_reinforcement_text;
-			case 71:return R.array.pentacles_08_reinforcement_text;
-			case 72:return R.array.pentacles_09_reinforcement_text;
-			case 73:return R.array.pentacles_10_reinforcement_text;
-			case 74:return 0;
-			case 75:return 0;
-			case 76:return 0;
-			case 77:return 0;				
-		}
-		return 0;
-	}
+//	public static int getOppositionNumber(int index) {
+//		switch (index) {
+//			case 0:return R.array.the_fool_00_opposition_number;
+//			case 1:return R.array.the_magician_01_opposition_number;
+//			case 2:return R.array.the_high_priestess_02_opposition_number;
+//			case 3:return R.array.the_empress_03_opposition_number;
+//			case 4:return R.array.the_emperor_04_opposition_number;
+//			case 5:return R.array.the_hierophant_05_opposition_number;
+//			case 6:return R.array.the_lovers_06_opposition_number;
+//			case 7:return R.array.the_chariot_07_opposition_number;
+//			case 8:return R.array.strength_08_opposition_number;
+//			case 9:return R.array.the_hermit_09_opposition_number;
+//			case 10:return R.array.the_wheel_of_fortune_10_opposition_number;
+//			case 11:return R.array.justice_11_opposition_number;
+//			case 12:return R.array.the_hanged_man_12_opposition_number;
+//			case 13:return R.array.death_13_opposition_number;
+//			case 14:return R.array.temperance_14_opposition_number;
+//			case 15:return R.array.the_devil_15_opposition_number;
+//			case 16:return R.array.the_tower_16_opposition_number;
+//			case 17:return R.array.the_star_17_opposition_number;
+//			case 18:return R.array.the_moon_18_opposition_number;		
+//			case 19:return R.array.the_sun_19_opposition_number;
+//			case 20:return R.array.judgement_20_opposition_number;
+//			case 21:return R.array.the_world_21_opposition_number;
+//	
+//			case 22:return 0;
+//			case 23:return R.array.wands_02_opposition_number;
+//			case 24:return R.array.wands_03_opposition_number;
+//			case 25:return R.array.wands_04_opposition_number;
+//			case 26:return R.array.wands_05_opposition_number;
+//			case 27:return R.array.wands_06_opposition_number;
+//			case 28:return R.array.wands_07_opposition_number;
+//			case 29:return R.array.wands_08_opposition_number;
+//			case 30:return R.array.wands_09_opposition_number;
+//			case 31:return R.array.wands_10_opposition_number;
+//			case 32:return 0;
+//			case 33:return 0;
+//			case 34:return 0;
+//			case 35:return 0;
+//	
+//			case 36:return 0;
+//			case 37:return R.array.cups_02_opposition_number;
+//			case 38:return R.array.cups_03_opposition_number;
+//			case 39:return R.array.cups_04_opposition_number;
+//			case 40:return R.array.cups_05_opposition_number;
+//			case 41:return R.array.cups_06_opposition_number;
+//			case 42:return R.array.cups_07_opposition_number;
+//			case 43:return R.array.cups_08_opposition_number;
+//			case 44:return R.array.cups_09_opposition_number;
+//			case 45:return R.array.cups_10_opposition_number;
+//			case 46:return 0;
+//			case 47:return 0;
+//			case 48:return 0;
+//			case 49:return 0;
+//	
+//			case 50:return 0;
+//			case 51:return R.array.swords_02_opposition_number;
+//			case 52:return R.array.swords_03_opposition_number;
+//			case 53:return R.array.swords_04_opposition_number;
+//			case 54:return R.array.swords_05_opposition_number;
+//			case 55:return R.array.swords_06_opposition_number;
+//			case 56:return R.array.swords_07_opposition_number;
+//			case 57:return R.array.swords_08_opposition_number;
+//			case 58:return R.array.swords_09_opposition_number;
+//			case 59:return R.array.swords_10_opposition_number;
+//			case 60:return 0;
+//			case 61:return 0;
+//			case 62:return 0;
+//			case 63:return 0;
+//	
+//			case 64:return 0;
+//			case 65:return R.array.pentacles_02_opposition_number;
+//			case 66:return R.array.pentacles_03_opposition_number;
+//			case 67:return R.array.pentacles_04_opposition_number;
+//			case 68:return R.array.pentacles_05_opposition_number;
+//			case 69:return 0;
+//			case 70:return R.array.pentacles_07_opposition_number;
+//			case 71:return R.array.pentacles_08_opposition_number;
+//			case 72:return R.array.pentacles_09_opposition_number;
+//			case 73:return R.array.pentacles_10_opposition_number;
+//			case 74:return 0;
+//			case 75:return 0;
+//			case 76:return 0;
+//			case 77:return 0;				
+//		}
+//		return 0;
+//	}
+//	
+//	public static int getOppositionText(int index) {
+//		switch (index) {
+//			case 0:return R.array.the_fool_00_opposition_text;
+//			case 1:return R.array.the_magician_01_opposition_text;
+//			case 2:return R.array.the_high_priestess_02_opposition_text;
+//			case 3:return R.array.the_empress_03_opposition_text;
+//			case 4:return R.array.the_emperor_04_opposition_text;
+//			case 5:return R.array.the_hierophant_05_opposition_text;
+//			case 6:return R.array.the_lovers_06_opposition_text;
+//			case 7:return R.array.the_chariot_07_opposition_text;
+//			case 8:return R.array.strength_08_opposition_text;
+//			case 9:return R.array.the_hermit_09_opposition_text;
+//			case 10:return R.array.the_wheel_of_fortune_10_opposition_text;
+//			case 11:return R.array.justice_11_opposition_text;
+//			case 12:return R.array.the_hanged_man_12_opposition_text;
+//			case 13:return R.array.death_13_opposition_text;
+//			case 14:return R.array.temperance_14_opposition_text;
+//			case 15:return R.array.the_devil_15_opposition_text;
+//			case 16:return R.array.the_tower_16_opposition_text;
+//			case 17:return R.array.the_star_17_opposition_text;
+//			case 18:return R.array.the_moon_18_opposition_text;		
+//			case 19:return R.array.the_sun_19_opposition_text;
+//			case 20:return R.array.judgement_20_opposition_text;
+//			case 21:return R.array.the_world_21_opposition_text;
+//	
+//			case 22:return 0;
+//			case 23:return R.array.wands_02_opposition_text;
+//			case 24:return R.array.wands_03_opposition_text;
+//			case 25:return R.array.wands_04_opposition_text;
+//			case 26:return R.array.wands_05_opposition_text;
+//			case 27:return R.array.wands_06_opposition_text;
+//			case 28:return R.array.wands_07_opposition_text;
+//			case 29:return R.array.wands_08_opposition_text;
+//			case 30:return R.array.wands_09_opposition_text;
+//			case 31:return R.array.wands_10_opposition_text;
+//			case 32:return 0;
+//			case 33:return 0;
+//			case 34:return 0;
+//			case 35:return 0;
+//	
+//			case 36:return 0;
+//			case 37:return R.array.cups_02_opposition_text;
+//			case 38:return R.array.cups_03_opposition_text;
+//			case 39:return R.array.cups_04_opposition_text;
+//			case 40:return R.array.cups_05_opposition_text;
+//			case 41:return R.array.cups_06_opposition_text;
+//			case 42:return R.array.cups_07_opposition_text;
+//			case 43:return R.array.cups_08_opposition_text;
+//			case 44:return R.array.cups_09_opposition_text;
+//			case 45:return R.array.cups_10_opposition_text;
+//			case 46:return 0;
+//			case 47:return 0;
+//			case 48:return 0;
+//			case 49:return 0;
+//	
+//			case 50:return 0;
+//			case 51:return R.array.swords_02_opposition_text;
+//			case 52:return R.array.swords_03_opposition_text;
+//			case 53:return R.array.swords_04_opposition_text;
+//			case 54:return R.array.swords_05_opposition_text;
+//			case 55:return R.array.swords_06_opposition_text;
+//			case 56:return R.array.swords_07_opposition_text;
+//			case 57:return R.array.swords_08_opposition_text;
+//			case 58:return R.array.swords_09_opposition_text;
+//			case 59:return R.array.swords_10_opposition_text;
+//			case 60:return 0;
+//			case 61:return 0;
+//			case 62:return 0;
+//			case 63:return 0;
+//	
+//			case 64:return 0;
+//			case 65:return R.array.pentacles_02_opposition_text;
+//			case 66:return R.array.pentacles_03_opposition_text;
+//			case 67:return R.array.pentacles_04_opposition_text;
+//			case 68:return R.array.pentacles_05_opposition_text;
+//			case 69:return 0;
+//			case 70:return R.array.pentacles_07_opposition_text;
+//			case 71:return R.array.pentacles_08_opposition_text;
+//			case 72:return R.array.pentacles_09_opposition_text;
+//			case 73:return R.array.pentacles_10_opposition_text;
+//			case 74:return 0;
+//			case 75:return 0;
+//			case 76:return 0;
+//			case 77:return 0;				
+//		}
+//		return 0;
+//	}
+//
+//	public static int getReinforcementNumber(int index) {
+//		switch (index) {
+//			case 0:return R.array.the_fool_00_reinforcement_number;
+//			case 1:return R.array.the_magician_01_reinforcement_number;
+//			case 2:return R.array.the_high_priestess_02_reinforcement_number;
+//			case 3:return R.array.the_empress_03_reinforcement_number;
+//			case 4:return R.array.the_emperor_04_reinforcement_number;
+//			case 5:return R.array.the_hierophant_05_reinforcement_number;
+//			case 6:return R.array.the_lovers_06_reinforcement_number;
+//			case 7:return R.array.the_chariot_07_reinforcement_number;
+//			case 8:return R.array.strength_08_reinforcement_number;
+//			case 9:return R.array.the_hermit_09_reinforcement_number;
+//			case 10:return R.array.the_wheel_of_fortune_10_reinforcement_number;
+//			case 11:return R.array.justice_11_reinforcement_number;
+//			case 12:return R.array.the_hanged_man_12_reinforcement_number;
+//			case 13:return R.array.death_13_reinforcement_number;
+//			case 14:return R.array.temperance_14_reinforcement_number;
+//			case 15:return R.array.the_devil_15_reinforcement_number;
+//			case 16:return R.array.the_tower_16_reinforcement_number;
+//			case 17:return R.array.the_star_17_reinforcement_number;
+//			case 18:return R.array.the_moon_18_reinforcement_number;		
+//			case 19:return R.array.the_sun_19_reinforcement_number;
+//			case 20:return R.array.judgement_20_reinforcement_number;
+//			case 21:return R.array.the_world_21_reinforcement_number;
+//	
+//			case 22:return R.array.wands_01_reinforcement_number;
+//			case 23:return R.array.wands_02_reinforcement_number;
+//			case 24:return R.array.wands_03_reinforcement_number;
+//			case 25:return R.array.wands_04_reinforcement_number;
+//			case 26:return R.array.wands_05_reinforcement_number;
+//			case 27:return R.array.wands_06_reinforcement_number;
+//			case 28:return R.array.wands_07_reinforcement_number;
+//			case 29:return R.array.wands_08_reinforcement_number;
+//			case 30:return R.array.wands_09_reinforcement_number;
+//			case 31:return R.array.wands_10_reinforcement_number;
+//			case 32:return 0;
+//			case 33:return 0;
+//			case 34:return 0;
+//			case 35:return 0;
+//	
+//			case 36:return R.array.cups_01_reinforcement_number;
+//			case 37:return R.array.cups_02_reinforcement_number;
+//			case 38:return R.array.cups_03_reinforcement_number;
+//			case 39:return R.array.cups_04_reinforcement_number;
+//			case 40:return R.array.cups_05_reinforcement_number;
+//			case 41:return R.array.cups_06_reinforcement_number;
+//			case 42:return R.array.cups_07_reinforcement_number;
+//			case 43:return R.array.cups_08_reinforcement_number;
+//			case 44:return R.array.cups_09_reinforcement_number;
+//			case 45:return R.array.cups_10_reinforcement_number;
+//			case 46:return 0;
+//			case 47:return 0;
+//			case 48:return 0;
+//			case 49:return 0;
+//	
+//			case 50:return R.array.swords_01_reinforcement_number;
+//			case 51:return R.array.swords_02_reinforcement_number;
+//			case 52:return R.array.swords_03_reinforcement_number;
+//			case 53:return R.array.swords_04_reinforcement_number;
+//			case 54:return R.array.swords_05_reinforcement_number;
+//			case 55:return R.array.swords_06_reinforcement_number;
+//			case 56:return R.array.swords_07_reinforcement_number;
+//			case 57:return R.array.swords_08_reinforcement_number;
+//			case 58:return R.array.swords_09_reinforcement_number;
+//			case 59:return R.array.swords_10_reinforcement_number;
+//			case 60:return 0;
+//			case 61:return 0;
+//			case 62:return 0;
+//			case 63:return 0;
+//	
+//			case 64:return R.array.pentacles_01_reinforcement_number;
+//			case 65:return R.array.pentacles_02_reinforcement_number;
+//			case 66:return R.array.pentacles_03_reinforcement_number;
+//			case 67:return R.array.pentacles_04_reinforcement_number;
+//			case 68:return R.array.pentacles_05_reinforcement_number;
+//			case 69:return R.array.pentacles_06_reinforcement_number;
+//			case 70:return R.array.pentacles_07_reinforcement_number;
+//			case 71:return R.array.pentacles_08_reinforcement_number;
+//			case 72:return R.array.pentacles_09_reinforcement_number;
+//			case 73:return R.array.pentacles_10_reinforcement_number;
+//			case 74:return 0;
+//			case 75:return 0;
+//			case 76:return 0;
+//			case 77:return 0;				
+//		}
+//		return 0;
+//	}
+//	
+//	public static int getReinforcementText(int index) {
+//		switch (index) {
+//			case 0:return R.array.the_fool_00_reinforcement_text;
+//			case 1:return R.array.the_magician_01_reinforcement_text;
+//			case 2:return R.array.the_high_priestess_02_reinforcement_text;
+//			case 3:return R.array.the_empress_03_reinforcement_text;
+//			case 4:return R.array.the_emperor_04_reinforcement_text;
+//			case 5:return R.array.the_hierophant_05_reinforcement_text;
+//			case 6:return R.array.the_lovers_06_reinforcement_text;
+//			case 7:return R.array.the_chariot_07_reinforcement_text;
+//			case 8:return R.array.strength_08_reinforcement_text;
+//			case 9:return R.array.the_hermit_09_reinforcement_text;
+//			case 10:return R.array.the_wheel_of_fortune_10_reinforcement_text;
+//			case 11:return R.array.justice_11_reinforcement_text;
+//			case 12:return R.array.the_hanged_man_12_reinforcement_text;
+//			case 13:return R.array.death_13_reinforcement_text;
+//			case 14:return R.array.temperance_14_reinforcement_text;
+//			case 15:return R.array.the_devil_15_reinforcement_text;
+//			case 16:return R.array.the_tower_16_reinforcement_text;
+//			case 17:return R.array.the_star_17_reinforcement_text;
+//			case 18:return R.array.the_moon_18_reinforcement_text;		
+//			case 19:return R.array.the_sun_19_reinforcement_text;
+//			case 20:return R.array.judgement_20_reinforcement_text;
+//			case 21:return R.array.the_world_21_reinforcement_text;
+//	
+//			case 22:return R.array.wands_01_reinforcement_text;
+//			case 23:return R.array.wands_02_reinforcement_text;
+//			case 24:return R.array.wands_03_reinforcement_text;
+//			case 25:return R.array.wands_04_reinforcement_text;
+//			case 26:return R.array.wands_05_reinforcement_text;
+//			case 27:return R.array.wands_06_reinforcement_text;
+//			case 28:return R.array.wands_07_reinforcement_text;
+//			case 29:return R.array.wands_08_reinforcement_text;
+//			case 30:return R.array.wands_09_reinforcement_text;
+//			case 31:return R.array.wands_10_reinforcement_text;
+//			case 32:return 0;
+//			case 33:return 0;
+//			case 34:return 0;
+//			case 35:return 0;
+//	
+//			case 36:return R.array.cups_01_reinforcement_text;
+//			case 37:return R.array.cups_02_reinforcement_text;
+//			case 38:return R.array.cups_03_reinforcement_text;
+//			case 39:return R.array.cups_04_reinforcement_text;
+//			case 40:return R.array.cups_05_reinforcement_text;
+//			case 41:return R.array.cups_06_reinforcement_text;
+//			case 42:return R.array.cups_07_reinforcement_text;
+//			case 43:return R.array.cups_08_reinforcement_text;
+//			case 44:return R.array.cups_09_reinforcement_text;
+//			case 45:return R.array.cups_10_reinforcement_text;
+//			case 46:return 0;
+//			case 47:return 0;
+//			case 48:return 0;
+//			case 49:return 0;
+//	
+//			case 50:return R.array.swords_01_reinforcement_text;
+//			case 51:return R.array.swords_02_reinforcement_text;
+//			case 52:return R.array.swords_03_reinforcement_text;
+//			case 53:return R.array.swords_04_reinforcement_text;
+//			case 54:return R.array.swords_05_reinforcement_text;
+//			case 55:return R.array.swords_06_reinforcement_text;
+//			case 56:return R.array.swords_07_reinforcement_text;
+//			case 57:return R.array.swords_08_reinforcement_text;
+//			case 58:return R.array.swords_09_reinforcement_text;
+//			case 59:return R.array.swords_10_reinforcement_text;
+//			case 60:return 0;
+//			case 61:return 0;
+//			case 62:return 0;
+//			case 63:return 0;
+//	
+//			case 64:return R.array.pentacles_01_reinforcement_text;
+//			case 65:return R.array.pentacles_02_reinforcement_text;
+//			case 66:return R.array.pentacles_03_reinforcement_text;
+//			case 67:return R.array.pentacles_04_reinforcement_text;
+//			case 68:return R.array.pentacles_05_reinforcement_text;
+//			case 69:return R.array.pentacles_06_reinforcement_text;
+//			case 70:return R.array.pentacles_07_reinforcement_text;
+//			case 71:return R.array.pentacles_08_reinforcement_text;
+//			case 72:return R.array.pentacles_09_reinforcement_text;
+//			case 73:return R.array.pentacles_10_reinforcement_text;
+//			case 74:return 0;
+//			case 75:return 0;
+//			case 76:return 0;
+//			case 77:return 0;				
+//		}
+//		return 0;
+//	}
 }

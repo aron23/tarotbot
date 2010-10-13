@@ -9,7 +9,6 @@ import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
-import liberus.tarot.spread.Spread;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,15 +19,15 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 
-public class VampireKiss extends GothicSpread {
+public class GothicCelticSpread extends GothicSpread {
 	
 	
-	private static int significatogrIn;
+	private static int significatorIn;
 	private int myNum;
 
 
-	public VampireKiss(Interpretation in, String[] labels) {
-		super(in);
+	public GothicCelticSpread(Interpretation myInt, String[] labels) {
+		super(myInt);
 		myNum = labels.length;
 		myLabels = labels;
 	}
@@ -39,67 +38,86 @@ public class VampireKiss extends GothicSpread {
 			Integer[] shuffled = myDeck.shuffle(new Integer[78],3);
 			Deck.shuffled = shuffled;
 			for (int i = 0; i < myNum; i++)
-				Spread.working.add(shuffled[i]);
-			Spread.circles = working;
+				GothicSpread.working.add(shuffled[i]);
+			GothicSpread.circles = working;
 		}		
 	}
-
+	
 	@Override
 	public int getLayout() {
-		return R.layout.vampireskisslayout;
-	}	
+		return R.layout.celticlayout;
+	}
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
-		ImageView card = (ImageView) layout.findViewById(R.id.vampire_one);
+		
+		ImageView card = (ImageView) layout.findViewById(R.id.celtic_heart);
 		placeImage(act.flipdex.get(0),card,ctx);
 		card.setId(0);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 0)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
-		card = (ImageView) layout.findViewById(R.id.vampire_two);
-		placeImage(act.flipdex.get(1),card,ctx);
+		card = (ImageView) layout.findViewById(R.id.celtic_opposition);
+		placeLandscapeImage(act.flipdex.get(1),card,ctx);		
 		card.setId(1);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 1)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
-		card = (ImageView) layout.findViewById(R.id.vampire_three);
+		card = (ImageView) layout.findViewById(R.id.celtic_root);
 		placeImage(act.flipdex.get(2),card,ctx);
 		card.setId(2);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 2)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
-		card = (ImageView) layout.findViewById(R.id.vampire_four);
+		card = (ImageView) layout.findViewById(R.id.celtic_past);
 		placeImage(act.flipdex.get(3),card,ctx);
 		card.setId(3);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 3)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
-		card = (ImageView) layout.findViewById(R.id.vampire_five);
+		card = (ImageView) layout.findViewById(R.id.celtic_belief);
 		placeImage(act.flipdex.get(4),card,ctx);
 		card.setId(4);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 4)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
-		card = (ImageView) layout.findViewById(R.id.vampire_six);
-		placeImage(act.flipdex.get(5),card,ctx);
+		card = (ImageView) layout.findViewById(R.id.celtic_future);
+		placeImage(act.flipdex.get(5),card,ctx);	
 		card.setId(5);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 5)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
-
-		card = (ImageView) layout.findViewById(R.id.vampire_seven);
-		placeImage(act.flipdex.get(6),card,ctx);
+		
+		card = (ImageView) layout.findViewById(R.id.celtic_you);
+		placeImage(act.flipdex.get(6),card,ctx);	
 		card.setId(6);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 6)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
+		card = (ImageView) layout.findViewById(R.id.celtic_environment);
+		placeImage(act.flipdex.get(7),card,ctx);	
+		card.setId(7);
+		card.setOnClickListener(act);
+		if (TarotBotActivity.secondSetIndex == 7)
+			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		
+		card = (ImageView) layout.findViewById(R.id.celtic_guidance);
+		placeImage(act.flipdex.get(8),card,ctx);
+		card.setId(8);
+		card.setOnClickListener(act);
+		if (TarotBotActivity.secondSetIndex == 8)
+			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		
+		card = (ImageView) layout.findViewById(R.id.celtic_outcome);
+		placeImage(act.flipdex.get(9),card,ctx);
+		card.setId(9);
+		card.setOnClickListener(act);
+		if (TarotBotActivity.secondSetIndex == 9)
+			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+		
 		return layout;
 	}
-
 }

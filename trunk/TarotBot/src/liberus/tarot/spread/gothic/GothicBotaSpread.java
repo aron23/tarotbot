@@ -1,4 +1,4 @@
-package liberus.tarot.spread;
+package liberus.tarot.spread.gothic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +23,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 
-public class BotaSpread extends Spread {
+public class GothicBotaSpread extends GothicSpread {
 	
 	private static int significatorIn;
 	public static Integer[] heh2;
@@ -32,7 +32,7 @@ public class BotaSpread extends Spread {
 	public static Integer[] yod;
 	private Integer secondSetStrongest;
 
-	public BotaSpread(Interpretation myInt) {
+	public GothicBotaSpread(Interpretation myInt) {
 		super(myInt);
 	}
 	
@@ -142,7 +142,7 @@ public class BotaSpread extends Spread {
 		}
 		 
 	}
-
+	@Override
 	public String getInterpretation(int circled, Context appcontext) {
 		double factor = (double)12/working.size();
 		int sig = working.indexOf(getSignificator());
@@ -170,72 +170,17 @@ public class BotaSpread extends Spread {
 			return returner;
 		}
 		returner += "<big><b>"+appcontext.getString(BotaInt.getTitle(circled))+"</big></b><br/>";
-		if (BotaInt.getKeyword(circled) > 0 && appcontext.getString(BotaInt.getKeyword(circled)).length() > 0)
-			returner += appcontext.getString(BotaInt.getKeyword(circled))+"<br/>";
-		if (BotaInt.getJourney(circled) > 0 && appcontext.getString(BotaInt.getJourney(circled)).length() > 0)
-			returner += appcontext.getString(BotaInt.getJourney(circled))+"<br/>";
 		
 		if (circled==BotaInt.secondSetStrongest)
 			returner += "<b>"+appcontext.getString(R.string.significant_label)+"</b><br/>";
 		
+		if (myDeck.isReversed(circled) && appcontext.getString(BotaInt.getReversed(circled)).length() > 0)
+			returner += "<br/><i>"+ appcontext.getString(BotaInt.getReversed(circled))+"<br/>";
+		else 
+			returner += "<br/><i>"+appcontext.getString(BotaInt.getMeanings(circled))+"<br/>";
+		
 		if (BotaInt.getAbst(circled) > 0 && appcontext.getString(BotaInt.getAbst(circled)).length() > 0)
 			returner += "<br/><i>"+appcontext.getString(R.string.general_label)+"</i>: " + appcontext.getString(BotaInt.getAbst(circled))+"<br/>";
-		if (significatorIn == 1 && BotaInt.getInSpiritualMatters(circled) > 0 && appcontext.getString(BotaInt.getInSpiritualMatters(circled)).length() > 0)
-			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getInSpiritualMatters(circled))+"<br/>";
-		else if (significatorIn == 3 && BotaInt.getInMaterialMatters(circled) > 0 && appcontext.getString(BotaInt.getInMaterialMatters(circled)).length() > 0)
-			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getInMaterialMatters(circled))+"<br/>";
-		else if (BotaInt.isWellDignified(context) &! BotaInt.isIllDignified(context) && BotaInt.getWellDignified(circled) > 0 && appcontext.getString(BotaInt.getWellDignified(circled)).length() > 0)
-			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getWellDignified(circled))+"<br/>";
-		else if (BotaInt.isIllDignified(context) &! BotaInt.isWellDignified(context) && BotaInt.getIllDignified(circled) > 0 && appcontext.getString(BotaInt.getIllDignified(circled)).length() > 0)
-			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getIllDignified(circled))+"<br/>";
-		else if (myDeck.isReversed(circled) && appcontext.getString(BotaInt.getReversed(circled)).length() > 0)
-			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getReversed(circled))+"<br/>";
-		else if (BotaInt.getMeanings(circled) > 0 && appcontext.getString(BotaInt.getMeanings(circled)).length() > 0)
-			returner += "<br/><i>"+appcontext.getString(R.string.directly_label)+"</i>: "+ appcontext.getString(BotaInt.getMeanings(circled))+"<br/>";
-//		if (BotaInt.getOppositionNumber(circled) > 0) {
-//			List oppNumList = Arrays.asList(appcontext.getResources().getIntArray(BotaInt.getOppositionNumber(circled)));
-//			String lefty = String.valueOf(getCardToTheLeft(circled));
-//			if (getCardToTheLeft(circled) < 10)
-//				lefty = "10"+lefty;
-//			else
-//				lefty = "1"+lefty;
-//			if (oppNumList != null && oppNumList.contains(lefty))
-//				returner += appcontext.getString(R.string.has_been_opposed_label)+": "+appcontext.getResources().getIntArray(BotaInt.getOppositionText(circled))[oppNumList.indexOf(lefty)]+"<br/>";
-//			
-//			String righty = String.valueOf(getCardToTheRight(circled));
-//			if (getCardToTheRight(circled) < 10)
-//				righty = "10"+righty;
-//			else
-//				righty = "1"+righty;
-//			if (oppNumList != null && oppNumList.contains(righty))
-//				returner += appcontext.getString(R.string.will_be_opposed_label)+": "+appcontext.getResources().getIntArray(BotaInt.getOppositionText(circled))[oppNumList.indexOf(righty)]+"<br/>";
-//		}
-//		if (BotaInt.getReinforcementNumber(circled) > 0) {
-//			List reNumList = Arrays.asList(appcontext.getResources().getIntArray(BotaInt.getReinforcementNumber(circled)));
-//			
-//			String lefty = String.valueOf(getCardToTheLeft(circled));
-//			if (getCardToTheLeft(circled) < 10)
-//				lefty = "10"+lefty;
-//			else
-//				lefty = "1"+lefty;
-////			if (reNumList != null && reNumList.contains(lefty))
-////				returner += appcontext.getString(R.string.has_been_reinforced_label)+": "+appcontext.getResources().getIntArray(BotaInt.getReinforcementText(circled))[reNumList.indexOf(lefty)]+"<br/>";
-//			
-//			String righty = String.valueOf(getCardToTheRight(circled));
-//			if (getCardToTheRight(circled) < 10)
-//				righty = "10"+righty;
-//			else
-//				righty = "1"+righty;
-////			if (reNumList != null && reNumList.contains(righty))
-////				returner += appcontext.getString(R.string.will_be_reinforced_label)+": "+appcontext.getResources().getIntArray(BotaInt.getReinforcementText(circled))[reNumList.indexOf(righty)]+"<br/>";
-//		}
-		/*if (getActions(circled) > 0 && appcontext.getString(getActions(circled)).length() > 0)
-			returner += appcontext.getString(getActions(circled))+"<br/><br/>";*/
-		
-		//returner += context;
-		String holder = appcontext.getString(BotaInt.getReversed(circled));
-		if (myDeck.isReversed(circled) &! (appcontext.getString(BotaInt.getReversed(circled)).length() > 0))
-			returner += "<br/>"+appcontext.getString(R.string.reversed_label);
 		return returner;
 	}
 

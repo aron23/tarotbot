@@ -778,8 +778,7 @@ public abstract class AbstractTarotBotActivity extends Activity  implements OnCl
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
 		//if (browsing || Runtime.getRuntime().maxMemory() < 20165824)// && 
-			//options.inSampleSize = 2;
-		options.inPurgeable = true;
+			//options.inSampleSize = 2;		
 		
 		bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(flipdex.get(index)),options);
 		int w = bmp.getWidth();

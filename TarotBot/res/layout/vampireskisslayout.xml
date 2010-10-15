@@ -16,7 +16,54 @@
   android:layout_centerVertical="true"
   android:gravity="center"
   android:layout_gravity="center">  
+<ImageView android:id="@+id/vampire_one_back" 
+	android:layout_width="35dip"
+    android:layout_height="62dip"
+    android:layout_marginLeft="4dip"
+    android:layout_marginTop="4dip"
+    android:background="#000000"></ImageView>
+
+<ImageView android:id="@+id/vampire_two_back" 
+	android:layout_width="35dip"
+    android:layout_height="62dip"
+    android:layout_marginLeft="219dip"
+    android:layout_marginTop="4dip"
+    android:background="#000000"></ImageView>        
+
+<ImageView android:id="@+id/vampire_three_back"  
+	android:layout_width="35dip"
+    android:layout_height="62dip"
+    android:layout_marginLeft="47dip"
+    android:layout_marginTop="49dip"
+    android:background="#000000"></ImageView>  
+
+<ImageView android:id="@+id/vampire_four_back" 
+	android:layout_width="35dip"
+    android:layout_height="62dip"
+    android:layout_marginLeft="176dip"
+    android:layout_marginTop="49dip"
+    android:background="#000000"></ImageView>
+
+<ImageView android:id="@+id/vampire_five_back" 
+	android:layout_width="35dip"
+    android:layout_height="62dip"
+    android:layout_marginLeft="90dip"
+    android:layout_marginTop="94dip"
+    android:background="#000000"></ImageView>        
+
+<ImageView android:id="@+id/vampire_six_back"  
+	android:layout_width="35dip"
+    android:layout_height="62dip"
+    android:layout_marginLeft="133dip"
+    android:layout_marginTop="94dip"
+    android:background="#000000"></ImageView> 
     
+<ImageView android:id="@+id/vampire_seven_back"  
+	android:layout_width="35dip"
+    android:layout_height="62dip"
+    android:layout_marginLeft="112dip"
+    android:layout_marginTop="164dip"
+    android:background="#000000"></ImageView>      
 <ImageView android:id="@+id/vampire_one" 
 	android:layout_width="33dip"
     android:layout_height="60dip"
@@ -71,7 +118,8 @@
     android:layout_marginLeft="113dip"
     android:layout_marginTop="165dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
+    android:scaleType="fitXY"></ImageView>
+        
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

@@ -12,6 +12,7 @@ import liberus.tarot.os.activity.TarotBotActivity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
@@ -55,14 +56,14 @@ public class GothicCelticSpread extends GothicSpread {
 		card.setId(0);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 0)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.celtic_heart_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.celtic_opposition);
 		placeLandscapeImage(act.flipdex.get(1),card,ctx);		
 		card.setId(1);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 1)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.celtic_opposition_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.celtic_root);
 		placeImage(act.flipdex.get(2),card,ctx);
@@ -74,49 +75,49 @@ public class GothicCelticSpread extends GothicSpread {
 		card.setId(3);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 3)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.celtic_past_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.celtic_belief);
 		placeImage(act.flipdex.get(4),card,ctx);
 		card.setId(4);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 4)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.celtic_belief_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.celtic_future);
 		placeImage(act.flipdex.get(5),card,ctx);	
 		card.setId(5);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 5)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.celtic_future_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.celtic_you);
 		placeImage(act.flipdex.get(6),card,ctx);	
 		card.setId(6);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 6)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.celtic_you_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.celtic_environment);
 		placeImage(act.flipdex.get(7),card,ctx);	
 		card.setId(7);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 7)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.celtic_environment_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.celtic_guidance);
 		placeImage(act.flipdex.get(8),card,ctx);
 		card.setId(8);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 8)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.celtic_guidance_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.celtic_outcome);
 		placeImage(act.flipdex.get(9),card,ctx);
 		card.setId(9);
 		card.setOnClickListener(act);
 		if (TarotBotActivity.secondSetIndex == 9)
-			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
+			layout.findViewById(R.id.celtic_outcome_back).setBackgroundColor(Color.RED);
 		
 		return layout;
 	}

@@ -16,6 +16,62 @@
   android:layout_centerVertical="true"
   android:gravity="center"
   android:layout_gravity="center">  
+
+<ImageView android:id="@+id/chaos_octarine_back" 
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="123dip"
+    android:layout_marginTop="4dip"
+    android:background="#000000"></ImageView>
+    
+<ImageView android:id="@+id/chaos_red_back" 
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="61dip"
+    android:layout_marginTop="39dip"
+    android:background="#000000"></ImageView>
+    
+<ImageView android:id="@+id/chaos_black_back"
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="186dip"
+    android:layout_marginTop="39dip"
+    android:background="#000000"></ImageView>  
+    
+<ImageView android:id="@+id/chaos_orange_back" 
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="2dip"
+    android:layout_marginTop="129dip"
+    android:background="#000000"></ImageView>
+    
+<ImageView android:id="@+id/chaos_blue_back" 
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="244dip"
+    android:layout_marginTop="129dip"
+    android:background="#000000"></ImageView>  
+
+<ImageView android:id="@+id/chaos_purple_back" 
+	android:layout_width="46dip"
+    android:layout_height="72dip"
+    android:layout_marginLeft="61dip"
+    android:layout_marginTop="219dip"
+    android:background="#000000"></ImageView> 
+
+<ImageView android:id="@+id/chaos_green_back" 
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="186dip"
+    android:layout_marginTop="219dip"
+    android:background="#000000"></ImageView> 
+    
+<ImageView android:id="@+id/chaos_yellow_back" 
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="123dip"
+    android:layout_marginTop="254dip"
+    android:background="#000000"></ImageView>  
   
 <ImageView android:id="@+id/chaos_octarine" 
 	android:layout_width="44dip"
@@ -80,6 +136,8 @@
     android:layout_marginTop="255dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>      
+    
+  
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

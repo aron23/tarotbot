@@ -16,7 +16,40 @@
   android:layout_centerVertical="true"
   android:gravity="center"
   android:layout_gravity="center">  
-  
+<ImageView android:id="@+id/pentagram_spirit_back" 
+	android:layout_width="68dip"
+    android:layout_height="122dip"
+    android:layout_marginLeft="115dip"
+    android:layout_marginTop="4dip"
+    android:background="#000000"></ImageView>  
+    
+<ImageView android:id="@+id/pentagram_fire_back" 
+	android:layout_width="68dip"
+    android:layout_height="122dip"
+    android:layout_marginLeft="4dip"
+    android:layout_marginTop="89dip"
+    android:background="#000000"></ImageView>
+    
+<ImageView android:id="@+id/pentagram_earth_back" 
+	android:layout_width="68dip"
+    android:layout_height="122dip"
+    android:layout_marginLeft="221dip"
+    android:layout_marginTop="89dip"
+    android:background="#000000"></ImageView>  
+
+<ImageView android:id="@+id/pentagram_water_back"  
+	android:layout_width="68dip"
+    android:layout_height="122dip"
+    android:layout_marginLeft="56dip"
+    android:layout_marginTop="219dip"
+    android:background="#000000"></ImageView> 
+
+<ImageView android:id="@+id/pentagram_air_back"  
+	android:layout_width="68dip"
+    android:layout_height="122dip"
+    android:layout_marginLeft="171dip"
+    android:layout_marginTop="219dip"
+    android:background="#000000"></ImageView>     
 <ImageView android:id="@+id/pentagram_spirit" 
 	android:layout_width="66dip"
     android:layout_height="120dip"
@@ -55,8 +88,7 @@
     android:layout_marginLeft="172dip"
     android:layout_marginTop="220dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
-        
+    android:scaleType="fitXY"></ImageView>       
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

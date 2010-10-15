@@ -2,26 +2,90 @@
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
-  android:minWidth="300dp" 
-  android:minHeight="400dp"
-  android:background="#000000">
+  android:layout_height="fill_parent">
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent"
-    android:minWidth="300dp" 
-  	android:minHeight="400dp" 
-	>
+    android:layout_height="fill_parent">
 <RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
-  android:minWidth="300dp" 
-  android:minHeight="400dp"
   android:layout_centerHorizontal="true"
   android:layout_centerVertical="true"
   android:gravity="center"
   android:layout_gravity="center">
+<ImageView android:id="@+id/celtic_heart_back" 
+	
+	android:layout_width="52dip"
+    android:layout_height="92dip"
+    android:layout_marginLeft="79dip"
+    android:layout_marginTop="124dip"></ImageView> 
+    
+<ImageView android:id="@+id/celtic_opposition_back" 
+	
+	android:layout_width="92dip"
+    android:layout_height="52dip"
+    android:layout_marginLeft="59dip"
+    android:layout_marginTop="184dip"></ImageView> 
+
+<ImageView android:id="@+id/celtic_root_back" 
+	
+	android:layout_width="52dip"
+    android:layout_height="92dip"
+    android:layout_marginLeft="79dip"
+    android:layout_marginTop="264dip"></ImageView> 
+
+<ImageView android:id="@+id/celtic_past_back" 
+	
+	android:layout_width="52dip"
+    android:layout_height="92dip"
+    android:layout_marginLeft="4dip"
+    android:layout_marginTop="134dip"></ImageView>
+
+      
+<ImageView android:id="@+id/celtic_belief_back" 
+	
+	android:layout_width="52dip"
+    android:layout_height="92dip"
+    android:layout_marginLeft="79dip"
+    android:layout_marginTop="4dip"></ImageView> 
+    
+    
+<ImageView android:id="@+id/celtic_future_back" 
+	
+	android:layout_width="52dip"
+    android:layout_height="92dip"
+    android:layout_marginLeft="154dip"
+    android:layout_marginTop="134dip"></ImageView>  
+
+<ImageView android:id="@+id/celtic_you_back" 
+	
+	android:layout_width="52dip"
+    android:layout_height="92dip"
+    android:layout_marginLeft="209dip"
+    android:layout_marginTop="289dip"></ImageView> 
+
+<ImageView android:id="@+id/celtic_environment_back" 
+	
+	android:layout_width="52dip"
+    android:layout_height="92dip"
+    android:layout_marginLeft="209dip"
+    android:layout_marginTop="194dip"></ImageView>
+    
+<ImageView android:id="@+id/celtic_guidance_back" 
+	
+	android:layout_width="52dip"
+    android:layout_height="92dip"
+    android:layout_marginLeft="209dip"
+    android:layout_marginTop="99dip"></ImageView>
+
+<ImageView android:id="@+id/celtic_outcome_back" 
+	
+	android:layout_width="52dip"
+    android:layout_height="92dip"
+    android:layout_marginLeft="209dip"
+    android:layout_marginTop="4dip"></ImageView> 
+
 <ImageView android:id="@+id/celtic_heart" 
 	
 	android:layout_width="50dip"
@@ -113,6 +177,8 @@
     android:layout_marginTop="5dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>    
+    
+   
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

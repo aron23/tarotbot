@@ -33,15 +33,15 @@ public String getInterpretation(int circled, Context appcontext) {
 		String returner = "";
 		
 		
-		returner += "<big><b>"+appcontext.getString(BotaInt.getTitle(circled))+"</big></b><br/>";
+		returner += "<big><b>"+appcontext.getString(BotaInt.getTitle(circled))+"</b></big><br/>";
 		
 		if (myDeck.isReversed(circled) && appcontext.getString(BotaInt.getReversed(circled)).length() > 0)
-			returner += "<br/><i>"+ appcontext.getString(BotaInt.getReversed(circled))+"<br/>";
+			returner += "<br/>"+ appcontext.getString(BotaInt.getReversed(circled))+"<br/>";
 		else 
-			returner += "<br/><i>"+appcontext.getString(BotaInt.getMeanings(circled))+"<br/>";
+			returner += "<br/>"+appcontext.getString(BotaInt.getMeanings(circled))+"<br/>";
 		
 		if (BotaInt.getAbst(circled) > 0 && appcontext.getString(BotaInt.getAbst(circled)).length() > 0)
-			returner += "<br/><i>"+appcontext.getString(R.string.general_label)+"</i>: " + appcontext.getString(BotaInt.getAbst(circled))+"<br/>";
+			returner += "<br/>" + appcontext.getString(BotaInt.getAbst(circled))+"<br/>";
 		
 		return returner;
 	}

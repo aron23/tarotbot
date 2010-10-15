@@ -16,7 +16,39 @@
   android:layout_centerVertical="true"
   android:gravity="center"
   android:layout_gravity="center">  
+<ImageView android:id="@+id/arch_four_back" 
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="4dip"
+    android:layout_marginTop="19dip"
+    android:background="#000000"></ImageView>
+
+<ImageView android:id="@+id/arch_two_back" 
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="59dip"
+    android:layout_marginTop="14dip"
+    android:background="#000000"></ImageView>        
+
+<ImageView android:id="@+id/arch_one_back"  
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="114dip"
+    android:layout_marginTop="4dip"
+    android:background="#000000"></ImageView>
     
+<ImageView android:id="@+id/arch_three_back"  
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="169dip"
+    android:layout_marginTop="14dip"
+    android:background="#000000"></ImageView>
+<ImageView android:id="@+id/arch_five_back"  
+	android:layout_width="46dip"
+    android:layout_height="82dip"
+    android:layout_marginLeft="224dip"
+    android:layout_marginTop="19dip"
+    android:background="#000000"></ImageView>     
 <ImageView android:id="@+id/arch_four" 
 	android:layout_width="44dip"
     android:layout_height="80dip"
@@ -54,7 +86,7 @@
     android:layout_marginLeft="225dip"
     android:layout_marginTop="20dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>    
+    android:scaleType="fitXY"></ImageView>          
 </RelativeLayout>
 </ScrollView>
 </RelativeLayout>

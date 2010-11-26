@@ -145,7 +145,93 @@ public abstract class Interpretation {
 		return 0;
 	}
 	
+	public static String getCardName(int index) {
+		switch (index) {
+			case 0:return "the_fool_00.jpg";
+			case 1:return "the_magician_01.jpg";
+			case 2:return "the_high_priestess_02.jpg";
+			case 3:return "the_empress_03.jpg";
+			case 4:return "the_emperor_04.jpg";
+			case 5:return "the_hierophant_05.jpg";
+			case 6:return "the_lovers_06.jpg";
+			case 7:return "the_chariot_07.jpg";
+			case 8:return "strength_08.jpg";
+			case 9:return "the_hermit_09.jpg";
+			case 10:return "the_wheel_of_fortune_10.jpg";
+			case 11:return "justice_11.jpg";
+			case 12:return "the_hanged_man_12.jpg";
+			case 13:return "death_13.jpg";
+			case 14:return "temperance_14.jpg";
+			case 15:return "the_devil_15.jpg";
+			case 16:return "the_tower_16.jpg";
+			case 17:return "the_star_17.jpg";
+			case 18:return "the_moon_18.jpg";		
+			case 19:return "the_sun_19.jpg";
+			case 20:return "judgement_20.jpg";
+			case 21:return "the_world_21.jpg";
 	
+			case 22:return "wands_01.jpg";
+			case 23:return "wands_02.jpg";
+			case 24:return "wands_03.jpg";
+			case 25:return "wands_04.jpg";
+			case 26:return "wands_05.jpg";
+			case 27:return "wands_06.jpg";
+			case 28:return "wands_07.jpg";
+			case 29:return "wands_08.jpg";
+			case 30:return "wands_09.jpg";
+			case 31:return "wands_10.jpg";
+			case 32:return "wands_page.jpg";
+			case 33:return "wands_knight.jpg";
+			case 34:return "wands_queen.jpg";
+			case 35:return "wands_king.jpg";
+	
+			case 36:return "cups_01.jpg";
+			case 37:return "cups_02.jpg";
+			case 38:return "cups_03.jpg";
+			case 39:return "cups_04.jpg";
+			case 40:return "cups_05.jpg";
+			case 41:return "cups_06.jpg";
+			case 42:return "cups_07.jpg";
+			case 43:return "cups_08.jpg";
+			case 44:return "cups_09.jpg";
+			case 45:return "cups_10.jpg";
+			case 46:return "cups_page.jpg";
+			case 47:return "cups_knight.jpg";
+			case 48:return "cups_queen.jpg";
+			case 49:return "cups_king.jpg";
+	
+			case 50:return "swords_01.jpg";
+			case 51:return "swords_02.jpg";
+			case 52:return "swords_03.jpg";
+			case 53:return "swords_04.jpg";
+			case 54:return "swords_05.jpg";
+			case 55:return "swords_06.jpg";
+			case 56:return "swords_07.jpg";
+			case 57:return "swords_08.jpg";
+			case 58:return "swords_09.jpg";
+			case 59:return "swords_10.jpg";
+			case 60:return "swords_page.jpg";
+			case 61:return "swords_knight.jpg";
+			case 62:return "swords_queen.jpg";
+			case 63:return "swords_king.jpg";
+	
+			case 64:return "pent_01.jpg";
+			case 65:return "pent_02.jpg";
+			case 66:return "pent_03.jpg";
+			case 67:return "pent_04.jpg";
+			case 68:return "pent_05.jpg";
+			case 69:return "pent_06.jpg";
+			case 70:return "pent_07.jpg";
+			case 71:return "pent_08.jpg";
+			case 72:return "pent_09.jpg";
+			case 73:return "pent_10.jpg";
+			case 74:return "pent_page.jpg";
+			case 75:return "pent_knight.jpg";
+			case 76:return "pent_queen.jpg";
+			case 77:return "pent_king.jpg";				
+		}
+		return "";
+	}
 	
 	public static int getCardIndex(int card) {
 		switch (card) {

@@ -1,19 +1,26 @@
 package liberus.tarot.spread;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
+import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
+import liberus.utils.WebUtils;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -206,47 +213,47 @@ public abstract class Spread {
 	}
 
 	public ImageView placeImage(int index, ImageView toPlace, Context con) {
-		Bitmap bmp;
+		//Configuration conf =con.getResources().getConfiguration();
+		Bitmap bmp = null;
+		
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
-		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
-			options.inSampleSize = 4;
-		
-		
-		bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
+		options.inSampleSize = 4;				
+		if (bmp == null) {			
+	       	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+	    }		    
 		int w = bmp.getWidth();
-		int h = bmp.getHeight();
-		Matrix mtx = new Matrix();
-		int diff = h-w;
-		if (diff < (h/4)*-1) {
-			mtx.postRotate(90);
-		}
+        int h = bmp.getHeight();
+        Matrix mtx = new Matrix();
+        int diff = h-w;
+        if (diff < (h/4)*-1) {
+        	mtx.postRotate(90);
+        }
 		
-		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+        bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 		
-		w = bmp.getWidth();
-		h = bmp.getHeight();
+        w = bmp.getWidth();
+        h = bmp.getHeight();
 		
-		if (Interpretation.myDeck.reversed[index]) {		
+		if (myDeck.reversed[index]) {		
 			mtx = new Matrix();
 			mtx.postRotate(180);
 			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
 		} 
-		
 		BitmapDrawable bmd = new BitmapDrawable(bmp);			
 		toPlace.setImageDrawable(bmd);
 		return toPlace;
 	}
 	
 	public ImageView placeLandscapeImage(int index, ImageView toPlace, Context con) {
-		Bitmap bmp;
+		Bitmap bmp=null;
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
-		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
-			options.inSampleSize = 4;
-		
-		
-		bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
+		options.inSampleSize = 4;
+	    
+	    if (bmp == null) {			
+	       	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+	    }
 		int w = bmp.getWidth();
 		int h = bmp.getHeight();
 		Matrix mtx = new Matrix();

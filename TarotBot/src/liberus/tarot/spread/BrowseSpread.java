@@ -28,7 +28,9 @@ public class BrowseSpread extends Spread {
 	
 	@Override
 	public void operate(Context context, boolean loading) {
-	
+		for (int i = 0; i < 78; i++)
+			working.add(i);
+		Spread.circles = working;
 	}
 	@Override
 	public String getInterpretation(int circled, Context appcontext) {

@@ -5,7 +5,5 @@ import liberus.tarot.os.activity.TarotBotGothicActivity;
 
 
 public class TarotBotBeta extends TarotBotGothicActivity {
-	static {
-        key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjiyJROYDq3QFZboomDui2iZjMU2eeULsvo/CGtCCrN9nlPw1dzqGIOvlb+cai3BJ3roHfPOupQ3vpEm5DTE72wnPkHCUAjAgVZGCOtqQ/hSSfEJXW79H0Tu8CPp2SrncSJ7Fg/64zBM38M8KYuJ5EX7qM563zt2H/PURB1N6TsvTQwEtRMh8ERNiviw7DqNPuukHQl9bKm3OVg796fvmMwiB2zMUcI1NJXYYyfDuW5IUGm9FeYtR37fOTsisLNcMc+Mg3zdDwESIXoIygwSNcxSJfM2b5Isb2BqlV4XEly2B78DyfHOQjofNqimGJLiUQ3ZTwE1gMf/gFA4Wmb160wIDAQAB";
-	}
+
 }

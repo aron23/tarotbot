@@ -1,14 +1,17 @@
 package liberus.tarot.spread.gothic;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
+import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
+import liberus.tarot.spread.Spread;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,12 +26,14 @@ public class GothicBrowseSpread extends GothicSpread {
 	public GothicBrowseSpread(Interpretation in) {
 		super(in);
 		myNum = 78;
-		myLabels = new String[78];
+		myLabels = new String[78];	
+		myDeck.reversed = Interpretation.myDeck.noreversal;
 	}
 	
 	@Override
 	public void operate(Context context, boolean loading) {
-	
+		Spread.working = new ArrayList<Integer>(Arrays.asList(RiderWaiteDeck.cards));
+		Spread.circles = Spread.working;
 	}
 	
 

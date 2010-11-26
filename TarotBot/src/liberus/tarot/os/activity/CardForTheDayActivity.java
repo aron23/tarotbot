@@ -57,12 +57,12 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
     {
 	    super.onCreate(savedInstanceState);
 	    setFullscreen();
-	    setContentView(R.layout.individual);
+	    setContentView(R.layout.reading);
      
         inflater = LayoutInflater.from(this);
         
         
-        secondlayout = (RelativeLayout) this.findViewById(R.id.individuallayout);
+        secondlayout = (RelativeLayout) this.findViewById(R.id.secondsetlayout);
         myInt = new BotaInt(new RiderWaiteDeck(), null);
         
         SharedPreferences readingPrefs = getSharedPreferences("tarotbot.random", 0);
@@ -70,10 +70,10 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
 		Random rand = new Random();
 		seed = (readingPrefs.getInt("seed", BotaInt.getRandom(getApplicationContext()).nextInt()));
 
-        ((ImageView) this.findViewById(R.id.activecard)).setImageDrawable(getResources().getDrawable(BotaInt.getCardForTheDay(this.getApplicationContext(),seed)));
+        ((ImageView) this.findViewById(R.id.divine)).setImageDrawable(getResources().getDrawable(BotaInt.getCardForTheDay(this.getApplicationContext(),seed)));
         //(getResources().getDrawable(BotaInt.getCardForTheDay(this.getApplicationContext())));
         
-        ((ImageView) this.findViewById(R.id.activecard)).setClickable(true);
+        ((ImageView) this.findViewById(R.id.divine)).setClickable(true);
 
         
         gestureDetector = new GestureDetector(new MyGestureDetector());
@@ -86,7 +86,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
             }
         };
         
-        ((ImageView) this.findViewById(R.id.activecard)).setOnTouchListener(gestureListener);
+        ((ImageView) this.findViewById(R.id.divine)).setOnTouchListener(gestureListener);
         
         Toast.makeText(this, "swipe your finger up or down to display interpretation", 60).show();
     }
@@ -102,7 +102,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
 		closure.setClickable(true);
 
 		closure.setOnClickListener(this);*/
-		secondlayout = (RelativeLayout) this.findViewById(R.id.individuallayout);
+		secondlayout = (RelativeLayout) this.findViewById(R.id.secondsetlayout);
 		ArrayList<View> toShow = new ArrayList<View>();
 		toShow.add(showing);
 		secondlayout.addView(showing);

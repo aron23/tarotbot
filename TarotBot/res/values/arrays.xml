@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string-array name="spread_array">        
-        <item>Single Card</item>
         <item>Arrow of Time</item>
         <item>Dialectic</item>
         <item>Pentagram</item>
@@ -56,5 +55,23 @@
         <item>outside environment</item>
         <item>guidance</item>
         <item>outcome</item>
+    </string-array>
+    <string-array name="main_menu">  
+    	<item>Draw a Card</item>      
+        <item>Browse Deck</item>
+        <item>Choose a Spread</item>
+        <item>Load Saved Reading</item>
+        <item>About Tarot</item>        
+        <item>About the Artist</item>
+        <item>About the App</item>
+    </string-array>
+    <string-array name="second_menu">        
+        <item>View Full Spread</item>
+        <item>Save Reading</item>
+        <item>Share Reading</item>      
+        <item>Choose Spread</item>
+        <item>About Tarot</item>        
+        <item>About the Artist</item>
+        <item>About the App</item>   
     </string-array>
 </resources>

@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@android:color/transparent"
     >
 <ImageView 
 	android:id="@+id/activecard" 
@@ -14,5 +15,6 @@
     android:gravity="center"
     android:layout_gravity="center"
     android:scaleType="fitCenter"
+    android:background="@android:color/transparent"
     />    
 </RelativeLayout>

@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string-array name="gothic_spread_array">        
-        <item>Single Card</item>
-        <item>Arrow of Time</item>
-        <item>Dialectic</item>
-        <item>Gothic Arch</item>
-        <item>Pentagram</item>
-        <item>The Mystic 7</item>
-        <item>Vampire&quot;s Kiss</item>
-        <item>Chaos Star</item>
-        <item>Celtic Cross</item>
-        <item>BOTA</item>
+        <item>THE CELTIC CROSS</item>
+        <item>THE VAMPIRE\'S KISS</item>
+        <item>THE MYSTIC SEVEN</item>
+        <item>THE PENTAGRAM</item>          
+        <item>THE GOTHIC ARCH</item>             
     </string-array>
+    <string-array name="gothic_main_menu">  
+    	<item>DRAW A CARD</item>      
+        <item>BROWSE ALL CARDS</item>
+        <item>CHOOSE A SPREAD</item>
+        <item>LOAD SAVED READING</item>
+        <item>ABOUT THE TAROT</item>        
+        <item>ABOUT THE ARTIST</item>
+        <item>ABOUT THE APP</item>
+    </string-array>
+    <string-array name="gothic_second_menu">        
+        <item>VIEW FULL SPREAD</item>
+        <item>SAVE THIS READING</item>
+        <item>SHARE THIS READING</item>      
+        <item>CHOOSE A SPREAD</item>
+        <item>ABOUT THE TAROT</item>        
+        <item>ABOUT THE ARTIST</item>
+        <item>ABOUT THE APP</item>        
+    </string-array>    
     <string-array name="gothic_arch">
         <item>Current Situation</item>
         <item>Immediate Past</item>

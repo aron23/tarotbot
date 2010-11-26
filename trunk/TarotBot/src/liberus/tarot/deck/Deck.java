@@ -158,7 +158,7 @@ public abstract class Deck {
 			Collections.shuffle(cardList);
 			cardList.toArray(toReturn);
 		}
-		establishReversal();
+		//establishReversal();
 		return toReturn;
 	}
 	
@@ -169,8 +169,15 @@ public abstract class Deck {
 			noreversal[i] = false;
 		}
 	}
-	public void establishReversal(Boolean[] revved) {
-		reversed = revved;
+	public static Boolean[] establishReversal(Deck toRev) {
+		Random myRandom = new Random();
+		for (int i=0; i < toRev.reversed.length; i++) {
+			toRev.reversed[i] = myRandom.nextBoolean();
+		}
+		return toRev.reversed;
+	}
+	public void establishReversal(Boolean[] reversed) {
+		this.reversed = reversed;
 	}
 	public static int cut(Integer[] deck) {
 		int min = (int)Math.floor((deck.length*(.50)));

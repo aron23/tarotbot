@@ -24,8 +24,8 @@ import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
-import liberus.tarot.interpretation.EroticInt;
 import liberus.tarot.interpretation.Interpretation;
+import liberus.tarot.os.activity.AbstractTarotBotActivity.MyGestureDetector;
 import liberus.tarot.querant.Querant;
 import liberus.tarot.spread.ArrowSpread;
 import liberus.tarot.spread.BotaSpread;
@@ -36,14 +36,19 @@ import liberus.tarot.spread.DialecticSpread;
 import liberus.tarot.spread.PentagramSpread;
 import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
-import liberus.tarot.spread.erotic.EatHer;
-import liberus.tarot.spread.erotic.EatHim;
-import liberus.tarot.spread.erotic.Missionary;
-import liberus.tarot.spread.erotic.SixtyNine;
-import liberus.tarot.spread.erotic.Triangle;
+import liberus.tarot.spread.gothic.GothicArch;
+import liberus.tarot.spread.gothic.GothicArrowSpread;
+import liberus.tarot.spread.gothic.GothicCelticSpread;
+import liberus.tarot.spread.gothic.GothicChaosSpread;
+import liberus.tarot.spread.gothic.GothicDialecticSpread;
+import liberus.tarot.spread.gothic.GothicPentagram;
+import liberus.tarot.spread.gothic.MysticSeven;
+import liberus.tarot.spread.gothic.VampireKiss;
+import liberus.utils.EfficientAdapter;
 import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -86,37 +91,43 @@ import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
 
 
-public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
+public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 
-	protected String[] triangle;
-	protected String[] eatHer;
-	protected String[] eatHim;
-	protected String[] missionary;
-	protected String[] sixtyNine;
+
+	private boolean spread;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setFullscreen();
-		setContentView(R.layout.tarotbotstart);
+		
 		inflater = LayoutInflater.from(this);
-		readingPrefs = getSharedPreferences("tarotbot.erotic.reading", 0);
+		state = "mainmenu";
+		setContentView(R.layout.mainmenu);
+		initText();	
+		myMenuList = (ListView) this.findViewById(R.id.menulist);
+		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
+		myMenuList.setOnItemClickListener(this);
+		myMenuList.setTag("mainmenu");		
+		
+		readingPrefs = getSharedPreferences("tarotbot.gothic.reading", 0);
 		readingPrefsEd = readingPrefs.edit();
 		gestureDetector = new GestureDetector(new MyGestureDetector());
 		gestureListener = getGestureListener(gestureDetector);
-		//initDeck();
-		initSaved();
-		initText();		
-		//initSpreadChoice();		
+		initSaved();		
 	}
+	
+	
 	protected void launchBrowse() {
 		browsing = true;
 		spreading = false;
@@ -149,10 +160,11 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		builder.setItems(items, this);
 		AlertDialog alert = builder.create();
 		alert.show();		
-	}	
+	}
+	
 	protected void initSaved() {
 		try{
-			File f = new File(Environment.getExternalStorageDirectory()+"/tarotbot.erotic.store");
+			File f = new File(Environment.getExternalStorageDirectory()+"/tarotbot.store");
 			if (!f.exists())
 				return;
 			FileInputStream fileIS = new FileInputStream(f);
@@ -174,8 +186,12 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			    	read.put("date", "0000-00-00.00");
 			    if (saved.length > 6)
 			    	read.put("significator", saved[6]);
+			    else if (saved[4].equals("bota"))
+			    	continue;
 			    else
 			    	read.put("significator", "0");
+			    System.err.println(saved[0]);
+			    System.err.println(saved[1]);
 			    savedReadings.put(read.get("date")+saved[0]+saved[1],read);
 			    if (!savedList.contains(read.get("date")+saved[0]+saved[1]))
 			    	savedList.add(read.get("date")+saved[0]+saved[1]);
@@ -188,23 +204,13 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	}
 
 	protected void reInit() {
-		setContentView(R.layout.tarotbotstart);
-		flipdex = new ArrayList<Integer>();
-		inflater = LayoutInflater.from(this);
-		readingPrefs = getSharedPreferences("tarotbot.erotic.reading", 0);
-		readingPrefsEd = readingPrefs.edit();
-		gestureDetector = new GestureDetector(new MyGestureDetector());
-		gestureListener = getGestureListener(gestureDetector);
-		begun = false;
-		browsing = false;
-		loaded = false;
-		Spread.circles = new ArrayList<Integer>();
-		Spread.working = new ArrayList<Integer>();
-		myInt = new EroticInt(new RiderWaiteDeck(), aq);
-		//mySpread.myDeck = myInt.myDeck;
-		
-		initText();		
-		//initSpreadChoice();	
+		state = "mainmenu";
+		setContentView(R.layout.mainmenu);
+		initText();	
+		myMenuList = (ListView) this.findViewById(R.id.menulist);
+		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
+		myMenuList.setOnItemClickListener(this);
+		myMenuList.setTag("mainmenu");
 	}
 	
 	@Override
@@ -215,7 +221,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		
 		menu.add(0, MENU_LOAD, 0, R.string.load_menu).setIcon(android.R.drawable.ic_menu_set_as);
 	    menu.add(0, MENU_SAVE, 1, R.string.save_menu).setIcon(android.R.drawable.ic_menu_save);
-	   // menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
+	    menu.add(0, MENU_SHARE, 2, R.string.share_menu).setIcon(android.R.drawable.ic_menu_share);
 	    menu.add(0, MENU_HELP, 3, R.string.help_menu).setIcon(android.R.drawable.ic_menu_help);
 	    menu.add(0, MENU_BROWSE, 4, R.string.browse_menu).setIcon(android.R.drawable.ic_menu_gallery);
 	    menu.add(0, MENU_NAVIGATE, 5, R.string.navigate_menu).setIcon(android.R.drawable.ic_menu_mapmode);
@@ -223,18 +229,18 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		if(!begun) {
 			menu.findItem(MENU_SAVE).setEnabled(false);
 			if (loaded &! browsing) {
-				//menu.findItem(MENU_SHARE).setEnabled(true);
+				menu.findItem(MENU_SHARE).setEnabled(true);
 				menu.findItem(MENU_NAVIGATE).setEnabled(true);
 			} else if (browsing) {
 				menu.findItem(MENU_NAVIGATE).setEnabled(true);
-				//menu.findItem(MENU_SHARE).setEnabled(false);
+				menu.findItem(MENU_SHARE).setEnabled(false);
 			} else {
 				menu.findItem(MENU_NAVIGATE).setEnabled(false);
-				//menu.findItem(MENU_SHARE).setEnabled(false);
+				menu.findItem(MENU_SHARE).setEnabled(false);
 			}
 		} else {
 			menu.findItem(MENU_SAVE).setEnabled(true);
-			//menu.findItem(MENU_SHARE).setEnabled(true);
+			menu.findItem(MENU_SHARE).setEnabled(true);
 			menu.findItem(MENU_NAVIGATE).setEnabled(true);
 		}
 	
@@ -250,34 +256,19 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		helpUrls = new String[]{whatUrl,howUrl,tarotUrl,updatesUrl};
 		res = getResources();
 		
+		mainmenu = res.getStringArray(R.array.gothic_main_menu);
+		secondmenu = res.getStringArray(R.array.gothic_second_menu);
+		spreadmenu = res.getStringArray(R.array.spread_array);
+		
 		single = res.getStringArray(R.array.single);
-		triangle = res.getStringArray(R.array.erotic_triangle);
-		eatHer = res.getStringArray(R.array.erotic_eat_her);
-		eatHim = res.getStringArray(R.array.erotic_eat_him);
-		missionary = res.getStringArray(R.array.erotic_missionary);
-		sixtyNine = res.getStringArray(R.array.erotic_69);
+		timeArrow = res.getStringArray(R.array.timeArrow);
+		dialectic = res.getStringArray(R.array.dialectic);
+		pentagram = res.getStringArray(R.array.pentagram);
+		chaosStar = res.getStringArray(R.array.chaosStar);
+		celticCross = res.getStringArray(R.array.celticCross);
 	}
-	
-	@Override
-	protected void redisplaySpreadStart() {
-		init = true;
-		setContentView(R.layout.tarotbotstart);
-		spreadspin = (WheelView) findViewById(R.id.spreadspinner);
-		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.erotic_spread_array));
-		
-		spreadspin.setAdapter(adapter);
-		spreadspin.setCurrentItem(readingPrefs.getInt("spread", 0));
-		spreadspin.setVisibleItems(3);
-		spreadspin.forceLayout();
-		//reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
-		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
-		
-		
-		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
-		initbutton.setOnClickListener(this);
-		spreadspin.forceLayout();
-		init = false;
-	}
+
+
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
@@ -305,9 +296,9 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		sharing = false;
 		
 		init = true;
-//		statusspin = (WheelView) findViewById(R.id.statusspinner);
+		//statusspin = (WheelView) findViewById(R.id.statusspinner);
 		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.status_array));
-//		
+		
 //		statusspin.setAdapter(adapter);
 //		statusspin.setVisibleItems(3);
 //		statusspin.setCurrentItem(querantPrefs.getInt("querantstatus", 0));
@@ -357,8 +348,8 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	
 			initbutton = (Button) this.findViewById(R.id.initbotabutton);
 			initbutton.setOnClickListener(this);
-			toastText(getString(R.string.questionprompt));
-			//Toast.makeText(this, R.string.questionprompt, Toast.LENGTH_LONG).show(); 
+			
+			toastText(getString(R.string.questionprompt)); 
 		}
 	}
 	
@@ -455,11 +446,9 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			else
 				infotext.setText(Html.fromHtml(interpretation));
 			
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-			builder.setView(showing);
-			
-			AlertDialog interpretor = builder.create();
+			Dialog interpretor = new Dialog(this,android.R.style.Theme);
+			interpretor.setTitle(mySpread.myLabels[secondSetIndex]);
+			interpretor.setContentView(showing);
 			interpretor.show();
 		} else if (type == Configuration.ORIENTATION_LANDSCAPE) {
 			int i = Spread.circles.get(secondSetIndex);
@@ -477,7 +466,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	protected void redisplayMain() {
 		View activeView = inflater.inflate(R.layout.botastart, null);
 		setContentView(activeView);
-//		statusspin = (WheelView) findViewById(R.id.statusspinner);
+		//statusspin = (WheelView) findViewById(R.id.statusspinner);
 		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.status_array));
 //		
 //		statusspin.setAdapter(adapter);
@@ -531,7 +520,15 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	}
 	
 	public void onClick(View v) {	
-		if (v.equals(this.findViewById(R.id.initspreadbutton))) {
+		if (v.equals(this.findViewById(R.id.initbotabutton))) {
+			begun = true;
+			browsing = false;
+			changeQuerant();
+			myInt = new BotaInt(new RiderWaiteDeck(), aq);
+			mySpread = new BotaSpread(myInt);
+			beginSecondStage();	
+			
+		} else if (v.equals(this.findViewById(R.id.initspreadbutton))) {
 			readingPrefsEd.putInt("spread", spreadspin.getCurrentItem());
 			readingPrefsEd.commit();
 			switch (spreadspin.getCurrentItem()) {
@@ -543,35 +540,40 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			}
 			case 1: {
 				//seqSpread();
-				spreadLabels = missionary;
-				style = "missionary";
+				spreadLabels = timeArrow;
+				style = "arrow";
 				break;
 			}
 			case 2: {
 				//seqSpread();
-				spreadLabels = eatHim;
-				style = "eatHim";
+				spreadLabels = dialectic;
+				style = "dialectic";
 				break;
 			}
 			case 3: {
 				//seqSpread();
-				spreadLabels = triangle;
-				style = "triangle";
+				spreadLabels = pentagram;
+				style = "pentagram";
 				break;
 			}
 			case 4: {
 				//seqSpread();
-				spreadLabels = eatHer;
-				style = "eatHer";
+				spreadLabels = chaosStar;
+				style = "chaos";
 				break;
 			}
 			case 5: {
 				//seqSpread();
-				spreadLabels = sixtyNine;
-				style = "sixtyNine";
+				spreadLabels = celticCross;
+				style = "celtic";
 				break;
 			}
-			
+			case 6: {
+				botaSpread();		
+				style = "bota";
+				spreading=false;
+				return;
+			}
 		}
 			spreading=false;
 			
@@ -580,16 +582,16 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			begun = true;
 			browsing = false;
 			myInt = new BotaInt(new RiderWaiteDeck(), aq);
-			if (style.equals("triangle"))
-				mySpread = new Triangle(myInt,triangle);
-			else if (style.equals("sixtyNine"))
-				mySpread = new SixtyNine(myInt,sixtyNine);
-			else if (style.equals("eatHim"))
-				mySpread = new EatHim(myInt,eatHim);
-			else if (style.equals("eatHer"))
-				mySpread = new EatHer(myInt,eatHer);
-			else if (style.equals("missionary"))
-				mySpread = new Missionary(myInt,missionary);
+			if (style.equals("arrow"))
+				mySpread = new ArrowSpread(myInt,timeArrow);
+			else if (style.equals("dialectic"))
+				mySpread = new DialecticSpread(myInt,dialectic);
+			else if (style.equals("pentagram"))
+				mySpread = new PentagramSpread(myInt,pentagram);
+			else if (style.equals("chaos"))
+				mySpread = new ChaosSpread(myInt,chaosStar);
+			else if (style.equals("celtic"))
+				mySpread = new CelticSpread(myInt,celticCross);
 			else
 				mySpread = new SeqSpread(myInt,spreadLabels);
 			beginSecondStage();
@@ -597,7 +599,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		} else if (v.equals(this.findViewById(R.id.reversalcheck))) {
 			if (!init) {
 				//readingPrefsEd.putBoolean("reversal", reversalCheck.isChecked());
-				readingPrefsEd.commit();
+				//readingPrefsEd.commit();
 			}
 		} else if (v instanceof ImageView && v.getId() > -1) {
 			if (navigator != null) {
@@ -654,7 +656,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 					    File root = Environment.getExternalStorageDirectory();
 					    
 					    //if (root.canWrite()){
-					        File gpxfile = new File(root, "tarotbot.erotic.store");
+					        File gpxfile = new File(root, "tarotbot.store");
 					        FileWriter gpxwriter = new FileWriter(gpxfile);
 					        BufferedWriter out = new BufferedWriter(gpxwriter);
 					        for (String reader: savedList) {
@@ -693,7 +695,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 					    File root = Environment.getExternalStorageDirectory();
 					    
 					    //if (root.canWrite()){
-					        File gpxfile = new File(root, "tarotbot.erotic.store");
+					        File gpxfile = new File(root, "tarotbot.store");
 					        FileWriter gpxwriter = new FileWriter(gpxfile);
 					        BufferedWriter out = new BufferedWriter(gpxwriter);
 					        for (String reader: savedList) {
@@ -750,30 +752,33 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 				    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
 				    	Spread.working = working;
 				    	BotaInt.loaded = true;
-				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("triangle")) {
-				    		mySpread = new Triangle(myInt,triangle);
-				    		spreadLabels = triangle;
+				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("bota")) {
+				    		BotaInt.setMyQuerant(new Querant(significator));
+				    		mySpread = new BotaSpread(myInt);				    		
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("celtic")) {
+				    		mySpread = new CelticSpread(myInt,celticCross);
+				    		spreadLabels = celticCross;
 				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("sixtyNine")) {
-				    		mySpread = new SixtyNine(myInt,sixtyNine);
-				    		spreadLabels = sixtyNine;
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("chaos")) {
 				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("missionary")) {
-				    		mySpread = new Missionary(myInt,missionary);
-				    		spreadLabels = missionary;
-				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("eatHer")) {
-				    		mySpread = new EatHer(myInt,eatHer);
-				    		spreadLabels = eatHer;
-				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("eatHim")) {
-				    		mySpread = new EatHim(myInt,eatHim);
-				    		spreadLabels = eatHim;
-				    		Spread.circles = Spread.working;
+				    		mySpread = new ChaosSpread(myInt,chaosStar);
+				    		spreadLabels = chaosStar;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("single")) {
 				    		mySpread = new SeqSpread(myInt,single);
 				    		Spread.circles = Spread.working;
 				    		spreadLabels = single;
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arrow")) {
+				    		mySpread = new ArrowSpread(myInt,timeArrow);
+				    		spreadLabels = timeArrow;
+				    		Spread.circles = Spread.working;				    		
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("dialectic")) {
+				    		Spread.circles = Spread.working;
+				    		spreadLabels = dialectic;
+				    		mySpread = new DialecticSpread(myInt,dialectic);
+				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("pentagram")) {
+				    		Spread.circles = Spread.working;
+				    		spreadLabels = pentagram;
+				    		mySpread = new PentagramSpread(myInt,pentagram);
 				    	}
 				    	spreading=false;
 						begun = true;
@@ -818,10 +823,206 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		changeQuerant();
 
 	}
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
 		
-	}
+public void onItemClick(AdapterView<?> adapter, View list, int index, long arg3) {
 		
+		if (adapter.getTag().equals("mainmenu")) {//.getContentDescription().equals("querant")
+			Dialog helper = new Dialog(this,android.R.style.Theme);
+			switch (index) {
+				case 0:					
+					launchBrowse();
+			        return;
+			    case 1:	
+			    	state = "spreadmenu";
+					setContentView(R.layout.spreadmenu);
+					
+					myMenuList = (ListView) this.findViewById(R.id.spreadmenulist);
+					myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
+					myMenuList.setOnItemClickListener(this);
+					myMenuList.setTag("spreadmenu");
+					reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
+					reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
+					reverseToggle.setClickable(true);
+					reverseToggle.setOnClickListener(this);
+					return;			    	
+				case 2: 	
+					priorstate = state;
+					state = "dialog";
+					helping = true;
+			    	//chooseAbout();
+					return;
+				case 3:
+					displaySaved();
+			        return;				
+				}			
+			
 
+		} else if (adapter.getTag().equals("secondmenu")) {//.getContentDescription().equals("querant")
+			Dialog helper = new Dialog(this,android.R.style.Theme);
+			switch (index) {
+				case 0:					
+					navigate();
+			        return;	
+				case 1:					
+					launchBrowse();
+			        return;
+			    case 2:	
+			    	state = "spreadmenu";
+					setContentView(R.layout.spreadmenu);
+					
+					myMenuList = (ListView) this.findViewById(R.id.spreadmenulist);
+					myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
+					myMenuList.setOnItemClickListener(this);
+					myMenuList.setTag("spreadmenu");	
+					reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
+					reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
+					reverseToggle.setClickable(true);
+					reverseToggle.setOnClickListener(this);
+					return;			    	
+				case 3: 	
+					priorstate = state;
+					state = "dialog";
+					helping = true;
+			    	//chooseAbout();
+					return;
+				case 4:
+					displaySaved();
+			        return;				
+				case 5:
+			        save(false);
+			        return;
+			    case 6:
+			    	save(true);			     
+			        return;				
+				}
+			
+			
+
+		} else if (adapter.getTag().equals("spreadmenu")) {//.getContentDescription().equals("querant")			
+			readingPrefsEd.putInt("spread", adapter.getSelectedItemPosition());
+			readingPrefsEd.commit();
+			switch (index) {
+			case 0: {
+				//seqSpread();
+				spreadLabels = single;
+				style = "single";
+				break;
+			}
+			case 1: {
+				//seqSpread();
+				spreadLabels = timeArrow;
+				style = "arrow";
+				break;
+			}
+			case 2: {
+				//seqSpread();
+				spreadLabels = dialectic;
+				style = "dialectic";
+				break;
+			}
+			case 3: {
+				//seqSpread();
+				spreadLabels = pentagram;
+				style = "pentagram";
+				break;
+			}
+			case 4: {
+				//seqSpread();
+				spreadLabels = chaosStar;
+				style = "chaos";
+				break;
+			}
+			case 5: {
+				//seqSpread();
+				spreadLabels = celticCross;
+				style = "celtic";
+				break;
+			}
+			case 6: {
+				botaSpread();		
+				style = "bota";
+				spreading=false;
+				return;
+			}
+		}
+			spreading=false;
+			spread=true;
+			secondSetIndex = 0;
+			state = "new reading";
+			begun = true;
+			browsing = false;
+			myInt = new BotaInt(new RiderWaiteDeck(), aq);
+			Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
+			Deck.cards = shuffled;
+			if (style.equals("arrow"))
+				mySpread = new ArrowSpread(myInt,timeArrow);
+			else if (style.equals("dialectic"))
+				mySpread = new DialecticSpread(myInt,dialectic);
+			else if (style.equals("pentagram"))
+				mySpread = new PentagramSpread(myInt,pentagram);
+			else if (style.equals("chaos"))
+				mySpread = new ChaosSpread(myInt,chaosStar);
+			else if (style.equals("celtic"))
+				mySpread = new CelticSpread(myInt,celticCross);
+			else
+				mySpread = new SeqSpread(myInt,spreadLabels);
+			loaded = false;
+			beginSecondStage();
+		}
+	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			if (state.equals("mainmenu")) {
+				finish();
+				return true;
+			} else if (state.equals("dialog")) {
+				if (priorstate.equals("secondmenu")) {
+					state = "new reading";
+					priorstate = "";
+					displaySecondStage(secondSetIndex);
+					return true;
+				} else {
+					state = "mainmenu";
+					spreading=false;
+					spread=false;
+					reInit();
+					return true;
+				}
+			} else if (state.equals("new reading")) {
+				spreading=true;
+				spread=false;
+				//reInitSpread();
+				return true;
+			} else if (state.equals("spreadmenu") || state.equals("loaded")) {
+				spreading=false;
+				spread=false;
+				reInit();
+				return true;
+			} else if (state.equals("secondmenu")) {
+				state = priorstate;
+				displaySecondStage(secondSetIndex);
+				return true;
+			} else {
+				return true;
+			}
+		} else if (keyCode == KeyEvent.KEYCODE_MENU) {			
+			priorstate = state;
+			state = "secondmenu";
+			setContentView(R.layout.mainmenu);
+			initText();	
+			myMenuList = (ListView) this.findViewById(R.id.menulist);
+			myMenuList.setOnItemClickListener(this);
+			if (priorstate.equals("new reading")) {
+				myMenuList.setAdapter(new EfficientAdapter(this,inflater,secondmenu,R.layout.listitem));			
+				myMenuList.setTag("secondmenu");
+			} else {
+				myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));			
+				myMenuList.setTag("mainmenu");
+			}
+	
+			return true;
+		}
+		return super.onKeyDown(keyCode,event);		
+	}
 }

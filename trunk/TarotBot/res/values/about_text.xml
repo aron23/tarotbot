@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="about_tarot">
+	&lt;h3>Tarot and Cognition&lt;/h3>
+	&lt;p>The meaning of tarot is not at all straightforward. On its face a tarot deck is simply 78 cards, broken into two arcana - the major and the minor.  The major arcana consists of 22 cards in a sequence; the minor arcana is more like a traditional deck of playing cards (which tarot is closely related to) with four suits of pips (number cards) and court cards.&lt;/p>
+	&lt;br/>
+	&lt;p>The suits of the minor arcana convey aspects of human life represented by swords: the ruling class, cups: the mythmakers - clergy and artists, coins: the merchants, and wands: the working class. The major arcana on the other hand conveys a tale of life\&quot;s journey through darkness and redemption.&lt;/p>
+	&lt;br/>
+	&lt;p>For more about the history of the tarot deck visit &lt;a href=&quot;http://trionfi.com/&quot;>the Trionfi Museum&lt;/a>
+&lt;/p>
+	&lt;br/>
+	&lt;p>The mysteries and ambiguities begin to emerge when one considers the meanings and purpose of the cards. Many tarot readers place mystical significance on the cards claiming that they are able to draw upon a person\&quot;s energy to reveal hidden aspects of their lives and / or future. This school of thought places a lot of significance on the questioner actively handling the cards either through shuffling, cutting the deck, or selecting the cards for the spread.&lt;/p>
+	&lt;br/>
+	&lt;p>Having such a view it would be hard to conceive of an effective software tarot, at least until the advent of smartphones. With smartphones you have highly personal devices that are carried by the questioner the majority of the day at least. It would follow that the same sort of energy exchange would occur under these conditions as with handling cards, and perhaps even more so.&lt;/p>
+	&lt;br/>
+	&lt;p>The entire subject of energetic or subconscious transference is quite irrelevant however, because regardless of energy transfer spending time with tarot is beneficial for cognition.&lt;/p>
+	&lt;br/>
+	&lt;p>The cognitive model of tarot holds that the cards of the deck are representative of abstract and archetypal patterns of human experience. Generic and vague descriptions or models of things we all experience in life, often things that are always present in some form. Thus the cards provide a variety of angles from which a question or situation can be viewed.&lt;/p>
+	&lt;br/>
+	&lt;p>In doing a tarot reading the questioner is actually stepping back to consider some issue or question from a randomly drawn set of human archetypes. In essence it is a way to force oneself to consider a number of alternative perspectives on any challenging topic.&lt;/p>
+	&lt;br/>
+	&lt;p>From this model the tarot reading the accuracy is not as relevant a factor as taking a broader view of things prior to acting. It is a tool for tapping into your own experiences and knowledge through triggering these archetypes in relation to the subject at hand.&lt;/p>
+&lt;h3>Choosing a spread&lt;/h3>
+	&lt;br/>
+	&lt;p>The first step in using TarotBot is choosing a spread.The options are:&lt;/p>
+	&lt;p>The Arrow of Time&lt;/p>
+	&lt;p>Dialectic&lt;/p>
+	&lt;p>Pentagram&lt;/p>
+	&lt;p>Chaos Star&lt;/p>
+	&lt;p>The Celtic Cross&lt;/p>
+	&lt;p>BOTA&lt;/p>
+	&lt;br/>
+	&lt;p>For all spreads except for BOTA, selection launches you directly into the spread.&lt;/p>
+	&lt;br/>
+	&lt;h3>The Arrow of Time&lt;/h3>
+	&lt;br/>
+	&lt;p>The traditional past, present, and future&lt;/p>
+	&lt;h3>Dialectic&lt;/h3>
+	&lt;br/>
+	&lt;p>Based on the Hegelian dialectic commonly represented as thesis, antithesis, and synthesis.&lt;/p>
+	&lt;br/>
+	&lt;p>from Wikipedia:&lt;/p>
+	&lt;blockquote>comprising three dialectical stages of development: a thesis, giving rise to its reaction, an antithesis, which contradicts or negates the thesis, and the tension between the two being resolved by means of a synthesis.&lt;/blockquote>
+	&lt;h3>Pentagram&lt;/h3>
+	&lt;br/>
+	&lt;p>Based on a spread described by &lt;a href=&quot;http://tarahelios.wordpress.com/&quot;>Paul Pereira&lt;/a> in a &lt;a href=&quot;http://www.paganspace.net/forum/topics/favorite-tarot-spreads&quot;>discussion about tarot spreads&lt;/a>
+&lt;/p>
+	&lt;p>1 - Fire - Related to action/activities/will
+	&lt;br/>2- Water - relationships/emotional aspects
+	&lt;br/>3- Air - thoughts/conflict
+	&lt;br/>4- Earth - career/money/practical aspects
+	&lt;br/>5- spiritual dimension&lt;/p>
+	&lt;h3>Chaos Star&lt;/h3>
+	&lt;br/>
+	&lt;p>Adapted from the &lt;a href=&quot;http://ritualchaosmagic.blogspot.com/2009/11/chaos-star-tarot-spread.html&quot;>Ritual and Chaos Magic blog&lt;/a> post by &lt;a href=&quot;http://enfolding.org/&quot;>Phil Hine&lt;/a>
+&lt;/p>
+	&lt;blockquote>Select eight cards from your shuffled pack.
+	&lt;br/>
+	&lt;br/>Lay them out as in the diagram above. Here is what the position of each card can be used to represent:
+	&lt;br/>
+	&lt;br/>1 - (Red) External Conflicts
+	&lt;br/>2 - (Orange) Mental State
+	&lt;br/>3 - (Purple) Sex/Passion
+	&lt;br/>4 - (Yellow) Ego/Self Confidence
+	&lt;br/>5 - (Green) Love/Relationships
+	&lt;br/>6 - (Blue) Wealth
+	&lt;br/>7 - (Black) Self Destructive Habits
+	&lt;br/>8 - (Octarine) Your \&quot;Magical Self\&quot; (this would be \&quot;luck\&quot; if reading for a non-magician)&lt;/blockquote>
+	&lt;h3>The Celtic Cross&lt;/h3>
+	&lt;p>
+&lt;a href=&quot;http://www.sacred-texts.com/tarot/pkt/pkt0307.htm&quot;>First recorded&lt;/a> by A.E.Waite a good &lt;a href=&quot;http://www.learntarot.com/ccross.htm&quot;>modern interpretation of the celtic cross&lt;/a> has also been published by Joan Bunning
+	&lt;br/>
+	&lt;br/>from Wikipedia:&lt;/p>
+	&lt;br/>
+&lt;blockquote>
+	&lt;p>This is probably the most common spread. Ten cards are used, with five arranged in a cross and four placed  vertically beside the cross. Another card is placed horizontally across  the central cards of the cross to make a total of 10.&lt;/p>
+	&lt;p>The first central  card of the cross is frequently the significator and the second card  which is placed over the first represents the conditions surrounding the  question; or the crossing card often represents an obstacle they must  face, an aspect of the question they have not yet considered.&lt;/p>
+	&lt;p>The third  card which is placed above the first represents what the person hopes  for in relation to the question being asked.&lt;/p>
+	&lt;p>The fourth card which is  placed below the first is what the subject has already experienced in  relation to the whole spread.&lt;/p>
+	&lt;p>The fifth card is placed to the left of  the first card and shows what was in the past.&lt;/p>
+	&lt;p>The sixth card is placed  to the right of the first card and shows the influence that will come in  the future.&lt;/p>
+	&lt;p>Then on the right of these cards are the remaining 4 cards,  which are placed from bottom to top. So the seventh card represents the  attitude of the question being asked.&lt;/p>
+	&lt;p>The eighth card is how family or  friends will influence the question.&lt;/p>
+	&lt;p>The ninth card shows the hopes and  fears in relation to the question and the final card, the tenth card, is  the Culmination Card which shows the end result of all of the previous  nine cards.&lt;/p>
+&lt;/blockquote>
+	&lt;h3>BOTA&lt;/h3>
+	&lt;p>The BOTA spread is based on the reading described in the book &lt;a href=&quot;http://tarotinstitute.com/free/bota/oracle.html&quot; target=&quot;_blank&quot;>The Oracle of the Tarot&lt;/a> by &lt;a href=&quot;http://www.golden-dawn.org/biocase.html&quot; target=&quot;_blank&quot;>Paul Foster Case&lt;/a>.&lt;/p>
+	&lt;p>The basic process works like this:&lt;/p>
+	&lt;p>A significator card is chosen based upon a birth date, sex and relationship status&lt;/p>
+	&lt;p>The full tarot deck is shuffled&lt;/p>
+	&lt;p>The deck is cut in half&lt;/p>
+	&lt;p>Each resulting deck is then cut in half&lt;/p>
+	&lt;p>Which ever deck contains the significator is then dealt in a circle&lt;/p>
+	&lt;p>Starting with the significator, some number of cards around the circle is counted (the number counted depends on which significator is used)&lt;/p>
+	&lt;p>The card landed on is the next card in the reading&lt;/p>
+	&lt;p>Starting with the last card of the reading, some number of cards around the circle is counted (the number counted depends on the previously landed on card)&lt;/p>
+	&lt;p>Steps 7 and 8 are repeated until the same card is landed on twice&lt;/p>
+	&lt;p>If this last card is the significator it means the reading is particularly personal, otherwise the last card is the most significant card of the reading&lt;/p>
+</string>
+<string name="about_artist">
+	&lt;h1>Pamela Coleman Smith&lt;/h1>
+	&lt;small>&lt;a href=&quot;http://beinecke.library.yale.edu/awia/gallery/smith.html&quot;>from the Beinecke Libray&lt;/a>&lt;/small>
+	&lt;br/>
+	&lt;p>Inspired by the Rosicrucian theory of correspondence, Pamela Coleman Smith began to paint while listening to music, allowing the sound to influence her compositions.&lt;/p>
+	&lt;p>“They are not pictures of the music themes—pictures of the flying notes—not conscious illustrations of the name given to a piece of music,”&lt;/p>
+	&lt;p>Smith told an interviewer,&lt;/p>
+	&lt;p>“but just what I see when I hear the music—thoughts loosened and set free by the spell of sound.”&lt;/p>
+	&lt;p>Smith took inspiration from the work of different composers, making each painting a response and record of her experience of a unique piece of music.&lt;/p>
+	&lt;p>These paintings have been said to foreshadow some of the tonal elements of the Surrealist painters of the next several decades.&lt;/p>
+	&lt;p>Though she lived for much of her adult life in London, artist Pamela Coleman Smith was associated with Alfred Stieglitz’s famous gallery, 291.&lt;/p>
+	&lt;p>In 1907, her paintings to music were exhibited at Stieglitz’s Little Galleries of the Photo-Secession.&lt;/p>
+	&lt;p>Smith was, in fact, the first painter to have an exhibition in what had, until then, been a gallery devoted to photography.&lt;/p>
+	&lt;br/>
+	&lt;p>Because of her lifelong interest in the occult, in 1909 Arthur Edward Waite invited Smith to collaborate with him on the design for a deck of tarot cards.&lt;/p>
+	&lt;p>Waite worked closely with Smith on the design for the “face” cards, or the Major Arcana cards; but Smith alone created the images for the “number,” or Minor Arcana, cards.&lt;/p>
+	&lt;p>Until this time, the Minor Arcana tarot cards were generally decorated with abstract forms or were not illustrated.&lt;/p>
+	&lt;p>Thus, Smith’s images became the model for many deck designs that followed.&lt;/p>
+	&lt;p>Though there are countless illustrated tarot decks in the world, Smith’s deck is among the most widely recognized and the most often reproduced.&lt;/p>
+</string>
+<string name="about_app">
+	&lt;h1>TarotBot Android Tarot&lt;/h1>
+	&lt;p>TarotBot is an &lt;a href=&quot;http://code.google.com/p/tarotbot/&quot; target=&quot;_blank&quot;>open source framework&lt;/a> for tarot readings on Android devices with switchable card decks and interpretations.&lt;/p>
+	&lt;br/>
+	&lt;p>The interface, which re-presents tarot, was designed with the primary goal to only draw from the physical artifacts (the deck of cards) those attributes which are meaningful to the reading: imagery, interpretations, and context. The traditional shuffling, dealing, and arranging of the cards is removed from the process allowing a much more streamlined reading experience to emerge. The experience may lack some traditional elements but conducting readings for one\&quot;s self, especially on the go, is far from traditional.&lt;/p>
+	&lt;br/>
+	&lt;p>While other tarot apps seek to replicate the experience of tarot cards TarotBot aims to evolve tarot into a new medium.&lt;/p>
+	&lt;br/>	
+</string>
+<string name="market_link">
+	&lt;p>When tarot is most effective is when one uses intuition to interpret the cards, however interpretations are provided to help anyone unfamiliar with tarot.  These are a synthesis of experience and research conducted during development.  Primary research sources include:&lt;/p>&lt;br/>&lt;p>&lt;a href=&quot;http://tarotinstitute.com/free/bota/oracle.html&quot; target=&quot;_blank&quot;>The Oracle of the Tarot&lt;/a> by &lt;a href=&quot;http://www.golden-dawn.org/biocase.html&quot; target=&quot;_blank&quot;>Paul Foster Case&lt;/a>&lt;/p>&lt;p>&lt;a href=&quot;http://www.amazon.com/Tarot-Plain-and-Simple-ebook/dp/B001JEPVDW/ref=dp_kinw_strp_1?ie=UTF8&amp;m=AG56TWVU5XWC2&quot; target=&quot;_blank&quot;>Tarot Plain and Simple&lt;/a> by &lt;a href=&quot;http://www.angelfire.com/ct/AnthonyLouis/&quot; target=&quot;_blank&quot;>Anthony Louis&lt;/a>&lt;/p>&lt;p>&lt;a href=&quot;http://www.learntarot.com/&quot; target=&quot;_blank&quot;>Learning the Tarot&lt;/a> by &lt;a href=&quot;http://www.tarotpedia.com/wiki/Bunning,_Joan&quot; target=&quot;_blank&quot;>Joan Bunning&lt;/a>&lt;/p>&lt;p>&lt;a href=&quot;http://newfalconbooks.net/oscom/product_info.php?cPath=24&amp;products_id=38&quot; target=&quot;_blank&quot;>Sex Magic, Tantra, and Tarot&lt;/a> by &lt;a href=&quot;http://neweii.com/drhyatt/&quot;>Christopher Hyatt&lt;/a>&lt;/p>
+	&lt;br/>
+	&lt;p>The deck included with the free versions is a &lt;a href=&quot;http://www.sacred-texts.com/tarot/xr/index.htm&quot; target=&quot;_blank&quot;>vintage Rider-Waite deck&lt;/a> with artwork by &lt;a href=&quot;http://beinecke.library.yale.edu/awia/gallery/smith.html&quot; target=&quot;_blank&quot;>Pamela Coleman Smith&lt;/a>, as scanned by &lt;a href=&quot;http://home.comcast.net/~vilex/&quot; target=&quot;_blank&quot;>Holly Voley&lt;/a>&lt;/p>
+	&lt;br/>
+	&lt;p>&lt;a href=&quot;market://details?id=liberus.tarot.android&quot;>please tell us what you think in the market&lt;/a>&lt;/p>
+</string>
+<string name="other_apps">
+	&lt;p>&lt;a href=&quot;market://search?q=pub:Liberus&quot;>check out our other decks&lt;/a>&lt;/p>
+</string>
+</resources>

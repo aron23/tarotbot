@@ -1,0 +1,8 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<resources>
+	<string name="helpprompt">你想预测什么？</string>
+	<string name="helpwhat">这是什么东东？</string>
+	<string name="helphow">如何使用？</string>
+	<string name="helptarot">塔罗牌是什么？</string>
+	<string name="helpupdate">下一步干吗？</string>
+</resources>

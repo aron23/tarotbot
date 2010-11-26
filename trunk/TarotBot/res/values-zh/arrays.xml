@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="spread_array">
+	<item>单牌</item>
+	<item>时光之箭</item>
+	<item>辩证法</item>
+	<item>五角星</item>
+	<item>混沌之星</item>
+	<item>凯尔特十字</item>
+	<item>博塔</item>
+   </string-array>
+	<string-array name="status_array">
+	<item>单身女郎</item>
+	<item>单身男人</item>
+	<item>女朋友</item>
+	<item>男朋友</item>
+   </string-array>
+    <string-array name="single">
+	<item></item>
+   </string-array>
+    <string-array name="timeArrow">
+	<item>过去</item>
+	<item>现在</item>
+	<item>将来</item>
+   </string-array>
+    <string-array name="dialectic">
+	<item>论文</item>
+	<item>对立</item>
+	<item>小题</item>
+   </string-array>
+    <string-array name="pentagram">
+	<item>火：动作/活动/意志</item>
+	<item>水：关系/情感方面</item>
+	<item>空气：想法/冲突</item>
+	<item>地球：事业/金钱/实际问题</item>
+	<item>灵性</item>
+   </string-array>
+	<string-array name="chaosStar">
+	<item>红色：内外冲突</item>
+	<item>橙色：精神状态</item>
+	<item>紫色：性，激情</item>
+	<item>黄色：自我，自信心</item>
+	<item>绿色：爱，关系</item>
+	<item>蓝色：财富</item>
+	<item>黑色：自我毁灭的习惯</item>
+	<item>神奇的自我</item>
+   </string-array>
+    <string-array name="celticCross">
+	<item>中心问题</item>
+	<item>反对因素</item>
+	<item>根本原因</item>
+	<item>过去</item>
+	<item>态度和信念</item>
+	<item>未来</item>
+	<item>你是你</item>
+	<item>外部环境</item>
+	<item>知道</item>
+	<item>结果</item>
+   </string-array>
+       <string-array name="main_menu">  
+    	<item>单牌</item>      
+        <item>浏览整副牌</item>
+        <item>Choose a Spread</item>
+        <item>下载</item>
+        <item>About Tarot</item>        
+        <item>About the Artist</item>
+        <item>About the App</item>
+    </string-array>
+    <string-array name="second_menu">        
+        <item>选择一张牌</item>
+        <item>保存</item>
+        <item>分享</item>      
+        <item>Choose Spread</item>
+        <item>About Tarot</item>        
+        <item>About the Artist</item>
+        <item>About the App</item>   
+    </string-array>
+</resources>

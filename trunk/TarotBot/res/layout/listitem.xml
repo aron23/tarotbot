@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/menuitem"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:height="45dip"    
+    android:layout_centerVertical="true"
+    android:layout_gravity="center"
+    android:gravity="left"
+    android:paddingTop="10dp"
+    android:paddingLeft="50dp"
+    android:typeface="serif"
+    android:textSize="19sp"
+    android:textStyle="bold"
+    android:textColor="@color/menu_colors"    
+    >
+</TextView>

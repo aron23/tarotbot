@@ -83,10 +83,12 @@
 	
 	android:layout_width="63dip"
     android:layout_height="115dip"
-    android:layout_marginLeft="5dip"
+    android:layout_marginLeft="224dip"
     android:layout_marginTop="270dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
+    android:scaleType="fitXY"></ImageView> 
+
+
 <ImageView android:id="@+id/the_hermit_09" 
 	
 	android:layout_width="63dip"
@@ -103,14 +105,15 @@
     android:layout_marginTop="270dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>  
+
 <ImageView android:id="@+id/justice_11" 
 	
 	android:layout_width="63dip"
     android:layout_height="115dip"
-    android:layout_marginLeft="224dip"
+    android:layout_marginLeft="5dip"
     android:layout_marginTop="270dip"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
+    android:scaleType="fitXY"></ImageView>
     
 <ImageView android:id="@+id/the_hanged_man_12" 
 	

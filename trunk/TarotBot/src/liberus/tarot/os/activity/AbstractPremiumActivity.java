@@ -1,6 +1,7 @@
 package liberus.tarot.os.activity;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 
@@ -10,7 +11,7 @@ import com.android.vending.licensing.LicenseCheckerCallback;
 import com.android.vending.licensing.ServerManagedPolicy;
 
 
-public abstract class AbstractPremiumActivity extends AbstractTarotBotActivity  {
+public abstract class AbstractPremiumActivity extends Activity  {
 	protected ServerManagedPolicy myPolicy;
 	protected Handler mHandler;
 	protected LicenseChecker mChecker;

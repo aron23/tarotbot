@@ -29,9 +29,9 @@
     
 	android:paddingBottom="10dp"	
   	android:layout_alignParentBottom="true"
-  	android:background="@drawable/gothic_reversal_selector"
-    android:textOn="REVERSE CARDS &lt;YES&gt;"
-    android:textOff="REVERSE CARDS &lt;NO&gt;"
+  	android:background="@drawable/reversal_selector"
+    android:textOn="REVERSE CARDS [YES]"
+    android:textOff="REVERSE CARDS [NO]"
    android:layout_below="@id/mainlogo"
    />
 <ListView 

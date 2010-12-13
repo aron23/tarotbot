@@ -16,6 +16,7 @@ import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.utils.WebUtils;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -31,6 +32,7 @@ public abstract class Spread {
 	public String[] myLabels;
 	public static ArrayList<Integer> working = new ArrayList<Integer>();
 	public static ArrayList<Integer> circles = new ArrayList<Integer>();
+	public boolean browsing = false;
 	public Spread(Interpretation inInt) {		
 		myInt = inInt;
 		myDeck = Interpretation.myDeck;
@@ -218,7 +220,11 @@ public abstract class Spread {
 		
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
-		options.inSampleSize = 4;				
+		if (browsing)
+			if (((con.getResources().getConfiguration().screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE))
+				options.inSampleSize = 4;
+			else
+				options.inSampleSize = 2;
 		if (bmp == null) {			
 	       	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
 	    }		    
@@ -249,8 +255,8 @@ public abstract class Spread {
 		Bitmap bmp=null;
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
-		options.inSampleSize = 4;
-	    
+		if (browsing)
+			options.inSampleSize = 3;	
 	    if (bmp == null) {			
 	       	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
 	    }

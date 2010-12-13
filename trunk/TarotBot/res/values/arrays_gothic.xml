@@ -2,8 +2,8 @@
 <resources>
 	<string-array name="gothic_spread_array">        
         <item>THE CELTIC CROSS</item>
-        <item>THE VAMPIRE\'S KISS</item>
         <item>THE MYSTIC SEVEN</item>
+        <item>THE VAMPIRE\'S KISS</item>        
         <item>THE PENTAGRAM</item>          
         <item>THE GOTHIC ARCH</item>             
     </string-array>
@@ -51,9 +51,9 @@
     </string-array>
 	<string-array name="gothic_vampire">
         <item>Your Past</item>
-        <item>Your Soulmate&quot;s Past</item>
+        <item>Your Soulmate\'s Past</item>
         <item>Your Future</item>
-        <item>Your Soulmate&quot;s Future</item>
+        <item>Your Soulmate\'s Future</item>
         <item>You</item>
         <item>Your Soulmate</item>
         <item>Union</item>

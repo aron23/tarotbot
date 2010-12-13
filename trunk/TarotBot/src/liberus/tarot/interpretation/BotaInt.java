@@ -71,6 +71,10 @@ public class BotaInt extends Interpretation {
 		return getCard(getRandom(context).nextInt(78));		 
 	}
 	
+	public static int getCardIndexForTheDay(Context context, int seed) {
+		return getCardIndex(getRandom(context).nextInt(78));		 
+	}
+	
 	public static Random getRandom(Context context) {
 		Calendar begin = Calendar.getInstance();
 		begin.set(Calendar.MILLISECOND,0);
@@ -82,7 +86,7 @@ public class BotaInt extends Interpretation {
 		if (seed == null || seed.length() < 1 || seed.matches("^0+$"))
 			seed = "10000";
 		seed = seed.replaceAll("[\\D0]", "1");
-		return new Random((begin.get(Calendar.DAY_OF_MONTH))*(begin.get(Calendar.MONTH)+1)*begin.get(Calendar.YEAR)*Integer.valueOf(seed.substring(0,5)));
+		return new Random(Integer.valueOf(seed.substring(seed.length()-8))*(begin.get(Calendar.DAY_OF_MONTH))*(begin.get(Calendar.MONTH)+1)*begin.get(Calendar.YEAR));
 	}
 	
 	public static int getCardForTheDayIndex(Context context, int seed) {

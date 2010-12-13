@@ -16,9 +16,6 @@ import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
-import kankan.wheel.widget.ArrayWheelAdapter;
-import kankan.wheel.widget.NumericWheelAdapter;
-import kankan.wheel.widget.WheelView;
 
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
@@ -104,7 +101,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		tarotbottype = "liberus.tarot.oestara.erotic";
 		setFullscreen();
 		setContentView(R.layout.tarotbotstart);
 		inflater = LayoutInflater.from(this);
@@ -262,20 +259,14 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	protected void redisplaySpreadStart() {
 		init = true;
 		setContentView(R.layout.tarotbotstart);
-		spreadspin = (WheelView) findViewById(R.id.spreadspinner);
-		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.erotic_spread_array));
-		
-		spreadspin.setAdapter(adapter);
-		spreadspin.setCurrentItem(readingPrefs.getInt("spread", 0));
-		spreadspin.setVisibleItems(3);
-		spreadspin.forceLayout();
+
 		//reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		((ImageView) this.findViewById(R.id.biglogo)).setBackgroundDrawable(getResources().getDrawable(R.drawable.biglogo));
 		
 		
 		initbutton = (Button) this.findViewById(R.id.initspreadbutton);
 		initbutton.setOnClickListener(this);
-		spreadspin.forceLayout();
+
 		init = false;
 	}
 	@Override
@@ -306,7 +297,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		
 		init = true;
 //		statusspin = (WheelView) findViewById(R.id.statusspinner);
-		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.status_array));
+		
 //		
 //		statusspin.setAdapter(adapter);
 //		statusspin.setVisibleItems(3);
@@ -314,33 +305,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		
 		Calendar today = Calendar.getInstance();
 		
-		dp_month_spin = (WheelView) findViewById(R.id.birthmonth);
-		ArrayWheelAdapter<String> dpmadapter = new ArrayWheelAdapter<String>(new String[] {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"});
 		
-		dp_month_spin.setAdapter(dpmadapter);
-		dp_month_spin.setVisibleItems(3);
-
-		dp_day_spin = (WheelView) findViewById(R.id.birthday);
-		
-		dp_day_spin.setAdapter(new NumericWheelAdapter(1, 31));
-		dp_day_spin.setVisibleItems(3);
-		
-		dp_year_spin = (WheelView) findViewById(R.id.birthyear);
-		
-		dp_year_spin.setAdapter(new NumericWheelAdapter(1910, 2010));
-		dp_year_spin.setVisibleItems(3);
-		
-		
-		 
-		if (querantPrefs.contains("birthyear")) {
-			dp_year_spin.setCurrentItem(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR))-1910);
-			dp_month_spin.setCurrentItem(querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)));
-			dp_day_spin.setCurrentItem(querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH))-1);     
-		}else {
-			dp_month_spin.setCurrentItem(querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)));
-			dp_day_spin.setCurrentItem(querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH))-1);
-			dp_year_spin.setCurrentItem(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR))-1910);
-		}
 
 		//changeQuerant();		
 		
@@ -432,7 +397,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 //			}
 
 		//Toast.makeText(this, dp.getMonth(), Toast.LENGTH_SHORT).show();
-		aq = new Querant(male,partnered,new GregorianCalendar(dp_year_spin.getCurrentItem()+1910,dp_month_spin.getCurrentItem(),dp_day_spin.getCurrentItem()+1));
+		
 		SharedPreferences.Editor ed = querantPrefs.edit();
 		ed.putInt("birthyear", aq.birth.get(Calendar.YEAR));
 		ed.putInt("birthmonth", aq.birth.get(Calendar.MONTH));
@@ -477,47 +442,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	protected void redisplayMain() {
 		View activeView = inflater.inflate(R.layout.botastart, null);
 		setContentView(activeView);
-//		statusspin = (WheelView) findViewById(R.id.statusspinner);
-		ArrayWheelAdapter<String> adapter = new ArrayWheelAdapter<String>(getResources().getStringArray(R.array.status_array));
 //		
-//		statusspin.setAdapter(adapter);
-//		statusspin.setVisibleItems(3);
-//		statusspin.setCurrentItem(querantPrefs.getInt("querantstatus", 0));
-		statusspin.forceLayout();
-
-		Calendar today = Calendar.getInstance();
-		
-		dp_month_spin = (WheelView) findViewById(R.id.birthmonth);
-		ArrayWheelAdapter<String> dpmadapter = new ArrayWheelAdapter<String>(new String[] {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"});
-		
-		dp_month_spin.setAdapter(dpmadapter);
-		dp_month_spin.setVisibleItems(3);
-		dp_month_spin.forceLayout();
-		
-		dp_day_spin = (WheelView) findViewById(R.id.birthday);
-		
-		dp_day_spin.setAdapter(new NumericWheelAdapter(1, 31));
-		dp_day_spin.setVisibleItems(3);
-		dp_day_spin.forceLayout();
-		
-		dp_year_spin = (WheelView) findViewById(R.id.birthyear);
-		
-		dp_year_spin.setAdapter(new NumericWheelAdapter(1910, 2010));
-		dp_year_spin.setVisibleItems(3);
-		dp_year_spin.forceLayout();
-		
-		
-		 
-		if (querantPrefs.contains("birthyear")) {
-			dp_year_spin.setCurrentItem(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR))-1910);
-			dp_month_spin.setCurrentItem(querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)));
-			dp_day_spin.setCurrentItem(querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH))-1);     
-		}else {
-			dp_month_spin.setCurrentItem(querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)));
-			dp_day_spin.setCurrentItem(querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH))-1);
-			dp_year_spin.setCurrentItem(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR))-1910);
-		}
-		
 		
 		
 			secondSetIndex = 0;
@@ -532,9 +457,8 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	
 	public void onClick(View v) {	
 		if (v.equals(this.findViewById(R.id.initspreadbutton))) {
-			readingPrefsEd.putInt("spread", spreadspin.getCurrentItem());
-			readingPrefsEd.commit();
-			switch (spreadspin.getCurrentItem()) {
+			
+			switch (1) {
 			case 0: {
 				//seqSpread();
 				spreadLabels = single;
@@ -786,7 +710,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			}
 				
 				if (sharing) {
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext(),tarotbottype);
 					String url = WebUtils.bitly(saveResult);
 					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}
@@ -800,10 +724,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			//statusselected = statusspin.getCurrentItem();
 			changeQuerant();
 		} else if (spinnerAdapter.equals(this.findViewById(R.id.spreadspinner))) {
-			if (!init && spreadspin != null) {
-				readingPrefsEd.putInt("spread", spreadspin.getCurrentItem());
-				readingPrefsEd.commit();
-			}
+			
 		}
 
 	}

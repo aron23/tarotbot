@@ -12,6 +12,7 @@
     android:layout_gravity="fill_vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:maxHeight="50dip"
     android:layout_marginLeft="10dip"
     android:scaleType="fitXY"
      />  

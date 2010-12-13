@@ -25,6 +25,7 @@ public class GothicBrowseSpread extends GothicSpread {
 
 	public GothicBrowseSpread(Interpretation in) {
 		super(in);
+		browsing = true;
 		myNum = 78;
 		myLabels = new String[78];	
 		myDeck.reversed = Interpretation.myDeck.noreversal;

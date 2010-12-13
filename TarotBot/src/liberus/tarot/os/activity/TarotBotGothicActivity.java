@@ -16,9 +16,6 @@ import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
-import kankan.wheel.widget.ArrayWheelAdapter;
-import kankan.wheel.widget.NumericWheelAdapter;
-import kankan.wheel.widget.WheelView;
 
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
@@ -28,6 +25,7 @@ import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.querant.Querant;
 
 import liberus.tarot.spread.ArrowSpread;
+import liberus.tarot.spread.BotaSpread;
 import liberus.tarot.spread.BrowseSpread;
 import liberus.tarot.spread.CelticSpread;
 import liberus.tarot.spread.ChaosSpread;
@@ -43,6 +41,7 @@ import liberus.tarot.spread.gothic.GothicCelticSpread;
 import liberus.tarot.spread.gothic.GothicChaosSpread;
 import liberus.tarot.spread.gothic.GothicDialecticSpread;
 import liberus.tarot.spread.gothic.GothicPentagram;
+import liberus.tarot.spread.gothic.GothicSeqSpread;
 import liberus.tarot.spread.gothic.GothicSpread;
 import liberus.tarot.spread.gothic.MysticSeven;
 import liberus.tarot.spread.gothic.VampireKiss;
@@ -108,7 +107,7 @@ import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
 
 
-public class TarotBotGothicActivity extends TarotBotActivity  {
+public class TarotBotGothicActivity extends AbstractTarotBotActivity  {
 
 	
 	
@@ -118,44 +117,10 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 	protected String[] arch;
 
 	private Dialog helper;
+	private boolean leavespread;
 	
 	/** Called when the activity is first created. */
 	
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		final ProgressDialog downloadProgress = new ProgressDialog(this);
-		downloadProgress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		downloadProgress.setMessage("initializing high resolution images...");
-		downloadProgress.setCancelable(true);
-		downloadProgress.setCanceledOnTouchOutside(true);
-		downloadProgress.show();
-		inflater = LayoutInflater.from(this);
-		state = "mainmenu";
-		setContentView(R.layout.gothicmainmenu);
-		initText();	
-		myMenuList = (ListView) this.findViewById(R.id.menulist);
-		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.gothiclistitem));
-		myMenuList.setOnItemClickListener(this);
-		myMenuList.setTag("mainmenu");		
-		
-		readingPrefs = getSharedPreferences("tarotbot.gothic.reading", 0);
-		readingPrefsEd = readingPrefs.edit();
-		gestureDetector = new GestureDetector(new MyGestureDetector());
-		gestureListener = getGestureListener(gestureDetector);
-		initSaved("tarotbot.gothic");
-		new Thread(new Runnable(){
-			public void run(){
-				initHighRes("goth",downloadProgress);
-				downloadProgress.dismiss();
-			}
-			}).start();
-		
-	}
-	
-	
-	
-
 	
 	protected void launchBrowse() {
 		state = "loaded";
@@ -184,6 +149,7 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 		type = new ArrayList<Integer>();
 		flipdex = new ArrayList<Integer>();
 		beginSecondStage();
+		
 	}
 
 
@@ -215,11 +181,10 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
 	  if (spreading) {
-		  reInitSpread(R.layout.gothic_spreadmenu);
-		  
+		  reInitSpread(R.layout.spreadmenu);		  
 	  } else if (!begun && !browsing) {
 		  reInit();
-	  } else {
+	  } else if (!state.equals("navigate")) {
 		  rotateDisplay();
 	  }
 	}
@@ -266,18 +231,7 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 	
 	public void onClick(View v) {	
 		if (v.equals(this.findViewById(R.id.menulist))) {
-			showing = inflater.inflate(R.layout.gothic_spreadmenu, null);
-			ListView spreadlist = (ListView) showing.findViewById(R.id.spreadmenulist);		
-			spreadlist.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.gothiclistitem));
-			spreadlist.setOnItemSelectedListener(this);
-			
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-			builder.setView(showing);
-			
-			Dialog interpretor = new Dialog(this,android.R.style.Theme);
-			interpretor.setContentView(showing);
-			interpretor.show();
 			
 		} else if (v.equals(this.findViewById(R.id.reversal_button))) {
 			if (!init) {
@@ -291,19 +245,22 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 			}
 			if (browsing) {
 				if (Interpretation.getCardIndex(v.getId()) > 0)
-					secondSetIndex = Interpretation.getCardIndex(v.getId())-1;
+					secondSetIndex = Interpretation.getCardIndex(v.getId());
 				else
 					secondSetIndex = GothicSpread.working.size();
+				state = "loaded";
+				priorstate = "";
+				displaySecondStage(secondSetIndex);
 			} else {
 //				if (v.getId() == 0)
 //					secondSetIndex = GothicSpread.working.size()-1;
 //				else
 					secondSetIndex = v.getId();
-					
+					state = priorstate;
+					priorstate = "";
+					displaySecondStage(secondSetIndex);
 			}
-			state = "new reading";
-			priorstate = "";
-			displaySecondStage(secondSetIndex);
+			
 			
 		}
 			//incrementSecondSet(secondSetIndex);
@@ -312,179 +269,97 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 	public void onClick(DialogInterface dialog, int which) {
 		
 		if (dialog instanceof AlertDialog) {
-				switch (which) {
-				case -1: { 															
-					saveTitle = input.getText().toString();
-					//saveTitle = saveTitle.replaceAll("\\s+", "+"); 
-					HashMap<String,String> read = new HashMap<String,String>();
-				    read.put("spread", spreadToString());
-				    read.put("deck", deckToString());
-				    read.put("reversals", reversalsToString());
-				    read.put("label", saveTitle);
-				    read.put("type", style);
-				    if (style.equals("bota"))
-				    	read.put("significator", String.valueOf(GothicBotaSpread.getSignificator()));
-				    else
-				    	read.put("significator", String.valueOf(0));
-//				    if (saved.length > 5)
-//				    	read.put("date", saved[5]);
-//				    else
-				    Calendar cal = Calendar.getInstance();
-				    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
-				    read.put("date", sdf.format(cal.getTime()));
-				    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
-				    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
-				    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
-					
-					try {
-						Environment.getExternalStorageState();
-					    File root = Environment.getExternalStorageDirectory();
-					    
-					    //if (root.canWrite()){
-					        File gpxfile = new File(root, "tarotbot.gothic.store");
-					        FileWriter gpxwriter = new FileWriter(gpxfile);
-					        BufferedWriter out = new BufferedWriter(gpxwriter);
-					        for (String reader: savedList) {
-					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
-					        }
-					        
-					        out.close();
-					    //}
-					} catch (IOException e) {
-					    //Log.e(TAG, "Could not write file " + e.getMessage());
-					}
-					break; 
+			switch (which) {
+			case -1: { 															
+				saveTitle = input.getText().toString();
+				//saveTitle = saveTitle.replaceAll("\\s+", "+"); 
+				HashMap<String,String> read = new HashMap<String,String>();
+			    read.put("spread", spreadToString());
+			    read.put("deck", deckToString());
+			    read.put("reversals", reversalsToString());
+			    read.put("label", saveTitle);
+			    read.put("type", style);
+			    if (style.equals("bota"))
+			    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
+			    else
+			    	read.put("significator", String.valueOf(0));
+	//		    if (saved.length > 5)
+	//		    	read.put("date", saved[5]);
+	//		    else
+			    Calendar cal = Calendar.getInstance();
+			    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
+			    read.put("date", sdf.format(cal.getTime()));
+			    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
+			    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
+			    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
+				
+				try {
+					Environment.getExternalStorageState();
+				    File root = Environment.getExternalStorageDirectory();
+				    
+				    //if (root.canWrite()){
+				        File gpxfile = new File(root, "tarotbot.gothic.store");
+				        FileWriter gpxwriter = new FileWriter(gpxfile);
+				        BufferedWriter out = new BufferedWriter(gpxwriter);
+				        for (String reader: savedList) {
+				        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
+				        }
+				        
+				        out.close();
+				    //}
+				} catch (IOException e) {
+				    //Log.e(TAG, "Could not write file " + e.getMessage());
 				}
-				case -2: { 
-					//saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
-					
-					HashMap<String,String> read = new HashMap<String,String>();
-				    read.put("spread", spreadToString());
-				    read.put("deck", deckToString());
-				    read.put("reversals", reversalsToString());
-				    read.put("label", saveTitle);
-				    read.put("type", style);
-				    Calendar cal = Calendar.getInstance();
-				    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
-				    read.put("date", sdf.format(cal.getTime()));
-				    if (style.equals("bota"))
-				    	read.put("significator", String.valueOf(GothicBotaSpread.getSignificator()));
-				    else
-				    	read.put("significator", String.valueOf(0));
-				    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
-				    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
-				    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
-					
-					try {
-						Environment.getExternalStorageState();
-					    File root = Environment.getExternalStorageDirectory();
-					    
-					    //if (root.canWrite()){
-					        File gpxfile = new File(root, "tarotbot.gothic.store");
-					        FileWriter gpxwriter = new FileWriter(gpxfile);
-					        BufferedWriter out = new BufferedWriter(gpxwriter);
-					        for (String reader: savedList) {
-					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
-					        }
-					        
-					        out.close();
-					    //}
-					} catch (IOException e) {
-					    //Log.e(TAG, "Could not write file " + e.getMessage());
-					}
-					break; 
+				break; 
+			}
+			case -2: { 
+				//saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
+				
+				HashMap<String,String> read = new HashMap<String,String>();
+			    read.put("spread", spreadToString());
+			    read.put("deck", deckToString());
+			    read.put("reversals", reversalsToString());
+			    read.put("label", saveTitle);
+			    read.put("type", style);
+			    Calendar cal = Calendar.getInstance();
+			    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
+			    read.put("date", sdf.format(cal.getTime()));
+			    if (style.equals("bota"))
+			    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
+			    else
+			    	read.put("significator", String.valueOf(0));
+			    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
+			    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
+			    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
+				
+				try {
+					Environment.getExternalStorageState();
+				    File root = Environment.getExternalStorageDirectory();
+				    
+				    //if (root.canWrite()){
+				        File gpxfile = new File(root, "tarotbot.gothic.store");
+				        FileWriter gpxwriter = new FileWriter(gpxfile);
+				        BufferedWriter out = new BufferedWriter(gpxwriter);
+				        for (String reader: savedList) {
+				        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
+				        }
+				        
+				        out.close();
+				    //}
+				} catch (IOException e) {
+				    //Log.e(TAG, "Could not write file " + e.getMessage());
 				}
-				default: {
-					
-						GothicSpread.circles = new ArrayList<Integer>();
-						GothicSpread.working = new ArrayList<Integer>();
-						flipdex = new ArrayList<Integer>();
-						//ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
-						ArrayList<String[]> deck = new ArrayList<String[]>();
-				    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-				    	ArrayList<Integer> working = new ArrayList<Integer>();
-				    	int significator = Integer.valueOf(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("significator"));
-				    	int count = 0;
-				    	String[] reversed = savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("reversals").split(",");
-				    	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("spread").split(",")));
-				    	for(String card: savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("deck").split(",")) {
-				    		String rev = "0";
-				    		String spr = "0";
-				    		if (reversed[count].equals("R")) {
-				    			reversals.add(true);
-				    			rev = "1";
-				    		} else
-				    			reversals.add(false);
-				    		
-				    		if (spreaded.contains(card)) {
-				    			spr = "1";
-				    			working.add(Integer.valueOf(card)-100);
-				    		}
-				    		
-				    		
-				    			
-				    		
-				    		deck.add(new String[] {card,String.valueOf(count+1),rev,spr});
-				    		count++;
-				    	}
-				    	loaded=true;
-				    	state = "loaded";
-				    	//Interpretation.myDeck = ;	
-				    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
-				    	GothicSpread.working = working;
-				    	BotaInt.loaded = true;
-				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("bota")) {
-				    		BotaInt.setMyQuerant(new Querant(significator));
-				    		mySpread = new GothicBotaSpread(myInt);				    		
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("celtic")) {
-				    		mySpread = new GothicCelticSpread(myInt,celticCross);
-				    		spreadLabels = celticCross;
-				    		GothicSpread.circles = GothicSpread.working;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("chaos")) {
-				    		GothicSpread.circles = GothicSpread.working;
-				    		mySpread = new GothicChaosSpread(myInt,chaosStar);
-				    		spreadLabels = chaosStar;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("single")) {
-				    		mySpread = new SeqSpread(myInt,single);
-				    		GothicSpread.circles = GothicSpread.working;
-				    		spreadLabels = single;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arrow")) {
-				    		mySpread = new GothicArrowSpread(myInt,timeArrow);
-				    		spreadLabels = timeArrow;
-				    		GothicSpread.circles = GothicSpread.working;				    		
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("dialectic")) {
-				    		GothicSpread.circles = GothicSpread.working;
-				    		spreadLabels = dialectic;
-				    		mySpread = new GothicDialecticSpread(myInt,dialectic);
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("gothicPentagram")) {
-				    		GothicSpread.circles = GothicSpread.working;
-				    		spreadLabels = gothicPentagram;
-				    		mySpread = new GothicPentagram(myInt,gothicPentagram);
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arch")) {
-				    		GothicSpread.circles = GothicSpread.working;
-				    		spreadLabels = arch;
-				    		mySpread = new GothicArch(myInt,arch);
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("mystic")) {
-				    		GothicSpread.circles = GothicSpread.working;
-				    		spreadLabels = mystic;
-				    		mySpread = new MysticSeven(myInt,mystic);
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("vampire")) {
-				    		GothicSpread.circles = GothicSpread.working;
-				    		spreadLabels = vampire;
-				    		mySpread = new VampireKiss(myInt,vampire);
-				    	}
-				    	spreading=false;
-						begun = true;
-						browsing = false;
-				    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
-				    	beginSecondStage();
-				    	break;
-					}
-				}
+				break; 
+			}
+		}
+	
+		
+	
+
 			
 				
 				if (sharing) {
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),input.getEditableText().toString(),style,getApplicationContext(),tarotbottype);
 					String url = WebUtils.bitly(saveResult);
 					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}
@@ -526,7 +401,7 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 					myInt = new BotaInt(new RiderWaiteDeck(), aq);
 					Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
 					Deck.cards = shuffled;
-					mySpread = new SeqSpread(myInt,spreadLabels);
+					mySpread = new GothicSeqSpread(myInt,spreadLabels);
 					loaded = false;
 					ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
 			    	for(int card: RiderWaiteDeck.cards) {
@@ -541,17 +416,7 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 					launchBrowse();
 			        return;
 			    case 2:	
-			    	state = "spreadmenu";
-					setContentView(R.layout.gothic_spreadmenu);
-					
-					myMenuList = (ListView) this.findViewById(R.id.spreadmenulist);
-					myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.gothiclistitem));
-					myMenuList.setOnItemClickListener(this);
-					myMenuList.setTag("spreadmenu");
-					reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
-					reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
-					reverseToggle.setClickable(true);
-					reverseToggle.setOnClickListener(this);
+			    	initSpreadMenu();
 					return;			    	
 			    case 3:
 					displaySaved();
@@ -605,29 +470,7 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 			    	save(true);			     
 			        return;				
 			    case 3:	
-			    	spreading=false;
-					//spread=false;
-					begun = false;
-					browsing = false;
-					loaded=false;
-			    	BotaInt.loaded = false;
-			    	GothicSpread.circles = new ArrayList<Integer>();
-					GothicSpread.working = new ArrayList<Integer>();
-					myInt = new BotaInt(new RiderWaiteDeck(), aq);
-			    	type = new ArrayList<Integer>();
-					flipdex = new ArrayList<Integer>();
-					
-			    	state = "spreadmenu";
-					setContentView(R.layout.spreadmenu);
-					
-					myMenuList = (ListView) this.findViewById(R.id.spreadmenulist);
-					myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.gothiclistitem));
-					myMenuList.setOnItemClickListener(this);
-					myMenuList.setTag("spreadmenu");	
-					reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
-					reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
-					reverseToggle.setClickable(true);
-					reverseToggle.setOnClickListener(this);
+			    	reInitSpread(R.layout.spreadmenu);								
 					return;			    	
 			    case 4: 
 			    	showing = inflater.inflate(R.layout.interpretation, null);
@@ -684,14 +527,14 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 				}
 				case 2: {
 					//seqSpread();
-					spreadLabels = mystic;
-					style = "mystic";
+					spreadLabels = vampire;
+					style = "vampire";
 					break;
 				}
 				case 1: {
 					//seqSpread();
-					spreadLabels = vampire;
-					style = "vampire";
+					spreadLabels = mystic;
+					style = "mystic";
 					break;
 				}
 				case 0: {
@@ -730,8 +573,97 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 					mySpread = new SeqSpread(myInt,spreadLabels);
 				loaded = false;
 				beginSecondStage();
+		} else if (adapter.getTag().equals("loadmenu")) {//.getContentDescription().equals("querant") {
+			Spread.circles = new ArrayList<Integer>();
+			Spread.working = new ArrayList<Integer>();
+			flipdex = new ArrayList<Integer>();
+			//ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
+			ArrayList<String[]> deck = new ArrayList<String[]>();
+	    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
+	    	ArrayList<Integer> working = new ArrayList<Integer>();
+	    	int significator = Integer.valueOf(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("significator"));
+	    	int count = 0;
+	    	String[] reversed = savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("reversals").split(",");
+	    	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("spread").split(",")));
+	    	for(String card: savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("deck").split(",")) {
+	    		String rev = "0";
+	    		String spr = "0";
+	    		if (reversed[count].equals("R")) {
+	    			reversals.add(true);
+	    			rev = "1";
+	    		} else
+	    			reversals.add(false);
+	    		
+	    		if (spreaded.contains(card)) {
+	    			spr = "1";
+	    			working.add(Integer.valueOf(card)-100);
+	    		}
+	    		
+	    		
+	    			
+	    		
+	    		deck.add(new String[] {card,String.valueOf(count+1),rev,spr});
+	    		count++;
+	    	}
+	    	loaded=true;
+	    	state = "loaded";
+	    	//Interpretation.myDeck = ;	
+	    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
+	    	Spread.working = working;
+	    	BotaInt.loaded = true;
+	    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("arch")) {
+	    		mySpread = new GothicArch(myInt,arch);
+	    		spreadLabels = arch;
+	    		Spread.circles = Spread.working;				    		
+	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("gothicPentagram")) {
+	    		mySpread = new GothicPentagram(myInt,gothicPentagram);
+	    		spreadLabels = gothicPentagram;
+	    		Spread.circles = Spread.working;
+	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("mystic")) {
+	    		mySpread = new MysticSeven(myInt,mystic);
+	    		spreadLabels = mystic;
+	    		Spread.circles = Spread.working;
+	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("vampire")) {
+	    		mySpread = new VampireKiss(myInt,vampire);
+	    		spreadLabels = vampire;
+	    		Spread.circles = Spread.working;
+	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("celtic")) {
+	    		mySpread = new GothicCelticSpread(myInt,celticCross);
+	    		spreadLabels = celticCross;
+	    		Spread.circles = Spread.working;				    		
+	    	} 
+	    	
+	    	
+	    	spreading=false;
+			begun = true;
+			browsing = false;
+	    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+	    	beginSecondStage();
 		}
 	}
+	private void initSpreadMenu() {
+		begun = false;
+		browsing = false;
+		loaded = false;
+		Spread.circles = new ArrayList<Integer>();
+		Spread.working = new ArrayList<Integer>();
+		myInt = new BotaInt(new RiderWaiteDeck(), aq);
+		state = "spreadmenu";		
+		setContentView(R.layout.spreadmenu);
+		
+		myMenuList = (ListView) this.findViewById(R.id.spreadmenulist);
+		myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
+		myMenuList.setOnItemClickListener(this);
+		myMenuList.setTag("spreadmenu");
+		reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
+		reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
+		reverseToggle.setClickable(true);
+		reverseToggle.setOnClickListener(this);
+	}
+
+
+
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -739,7 +671,7 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 				finish();
 				return true;
 			} else if (state.equals("dialog")) {
-				if (priorstate.equals("secondmenu")) {
+				if (priorstate.equals("secondmenu") || priorstate.equals("new reading")) {
 					state = "new reading";
 					priorstate = "";
 					displaySecondStage(secondSetIndex);
@@ -751,26 +683,44 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 					reInit();
 					return true;
 				}
-			} else if (state.equals("new reading")) {
-				spreading=true;
-				//spread=false;
-				reInitSpread(R.layout.gothic_spreadmenu);
+			} else if (state.equals("new reading") &! browsing) {
+				leavespread = true;
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setMessage("Are you sure you want to leave your reading?")
+				       .setCancelable(false)
+				       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				        	   spreading=true;
+								//spread=false;
+								reInitSpread(R.layout.spreadmenu);
+								
+				           }
+				       })
+				       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				        	   TarotBotGothicActivity.this.leavespread = false; 
+				        	   dialog.cancel();
+				           }
+				       });
+				AlertDialog alert = builder.create();
+				alert.show();
 				return true;
-			} else if (state.equals("spreadmenu") || state.equals("loaded") || state.equals("single")) {
+				
+			} else if (state.equals("spreadmenu") || state.equals("loaded") || state.equals("single") || (state.equals("navigate") && browsing)) {
 				spreading=false;
 				//spread=false;
 				begun = false;
 				browsing = false;
 				loaded=false;
 		    	BotaInt.loaded = false;
-		    	GothicSpread.circles = new ArrayList<Integer>();
-				GothicSpread.working = new ArrayList<Integer>();
+		    	Spread.circles = new ArrayList<Integer>();
+				Spread.working = new ArrayList<Integer>();
 				myInt = new BotaInt(new RiderWaiteDeck(), aq);
 		    	type = new ArrayList<Integer>();
 				flipdex = new ArrayList<Integer>();
 				reInit();
 				return true;
-			} else if (state.equals("secondmenu")) {
+			} else if (state.equals("secondmenu") || state.equals("navigate")) {
 				state = priorstate;
 				displaySecondStage(secondSetIndex);
 				return true;
@@ -780,15 +730,15 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 		} else if (keyCode == KeyEvent.KEYCODE_MENU) {			
 			priorstate = state;
 			state = "secondmenu";
-			setContentView(R.layout.gothicmainmenu);
+			setContentView(R.layout.mainmenu);
 			initText();	
 			myMenuList = (ListView) this.findViewById(R.id.menulist);
 			myMenuList.setOnItemClickListener(this);
-			if (priorstate.equals("new reading")) {
-				myMenuList.setAdapter(new EfficientAdapter(this,inflater,secondmenu,R.layout.gothiclistitem));			
+			if ((priorstate.equals("new reading") || priorstate.equals("navigate")) &!browsing) {
+				myMenuList.setAdapter(new EfficientAdapter(this,inflater,secondmenu,R.layout.listitem));			
 				myMenuList.setTag("secondmenu");
 			} else {
-				myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.gothiclistitem));			
+				myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));			
 				myMenuList.setTag("mainmenu");
 			}
 	
@@ -799,12 +749,38 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 	@Override
 	void reInit() {
 		state = "mainmenu";
-		setContentView(R.layout.gothicmainmenu);
+		setContentView(R.layout.mainmenu);
 		initText();	
 		myMenuList = (ListView) this.findViewById(R.id.menulist);
-		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.gothiclistitem));
+		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
 		myMenuList.setOnItemClickListener(this);
 		myMenuList.setTag("mainmenu");
+	}
+	@Override
+	protected void displaySaved() {				
+		browsing = false;
+		//savedReadings = WebUtils.loadTarotBot(getApplicationContext());			
+		ArrayList<String> readingLabels = new ArrayList<String>();
+		sortedSaved = new ArrayList<String>(savedList);
+		Collections.sort(sortedSaved);
+		Collections.reverse(sortedSaved);
+		for (String reader: sortedSaved) {
+			HashMap<String,String> reading = savedReadings.get(reader);
+			if (reading.get("label").length() > 0)
+				readingLabels.add(reading.get("date")+": "+reading.get("label")+" - "+reading.get("type"));
+			else
+				readingLabels.add(reading.get("date")+": "+reading.get("type"));
+		}
+		String[] items = readingLabels.toArray(new String[0]);
+		
+		state = "spreadmenu";
+		setContentView(R.layout.mainmenu);
+		
+		myMenuList = (ListView) this.findViewById(R.id.menulist);
+		myMenuList.setAdapter(new EfficientAdapter(this,inflater,items,R.layout.load_listitem));
+		myMenuList.setOnItemClickListener(this);
+		myMenuList.setTag("loadmenu");
+		
 	}
 
 }

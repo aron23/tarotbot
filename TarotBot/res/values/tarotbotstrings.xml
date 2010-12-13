@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">TarotBot</string>
     
-    <string name="spread_prompt">choose a spread</string>
-    <string name="navigate_prompt">select a card</string>
+    <string name="spread_prompt">Choose a Spread</string>
+    <string name="navigate_prompt">Select a Card</string>
     <string name="launch_reading">read</string>
     <string name="reversalprompt">\t\tenable reversal</string>
        
@@ -17,12 +17,12 @@
     <string name="browse_menu">browse deck</string>
     <string name="navigate_menu">view spread</string>
     
-    <string name="loadprompt">Select a reading to load</string>
+    <string name="loadprompt">Select a Reading to Load</string>
     
-    <string name="share_intent">share your reading</string>
+    <string name="share_intent">Share Your Reading</string>
     <string name="share_subject">TarotBot reading</string>
     
-    <string name="save_label">label your reading</string>
-    <string name="save_label_ok">ok</string>
-    <string name="save_label_no">no thanks</string>
+    <string name="save_label">Label Your Reading</string>
+    <string name="save_label_ok">OK</string>
+    <string name="save_label_no">No Thanks</string>
 </resources>

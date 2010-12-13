@@ -1,92 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
   android:background="#000000">
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent" 
-	>
-<RelativeLayout
+    android:layout_height="fill_parent"   
+    android:fillViewport="true"
+    android:fadingEdge="none">
+<LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
-  android:layout_centerHorizontal="true"
-  android:layout_centerVertical="true"
-  android:gravity="center"
-  android:layout_gravity="center">  
-<ImageView android:id="@+id/arch_four_back" 
-	android:layout_width="46dip"
-    android:layout_height="82dip"
-    android:layout_marginLeft="4dip"
-    android:layout_marginTop="19dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/arch_two_back" 
-	android:layout_width="46dip"
-    android:layout_height="82dip"
-    android:layout_marginLeft="59dip"
-    android:layout_marginTop="14dip"
-    android:background="#000000"></ImageView>        
-
-<ImageView android:id="@+id/arch_one_back"  
-	android:layout_width="46dip"
-    android:layout_height="82dip"
-    android:layout_marginLeft="114dip"
-    android:layout_marginTop="4dip"
-    android:background="#000000"></ImageView>
-    
-<ImageView android:id="@+id/arch_three_back"  
-	android:layout_width="46dip"
-    android:layout_height="82dip"
-    android:layout_marginLeft="169dip"
-    android:layout_marginTop="14dip"
-    android:background="#000000"></ImageView>
-<ImageView android:id="@+id/arch_five_back"  
-	android:layout_width="46dip"
-    android:layout_height="82dip"
-    android:layout_marginLeft="224dip"
-    android:layout_marginTop="19dip"
-    android:background="#000000"></ImageView>     
+  android:layout_height="fill_parent">
+<LinearLayout android:id="@+id/arch_four_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+	android:layout_width="wrap_content"
+	android:clipChildren="true"
+  	android:background="#000"
+  	android:layout_marginTop="50dip"
+    android:layout_weight="5">  
 <ImageView android:id="@+id/arch_four" 
-	android:layout_width="44dip"
-    android:layout_height="80dip"
-    android:layout_marginLeft="5dip"
-    android:layout_marginTop="20dip"
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+    android:layout_marginLeft="1px"
+    android:layout_marginRight="1px"
+    android:layout_marginTop="1px"
+    android:layout_marginBottom="1px"
+    android:src="@drawable/pent_04"></ImageView>          
+</LinearLayout>
 
+<LinearLayout android:id="@+id/arch_two_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+	android:layout_width="wrap_content"
+	android:clipChildren="true"
+	android:background="#000"
+  	android:layout_marginTop="30dip"  	
+  	android:layout_weight="5">      
 <ImageView android:id="@+id/arch_two" 
-	android:layout_width="44dip"
-    android:layout_height="80dip"
-    android:layout_marginLeft="60dip"
-    android:layout_marginTop="15dip"
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>        
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+    android:layout_marginLeft="1px"
+    android:layout_marginRight="1px"
+    android:layout_marginTop="1px"
+    android:layout_marginBottom="1px"
+    android:src="@drawable/pent_02"></ImageView>          
+</LinearLayout>
 
-<ImageView android:id="@+id/arch_one"  
-	android:layout_width="44dip"
-    android:layout_height="80dip"
-    android:layout_marginLeft="115dip"
-    android:layout_marginTop="5dip"
+<RelativeLayout android:id="@+id/arch_one_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+	android:layout_width="wrap_content"
+	android:clipChildren="true"
+  	android:background="#000"
+  	android:layout_marginTop="10dip"  	
+  	android:layout_weight="5">    
+<ImageView android:id="@+id/arch_one" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/arch_three"  
-	android:layout_width="44dip"
-    android:layout_height="80dip"
-    android:layout_marginLeft="170dip"
-    android:layout_marginTop="15dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-<ImageView android:id="@+id/arch_five"  
-	android:layout_width="44dip"
-    android:layout_height="80dip"
-    android:layout_marginLeft="225dip"
-    android:layout_marginTop="20dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>          
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+    android:layout_marginLeft="1px"
+    android:layout_marginRight="1px"
+    android:layout_marginTop="1px"
+    android:layout_marginBottom="1px"
+    android:src="@drawable/pent_01"></ImageView>          
 </RelativeLayout>
+
+<LinearLayout android:id="@+id/arch_three_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+	android:layout_width="wrap_content"
+	android:clipChildren="true"
+  	android:background="#000"
+  	android:layout_marginTop="30dip"
+  	android:layout_weight="5">       
+<ImageView android:id="@+id/arch_three" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+    android:layout_marginLeft="1px"
+    android:layout_marginRight="1px"
+    android:layout_marginTop="1px"
+    android:layout_marginBottom="1px"
+    android:src="@drawable/pent_03"></ImageView>          
+</LinearLayout>
+
+<LinearLayout android:id="@+id/arch_five_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+	android:layout_width="wrap_content"
+	android:clipChildren="true"
+  	android:background="#000"
+  	android:layout_marginTop="50dip"  	
+  	android:layout_weight="5">        
+<ImageView android:id="@+id/arch_five" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+    android:layout_marginLeft="1px"
+    android:layout_marginRight="1px"
+    android:layout_marginTop="1px"
+    android:layout_marginBottom="1px"
+    android:src="@drawable/pent_05"></ImageView>          
+</LinearLayout>
+</LinearLayout>
 </ScrollView>
-</RelativeLayout>
+</LinearLayout>

@@ -16,9 +16,6 @@ import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
-import kankan.wheel.widget.ArrayWheelAdapter;
-import kankan.wheel.widget.NumericWheelAdapter;
-import kankan.wheel.widget.WheelView;
 
 import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
@@ -109,7 +106,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		tarotbottype = "liberus.tarot.os.activity";
 		int in = 5;
 		
 		setFullscreen();
@@ -185,7 +182,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
 	  if (spreading) {
-		  reInitSpread(R.layout.gothic_spreadmenu);
+		  reInitSpread(R.layout.spreadmenu);
 		  
 	  } else if (!begun && !browsing) {
 		  reInit();
@@ -468,7 +465,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 			
 				
 				if (sharing) {
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext(),tarotbottype);
 					String url = WebUtils.bitly(saveResult);
 					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}

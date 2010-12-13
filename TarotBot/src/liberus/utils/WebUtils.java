@@ -115,7 +115,7 @@ public class WebUtils {
 	  System.err.println(" "+filepath) ;
 
 	 }
-	public static String saveTarotBot(String spread, String deck, String reversals, String title, String style, Context context) {
+	public static String saveTarotBot(String spread, String deck, String reversals, String title, String style, Context context, String tarotbottype) {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpContext localContext = new BasicHttpContext();
 		String saveResult = "";
@@ -123,9 +123,9 @@ public class WebUtils {
 		HttpGet httpGet;
 		title = title.replaceAll("\\s+", "+");
 		if (style == "bota")
-			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaSpread.getSignificator()+"&title="+title+"&uid=private&sytle="+style);
+			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaSpread.getSignificator()+"&title="+title+"&uid=private&sytle="+style+"&tarotbottype="+tarotbottype);
 		else
-			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+0+"&title="+title+"&uid=private&style="+style);
+			httpGet = new HttpGet("http://liber.us/tarotbot/postspread.test.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+0+"&title="+title+"&uid=private&style="+style+"&tarotbottype="+tarotbottype);
 		//Toast.makeText(context, "http://liber.us/tarotbot/postspread.php?spread="+spread+"&deck="+deck+"&reversals="+reversals+"&significator="+BotaInt.getSignificator()+"&title="+title+"&uid="+tel.getDeviceId(), Toast.LENGTH_LONG).show();
 		try {
 			HttpResponse response = httpClient.execute(httpGet, localContext);

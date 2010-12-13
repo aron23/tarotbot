@@ -69,6 +69,8 @@ public class GothicCelticSpread extends GothicSpread {
 		placeImage(act.flipdex.get(2),card,ctx);
 		card.setId(2);
 		card.setOnClickListener(act);
+		if (TarotBotActivity.secondSetIndex == 2)
+			layout.findViewById(R.id.celtic_root_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.celtic_past);
 		placeImage(act.flipdex.get(3),card,ctx);

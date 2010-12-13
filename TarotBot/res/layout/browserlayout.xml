@@ -83,9 +83,9 @@
 	
 	android:layout_width="63dip"
     android:layout_height="115dip"
-    android:layout_marginLeft="224dip"
+    android:layout_marginLeft="5dip"
     android:layout_marginTop="270dip"
-    android:clickable="true"
+	android:clickable="true"
     android:scaleType="fitXY"></ImageView> 
 
 
@@ -110,7 +110,7 @@
 	
 	android:layout_width="63dip"
     android:layout_height="115dip"
-    android:layout_marginLeft="5dip"
+    android:layout_marginLeft="224dip"
     android:layout_marginTop="270dip"
     android:clickable="true"
     android:scaleType="fitXY"></ImageView>

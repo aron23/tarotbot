@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:baselineAlignBottom="true"
+  android:background="@drawable/menu_background"
+  >
+<ImageView  
+	android:id="@+id/gothicmainlogo"
+	android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:gravity="center"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:layout_gravity="center"
+    android:src="@drawable/biglogo"
+    android:scaleType="fitStart"
+    android:background="@android:color/transparent"
+    android:adjustViewBounds="true"
+     /> 
+<ToggleButton android:id="@+id/reversal_button"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:typeface="serif"
+    android:textSize="15sp"
+    android:textStyle="bold"
+    android:textColor="@color/menu_colors"
+	android:paddingBottom="10dp"	
+  	android:background="@drawable/reversal_selector"
+    android:textOn="REVERSE CARDS [YES]"
+    android:textOff="REVERSE CARDS [NO]"
+   	android:layout_below="@id/gothicmainlogo"
+   />
+<ListView 
+	android:id="@+id/spreadmenulist" 
+	android:layout_below="@id/reversal_button"
+	android:layout_alignParentBottom="true"
+	android:layout_width="wrap_content" 
+    android:layout_height="fill_parent"
+    android:layout_centerHorizontal="true"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:dividerHeight=".25px"
+	android:headerDividersEnabled="true"
+	android:footerDividersEnabled="false"
+	android:divider="#660000"
+	android:drawSelectorOnTop="false"		
+	android:listSelector="@android:color/transparent">
+</ListView> 
+</RelativeLayout>

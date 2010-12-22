@@ -24,6 +24,7 @@ public class BrowseSpread extends Spread {
 		super(in);
 		myNum = 78;
 		myLabels = new String[78];
+		browsing = true;
 	}
 	
 	@Override

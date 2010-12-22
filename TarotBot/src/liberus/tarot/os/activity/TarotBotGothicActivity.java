@@ -244,7 +244,7 @@ public class TarotBotGothicActivity extends AbstractTarotBotActivity  {
 				navigator = null;				
 			}
 			if (browsing) {
-				if (Interpretation.getCardIndex(v.getId()) > 0)
+				if (Interpretation.getCardIndex(v.getId()) >= 0)
 					secondSetIndex = Interpretation.getCardIndex(v.getId());
 				else
 					secondSetIndex = GothicSpread.working.size();
@@ -706,7 +706,7 @@ public class TarotBotGothicActivity extends AbstractTarotBotActivity  {
 				alert.show();
 				return true;
 				
-			} else if (state.equals("spreadmenu") || state.equals("loaded") || state.equals("single") || (state.equals("navigate") && browsing)) {
+			} else if (state.equals("spreadmenu") || (state.equals("loaded") &! browsing) || state.equals("single") || (state.equals("navigate") && browsing)) {
 				spreading=false;
 				//spread=false;
 				begun = false;
@@ -719,6 +719,9 @@ public class TarotBotGothicActivity extends AbstractTarotBotActivity  {
 		    	type = new ArrayList<Integer>();
 				flipdex = new ArrayList<Integer>();
 				reInit();
+				return true;
+			} else if (browsing) {
+				navigate();
 				return true;
 			} else if (state.equals("secondmenu") || state.equals("navigate")) {
 				state = priorstate;

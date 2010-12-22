@@ -14,6 +14,8 @@ import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
+import liberus.utils.MyProgressDialog;
+import liberus.utils.TarotBotManager;
 import liberus.utils.WebUtils;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -27,6 +29,8 @@ import android.widget.ImageView;
 
 public abstract class Spread {
 	
+	private static final int HIGHRES = 32;
+	private static final int MIDRES = 32;
 	public Deck myDeck;
 	protected static Interpretation myInt; 
 	public String[] myLabels;
@@ -42,6 +46,7 @@ public abstract class Spread {
 	public abstract int getLayout();
 	
 	public View navigate(View layout, AbstractTarotBotActivity act,Context ctx) {
+		
 		return populateSpread(layout,act,ctx);
 	}
 	
@@ -221,12 +226,17 @@ public abstract class Spread {
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
 		if (browsing)
-			if (((con.getResources().getConfiguration().screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE))
-				options.inSampleSize = 4;
-			else
+			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
 				options.inSampleSize = 2;
-		if (bmp == null) {			
-	       	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+//			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
+//				options.inSampleSize = 3;
+//			else
+//				options.inSampleSize = 4;
+		if (bmp == null) {	
+			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
+				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+			else
+				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCardThumb(index),options);
 	    }		    
 		int w = bmp.getWidth();
         int h = bmp.getHeight();
@@ -256,7 +266,12 @@ public abstract class Spread {
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
 		if (browsing)
-			options.inSampleSize = 3;	
+			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
+				options.inSampleSize = 2;
+			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
+				options.inSampleSize = 3;
+			else
+				options.inSampleSize = 4;
 	    if (bmp == null) {			
 	       	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
 	    }
@@ -297,6 +312,11 @@ public abstract class Spread {
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
 		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
+		if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
+			options.inSampleSize = 2;
+		else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
+			options.inSampleSize = 3;
+		else
 			options.inSampleSize = 4;
 		
 		

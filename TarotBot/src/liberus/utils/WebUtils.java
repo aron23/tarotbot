@@ -28,6 +28,8 @@ import org.apache.http.protocol.HttpContext;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -35,11 +37,19 @@ import android.util.Log;
 
 public class WebUtils {
 
+	public static boolean checkWiFi(Context act) {
+		ConnectivityManager myConn = (ConnectivityManager) act.getSystemService(act.CONNECTIVITY_SERVICE);
+		NetworkInfo ni = myConn.getActiveNetworkInfo();
+		if (ni != null && ni.getState().equals(NetworkInfo.State.CONNECTED) && ni.getTypeName().equals("WIFI"))
+			return true;
+		return false;
+	}
+	
+	
 	public static void Download(String Url, String destination, Context con, ProgressDialog pd)
 	 {		
 		Configuration conf =con.getResources().getConfiguration();
-		 if ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_LARGE)
-			 return;
+		 
 	  String filepath=null;
 	  try {
 	   //set the download URL, a url that points to a file on the internet
@@ -91,7 +101,7 @@ public class WebUtils {
 	    fileOutput.write(buffer, 0, bufferLength);
 	    //add up the size so we know how much is downloaded
 	    downloadedSize += bufferLength;
-	    pd.setProgress((int)(100*((double)downloadedSize/(double)totalSize)));
+	    //pd.setProgress((int)(100*((double)downloadedSize/(double)totalSize)));
 	    
 	    
 	    
@@ -113,7 +123,7 @@ public class WebUtils {
 	   e.printStackTrace();
 	  }
 	  System.err.println(" "+filepath) ;
-
+	  //pd.dismiss();
 	 }
 	public static String saveTarotBot(String spread, String deck, String reversals, String title, String style, Context context, String tarotbottype) {
 		HttpClient httpClient = new DefaultHttpClient();

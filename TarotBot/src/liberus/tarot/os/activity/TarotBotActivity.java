@@ -22,6 +22,8 @@ import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
+
+import liberus.tarot.os.activity.AbstractTarotBotActivity.MyGestureDetector;
 import liberus.tarot.querant.Querant;
 
 import liberus.tarot.spread.ArrowSpread;
@@ -33,11 +35,13 @@ import liberus.tarot.spread.DialecticSpread;
 import liberus.tarot.spread.PentagramSpread;
 import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
+
 import liberus.utils.EfficientAdapter;
 import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -96,24 +100,46 @@ import android.widget.ViewSwitcher;
 
 public class TarotBotActivity extends AbstractTarotBotActivity  {
 
-
-
-
 	private Dialog helper;
+	private boolean leavespread;
 	
 	/** Called when the activity is first created. */
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		tarotbottype = "liberus.tarot.os.activity";
-		int in = 5;
-		
+
 		setFullscreen();
+		setContentView(R.layout.mainmenu);
+
+//		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//	    new Thread(new Runnable(){
+//			public void run(){
+//				Looper.prepare();
+//			    builder.setView(inflater.inflate(R.layout.splash,null));
+//			    splashDialog = builder.create();
+//			    splashDialog.show();
+//			    
+//				try {
+//					Thread.sleep(5000);
+//				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//		}).start();
+	    		
+		
 		
 		inflater = LayoutInflater.from(this);
+	    // thread for displaying the SplashScreen
+	    //Thread splashTread = new Thread(this);
+	    //
+		hireszipsize = 15775783;
+		tarotbottype = "liberus.tarot.android";
+
+		inflater = LayoutInflater.from(this);
 		state = "mainmenu";
-		setContentView(R.layout.mainmenu);
+		
 		initText();	
 		myMenuList = (ListView) this.findViewById(R.id.menulist);
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
@@ -124,15 +150,19 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		readingPrefsEd = readingPrefs.edit();
 		gestureDetector = new GestureDetector(new MyGestureDetector());
 		gestureListener = getGestureListener(gestureDetector);
-		initSaved("tarotbot");		
+		initSaved("tarotbot");
+		new Thread(new Runnable(){
+			public void run(){				
+				initHighRes();
+			}
+		},"downloading").start();
 	}
-	
 	
 	protected void launchBrowse() {
 		state = "loaded";
 		
 		spreading=false;
-		
+		//spread=true;
 		secondSetIndex = 0;
 
 		begun = true;
@@ -155,7 +185,9 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		type = new ArrayList<Integer>();
 		flipdex = new ArrayList<Integer>();
 		beginSecondStage();
+		
 	}
+
 
 	
 
@@ -173,7 +205,6 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		timeArrow = res.getStringArray(R.array.timeArrow);
 		dialectic = res.getStringArray(R.array.dialectic);
 		chaosStar = res.getStringArray(R.array.chaosStar);
-		pentagram = res.getStringArray(R.array.pentagram);
 		celticCross = res.getStringArray(R.array.celticCross);
 	}
 
@@ -182,41 +213,18 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
 	  if (spreading) {
-		  reInitSpread(R.layout.spreadmenu);
-		  
+		  reInitSpread(R.layout.spreadmenu);		  
 	  } else if (!begun && !browsing) {
 		  reInit();
-	  } else {
-		  rotateDisplay();  
+	  } else if (!state.equals("navigate")) {
+		  rotateDisplay();
 	  }
 	}
 
-
+	
+	
+	
 	protected void changeQuerant() {
-
-					
-			if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_sm))) {
-				male = true;
-				partnered=false;
-			} else if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_pf))) {
-				male=false;
-				partnered = true;    	
-			} else if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_pm))) {
-				male = true;
-				partnered = true;
-			} else {
-				male = false;
-				partnered = false;
-			}
-
-		//Toast.makeText(this, dp.getMonth(), Toast.LENGTH_SHORT).show();
-		aq = new Querant(male,partnered,new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth()));
-		SharedPreferences.Editor ed = querantPrefs.edit();
-		ed.putInt("birthyear", aq.birth.get(Calendar.YEAR));
-		ed.putInt("birthmonth", aq.birth.get(Calendar.MONTH));
-		ed.putInt("birthday", aq.birth.get(Calendar.DAY_OF_MONTH));
-		ed.putInt("querantstatus", statusspin.getSelectedItemPosition());		
-		ed.commit();
 	}
 	
 	protected void showInfo(int type) {
@@ -254,27 +262,8 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	
 	
 	public void onClick(View v) {	
-		if (v.equals(this.findViewById(R.id.initbotabutton))) {
-			state = "new reading";
-			begun = true;
-            browsing = false;
-            changeQuerant();
-            myInt = new BotaInt(new RiderWaiteDeck(), aq);
-            mySpread = new BotaSpread(myInt);
-            beginSecondStage();     
-		} else if (v.equals(this.findViewById(R.id.menulist))) {
-			showing = inflater.inflate(R.layout.spreadmenu, null);
-			ListView spreadlist = (ListView) showing.findViewById(R.id.spreadmenulist);		
-			spreadlist.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
-			spreadlist.setOnItemSelectedListener(this);
-			
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		if (v.equals(this.findViewById(R.id.menulist))) {
 
-			builder.setView(showing);
-			
-			Dialog interpretor = new Dialog(this,android.R.style.Theme);
-			interpretor.setContentView(showing);
-			interpretor.show();
 			
 		} else if (v.equals(this.findViewById(R.id.reversal_button))) {
 			if (!init) {
@@ -287,20 +276,23 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 				navigator = null;				
 			}
 			if (browsing) {
-				if (Interpretation.getCardIndex(v.getId()) > 0)
+				if (Interpretation.getCardIndex(v.getId()) >= 0)
 					secondSetIndex = Interpretation.getCardIndex(v.getId());
 				else
 					secondSetIndex = Spread.working.size();
+				state = "loaded";
+				priorstate = "";
+				displaySecondStage(secondSetIndex);
 			} else {
 //				if (v.getId() == 0)
-//					secondSetIndex = Spread.working.size()-1;
+//					secondSetIndex = GothicSpread.working.size()-1;
 //				else
 					secondSetIndex = v.getId();
-					
+					state = priorstate;
+					priorstate = "";
+					displaySecondStage(secondSetIndex);
 			}
-			state = "new reading";
-			priorstate = "";
-			displaySecondStage(secondSetIndex);
+			
 			
 		}
 			//incrementSecondSet(secondSetIndex);
@@ -309,163 +301,97 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	public void onClick(DialogInterface dialog, int which) {
 		
 		if (dialog instanceof AlertDialog) {
-				switch (which) {
-				case -1: { 															
-					saveTitle = input.getText().toString();
-					//saveTitle = saveTitle.replaceAll("\\s+", "+"); 
-					HashMap<String,String> read = new HashMap<String,String>();
-				    read.put("spread", spreadToString());
-				    read.put("deck", deckToString());
-				    read.put("reversals", reversalsToString());
-				    read.put("label", saveTitle);
-				    read.put("type", style);
-				    if (style.equals("bota"))
-				    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
-				    else
-				    	read.put("significator", String.valueOf(0));
-//				    if (saved.length > 5)
-//				    	read.put("date", saved[5]);
-//				    else
-				    Calendar cal = Calendar.getInstance();
-				    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
-				    read.put("date", sdf.format(cal.getTime()));
-				    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
-				    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
-				    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
-					
-					try {
-						Environment.getExternalStorageState();
-					    File root = Environment.getExternalStorageDirectory();
-					    
-					    //if (root.canWrite()){
-					        File gpxfile = new File(root, "tarotbot.gothic.store");
-					        FileWriter gpxwriter = new FileWriter(gpxfile);
-					        BufferedWriter out = new BufferedWriter(gpxwriter);
-					        for (String reader: savedList) {
-					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
-					        }
-					        
-					        out.close();
-					    //}
-					} catch (IOException e) {
-					    //Log.e(TAG, "Could not write file " + e.getMessage());
-					}
-					break; 
+			switch (which) {
+			case -1: { 															
+				saveTitle = input.getText().toString();
+				//saveTitle = saveTitle.replaceAll("\\s+", "+"); 
+				HashMap<String,String> read = new HashMap<String,String>();
+			    read.put("spread", spreadToString());
+			    read.put("deck", deckToString());
+			    read.put("reversals", reversalsToString());
+			    read.put("label", saveTitle);
+			    read.put("type", style);
+			    if (style.equals("bota"))
+			    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
+			    else
+			    	read.put("significator", String.valueOf(0));
+	//		    if (saved.length > 5)
+	//		    	read.put("date", saved[5]);
+	//		    else
+			    Calendar cal = Calendar.getInstance();
+			    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
+			    read.put("date", sdf.format(cal.getTime()));
+			    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
+			    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
+			    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
+				
+				try {
+					Environment.getExternalStorageState();
+				    File root = Environment.getExternalStorageDirectory();
+				    
+				    //if (root.canWrite()){
+				        File gpxfile = new File(root, "tarotbot.store");
+				        FileWriter gpxwriter = new FileWriter(gpxfile);
+				        BufferedWriter out = new BufferedWriter(gpxwriter);
+				        for (String reader: savedList) {
+				        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
+				        }
+				        
+				        out.close();
+				    //}
+				} catch (IOException e) {
+				    //Log.e(TAG, "Could not write file " + e.getMessage());
 				}
-				case -2: { 
-					//saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
-					
-					HashMap<String,String> read = new HashMap<String,String>();
-				    read.put("spread", spreadToString());
-				    read.put("deck", deckToString());
-				    read.put("reversals", reversalsToString());
-				    read.put("label", saveTitle);
-				    read.put("type", style);
-				    Calendar cal = Calendar.getInstance();
-				    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
-				    read.put("date", sdf.format(cal.getTime()));
-				    if (style.equals("bota"))
-				    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
-				    else
-				    	read.put("significator", String.valueOf(0));
-				    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
-				    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
-				    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
-					
-					try {
-						Environment.getExternalStorageState();
-					    File root = Environment.getExternalStorageDirectory();
-					    
-					    //if (root.canWrite()){
-					        File gpxfile = new File(root, "tarotbot.gothic.store");
-					        FileWriter gpxwriter = new FileWriter(gpxfile);
-					        BufferedWriter out = new BufferedWriter(gpxwriter);
-					        for (String reader: savedList) {
-					        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
-					        }
-					        
-					        out.close();
-					    //}
-					} catch (IOException e) {
-					    //Log.e(TAG, "Could not write file " + e.getMessage());
-					}
-					break; 
+				break; 
+			}
+			case -2: { 
+				//saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext());
+				
+				HashMap<String,String> read = new HashMap<String,String>();
+			    read.put("spread", spreadToString());
+			    read.put("deck", deckToString());
+			    read.put("reversals", reversalsToString());
+			    read.put("label", saveTitle);
+			    read.put("type", style);
+			    Calendar cal = Calendar.getInstance();
+			    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.hh:mm");
+			    read.put("date", sdf.format(cal.getTime()));
+			    if (style.equals("bota"))
+			    	read.put("significator", String.valueOf(BotaSpread.getSignificator()));
+			    else
+			    	read.put("significator", String.valueOf(0));
+			    savedReadings.put(read.get("date")+read.get("spread")+read.get("deck"),read);
+			    if (!savedList.contains(read.get("date")+read.get("spread")+read.get("deck")))
+			    	savedList.add(read.get("date")+read.get("spread")+read.get("deck"));
+				
+				try {
+					Environment.getExternalStorageState();
+				    File root = Environment.getExternalStorageDirectory();
+				    
+				    //if (root.canWrite()){
+				        File gpxfile = new File(root, "tarotbot.store");
+				        FileWriter gpxwriter = new FileWriter(gpxfile);
+				        BufferedWriter out = new BufferedWriter(gpxwriter);
+				        for (String reader: savedList) {
+				        	out.write(savedReadings.get(reader).get("spread")+":::"+savedReadings.get(reader).get("deck")+":::"+savedReadings.get(reader).get("reversals")+":::"+savedReadings.get(reader).get("label")+":::"+savedReadings.get(reader).get("type")+":::"+savedReadings.get(reader).get("date")+":::"+savedReadings.get(reader).get("significator")+"\n");
+				        }
+				        
+				        out.close();
+				    //}
+				} catch (IOException e) {
+				    //Log.e(TAG, "Could not write file " + e.getMessage());
 				}
-				default: {
-					
-						Spread.circles = new ArrayList<Integer>();
-						Spread.working = new ArrayList<Integer>();
-						flipdex = new ArrayList<Integer>();
-						//ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
-						ArrayList<String[]> deck = new ArrayList<String[]>();
-				    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-				    	ArrayList<Integer> working = new ArrayList<Integer>();
-				    	int significator = Integer.valueOf(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("significator"));
-				    	int count = 0;
-				    	String[] reversed = savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("reversals").split(",");
-				    	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("spread").split(",")));
-				    	for(String card: savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("deck").split(",")) {
-				    		String rev = "0";
-				    		String spr = "0";
-				    		if (reversed[count].equals("R")) {
-				    			reversals.add(true);
-				    			rev = "1";
-				    		} else
-				    			reversals.add(false);
-				    		
-				    		if (spreaded.contains(card)) {
-				    			spr = "1";
-				    			working.add(Integer.valueOf(card)-100);
-				    		}
-				    		
-				    		
-				    			
-				    		
-				    		deck.add(new String[] {card,String.valueOf(count+1),rev,spr});
-				    		count++;
-				    	}
-				    	loaded=true;
-				    	state = "loaded";
-				    	//Interpretation.myDeck = ;	
-				    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
-				    	Spread.working = working;
-				    	BotaInt.loaded = true;
-				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("bota")) {
-				    		BotaInt.setMyQuerant(new Querant(significator));
-				    		mySpread = new BotaSpread(myInt);				    		
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("celtic")) {
-				    		mySpread = new CelticSpread(myInt,celticCross);
-				    		spreadLabels = celticCross;
-				    		Spread.circles = Spread.working;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("chaos")) {
-				    		Spread.circles = Spread.working;
-				    		mySpread = new ChaosSpread(myInt,chaosStar);
-				    		spreadLabels = chaosStar;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("single")) {
-				    		mySpread = new SeqSpread(myInt,single);
-				    		Spread.circles = Spread.working;
-				    		spreadLabels = single;
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arrow")) {
-				    		mySpread = new ArrowSpread(myInt,timeArrow);
-				    		spreadLabels = timeArrow;
-				    		Spread.circles = Spread.working;				    		
-				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("dialectic")) {
-				    		Spread.circles = Spread.working;
-				    		spreadLabels = dialectic;
-				    		mySpread = new DialecticSpread(myInt,dialectic);
-				    	}
-				    	spreading=false;
-						begun = true;
-						browsing = false;
-				    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
-				    	beginSecondStage();
-				    	break;
-					}
-				}
+				break; 
+			}
+		}
+	
+		
+	
+
 			
 				
 				if (sharing) {
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext(),tarotbottype);
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),input.getEditableText().toString(),style,getApplicationContext(),tarotbottype);
 					String url = WebUtils.bitly(saveResult);
 					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}
@@ -475,7 +401,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 
 	public void onItemSelected(AdapterView<?> adapter, View list, int arg2,
 			long arg3) {
-		changeQuerant();
+		
 
 	}
 
@@ -486,7 +412,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 
 	public void onDateChanged(DatePicker view, int year, int monthOfYear,
 			int dayOfMonth) {
-		changeQuerant();
+		
 
 	}
 	public void onItemClick(AdapterView<?> adapter, View list, int index, long arg3) {
@@ -499,11 +425,11 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 					spreadLabels = single;
 					style = "single";
 					spreading=false;
-					
+					//spread=true;
 					secondSetIndex = 0;
 					state = "single";
 					begun = true;
-					browsing = false;
+					browsing = true;
 					myInt = new BotaInt(new RiderWaiteDeck(), aq);
 					Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
 					Deck.cards = shuffled;
@@ -514,24 +440,15 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 			    		reversals.add(false);
 			    	}
 			    	
-			    	Interpretation.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
+			    	//Interpretation.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
+			    	
 					beginSecondStage();
 					break;				
 				case 1:					
 					launchBrowse();
 			        return;
 			    case 2:	
-			    	state = "spreadmenu";
-					setContentView(R.layout.spreadmenu);
-					
-					myMenuList = (ListView) this.findViewById(R.id.spreadmenulist);
-					myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
-					myMenuList.setOnItemClickListener(this);
-					myMenuList.setTag("spreadmenu");
-					reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
-					reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
-					reverseToggle.setClickable(true);
-					reverseToggle.setOnClickListener(this);
+			    	initSpreadMenu();
 					return;			    	
 			    case 3:
 					displaySaved();
@@ -568,11 +485,127 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 					helper.setTitle("About the App");
 					helper.setContentView(showing);
 					helper.show();
-					break;		
+					break;				
 				}			
 			
 
-		} else if (adapter.getTag().equals("loadmenu")) {//.getContentDescription().equals("querant")
+		} else if (adapter.getTag().equals("secondmenu")) {//.getContentDescription().equals("querant")
+			Dialog helper = new Dialog(this,android.R.style.Theme);
+			switch (index) {
+				case 0:					
+					navigate();
+			        return;
+				case 1:
+			        save(false);
+			        return;
+			    case 2:
+			    	save(true);			     
+			        return;				
+			    case 3:	
+			    	reInitSpread(R.layout.spreadmenu);								
+					return;			    	
+			    case 4: 
+			    	showing = inflater.inflate(R.layout.interpretation, null);
+					infotext = (TextView) showing.findViewById(R.id.interpretation);		
+					infotext.setText(Html.fromHtml(getString(R.string.about_tarot)));
+					Linkify.addLinks(infotext, Linkify.ALL);
+					infotext.setLinksClickable(true);
+					infotext.setMovementMethod(LinkMovementMethod.getInstance());
+					helper.setTitle("About the Tarot");
+					helper.setContentView(showing);
+					helper.show();
+					break;
+			    case 5: 	 
+					showing = inflater.inflate(R.layout.interpretation, null);
+					infotext = (TextView) showing.findViewById(R.id.interpretation);		
+					infotext.setText(Html.fromHtml(getString(R.string.about_artist)));
+					Linkify.addLinks(infotext, Linkify.ALL);
+					infotext.setLinksClickable(true);
+					infotext.setMovementMethod(LinkMovementMethod.getInstance());
+					helper.setTitle("About the Artist");
+					helper.setContentView(showing);
+					helper.show();
+					break;
+			    case 6:
+			    	showing = inflater.inflate(R.layout.interpretation, null);
+					infotext = (TextView) showing.findViewById(R.id.interpretation);		
+					infotext.setText(Html.fromHtml(getString(R.string.about_app)+getString(R.string.market_link)+getString(R.string.other_apps)));
+					Linkify.addLinks(infotext, Linkify.ALL);
+					infotext.setLinksClickable(true);
+					infotext.setMovementMethod(LinkMovementMethod.getInstance());
+					helper.setTitle("About the App");
+					helper.setContentView(showing);
+					helper.show();
+					break;
+				}
+			
+			
+
+		} else if (adapter.getTag().equals("spreadmenu")) {//.getContentDescription().equals("querant")			
+			readingPrefsEd.putInt("spread", adapter.getSelectedItemPosition());
+			readingPrefsEd.commit();
+			switch (index) {
+			case 0: {
+				//seqSpread();
+				spreadLabels = timeArrow;
+				style = "arrow";
+				break;
+			}
+			case 1: {
+				//seqSpread();
+				spreadLabels = dialectic;
+				style = "dialectic";
+				break;
+			}			
+			case 2: {
+				//seqSpread();
+				spreadLabels = pentagram;
+				style = "pentagram";
+				break;
+			}	
+			case 3: {
+				//seqSpread();
+				spreadLabels = chaosStar;
+				style = "chaos";
+				break;
+			}
+			case 4: {
+				//seqSpread();
+				spreadLabels = celticCross;
+				style = "celtic";
+				break;
+			}
+			case 5: {
+				botaSpread();		
+				style = "bota";
+				spreading=false;
+				return;
+			}	
+			}
+				spreading=false;
+				//spread=true;
+				secondSetIndex = 0;
+				state = "new reading";
+				begun = true;
+				browsing = false;
+				myInt = new BotaInt(new RiderWaiteDeck(), aq);
+				Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
+				Deck.cards = shuffled;
+				if (style.equals("arrow"))
+					mySpread = new ArrowSpread(myInt,timeArrow);
+				else if (style.equals("dialectic"))
+					mySpread = new DialecticSpread(myInt,dialectic);
+				else if (style.equals("pentagram"))
+					mySpread = new PentagramSpread(myInt,pentagram);
+				else if (style.equals("chaos"))
+					mySpread = new ChaosSpread(myInt,chaosStar);
+				else if (style.equals("celtic"))
+					mySpread = new CelticSpread(myInt,celticCross);
+				else
+					mySpread = new SeqSpread(myInt,spreadLabels);
+				loaded = false;
+				beginSecondStage();
+		} else if (adapter.getTag().equals("loadmenu")) {//.getContentDescription().equals("querant") {
 			Spread.circles = new ArrayList<Integer>();
 			Spread.working = new ArrayList<Integer>();
 			flipdex = new ArrayList<Integer>();
@@ -638,154 +671,37 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	    		spreadLabels = dialectic;
 	    		mySpread = new DialecticSpread(myInt,dialectic);
 	    	}
+	    	
 	    	spreading=false;
 			begun = true;
 			browsing = false;
 	    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
 	    	beginSecondStage();
-	    	
-			
-
-		}  else if (adapter.getTag().equals("secondmenu")) {//.getContentDescription().equals("querant")
-			Dialog helper = new Dialog(this,android.R.style.Theme);
-			switch (index) {
-				case 0:					
-					navigate();
-			        return;
-				case 1:
-			        save(false);
-			        return;
-			    case 2:
-			    	save(true);			     
-			        return;				
-			    case 3:	
-			    	spreading=false;
-					
-					begun = false;
-					browsing = false;
-					loaded=false;
-			    	BotaInt.loaded = false;
-			    	Spread.circles = new ArrayList<Integer>();
-					Spread.working = new ArrayList<Integer>();
-					myInt = new BotaInt(new RiderWaiteDeck(), aq);
-			    	type = new ArrayList<Integer>();
-					flipdex = new ArrayList<Integer>();
-					
-			    	state = "spreadmenu";
-					setContentView(R.layout.spreadmenu);
-					
-					myMenuList = (ListView) this.findViewById(R.id.spreadmenulist);
-					myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
-					myMenuList.setOnItemClickListener(this);
-					myMenuList.setTag("spreadmenu");	
-					reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
-					reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
-					reverseToggle.setClickable(true);
-					reverseToggle.setOnClickListener(this);
-					return;			    	
-			    case 4: 
-			    	showing = inflater.inflate(R.layout.interpretation, null);
-					infotext = (TextView) showing.findViewById(R.id.interpretation);		
-					infotext.setText(Html.fromHtml(getString(R.string.about_tarot)));
-					Linkify.addLinks(infotext, Linkify.ALL);
-					infotext.setLinksClickable(true);
-					infotext.setMovementMethod(LinkMovementMethod.getInstance());
-					helper.setTitle("About the Tarot");
-					helper.setContentView(showing);
-					helper.show();
-					break;
-			    case 5: 	 
-					showing = inflater.inflate(R.layout.interpretation, null);
-					infotext = (TextView) showing.findViewById(R.id.interpretation);		
-					infotext.setText(Html.fromHtml(getString(R.string.about_artist)));
-					Linkify.addLinks(infotext, Linkify.ALL);
-					infotext.setLinksClickable(true);
-					infotext.setMovementMethod(LinkMovementMethod.getInstance());
-					helper.setTitle("About the Artist");
-					helper.setContentView(showing);
-					helper.show();
-					break;
-			    case 6:
-			    	showing = inflater.inflate(R.layout.interpretation, null);
-					infotext = (TextView) showing.findViewById(R.id.interpretation);		
-					infotext.setText(Html.fromHtml(getString(R.string.about_app)+getString(R.string.market_link)+getString(R.string.other_apps)));
-					Linkify.addLinks(infotext, Linkify.ALL);
-					infotext.setLinksClickable(true);
-					infotext.setMovementMethod(LinkMovementMethod.getInstance());
-					helper.setTitle("About the App");
-					helper.setContentView(showing);
-					helper.show();
-					break;
-				}
-			
-			
-
-		} else if (adapter.getTag().equals("spreadmenu")) {//.getContentDescription().equals("querant")			
-			readingPrefsEd.putInt("spread", adapter.getSelectedItemPosition());
-			readingPrefsEd.commit();
-			switch (index) {											
-				case 0: {
-					//seqSpread();
-					spreadLabels = timeArrow;
-					style = "arrow";
-					break;
-				}
-				case 1: {
-					//seqSpread();
-					spreadLabels = dialectic;
-					style = "dialectic";
-					break;
-				}			
-				case 2: {
-					//seqSpread();
-					spreadLabels = pentagram;
-					style = "pentagram";
-					break;
-				}	
-				case 3: {
-					//seqSpread();
-					spreadLabels = chaosStar;
-					style = "chaos";
-					break;
-				}
-				case 4: {
-					//seqSpread();
-					spreadLabels = celticCross;
-					style = "celtic";
-					break;
-				}
-				case 5: {
-					botaSpread();		
-					style = "bota";
-					spreading=false;
-					return;
-				}
-			}
-				spreading=false;
-				
-				secondSetIndex = 0;
-				state = "new reading";
-				begun = true;
-				browsing = false;
-				myInt = new BotaInt(new RiderWaiteDeck(), aq);
-				Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
-				Deck.cards = shuffled;
-				if (style.equals("arrow"))
-					mySpread = new ArrowSpread(myInt,timeArrow);
-				else if (style.equals("dialectic"))
-					mySpread = new DialecticSpread(myInt,dialectic);
-				else if (style.equals("pentagram"))
-					mySpread = new PentagramSpread(myInt,pentagram);
-				else if (style.equals("chaos"))
-					mySpread = new ChaosSpread(myInt,chaosStar);
-				else if (style.equals("celtic"))
-					mySpread = new CelticSpread(myInt,celticCross);
-				else
-					mySpread = new SeqSpread(myInt,spreadLabels);
-				loaded = false;
-				beginSecondStage();
 		}
 	}
+	private void initSpreadMenu() {
+		begun = false;
+		browsing = false;
+		loaded = false;
+		Spread.circles = new ArrayList<Integer>();
+		Spread.working = new ArrayList<Integer>();
+		myInt = new BotaInt(new RiderWaiteDeck(), aq);
+		state = "spreadmenu";		
+		
+		setContentView(R.layout.spreadmenu);
+		myMenuList = (ListView) this.findViewById(R.id.spreadmenulist);
+		myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
+		myMenuList.setOnItemClickListener(this);
+		myMenuList.setTag("spreadmenu");
+		reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
+		reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
+		reverseToggle.setClickable(true);
+		reverseToggle.setOnClickListener(this);
+	}
+
+
+
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -793,7 +709,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 				finish();
 				return true;
 			} else if (state.equals("dialog")) {
-				if (priorstate.equals("secondmenu")) {
+				if (priorstate.equals("secondmenu") || priorstate.equals("new reading")) {
 					state = "new reading";
 					priorstate = "";
 					displaySecondStage(secondSetIndex);
@@ -801,18 +717,36 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 				} else {
 					state = "mainmenu";
 					spreading=false;
-				
+					//spread=false;
 					reInit();
 					return true;
 				}
-			} else if (state.equals("new reading")) {
-				spreading=true;
-				
-				reInitSpread(R.layout.spreadmenu);
+			} else if (state.equals("new reading") &! browsing) {
+				leavespread = true;
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setMessage("Are you sure you want to leave your reading?")
+				       .setCancelable(false)
+				       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				        	   spreading=true;
+								//spread=false;
+								reInitSpread(R.layout.spreadmenu);
+								
+				           }
+				       })
+				       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				        	   TarotBotActivity.this.leavespread = false; 
+				        	   dialog.cancel();
+				           }
+				       });
+				AlertDialog alert = builder.create();
+				alert.show();
 				return true;
-			} else if (state.equals("spreadmenu") || state.equals("loaded") || state.equals("single")) {
-				spreading=false;
 				
+			} else if (state.equals("spreadmenu") || state.equals("loaded") || state.equals("single") || (state.equals("navigate") && browsing)) {
+				spreading=false;
+				//spread=false;
 				begun = false;
 				browsing = false;
 				loaded=false;
@@ -824,23 +758,24 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 				flipdex = new ArrayList<Integer>();
 				reInit();
 				return true;
-			} else if (state.equals("secondmenu")) {
+			} else if (browsing) {
+				navigate();
+				return true;
+			} else if (state.equals("secondmenu") || state.equals("navigate")) {
 				state = priorstate;
 				displaySecondStage(secondSetIndex);
 				return true;
 			} else {
 				return true;
 			}
-		} else if (keyCode == KeyEvent.KEYCODE_MENU) {	
-			if (state.equals("secondmenu")||state.equals("mainmenu"))
-				return true;
+		} else if (keyCode == KeyEvent.KEYCODE_MENU) {			
 			priorstate = state;
 			state = "secondmenu";
 			setContentView(R.layout.mainmenu);
 			initText();	
 			myMenuList = (ListView) this.findViewById(R.id.menulist);
 			myMenuList.setOnItemClickListener(this);
-			if (priorstate.equals("new reading")) {
+			if ((priorstate.equals("new reading") || priorstate.equals("navigate")) &!browsing) {
 				myMenuList.setAdapter(new EfficientAdapter(this,inflater,secondmenu,R.layout.listitem));			
 				myMenuList.setTag("secondmenu");
 			} else {
@@ -861,6 +796,32 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
 		myMenuList.setOnItemClickListener(this);
 		myMenuList.setTag("mainmenu");
+	}
+	@Override
+	protected void displaySaved() {				
+		browsing = false;
+		//savedReadings = WebUtils.loadTarotBot(getApplicationContext());			
+		ArrayList<String> readingLabels = new ArrayList<String>();
+		sortedSaved = new ArrayList<String>(savedList);
+		Collections.sort(sortedSaved);
+		Collections.reverse(sortedSaved);
+		for (String reader: sortedSaved) {
+			HashMap<String,String> reading = savedReadings.get(reader);
+			if (reading.get("label").length() > 0)
+				readingLabels.add(reading.get("date")+": "+reading.get("label")+" - "+reading.get("type"));
+			else
+				readingLabels.add(reading.get("date")+": "+reading.get("type"));
+		}
+		String[] items = readingLabels.toArray(new String[0]);
+		
+		state = "spreadmenu";
+		setContentView(R.layout.mainmenu);
+		
+		myMenuList = (ListView) this.findViewById(R.id.menulist);
+		myMenuList.setAdapter(new EfficientAdapter(this,inflater,items,R.layout.load_listitem));
+		myMenuList.setOnItemClickListener(this);
+		myMenuList.setTag("loadmenu");
+		
 	}
 
 }

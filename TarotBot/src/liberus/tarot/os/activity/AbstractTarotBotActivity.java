@@ -35,6 +35,8 @@ import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
 import liberus.tarot.spread.gothic.GothicSpread;
 import liberus.utils.EfficientAdapter;
+import liberus.utils.MyProgressDialog;
+import liberus.utils.TarotBotManager;
 import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -54,6 +56,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Html;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -96,7 +100,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	//protected DatePicker dp;
 	protected Spinner statusspin;
 	protected Button initbutton;
-	
+	protected ProgressDialog downloadProgress;
 	protected Querant aq;
 	protected boolean male = false;
 	protected boolean partnered = false;
@@ -154,7 +158,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	
 	protected String[] celticCross;
 	
-	protected boolean spreading = true;
+	protected boolean spreading = false;
 	protected String[] spreadLabels;
 
 	protected String style = "";
@@ -182,6 +186,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected ListView myMenuList;
 	protected DatePicker dp;
 	protected String tarotbottype;
+	protected long hireszipsize = 0;
 	
 
 	abstract void reInit();
@@ -248,14 +253,30 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		}
 	}
 	
-	protected void initHighRes(ProgressDialog pd) {
+	protected void initHighRes() {
+		if (!TarotBotManager.hasEnoughMemory(32,getApplicationContext()))
+			return;
 		File d = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5("tarotbot"));
 		d.mkdir();
-		File f = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5("tarotbot")+"/"+WebUtils.md5(tarotbottype));
-		if (!f.exists())
-			WebUtils.Download("http://liber.us/tarotbot/"+tarotbottype+".zip", f.getPath(),this.getApplicationContext(),pd);			
+		final File f = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5("tarotbot")+"/"+WebUtils.md5(tarotbottype));
+		final Context c = this.getApplicationContext();
+		if ((!f.exists() || !isHighResComplete(f)) && WebUtils.checkWiFi(this.getApplicationContext())) {
+			Looper.prepare();
+			        
+			WebUtils.Download("http://liber.us/tarotbot/"+tarotbottype+".zip", f.getPath(),c,downloadProgress);			
+			
+		}
 	}
 	
+
+	
+	private boolean isHighResComplete(File f) {
+		long length = f.length();
+        if (hireszipsize  > length)
+        	return false;
+        return true;
+	}
+
 	abstract void initText();
 	
 	protected void redisplaySpreadStart() {
@@ -318,9 +339,10 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		//navigator.
 		priorstate = state;
 		state = "navigate";
-		
+		new MyProgressDialog(this);
+		MyProgressDialog.show(this,null,null,true,false,null);
 		setContentView(mySpread.navigate(inflater.inflate(mySpread.getLayout(), null), this, getApplicationContext()));
-		//navigator.show();
+		MyProgressDialog.dismissed();
 	}
 
 	protected abstract void launchBrowse();
@@ -581,7 +603,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 				spreadLabels[i]="position "+i;
 			}
 		}
-		if (!browsing)
+		if (!browsing || style.equals("single"))
 			displaySecondStage(secondSetIndex);
 		else
 			navigate();
@@ -844,11 +866,10 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		Configuration conf =con.getResources().getConfiguration();
 		Bitmap bmp = null;
 		
-		//if ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_LARGE) {
-			
+		if (TarotBotManager.hasEnoughMemory(32,getApplicationContext())) 	
 			try {
 				File toRead = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5("tarotbot")+"/"+WebUtils.md5(tarotbottype));
-	            if (toRead.exists() && ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)) {
+	            if (toRead.exists() ){//&& ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)) {
 					FileInputStream raw = new FileInputStream(toRead);
 		            ZipInputStream myZip = new ZipInputStream(raw);
 		            ZipEntry myEntry;
@@ -889,7 +910,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		    if (bmp == null) {
 	        	BitmapFactory.Options options;
 	        	options=new BitmapFactory.Options();
-			//if (browsing || Runtime.getRuntime().maxMemory() < 20165824)// && 
+			//if (browsing &! TarotBotManager.hasEnoughMemory(32, getApplicationContext()) && TarotBotManager.hasEnoughMemory(24, getApplicationContext()))// && 
 				//options.inSampleSize = 2;		
 			
 	        	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(flipdex.get(index)),options);

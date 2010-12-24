@@ -187,8 +187,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected DatePicker dp;
 	protected String tarotbottype;
 	protected long hireszipsize = 0;
-	
-
+	public abstract long getHiResZipSize();
+	public abstract String getMyType();
 	abstract void reInit();
 
 	protected void reInitSpread(int spreadlayout) {
@@ -615,49 +615,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		displaySecondStage(secondSetIndex);
 	}
 	
-	public void botaSpread() {
-		state = "new reading";
-        setContentView(R.layout.botastart);             
-        
-        querantPrefs = getSharedPreferences("tarotbot", 0);
-                        
-        sharing = false;
-        
-        statusspin = (Spinner) findViewById(R.id.statusspinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                        this, R.array.status_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        statusspin.setAdapter(adapter);
-        statusspin.setOnItemSelectedListener(this);
-        statusspin.setSelection(3);
-        statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
-        dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
 
-        Calendar today = Calendar.getInstance();
-         
-        if (querantPrefs.contains("birthyear"))
-                dp.init(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR)), querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)), querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH)), this);        
-        else
-                dp.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), this);
-
-        //changeQuerant();                
-        
-        if (canBeRestored()) {
-                myInt = new BotaInt(new RiderWaiteDeck(), aq);
-                //restoreMe();
-                restoreSecondStage();
-        } else {
-                secondSetIndex = 0;
-                laidout.add((RelativeLayout) this.findViewById(R.id.mainlayout));
-                //myRandomCard = getRandomCard();
-                //((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
-                
-
-                initbutton = (Button) this.findViewById(R.id.initbotabutton);
-                initbutton.setOnClickListener(this);
-                Toast.makeText(this, R.string.questionprompt, Toast.LENGTH_LONG).show(); 
-        }
-}
 
 	protected void displaySecondStage(int indexin) {
 		

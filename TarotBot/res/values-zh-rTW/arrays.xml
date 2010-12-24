@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="spread_array">
+	<item>單牌</item>
+	<item>時光之箭</item>
+	<item>辯證法</item>
+	<item>五角星</item>
+	<item>混沌之星</item>
+	<item>凱爾特十字</item>
+	<item>博塔</item>
+   </string-array>
+	<string-array name="status_array">
+	<item>單身女郎</item>
+	<item>單身男人</item>
+	<item>女朋友</item>
+	<item>男朋友</item>
+   </string-array>
+    <string-array name="single">
+	<item></item>
+   </string-array>
+    <string-array name="timeArrow">
+	<item>過去</item>
+	<item>現在</item>
+	<item>將來</item>
+   </string-array>
+    <string-array name="dialectic">
+	<item>論文</item>
+	<item>對立</item>
+	<item>小題</item>
+   </string-array>
+    <string-array name="pentagram">
+	<item>火：動作/活動/意誌</item>
+	<item>水：關系/情感方面</item>
+	<item>空氣：想法/沖突</item>
+	<item>地球：事業/金錢/實際問題</item>
+	<item>靈性</item>
+   </string-array>
+	<string-array name="chaosStar">
+	<item>紅色：內外沖突</item>
+	<item>橙色：精神狀態</item>
+	<item>紫色：性，激情</item>
+	<item>黃色：自我，自信心</item>
+	<item>綠色：愛，關系</item>
+	<item>藍色：財富</item>
+	<item>黑色：自我毀滅的習慣</item>
+	<item>神奇的自我</item>
+   </string-array>
+    <string-array name="celticCross">
+	<item>中心問題</item>
+	<item>反對因素</item>
+	<item>根本原因</item>
+	<item>過去</item>
+	<item>態度和信念</item>
+	<item>未來</item>
+	<item>你是你</item>
+	<item>外部環境</item>
+	<item>知道</item>
+	<item>結果</item>
+   </string-array>
+       <string-array name="main_menu">  
+    	<item>單牌</item>      
+        <item>瀏覽整副牌</item>
+        <item>請選擇</item>
+        <item>下載</item>
+        <item>什麽是塔羅牌</item>        
+        <item>塔羅牌設計師</item>
+        <item>程序介紹</item>
+    </string-array>
+    <string-array name="second_menu">        
+        <item>選擇一張牌</item>
+        <item>保存</item>
+        <item>分享</item>      
+        <item>請選擇</item>
+        <item>什麽是塔羅牌</item>        
+        <item>塔羅牌設計師</item>
+        <item>程序介紹</item>   
+    </string-array>
+</resources>

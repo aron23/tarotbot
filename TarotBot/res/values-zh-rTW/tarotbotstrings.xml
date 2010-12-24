@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<resources>
+    <string name="app_name">TarotBot</string>
+    <string name="spread_prompt">選擇牌種類</string>
+    <string name="navigate_prompt">選擇一張牌</string>
+    <string name="launch_reading">讀牌</string>
+    <string name="reversalprompt">轉牌</string>
+    <string name="portraitnavigation">輕掃手指上下滑動，豎直顯示</string>
+    <string name="landscapenavigation">手指左右滑動，橫向顯示</string>
+    <string name="load_menu">下載</string>
+    <string name="save_menu">保存</string>
+    <string name="share_menu">分享</string>
+    <string name="help_menu">幫助</string>
+    <string name="browse_menu">瀏覽整副牌</string>
+    <string name="navigate_menu">瀏覽</string>
+    <string name="loadprompt">請選擇要下載的讀牌記錄</string>
+    <string name="share_intent">分享你的讀牌結果</string>
+    <string name="share_subject">TarotBot讀牌結果</string>
+    <string name="save_label">標出你的讀牌結果</string>
+    <string name="save_label_ok">好的</string>
+    <string name="save_label_no">不用，謝謝</string>
+    <string name="reverse_cards_yes">反轉牌 [是]</string>
+    <string name="reverse_cards_no">反轉牌 [否]</string>
+</resources>

@@ -25,4 +25,6 @@
     <string name="save_label">Label Your Reading</string>
     <string name="save_label_ok">OK</string>
     <string name="save_label_no">No Thanks</string>
+    <string name="reverse_cards_yes">REVERSE CARDS [YES]</string>
+    <string name="reverse_cards_no">REVERSE CARDS [NO]</string>
 </resources>

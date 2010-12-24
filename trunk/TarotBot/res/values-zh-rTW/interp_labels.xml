@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<resources>
+    <string name="time_period_label">時間段</string>
+    <string name="astrology_label">占星術</string>
+    <string name="keyword_label">關鍵字</string>
+    <string name="element_label">元素</string>
+    <string name="archetype_label">榮格原形</string>
+    <string name="hebrew_label">希伯來語</string>
+    <string name="spiritual_matters_label">在靈性中</string>
+    <string name="material_matters_label">在物質中</string>
+    <string name="strengthened_by_label">當被周圍的卡加強的時候</string>
+    <string name="impacted_by_label">當被周圍的卡影響的時候</string>
+    <string name="related_label">相關行為</string>
+    <string name="querant_label">這張卡代表你</string>
+    <string name="personal_label">這是張對你很特別的卡</string>
+    <string name="significant_label">這是張對你很重要的卡</string>
+    <string name="general_label">一般來說</string>
+    <string name="directly_label">更加直接地</string>
+</resources>

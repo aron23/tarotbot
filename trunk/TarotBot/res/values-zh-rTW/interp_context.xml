@@ -1,0 +1,42 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<resources>
+    <string name="has_been_opposed_label">已經反對</string>
+    <string name="will_be_opposed_label">將反對</string>
+    <string name="has_been_reinforced_label">已經得到加強</string>
+    <string name="will_be_reinforced_label">將要得到加強</string>
+    <string name="reversed_label">被扭轉了此卡的能量減弱，其可能性是存在的，但目前沒有任何明示或得到有效抑制</string>
+    <string name="wand_major_label">會有很多精力花費在這個問題上，會有一些反對黨和可能的爭吵</string>
+    <string name="cup_major_label">存在情感因素;一般，親密的樂趣, 社會活動</string>
+    <string name="sword_major_label">疾病, 悲傷, 煩惱, 或者死亡</string>
+    <string name="pent_major_label">重點將放在生意，金錢或者財產上</string>
+    <string name="trump_major_label">無論善惡，有一個強大的勢力正在考慮這個問題</string>
+    <string name="court_major_label">運用他人的影響達到目的</string>
+    <string name="four_kings">與偉大的人物聚會</string>
+    <string name="three_kings">等級和榮譽</string>
+    <string name="four_queens">權威，影響，來自女人的幫助</string>
+    <string name="three_queens">強大的朋友, 或者夥伴</string>
+    <string name="four_knights">突變</string>
+    <string name="three_knights">突變，新聞，突發事件</string>
+    <string name="four_pages">新的想法或計劃, 年輕的聯營夥伴</string>
+    <string name="three_pages">年輕人的幫助,或從下級來的幫助</string>
+    <string name="four_tens">焦慮的負擔; 太多負擔</string>
+    <string name="three_tens">商業, 炒作, 買賣</string>
+    <string name="four_nines">新的責任，堅定的基礎</string>
+    <string name="three_nines">很不一致, 延誤</string>
+    <string name="four_eights">新聞, 謠言, 八卦</string>
+    <string name="three_eights">多處走動, 短途旅行</string>
+    <string name="four_sevens">失望</string>
+    <string name="three_sevens">合同, 聯盟, 夥伴關系</string>
+    <string name="four_sixes">樂趣,控制</string>
+    <string name="three_sixes">成功, 獲利，力量權衡</string>
+    <string name="four_fives">神奇的魔力，不尋常的力量</string>
+    <string name="three_fives">競爭,打鬥，糾紛</string>
+    <string name="four_fours">秩序，規律，休息，和平</string>
+    <string name="three_fours">豐富, 產業</string>
+    <string name="four_threes">決心, 明確的計劃</string>
+    <string name="three_threes">欺騙, 誤解,不確定性</string>
+    <string name="four_twos">會議, 談話,調整</string>
+    <string name="three_twos">派系, 分離, 重組</string>
+    <string name="four_aces">大國和力量</string>
+    <string name="three_aces">財富, 成功</string>
+</resources>

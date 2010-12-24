@@ -1,0 +1,11 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<resources>
+   <string name="status_prompt">請選擇最符合你的描述</string>
+    <string name="birthdate_prompt">請輸入你的生日</string>
+    <string name="questionprompt">請輸入你的生日，選擇符合你的描述，並考慮你心中的問題</string>
+    <string name="status_sf">單身女郎</string>
+    <string name="status_sm">單身男性</string>
+    <string name="status_pf">有女朋友</string>
+    <string name="status_pm">有男朋友</string>
+    <string name="position">位置</string>
+</resources>

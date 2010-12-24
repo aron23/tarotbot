@@ -19,4 +19,6 @@
     <string name="save_label">标出你的读牌结果</string>
     <string name="save_label_ok">好的</string>
     <string name="save_label_no">不用，谢谢</string>
+    <string name="reverse_cards_yes">反转牌 [是]</string>
+    <string name="reverse_cards_no">反转牌 [否]</string>
 </resources>

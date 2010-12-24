@@ -786,4 +786,22 @@ public class TarotBotGothicActivity extends AbstractTarotBotActivity  {
 		
 	}
 
+
+
+
+	@Override
+	public long getHiResZipSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+
+	@Override
+	public String getMyType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -98,7 +98,7 @@ import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
 
 
-public class TarotBotActivity extends AbstractTarotBotActivity  {
+public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 
 	private Dialog helper;
 	private boolean leavespread;
@@ -110,32 +110,9 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 
 		setFullscreen();
 		setContentView(R.layout.mainmenu);
-
-//		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//	    new Thread(new Runnable(){
-//			public void run(){
-//				Looper.prepare();
-//			    builder.setView(inflater.inflate(R.layout.splash,null));
-//			    splashDialog = builder.create();
-//			    splashDialog.show();
-//			    
-//				try {
-//					Thread.sleep(5000);
-//				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//			}
-//		}).start();
-	    		
-		
-		
 		inflater = LayoutInflater.from(this);
-	    // thread for displaying the SplashScreen
-	    //Thread splashTread = new Thread(this);
-	    //
-		hireszipsize = 15775783;
-		tarotbottype = "liberus.tarot.android";
+		hireszipsize = getHiResZipSize();
+		tarotbottype = getMyType();
 
 		inflater = LayoutInflater.from(this);
 		state = "mainmenu";
@@ -203,6 +180,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		spreadmenu = res.getStringArray(R.array.spread_array);
 		single = res.getStringArray(R.array.single);
 		timeArrow = res.getStringArray(R.array.timeArrow);
+		pentagram = res.getStringArray(R.array.pentagram);
 		dialectic = res.getStringArray(R.array.dialectic);
 		chaosStar = res.getStringArray(R.array.chaosStar);
 		celticCross = res.getStringArray(R.array.celticCross);
@@ -225,7 +203,75 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	
 	
 	protected void changeQuerant() {
+
+		
+		if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_sm))) {
+			male = true;
+			partnered=false;
+		} else if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_pf))) {
+			male=false;
+			partnered = true;    	
+		} else if (statusspin.getSelectedItem().toString().contains(getString(R.string.status_pm))) {
+			male = true;
+			partnered = true;
+		} else {
+			male = false;
+			partnered = false;
+		}
+
+		//Toast.makeText(this, dp.getMonth(), Toast.LENGTH_SHORT).show();
+		aq = new Querant(male,partnered,new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth()));
+		SharedPreferences.Editor ed = querantPrefs.edit();
+		ed.putInt("birthyear", aq.birth.get(Calendar.YEAR));
+		ed.putInt("birthmonth", aq.birth.get(Calendar.MONTH));
+		ed.putInt("birthday", aq.birth.get(Calendar.DAY_OF_MONTH));
+		ed.putInt("querantstatus", statusspin.getSelectedItemPosition());		
+		ed.commit();
 	}
+	
+	public void botaSpread() {
+		state = "new reading";
+        setContentView(R.layout.botastart);             
+        
+        querantPrefs = getSharedPreferences("tarotbot", 0);
+                        
+        sharing = false;
+        
+        statusspin = (Spinner) findViewById(R.id.statusspinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                        this, R.array.status_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        statusspin.setAdapter(adapter);
+        statusspin.setOnItemSelectedListener(this);
+        statusspin.setSelection(3);
+        statusspin.setSelection(querantPrefs.getInt("querantstatus", 0));
+        dp = (DatePicker)this.findViewById(R.id.birthdatepicker);
+
+        Calendar today = Calendar.getInstance();
+         
+        if (querantPrefs.contains("birthyear"))
+                dp.init(querantPrefs.getInt("birthyear", today.get(Calendar.YEAR)), querantPrefs.getInt("birthmonth", today.get(Calendar.MONTH)), querantPrefs.getInt("birthday", today.get(Calendar.DAY_OF_MONTH)), this);        
+        else
+                dp.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), this);
+
+        //changeQuerant();                
+        
+        if (canBeRestored()) {
+                myInt = new BotaInt(new RiderWaiteDeck(), aq);
+                //restoreMe();
+                restoreSecondStage();
+        } else {
+                secondSetIndex = 0;
+                laidout.add((RelativeLayout) this.findViewById(R.id.mainlayout));
+                //myRandomCard = getRandomCard();
+                //((ImageView) this.findViewById(R.id.randomcard)).setBackgroundDrawable(getResources().getDrawable(myRandomCard));
+                
+
+                initbutton = (Button) this.findViewById(R.id.initbotabutton);
+                initbutton.setOnClickListener(this);
+                Toast.makeText(this, R.string.questionprompt, Toast.LENGTH_LONG).show(); 
+        }
+}
 	
 	protected void showInfo(int type) {
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
@@ -262,9 +308,14 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 	
 	
 	public void onClick(View v) {	
-		if (v.equals(this.findViewById(R.id.menulist))) {
-
-			
+		if (v.equals(this.findViewById(R.id.initbotabutton))) {
+			state = "new reading";
+			begun = true;
+            browsing = false;
+            changeQuerant();
+            myInt = new BotaInt(new RiderWaiteDeck(), aq);
+            mySpread = new BotaSpread(myInt);
+            beginSecondStage();     
 		} else if (v.equals(this.findViewById(R.id.reversal_button))) {
 			if (!init) {
 				readingPrefsEd.putBoolean("reversal", reverseToggle.isChecked());
@@ -744,7 +795,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 				alert.show();
 				return true;
 				
-			} else if (state.equals("spreadmenu") || state.equals("loaded") || state.equals("single") || (state.equals("navigate") && browsing)) {
+			} else if (state.equals("spreadmenu") || (state.equals("loaded") &! browsing) || state.equals("single") || (state.equals("navigate") && browsing)) {
 				spreading=false;
 				//spread=false;
 				begun = false;
@@ -823,5 +874,7 @@ public class TarotBotActivity extends AbstractTarotBotActivity  {
 		myMenuList.setTag("loadmenu");
 		
 	}
+
+	
 
 }

@@ -755,7 +755,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 					break;
 				}
 				case 5: {
-					botaSpread();		
+					//botaSpread();		
 					style = "bota";
 					spreading=false;
 					return;
@@ -861,6 +861,20 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
 		myMenuList.setOnItemClickListener(this);
 		myMenuList.setTag("mainmenu");
+	}
+
+
+	@Override
+	public long getHiResZipSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public String getMyType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

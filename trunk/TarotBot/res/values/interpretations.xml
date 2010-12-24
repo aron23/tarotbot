@@ -1,808 +1,808 @@
 <?xml version="1.0"?>
 <resources>
-  <integer name="the_fool_00_index">100</integer>
-  <string name="the_fool_00_title">The Fool</string>
-  <string name="the_fool_00_en_title">The Fool</string>
-  <integer name="the_fool_00_second_operation_count">3</integer>
-  <string name="the_fool_00_astrology">Uranus</string>
-  <string name="the_fool_00_time_period"></string>
-  <string name="the_fool_00_archetype">divine child</string>
-  <string name="the_fool_00_journey">the journey begins fresh, innocent, and full of potential</string>
-  <string name="the_fool_00_element">air</string>
-  <string name="the_fool_00_hebrew">aleph</string>
-  <string name="the_fool_00_occult_title"></string>
-  <string name="the_fool_00_keyword"></string>
-  <string name="the_fool_00_abst">innocence, naivete</string>
-  <string name="the_fool_00_meanings">inexperience, readjustment, the unexpected onset of chaotic conditions</string>
-  <string name="the_fool_00_reversed"></string>
-  <string name="the_fool_00_in_spiritual">Originality, audacity, a tendency to iconoclasm, venturesome quest of higher truth.</string>
-  <string name="the_fool_00_in_material">Folly, eccentricity, sudden action without sufficient consideration or forethought, stupidity, or even insanity.</string>
-  <string name="the_fool_00_well_dignified"></string>
-  <string name="the_fool_00_ill_dignified"></string>
-  <string name="the_fool_00_actions">be spontaneous, have faith, embrace folly</string>
-  <integer-array name="the_fool_00_opposition_number">
+  <integer name="trumps_01_index">100</integer>
+  <string name="trumps_01_title">The Fool</string>
+  <string name="trumps_01_en_title">The Fool</string>
+  <integer name="trumps_01_second_operation_count">3</integer>
+  <string name="trumps_01_astrology">Uranus</string>
+  <string name="trumps_01_time_period"></string>
+  <string name="trumps_01_archetype">divine child</string>
+  <string name="trumps_01_journey">the journey begins fresh, innocent, and full of potential</string>
+  <string name="trumps_01_element">air</string>
+  <string name="trumps_01_hebrew">aleph</string>
+  <string name="trumps_01_occult_title"></string>
+  <string name="trumps_01_keyword"></string>
+  <string name="trumps_01_abst">innocence, naivete</string>
+  <string name="trumps_01_meanings">inexperience, readjustment, the unexpected onset of chaotic conditions</string>
+  <string name="trumps_01_reversed"></string>
+  <string name="trumps_01_in_spiritual">Originality, audacity, a tendency to iconoclasm, venturesome quest of higher truth.</string>
+  <string name="trumps_01_in_material">Folly, eccentricity, sudden action without sufficient consideration or forethought, stupidity, or even insanity.</string>
+  <string name="trumps_01_well_dignified"></string>
+  <string name="trumps_01_ill_dignified"></string>
+  <string name="trumps_01_actions">be spontaneous, have faith, embrace folly</string>
+  <integer-array name="trumps_01_opposition_number">
     <item>105</item>
     <item>113</item>
     <item>115</item>
     <item>151</item>
     <item>167</item>
   </integer-array>
-  <string-array name="the_fool_00_opposition_text">
+  <string-array name="trumps_01_opposition_text">
     <item>routine, convention</item>
     <item>endings, closings</item>
     <item>lack of faith, cynicism</item>
     <item>tension, reluctance, armoring</item>
     <item>order, regularity</item>
   </string-array>
-  <integer-array name="the_fool_00_reinforcement_number">
+  <integer-array name="trumps_01_reinforcement_number">
     <item>112</item>
     <item>117</item>
     <item>120</item>
     <item>124</item>
   </integer-array>
-  <string-array name="the_fool_00_reinforcement_text">
+  <string-array name="trumps_01_reinforcement_text">
     <item>going with the flow, trusting in what is</item>
     <item>innocence, faith, trust</item>
     <item>rebirth</item>
     <item>exploration, expanding horizons</item>
   </string-array>
-  <integer name="the_magician_01_index">101</integer>
-  <string name="the_magician_01_title">The Magician</string>
-  <string name="the_magician_01_en_title">The Magician</string>
-  <integer name="the_magician_01_second_operation_count">9</integer>
-  <string name="the_magician_01_astrology">Mercury</string>
-  <string name="the_magician_01_time_period"></string>
-  <string name="the_magician_01_archetype">trickster</string>
-  <string name="the_magician_01_journey">focusing creative energy using logic and technology to manifest desire; modeling of the objective world</string>
-  <string name="the_magician_01_element">air</string>
-  <string name="the_magician_01_hebrew">beth</string>
-  <string name="the_magician_01_occult_title"></string>
-  <string name="the_magician_01_keyword"></string>
-  <string name="the_magician_01_abst">wisdom, mastery of the elements</string>
-  <string name="the_magician_01_meanings">speed, dexterity, the skillful manipulation of the material world, communication, learning and intellectual pursuits</string>
-  <string name="the_magician_01_reversed"></string>
-  <string name="the_magician_01_in_spiritual"></string>
-  <string name="the_magician_01_in_material"></string>
-  <string name="the_magician_01_well_dignified">Skill, adaptation, constructive power, initiative, subtlety.</string>
-  <string name="the_magician_01_ill_dignified">Craft, the power of sense-illusion, lying, deception, cunning.</string>
-  <string name="the_magician_01_actions">take action, act consciously, concentrate, experience power</string>
-  <integer-array name="the_magician_01_opposition_number">
+  <integer name="trumps_02_index">101</integer>
+  <string name="trumps_02_title">The Magician</string>
+  <string name="trumps_02_en_title">The Magician</string>
+  <integer name="trumps_02_second_operation_count">9</integer>
+  <string name="trumps_02_astrology">Mercury</string>
+  <string name="trumps_02_time_period"></string>
+  <string name="trumps_02_archetype">trickster</string>
+  <string name="trumps_02_journey">focusing creative energy using logic and technology to manifest desire; modeling of the objective world</string>
+  <string name="trumps_02_element">air</string>
+  <string name="trumps_02_hebrew">beth</string>
+  <string name="trumps_02_occult_title"></string>
+  <string name="trumps_02_keyword"></string>
+  <string name="trumps_02_abst">wisdom, mastery of the elements</string>
+  <string name="trumps_02_meanings">speed, dexterity, the skillful manipulation of the material world, communication, learning and intellectual pursuits</string>
+  <string name="trumps_02_reversed"></string>
+  <string name="trumps_02_in_spiritual"></string>
+  <string name="trumps_02_in_material"></string>
+  <string name="trumps_02_well_dignified">Skill, adaptation, constructive power, initiative, subtlety.</string>
+  <string name="trumps_02_ill_dignified">Craft, the power of sense-illusion, lying, deception, cunning.</string>
+  <string name="trumps_02_actions">take action, act consciously, concentrate, experience power</string>
+  <integer-array name="trumps_02_opposition_number">
     <item>102</item>
     <item>111</item>
     <item>142</item>
     <item>153</item>
     <item>157</item>
   </integer-array>
-  <string-array name="the_magician_01_opposition_text">
+  <string-array name="trumps_02_opposition_text">
     <item>intuition, accessing the unconscious</item>
     <item>suspending action, not doing</item>
     <item>lacking focus and commitment</item>
     <item>resting quietly, storing energy</item>
     <item>confused and uncertain, powerless</item>
   </string-array>
-  <integer-array name="the_magician_01_reinforcement_number">
+  <integer-array name="trumps_02_reinforcement_number">
     <item>107</item>
     <item>123</item>
     <item>129</item>
     <item>171</item>
   </integer-array>
-  <string-array name="the_magician_01_reinforcement_text">
+  <string-array name="trumps_02_reinforcement_text">
     <item>focus, concentration, strong will</item>
     <item>personal power, weilding strong force</item>
     <item>quick action, making your move</item>
     <item>focus and concentration</item>
   </string-array>
-  <integer name="the_high_priestess_02_index">102</integer>
-  <string name="the_high_priestess_02_title">The High Priestess</string>
-  <string name="the_high_priestess_02_en_title">The High Priestess</string>
-  <integer name="the_high_priestess_02_second_operation_count">9</integer>
-  <string name="the_high_priestess_02_astrology">Moon</string>
-  <string name="the_high_priestess_02_time_period"></string>
-  <string name="the_high_priestess_02_archetype"></string>
-  <string name="the_high_priestess_02_journey">discovering through intuition and hidden insight; modeling of the subjective world</string>
-  <string name="the_high_priestess_02_element">earth</string>
-  <string name="the_high_priestess_02_hebrew">gimel</string>
-  <string name="the_high_priestess_02_occult_title"></string>
-  <string name="the_high_priestess_02_keyword"></string>
-  <string name="the_high_priestess_02_abst">that which is just below the surface of ordinary reality</string>
-  <string name="the_high_priestess_02_meanings">dreams, visions, insights, intuition, the subconscious, things hidden or unseen</string>
-  <string name="the_high_priestess_02_reversed"></string>
-  <string name="the_high_priestess_02_in_spiritual"></string>
-  <string name="the_high_priestess_02_in_material"></string>
-  <string name="the_high_priestess_02_well_dignified"></string>
-  <string name="the_high_priestess_02_ill_dignified"></string>
-  <string name="the_high_priestess_02_actions">stay nonactive, access the unconscious, see potential, sense mystery</string>
-  <integer-array name="the_high_priestess_02_opposition_number">
+  <integer name="trumps_03_index">102</integer>
+  <string name="trumps_03_title">The High Priestess</string>
+  <string name="trumps_03_en_title">The High Priestess</string>
+  <integer name="trumps_03_second_operation_count">9</integer>
+  <string name="trumps_03_astrology">Moon</string>
+  <string name="trumps_03_time_period"></string>
+  <string name="trumps_03_archetype"></string>
+  <string name="trumps_03_journey">discovering through intuition and hidden insight; modeling of the subjective world</string>
+  <string name="trumps_03_element">earth</string>
+  <string name="trumps_03_hebrew">gimel</string>
+  <string name="trumps_03_occult_title"></string>
+  <string name="trumps_03_keyword"></string>
+  <string name="trumps_03_abst">that which is just below the surface of ordinary reality</string>
+  <string name="trumps_03_meanings">dreams, visions, insights, intuition, the subconscious, things hidden or unseen</string>
+  <string name="trumps_03_reversed"></string>
+  <string name="trumps_03_in_spiritual"></string>
+  <string name="trumps_03_in_material"></string>
+  <string name="trumps_03_well_dignified"></string>
+  <string name="trumps_03_ill_dignified"></string>
+  <string name="trumps_03_actions">stay nonactive, access the unconscious, see potential, sense mystery</string>
+  <integer-array name="trumps_03_opposition_number">
     <item>101</item>
     <item>123</item>
     <item>128</item>
     <item>129</item>
   </integer-array>
-  <string-array name="the_high_priestess_02_opposition_text">
+  <string-array name="trumps_03_opposition_text">
     <item>caught in the stream of consicousness</item>
     <item>acting boldy</item>
     <item>being agressive</item>
     <item>putting plans into action</item>
   </string-array>
-  <integer-array name="the_high_priestess_02_reinforcement_number">
+  <integer-array name="trumps_03_reinforcement_number">
     <item>109</item>
     <item>112</item>
     <item>153</item>
   </integer-array>
-  <string-array name="the_high_priestess_02_reinforcement_text">
+  <string-array name="trumps_03_reinforcement_text">
     <item>looking inward, seeking guidance</item>
     <item>suspending activity, waiting</item>
     <item>resting quietly, contemplating</item>
   </string-array>
-  <integer name="the_empress_03_index">103</integer>
-  <string name="the_empress_03_title">The Empress</string>
-  <string name="the_empress_03_en_title">The Empress</string>
-  <integer name="the_empress_03_second_operation_count">9</integer>
-  <string name="the_empress_03_astrology">Venus</string>
-  <string name="the_empress_03_time_period"></string>
-  <string name="the_empress_03_archetype">anima</string>
-  <string name="the_empress_03_journey">finding nourishment, fertility, abundance</string>
-  <string name="the_empress_03_element">earth</string>
-  <string name="the_empress_03_hebrew">daleth</string>
-  <string name="the_empress_03_occult_title"></string>
-  <string name="the_empress_03_keyword"></string>
-  <string name="the_empress_03_abst">abundance and fruitfulness, feminine creative power</string>
-  <string name="the_empress_03_meanings">love, sex, reproduction, strong instinctual urges</string>
-  <string name="the_empress_03_reversed"></string>
-  <string name="the_empress_03_in_spiritual"></string>
-  <string name="the_empress_03_in_material"></string>
-  <string name="the_empress_03_well_dignified">Fruitfulness, Beauty, luxury, pleasure, success and happiness.</string>
-  <string name="the_empress_03_ill_dignified">Signifies Dissipation, lust, waste of time and substance in pleasure, laziness and sensuality.</string>
-  <string name="the_empress_03_actions">be motherly, welcome abundance, experience the senses, respond to nature</string>
-  <integer-array name="the_empress_03_opposition_number">
+  <integer name="trumps_04_index">103</integer>
+  <string name="trumps_04_title">The Empress</string>
+  <string name="trumps_04_en_title">The Empress</string>
+  <integer name="trumps_04_second_operation_count">9</integer>
+  <string name="trumps_04_astrology">Venus</string>
+  <string name="trumps_04_time_period"></string>
+  <string name="trumps_04_archetype">anima</string>
+  <string name="trumps_04_journey">finding nourishment, fertility, abundance</string>
+  <string name="trumps_04_element">earth</string>
+  <string name="trumps_04_hebrew">daleth</string>
+  <string name="trumps_04_occult_title"></string>
+  <string name="trumps_04_keyword"></string>
+  <string name="trumps_04_abst">abundance and fruitfulness, feminine creative power</string>
+  <string name="trumps_04_meanings">love, sex, reproduction, strong instinctual urges</string>
+  <string name="trumps_04_reversed"></string>
+  <string name="trumps_04_in_spiritual"></string>
+  <string name="trumps_04_in_material"></string>
+  <string name="trumps_04_well_dignified">Fruitfulness, Beauty, luxury, pleasure, success and happiness.</string>
+  <string name="trumps_04_ill_dignified">Signifies Dissipation, lust, waste of time and substance in pleasure, laziness and sensuality.</string>
+  <string name="trumps_04_actions">be motherly, welcome abundance, experience the senses, respond to nature</string>
+  <integer-array name="trumps_04_opposition_number">
     <item>104</item>
     <item>113</item>
     <item>167</item>
     <item>172</item>
   </integer-array>
-  <string-array name="the_empress_03_opposition_text">
+  <string-array name="trumps_04_opposition_text">
     <item>fathering, order and discipline, regularity</item>
     <item>transformation</item>
     <item>miserly possessiveness</item>
     <item>refinement, sophistication</item>
   </string-array>
-  <integer-array name="the_empress_03_reinforcement_number">
+  <integer-array name="trumps_04_reinforcement_number">
     <item>106</item>
     <item>117</item>
     <item>144</item>
     <item>170</item>
     <item>173</item>
   </integer-array>
-  <string-array name="the_empress_03_reinforcement_text">
+  <string-array name="trumps_04_reinforcement_text">
     <item>sexual fulfillment, pleasure</item>
     <item>generosity, free flowing love</item>
     <item>enjoying the senses</item>
     <item>material reward</item>
     <item>affluence, luxury, physical comfort</item>
   </string-array>
-  <integer name="the_emperor_04_index">104</integer>
-  <string name="the_emperor_04_title">The Emperor</string>
-  <string name="the_emperor_04_en_title">The Emperor</string>
-  <integer name="the_emperor_04_second_operation_count">12</integer>
-  <string name="the_emperor_04_astrology">Aries</string>
-  <string name="the_emperor_04_time_period"></string>
-  <string name="the_emperor_04_archetype">animus</string>
-  <string name="the_emperor_04_journey">seeking authority, power, control</string>
-  <string name="the_emperor_04_element">fire</string>
-  <string name="the_emperor_04_hebrew">heh</string>
-  <string name="the_emperor_04_occult_title"></string>
-  <string name="the_emperor_04_keyword"></string>
-  <string name="the_emperor_04_abst">irresistible force and eternal renewal</string>
-  <string name="the_emperor_04_meanings">structure, order, regulation, authority and governance</string>
-  <string name="the_emperor_04_reversed"></string>
-  <string name="the_emperor_04_in_spiritual"></string>
-  <string name="the_emperor_04_in_material"></string>
-  <string name="the_emperor_04_well_dignified">Mental energy; foresight, supervision, oversight, control; reason, persistence, determination; ambition, leadership, enthusiasm.</string>
-  <string name="the_emperor_04_ill_dignified">Strife, anger, tendency to go to extremes; over-active; lack of discretion.</string>
-  <string name="the_emperor_04_actions">fathering, exercising authority, creating structure, enforcing regulation</string>
-  <integer-array name="the_emperor_04_opposition_number">
+  <integer name="trumps_05_index">104</integer>
+  <string name="trumps_05_title">The Emperor</string>
+  <string name="trumps_05_en_title">The Emperor</string>
+  <integer name="trumps_05_second_operation_count">12</integer>
+  <string name="trumps_05_astrology">Aries</string>
+  <string name="trumps_05_time_period"></string>
+  <string name="trumps_05_archetype">animus</string>
+  <string name="trumps_05_journey">seeking authority, power, control</string>
+  <string name="trumps_05_element">fire</string>
+  <string name="trumps_05_hebrew">heh</string>
+  <string name="trumps_05_occult_title"></string>
+  <string name="trumps_05_keyword"></string>
+  <string name="trumps_05_abst">irresistible force and eternal renewal</string>
+  <string name="trumps_05_meanings">structure, order, regulation, authority and governance</string>
+  <string name="trumps_05_reversed"></string>
+  <string name="trumps_05_in_spiritual"></string>
+  <string name="trumps_05_in_material"></string>
+  <string name="trumps_05_well_dignified">Mental energy; foresight, supervision, oversight, control; reason, persistence, determination; ambition, leadership, enthusiasm.</string>
+  <string name="trumps_05_ill_dignified">Strife, anger, tendency to go to extremes; over-active; lack of discretion.</string>
+  <string name="trumps_05_actions">fathering, exercising authority, creating structure, enforcing regulation</string>
+  <integer-array name="trumps_05_opposition_number">
     <item>103</item>
     <item>142</item>
     <item>154</item>
   </integer-array>
-  <string-array name="the_emperor_04_opposition_text">
+  <string-array name="trumps_05_opposition_text">
     <item>mothering, free flowing abundance</item>
     <item>dissipation, lack of order</item>
     <item>bending the rules, breaking the law</item>
   </string-array>
-  <integer-array name="the_emperor_04_reinforcement_number">
+  <integer-array name="trumps_05_reinforcement_number">
     <item>105</item>
     <item>111</item>
     <item>123</item>
     <item>124</item>
     <item>167</item>
   </integer-array>
-  <string-array name="the_emperor_04_reinforcement_text">
+  <string-array name="trumps_05_reinforcement_text">
     <item>conforming to rules</item>
     <item>concerns of justice and legality</item>
     <item>having authority</item>
     <item>assuming leadership</item>
     <item>control, structure, power</item>
   </string-array>
-  <integer name="the_hierophant_05_index">105</integer>
-  <string name="the_hierophant_05_title">The Hierophant</string>
-  <string name="the_hierophant_05_en_title">The Hierophant</string>
-  <integer name="the_hierophant_05_second_operation_count">12</integer>
-  <string name="the_hierophant_05_astrology">Taurus</string>
-  <string name="the_hierophant_05_time_period"></string>
-  <string name="the_hierophant_05_archetype">persona</string>
-  <string name="the_hierophant_05_journey">transmission of traditional values and morals</string>
-  <string name="the_hierophant_05_element">earth</string>
-  <string name="the_hierophant_05_hebrew">vau</string>
-  <string name="the_hierophant_05_occult_title"></string>
-  <string name="the_hierophant_05_keyword"></string>
-  <string name="the_hierophant_05_abst">spiritual authority made manifest</string>
-  <string name="the_hierophant_05_meanings">dogma and rigidity, stubbornness, stability, domination</string>
-  <string name="the_hierophant_05_reversed"></string>
-  <string name="the_hierophant_05_in_spiritual"></string>
-  <string name="the_hierophant_05_in_material"></string>
-  <string name="the_hierophant_05_well_dignified"></string>
-  <string name="the_hierophant_05_ill_dignified"></string>
-  <string name="the_hierophant_05_actions">education, conforming, dogma, indentifying with the group</string>
-  <integer-array name="the_hierophant_05_opposition_number">
+  <integer name="trumps_06_index">105</integer>
+  <string name="trumps_06_title">The Hierophant</string>
+  <string name="trumps_06_en_title">The Hierophant</string>
+  <integer name="trumps_06_second_operation_count">12</integer>
+  <string name="trumps_06_astrology">Taurus</string>
+  <string name="trumps_06_time_period"></string>
+  <string name="trumps_06_archetype">persona</string>
+  <string name="trumps_06_journey">transmission of traditional values and morals</string>
+  <string name="trumps_06_element">earth</string>
+  <string name="trumps_06_hebrew">vau</string>
+  <string name="trumps_06_occult_title"></string>
+  <string name="trumps_06_keyword"></string>
+  <string name="trumps_06_abst">spiritual authority made manifest</string>
+  <string name="trumps_06_meanings">dogma and rigidity, stubbornness, stability, domination</string>
+  <string name="trumps_06_reversed"></string>
+  <string name="trumps_06_in_spiritual"></string>
+  <string name="trumps_06_in_material"></string>
+  <string name="trumps_06_well_dignified"></string>
+  <string name="trumps_06_ill_dignified"></string>
+  <string name="trumps_06_actions">education, conforming, dogma, indentifying with the group</string>
+  <integer-array name="trumps_06_opposition_number">
     <item>100</item>
     <item>106</item>
     <item>123</item>
     <item>156</item>
     <item>165</item>
   </integer-array>
-  <string-array name="the_hierophant_05_opposition_text">
+  <string-array name="trumps_06_opposition_text">
     <item>being unorthodox, crazy</item>
     <item>personal belief</item>
     <item>diverging from the crowd, being a pioneer</item>
     <item>being a lone wolf</item>
     <item>being flexible, changing with the times</item>
   </string-array>
-  <integer-array name="the_hierophant_05_reinforcement_number">
+  <integer-array name="trumps_06_reinforcement_number">
     <item>104</item>
     <item>138</item>
     <item>166</item>
     <item>171</item>
     <item>173</item>
   </integer-array>
-  <string-array name="the_hierophant_05_reinforcement_text">
+  <string-array name="trumps_06_reinforcement_text">
     <item>following rules</item>
     <item>focusing on the group</item>
     <item>working in a team or group</item>
     <item>learning, studying</item>
     <item>conforming, following rules, conservative</item>
   </string-array>
-  <integer name="the_lovers_06_index">106</integer>
-  <string name="the_lovers_06_title">The Lovers</string>
-  <string name="the_lovers_06_en_title">The Lovers</string>
-  <integer name="the_lovers_06_second_operation_count">12</integer>
-  <string name="the_lovers_06_astrology">Gemini</string>
-  <string name="the_lovers_06_time_period"></string>
-  <string name="the_lovers_06_archetype"></string>
-  <string name="the_lovers_06_journey">encounters with temptation, decision, choice</string>
-  <string name="the_lovers_06_element">air</string>
-  <string name="the_lovers_06_hebrew">zain</string>
-  <string name="the_lovers_06_occult_title"></string>
-  <string name="the_lovers_06_keyword"></string>
-  <string name="the_lovers_06_abst">balanced polarity, union of opposites</string>
-  <string name="the_lovers_06_meanings">Attraction, beauty, love, sympathy. Balance of forces, and reciprocal activity</string>
-  <string name="the_lovers_06_reversed"></string>
-  <string name="the_lovers_06_in_spiritual"></string>
-  <string name="the_lovers_06_in_material"></string>
-  <string name="the_lovers_06_well_dignified"></string>
-  <string name="the_lovers_06_ill_dignified"></string>
-  <string name="the_lovers_06_actions">relating to others, being sexual, establishing personal beliefs, determining values</string>
-  <integer-array name="the_lovers_06_opposition_number">
+  <integer name="trumps_07_index">106</integer>
+  <string name="trumps_07_title">The Lovers</string>
+  <string name="trumps_07_en_title">The Lovers</string>
+  <integer name="trumps_07_second_operation_count">12</integer>
+  <string name="trumps_07_astrology">Gemini</string>
+  <string name="trumps_07_time_period"></string>
+  <string name="trumps_07_archetype"></string>
+  <string name="trumps_07_journey">encounters with temptation, decision, choice</string>
+  <string name="trumps_07_element">air</string>
+  <string name="trumps_07_hebrew">zain</string>
+  <string name="trumps_07_occult_title"></string>
+  <string name="trumps_07_keyword"></string>
+  <string name="trumps_07_abst">balanced polarity, union of opposites</string>
+  <string name="trumps_07_meanings">Attraction, beauty, love, sympathy. Balance of forces, and reciprocal activity</string>
+  <string name="trumps_07_reversed"></string>
+  <string name="trumps_07_in_spiritual"></string>
+  <string name="trumps_07_in_material"></string>
+  <string name="trumps_07_well_dignified"></string>
+  <string name="trumps_07_ill_dignified"></string>
+  <string name="trumps_07_actions">relating to others, being sexual, establishing personal beliefs, determining values</string>
+  <integer-array name="trumps_07_opposition_number">
     <item>105</item>
     <item>109</item>
     <item>140</item>
     <item>152</item>
   </integer-array>
-  <string-array name="the_lovers_06_opposition_text">
+  <string-array name="trumps_07_opposition_text">
     <item>estabilished beliefs</item>
     <item>being alone, not relating, less sexuality</item>
     <item>loss in relationships</item>
     <item>rejection, seperation</item>
   </string-array>
-  <integer-array name="the_lovers_06_reinforcement_number">
+  <integer-array name="trumps_07_reinforcement_number">
     <item>103</item>
     <item>137</item>
     <item>144</item>
     <item>145</item>
     <item>173</item>
   </integer-array>
-  <string-array name="the_lovers_06_reinforcement_text">
+  <string-array name="trumps_07_reinforcement_text">
     <item>sexual fulfillment, pleasure</item>
     <item>union, marriage, connection</item>
     <item>sexual pleasure</item>
     <item>family relationships, bonding</item>
     <item>permanent unions, family ties</item>
   </string-array>
-  <integer name="the_chariot_07_index">107</integer>
-  <string name="the_chariot_07_title">The Chariot</string>
-  <string name="the_chariot_07_en_title">The Chariot</string>
-  <integer name="the_chariot_07_second_operation_count">12</integer>
-  <string name="the_chariot_07_astrology">Cancer</string>
-  <string name="the_chariot_07_time_period"></string>
-  <string name="the_chariot_07_archetype"></string>
-  <string name="the_chariot_07_journey">mastering control of opposing forces</string>
-  <string name="the_chariot_07_element">water</string>
-  <string name="the_chariot_07_hebrew">cheth</string>
-  <string name="the_chariot_07_occult_title"></string>
-  <string name="the_chariot_07_keyword"></string>
-  <string name="the_chariot_07_abst">the union of intellectual and physical powers</string>
-  <string name="the_chariot_07_meanings">indirect control, intuition, the power of subtlety</string>
-  <string name="the_chariot_07_reversed"></string>
-  <string name="the_chariot_07_in_spiritual"></string>
-  <string name="the_chariot_07_in_material"></string>
-  <string name="the_chariot_07_well_dignified"></string>
-  <string name="the_chariot_07_ill_dignified"></string>
-  <string name="the_chariot_07_actions">achieving victory, asserting yourself, using your will, achieving hard control</string>
-  <integer-array name="the_chariot_07_opposition_number">
+  <integer name="trumps_08_index">107</integer>
+  <string name="trumps_08_title">The Chariot</string>
+  <string name="trumps_08_en_title">The Chariot</string>
+  <integer name="trumps_08_second_operation_count">12</integer>
+  <string name="trumps_08_astrology">Cancer</string>
+  <string name="trumps_08_time_period"></string>
+  <string name="trumps_08_archetype"></string>
+  <string name="trumps_08_journey">mastering control of opposing forces</string>
+  <string name="trumps_08_element">water</string>
+  <string name="trumps_08_hebrew">cheth</string>
+  <string name="trumps_08_occult_title"></string>
+  <string name="trumps_08_keyword"></string>
+  <string name="trumps_08_abst">the union of intellectual and physical powers</string>
+  <string name="trumps_08_meanings">indirect control, intuition, the power of subtlety</string>
+  <string name="trumps_08_reversed"></string>
+  <string name="trumps_08_in_spiritual"></string>
+  <string name="trumps_08_in_material"></string>
+  <string name="trumps_08_well_dignified"></string>
+  <string name="trumps_08_ill_dignified"></string>
+  <string name="trumps_08_actions">achieving victory, asserting yourself, using your will, achieving hard control</string>
+  <integer-array name="trumps_08_opposition_number">
     <item>108</item>
     <item>112</item>
     <item>116</item>
     <item>157</item>
     <item>159</item>
   </integer-array>
-  <string-array name="the_chariot_07_opposition_text">
+  <string-array name="trumps_08_opposition_text">
     <item>soft control</item>
     <item>submission, putting others first</item>
     <item>defeat, a humbling experience</item>
     <item>confusion, self doubt</item>
     <item>being powerless</item>
   </string-array>
-  <integer-array name="the_chariot_07_reinforcement_number">
+  <integer-array name="trumps_08_reinforcement_number">
     <item>101</item>
     <item>123</item>
     <item>127</item>
     <item>167</item>
     <item>172</item>
   </integer-array>
-  <string-array name="the_chariot_07_reinforcement_text">
+  <string-array name="trumps_08_reinforcement_text">
     <item>using your will, concentrating</item>
     <item>being in authority, dominating</item>
     <item>triumph, self-confidence</item>
     <item>hard control</item>
     <item>self-control, discipline</item>
   </string-array>
-  <integer name="strength_08_index">108</integer>
-  <string name="strength_08_title">Strength</string>
-  <string name="strength_08_en_title">Strength</string>
-  <integer name="strength_08_second_operation_count">12</integer>
-  <string name="strength_08_astrology">Leo</string>
-  <string name="strength_08_time_period"></string>
-  <string name="strength_08_archetype"></string>
-  <string name="strength_08_journey">developing self-confidence and inner strength</string>
-  <string name="strength_08_element">air</string>
-  <string name="strength_08_hebrew">teth</string>
-  <string name="strength_08_occult_title"></string>
-  <string name="strength_08_keyword"></string>
-  <string name="strength_08_abst">Power, the energy which manifests</string>
-  <string name="strength_08_meanings">patience and compassion; accepting others and forgiving mistakes, dealing calmly with frustration</string>
-  <string name="strength_08_reversed"></string>
-  <string name="strength_08_in_spiritual">Relates to arousal and control of kundalini energies.</string>
-  <string name="strength_08_in_material">Relates to risky speculation, dangerous adventures, and sometimes to clandestine love-affairs.</string>
-  <string name="strength_08_well_dignified">courage, strength, fortitude</string>
-  <string name="strength_08_ill_dignified">ostentation, obstinacy</string>
-  <string name="strength_08_actions">showing strength, being compassionate, being patient, achieving soft control</string>
-  <integer-array name="strength_08_opposition_number">
+  <integer name="trumps_09_index">108</integer>
+  <string name="trumps_09_title">Strength</string>
+  <string name="trumps_09_en_title">Strength</string>
+  <integer name="trumps_09_second_operation_count">12</integer>
+  <string name="trumps_09_astrology">Leo</string>
+  <string name="trumps_09_time_period"></string>
+  <string name="trumps_09_archetype"></string>
+  <string name="trumps_09_journey">developing self-confidence and inner strength</string>
+  <string name="trumps_09_element">air</string>
+  <string name="trumps_09_hebrew">teth</string>
+  <string name="trumps_09_occult_title"></string>
+  <string name="trumps_09_keyword"></string>
+  <string name="trumps_09_abst">Power, the energy which manifests</string>
+  <string name="trumps_09_meanings">patience and compassion; accepting others and forgiving mistakes, dealing calmly with frustration</string>
+  <string name="trumps_09_reversed"></string>
+  <string name="trumps_09_in_spiritual">Relates to arousal and control of kundalini energies.</string>
+  <string name="trumps_09_in_material">Relates to risky speculation, dangerous adventures, and sometimes to clandestine love-affairs.</string>
+  <string name="trumps_09_well_dignified">courage, strength, fortitude</string>
+  <string name="trumps_09_ill_dignified">ostentation, obstinacy</string>
+  <string name="trumps_09_actions">showing strength, being compassionate, being patient, achieving soft control</string>
+  <integer-array name="trumps_09_opposition_number">
     <item>107</item>
     <item>143</item>
     <item>155</item>
     <item>168</item>
   </integer-array>
-  <string-array name="strength_08_opposition_text">
+  <string-array name="trumps_09_opposition_text">
     <item>hard control</item>
     <item>weariness, lack of strength</item>
     <item>being listless, lacking heart</item>
     <item>ill-health, weakness</item>
   </string-array>
-  <integer-array name="strength_08_reinforcement_number">
+  <integer-array name="trumps_09_reinforcement_number">
     <item>112</item>
     <item>130</item>
   </integer-array>
-  <string-array name="strength_08_reinforcement_text">
+  <string-array name="trumps_09_reinforcement_text">
     <item>using your will, concentrating</item>
     <item>being in authority, dominating</item>
   </string-array>
-  <integer name="the_hermit_09_index">109</integer>
-  <string name="the_hermit_09_title">The Hermit</string>
-  <string name="the_hermit_09_en_title">The Hermit</string>
-  <integer name="the_hermit_09_second_operation_count">12</integer>
-  <string name="the_hermit_09_astrology">Virgo</string>
-  <string name="the_hermit_09_time_period"></string>
-  <string name="the_hermit_09_archetype"></string>
-  <string name="the_hermit_09_journey">finding inner guidance; know thyself</string>
-  <string name="the_hermit_09_element">air</string>
-  <string name="the_hermit_09_hebrew">yod</string>
-  <string name="the_hermit_09_occult_title"></string>
-  <string name="the_hermit_09_keyword"></string>
-  <string name="the_hermit_09_abst">The desire to turn away from society and focus on the inner world.</string>
-  <string name="the_hermit_09_meanings">a period of reflection when distractions are limited, time alone</string>
-  <string name="the_hermit_09_reversed"></string>
-  <string name="the_hermit_09_in_spiritual"></string>
-  <string name="the_hermit_09_in_material"></string>
-  <string name="the_hermit_09_well_dignified">Light and guidance from higher realms. Aid from superiors and inferiors. Good for Health.</string>
-  <string name="the_hermit_09_ill_dignified">Suffering from misunderstanding and isolation; may expect active opposition from superiors and inferiors; may have to engage in unpleasant or menial occupations; and will be in danger of illness.</string>
-  <string name="the_hermit_09_actions">being introspective, giving / recieving guidance, searching, solitude</string>
-  <integer-array name="the_hermit_09_opposition_number">
+  <integer name="trumps_10_index">109</integer>
+  <string name="trumps_10_title">The Hermit</string>
+  <string name="trumps_10_en_title">The Hermit</string>
+  <integer name="trumps_10_second_operation_count">12</integer>
+  <string name="trumps_10_astrology">Virgo</string>
+  <string name="trumps_10_time_period"></string>
+  <string name="trumps_10_archetype"></string>
+  <string name="trumps_10_journey">finding inner guidance; know thyself</string>
+  <string name="trumps_10_element">air</string>
+  <string name="trumps_10_hebrew">yod</string>
+  <string name="trumps_10_occult_title"></string>
+  <string name="trumps_10_keyword"></string>
+  <string name="trumps_10_abst">The desire to turn away from society and focus on the inner world.</string>
+  <string name="trumps_10_meanings">a period of reflection when distractions are limited, time alone</string>
+  <string name="trumps_10_reversed"></string>
+  <string name="trumps_10_in_spiritual"></string>
+  <string name="trumps_10_in_material"></string>
+  <string name="trumps_10_well_dignified">Light and guidance from higher realms. Aid from superiors and inferiors. Good for Health.</string>
+  <string name="trumps_10_ill_dignified">Suffering from misunderstanding and isolation; may expect active opposition from superiors and inferiors; may have to engage in unpleasant or menial occupations; and will be in danger of illness.</string>
+  <string name="trumps_10_actions">being introspective, giving / recieving guidance, searching, solitude</string>
+  <integer-array name="trumps_10_opposition_number">
     <item>106</item>
     <item>120</item>
     <item>137</item>
     <item>138</item>
     <item>144</item>
   </integer-array>
-  <string-array name="the_hermit_09_opposition_text">
+  <string-array name="trumps_10_opposition_text">
     <item>being in a relationship, sexuality</item>
     <item>involvement with the world</item>
     <item>making connections, partnerships</item>
     <item>being in a group, being with others</item>
     <item>sensual pleasure</item>
   </string-array>
-  <integer-array name="the_hermit_09_reinforcement_number">
+  <integer-array name="trumps_10_reinforcement_number">
     <item>102</item>
     <item>139</item>
     <item>143</item>
     <item>153</item>
     <item>156</item>
   </integer-array>
-  <string-array name="the_hermit_09_reinforcement_text">
+  <string-array name="trumps_10_reinforcement_text">
     <item>looking inward, withdrawing</item>
     <item>withdrawing, being introverted</item>
     <item>searching for deeper meaning</item>
     <item>contemplating, being quiet</item>
     <item>being alone, staying away from others</item>
   </string-array>
-  <integer name="the_wheel_of_fortune_10_index">110</integer>
-  <string name="the_wheel_of_fortune_10_title">Fortune</string>
-  <string name="the_wheel_of_fortune_10_en_title">Fortune</string>
-  <integer name="the_wheel_of_fortune_10_second_operation_count">9</integer>
-  <string name="the_wheel_of_fortune_10_astrology">Jupiter</string>
-  <string name="the_wheel_of_fortune_10_time_period"></string>
-  <string name="the_wheel_of_fortune_10_archetype"></string>
-  <string name="the_wheel_of_fortune_10_journey">discovering the limits of control</string>
-  <string name="the_wheel_of_fortune_10_element">water</string>
-  <string name="the_wheel_of_fortune_10_hebrew">kaph</string>
-  <string name="the_wheel_of_fortune_10_occult_title"></string>
-  <string name="the_wheel_of_fortune_10_keyword"></string>
-  <string name="the_wheel_of_fortune_10_abst">destiny</string>
-  <string name="the_wheel_of_fortune_10_meanings">unexpected encounters and twists of fate, changes in direction, repeating cycles, rapid movement</string>
-  <string name="the_wheel_of_fortune_10_reversed"></string>
-  <string name="the_wheel_of_fortune_10_in_spiritual"></string>
-  <string name="the_wheel_of_fortune_10_in_material"></string>
-  <string name="the_wheel_of_fortune_10_well_dignified">Good fortune, a turn for the better, happiness. When beset by doubts and uncertainties, the solution of those difficulties.</string>
-  <string name="the_wheel_of_fortune_10_ill_dignified">Pride, arrogance, overconfidence</string>
-  <string name="the_wheel_of_fortune_10_actions">feeling a sense of destiny, feeling movement, being at a turning point, having a personal vision</string>
-  <integer-array name="the_wheel_of_fortune_10_opposition_number">
+  <integer name="trumps_11_index">110</integer>
+  <string name="trumps_11_title">Fortune</string>
+  <string name="trumps_11_en_title">Fortune</string>
+  <integer name="trumps_11_second_operation_count">9</integer>
+  <string name="trumps_11_astrology">Jupiter</string>
+  <string name="trumps_11_time_period"></string>
+  <string name="trumps_11_archetype"></string>
+  <string name="trumps_11_journey">discovering the limits of control</string>
+  <string name="trumps_11_element">water</string>
+  <string name="trumps_11_hebrew">kaph</string>
+  <string name="trumps_11_occult_title"></string>
+  <string name="trumps_11_keyword"></string>
+  <string name="trumps_11_abst">destiny</string>
+  <string name="trumps_11_meanings">unexpected encounters and twists of fate, changes in direction, repeating cycles, rapid movement</string>
+  <string name="trumps_11_reversed"></string>
+  <string name="trumps_11_in_spiritual"></string>
+  <string name="trumps_11_in_material"></string>
+  <string name="trumps_11_well_dignified">Good fortune, a turn for the better, happiness. When beset by doubts and uncertainties, the solution of those difficulties.</string>
+  <string name="trumps_11_ill_dignified">Pride, arrogance, overconfidence</string>
+  <string name="trumps_11_actions">feeling a sense of destiny, feeling movement, being at a turning point, having a personal vision</string>
+  <integer-array name="trumps_11_opposition_number">
     <item>151</item>
     <item>153</item>
     <item>167</item>
     <item>170</item>
   </integer-array>
-  <string-array name="the_wheel_of_fortune_10_opposition_text">
+  <string-array name="trumps_11_opposition_text">
     <item>being stuck</item>
     <item>rest, quiet, slow pace</item>
     <item>blocked change, no movement</item>
     <item>assessment before direction change</item>
   </string-array>
-  <integer-array name="the_wheel_of_fortune_10_reinforcement_number">
+  <integer-array name="trumps_11_reinforcement_number">
     <item>129</item>
   </integer-array>
-  <string-array name="the_wheel_of_fortune_10_reinforcement_text">
+  <string-array name="trumps_11_reinforcement_text">
     <item>rapid pace, quick developments</item>
   </string-array>
-  <integer name="justice_11_index">111</integer>
-  <string name="justice_11_title">Justice</string>
-  <string name="justice_11_en_title">Justice</string>
-  <integer name="justice_11_second_operation_count">12</integer>
-  <string name="justice_11_astrology">Libra</string>
-  <string name="justice_11_time_period"></string>
-  <string name="justice_11_archetype"></string>
-  <string name="justice_11_journey">being held accountable for ones actions</string>
-  <string name="justice_11_element">fire</string>
-  <string name="justice_11_hebrew">lamed</string>
-  <string name="justice_11_occult_title"></string>
-  <string name="justice_11_keyword"></string>
-  <string name="justice_11_abst">balance directed by will</string>
-  <string name="justice_11_meanings">doing what needs to be done, accepting responsibility, settling accounts, karma</string>
-  <string name="justice_11_reversed"></string>
-  <string name="justice_11_in_spiritual"></string>
-  <string name="justice_11_in_material"></string>
-  <string name="justice_11_well_dignified">Balance, equilibrium, especially emotional stability; good Karma. Is often an indication of successful dealings with the public, is favorable in all questions involving legal matters, partnership, or marriage.</string>
-  <string name="justice_11_ill_dignified">It indicates unfavorable relations with partners (marriage or business), trouble in court, emotional instability; sudden changes of plans; bad Karma.</string>
-  <string name="justice_11_actions">respecting justice, preparing for a decision, assuming responsibility, understanding cause and effect</string>
-  <integer-array name="justice_11_opposition_number">
+  <integer name="trumps_12_index">111</integer>
+  <string name="trumps_12_title">Justice</string>
+  <string name="trumps_12_en_title">Justice</string>
+  <integer name="trumps_12_second_operation_count">12</integer>
+  <string name="trumps_12_astrology">Libra</string>
+  <string name="trumps_12_time_period"></string>
+  <string name="trumps_12_archetype"></string>
+  <string name="trumps_12_journey">being held accountable for ones actions</string>
+  <string name="trumps_12_element">fire</string>
+  <string name="trumps_12_hebrew">lamed</string>
+  <string name="trumps_12_occult_title"></string>
+  <string name="trumps_12_keyword"></string>
+  <string name="trumps_12_abst">balance directed by will</string>
+  <string name="trumps_12_meanings">doing what needs to be done, accepting responsibility, settling accounts, karma</string>
+  <string name="trumps_12_reversed"></string>
+  <string name="trumps_12_in_spiritual"></string>
+  <string name="trumps_12_in_material"></string>
+  <string name="trumps_12_well_dignified">Balance, equilibrium, especially emotional stability; good Karma. Is often an indication of successful dealings with the public, is favorable in all questions involving legal matters, partnership, or marriage.</string>
+  <string name="trumps_12_ill_dignified">It indicates unfavorable relations with partners (marriage or business), trouble in court, emotional instability; sudden changes of plans; bad Karma.</string>
+  <string name="trumps_12_actions">respecting justice, preparing for a decision, assuming responsibility, understanding cause and effect</string>
+  <integer-array name="trumps_12_opposition_number">
     <item>151</item>
     <item>154</item>
     <item>156</item>
   </integer-array>
-  <string-array name="justice_11_opposition_text">
+  <string-array name="trumps_12_opposition_text">
     <item>avoiding the truth, disavowing your role</item>
     <item>lack of integrity, not doing what is right</item>
     <item>shirking responsibility</item>
   </string-array>
-  <integer-array name="justice_11_reinforcement_number">
+  <integer-array name="trumps_12_reinforcement_number">
     <item>104</item>
     <item>120</item>
     <item>131</item>
     <item>158</item>
     <item>170</item>
   </integer-array>
-  <string-array name="justice_11_reinforcement_text">
+  <string-array name="trumps_12_reinforcement_text">
     <item>justice, regulation, legal issues</item>
     <item>deciding, accepting past actions/mistakes</item>
     <item>accepting responsibility, being accountable</item>
     <item>guilt over the past, acknowledging mistakes</item>
     <item>assessing where you are, deciding a future course</item>
   </string-array>
-  <integer name="the_hanged_man_12_index">112</integer>
-  <string name="the_hanged_man_12_title">The Hanged Man</string>
-  <string name="the_hanged_man_12_en_title">The Hanged Man</string>
-  <integer name="the_hanged_man_12_second_operation_count">3</integer>
-  <string name="the_hanged_man_12_astrology">Neptune</string>
-  <string name="the_hanged_man_12_time_period"></string>
-  <string name="the_hanged_man_12_archetype"></string>
-  <string name="the_hanged_man_12_journey">dealing with trade-offs, the zero sum game</string>
-  <string name="the_hanged_man_12_element">water</string>
-  <string name="the_hanged_man_12_hebrew">mem</string>
-  <string name="the_hanged_man_12_occult_title"></string>
-  <string name="the_hanged_man_12_keyword"></string>
-  <string name="the_hanged_man_12_abst">represents wisdom, but a wisdom that is just the reverse of what the world commonly accepts</string>
-  <string name="the_hanged_man_12_meanings">self sacrifice, martyrdom, victory through surrender</string>
-  <string name="the_hanged_man_12_reversed"></string>
-  <string name="the_hanged_man_12_in_spiritual">surrender to universal laws</string>
-  <string name="the_hanged_man_12_in_material">involuntary submission to the force of circumstances, a symbol of reverses and losses, of suffering and sacrifice</string>
-  <string name="the_hanged_man_12_well_dignified"></string>
-  <string name="the_hanged_man_12_ill_dignified"></string>
-  <string name="the_hanged_man_12_actions">letting go, suspending action, reversing, sacrificing</string>
-  <integer-array name="the_hanged_man_12_opposition_number">
+  <integer name="trumps_13_index">112</integer>
+  <string name="trumps_13_title">The Hanged Man</string>
+  <string name="trumps_13_en_title">The Hanged Man</string>
+  <integer name="trumps_13_second_operation_count">3</integer>
+  <string name="trumps_13_astrology">Neptune</string>
+  <string name="trumps_13_time_period"></string>
+  <string name="trumps_13_archetype"></string>
+  <string name="trumps_13_journey">dealing with trade-offs, the zero sum game</string>
+  <string name="trumps_13_element">water</string>
+  <string name="trumps_13_hebrew">mem</string>
+  <string name="trumps_13_occult_title"></string>
+  <string name="trumps_13_keyword"></string>
+  <string name="trumps_13_abst">represents wisdom, but a wisdom that is just the reverse of what the world commonly accepts</string>
+  <string name="trumps_13_meanings">self sacrifice, martyrdom, victory through surrender</string>
+  <string name="trumps_13_reversed"></string>
+  <string name="trumps_13_in_spiritual">surrender to universal laws</string>
+  <string name="trumps_13_in_material">involuntary submission to the force of circumstances, a symbol of reverses and losses, of suffering and sacrifice</string>
+  <string name="trumps_13_well_dignified"></string>
+  <string name="trumps_13_ill_dignified"></string>
+  <string name="trumps_13_actions">letting go, suspending action, reversing, sacrificing</string>
+  <integer-array name="trumps_13_opposition_number">
     <item>101</item>
     <item>107</item>
     <item>128</item>
     <item>131</item>
     <item>167</item>
   </integer-array>
-  <string-array name="the_hanged_man_12_opposition_text">
+  <string-array name="trumps_13_opposition_text">
     <item>acting, doing</item>
     <item>self assertion</item>
     <item>defiance, struggling against</item>
     <item>struggle</item>
     <item>holding on, control</item>
   </string-array>
-  <integer-array name="the_hanged_man_12_reinforcement_number">
+  <integer-array name="trumps_13_reinforcement_number">
     <item>100</item>
     <item>102</item>
     <item>108</item>
     <item>153</item>
     <item>159</item>
   </integer-array>
-  <string-array name="the_hanged_man_12_reinforcement_text">
+  <string-array name="trumps_13_reinforcement_text">
     <item>faith in what is, going with the flow</item>
     <item>suspending activity, waiting</item>
     <item>patience, taking time</item>
     <item>rest, suspending activity</item>
     <item>sacrifice, martyrdom</item>
   </string-array>
-  <integer name="death_13_index">113</integer>
-  <string name="death_13_title">Death</string>
-  <string name="death_13_en_title">Death</string>
-  <integer name="death_13_second_operation_count">12</integer>
-  <string name="death_13_astrology">Scorpio</string>
-  <string name="death_13_time_period"></string>
-  <string name="death_13_archetype"></string>
-  <string name="death_13_journey"></string>
-  <string name="death_13_element">water</string>
-  <string name="death_13_hebrew">nun</string>
-  <string name="death_13_occult_title"></string>
-  <string name="death_13_keyword"></string>
-  <string name="death_13_abst">an important ending that initiates great change</string>
-  <string name="death_13_meanings">sadness and reluctance yet also relief and a sense of completion</string>
-  <string name="death_13_reversed"></string>
-  <string name="death_13_in_spiritual"></string>
-  <string name="death_13_in_material"></string>
-  <string name="death_13_well_dignified">changing for the better</string>
-  <string name="death_13_ill_dignified">changing for the worse</string>
-  <string name="death_13_actions">ending, eliminating excess, going through transition, experiencing inexorable forces</string>
-  <integer-array name="death_13_opposition_number">
+  <integer name="trumps_14_index">113</integer>
+  <string name="trumps_14_title">Death</string>
+  <string name="trumps_14_en_title">Death</string>
+  <integer name="trumps_14_second_operation_count">12</integer>
+  <string name="trumps_14_astrology">Scorpio</string>
+  <string name="trumps_14_time_period"></string>
+  <string name="trumps_14_archetype"></string>
+  <string name="trumps_14_journey"></string>
+  <string name="trumps_14_element">water</string>
+  <string name="trumps_14_hebrew">nun</string>
+  <string name="trumps_14_occult_title"></string>
+  <string name="trumps_14_keyword"></string>
+  <string name="trumps_14_abst">an important ending that initiates great change</string>
+  <string name="trumps_14_meanings">sadness and reluctance yet also relief and a sense of completion</string>
+  <string name="trumps_14_reversed"></string>
+  <string name="trumps_14_in_spiritual"></string>
+  <string name="trumps_14_in_material"></string>
+  <string name="trumps_14_well_dignified">changing for the better</string>
+  <string name="trumps_14_ill_dignified">changing for the worse</string>
+  <string name="trumps_14_actions">ending, eliminating excess, going through transition, experiencing inexorable forces</string>
+  <integer-array name="trumps_14_opposition_number">
     <item>100</item>
     <item>103</item>
     <item>120</item>
   </integer-array>
-  <string-array name="death_13_opposition_text">
+  <string-array name="trumps_14_opposition_text">
     <item>beginning</item>
     <item>birth</item>
     <item>rebirth, fresh start</item>
   </string-array>
-  <integer-array name="death_13_reinforcement_number">
+  <integer-array name="trumps_14_reinforcement_number">
     <item>116</item>
     <item>129</item>
     <item>140</item>
     <item>143</item>
   </integer-array>
-  <string-array name="death_13_reinforcement_text">
+  <string-array name="trumps_14_reinforcement_text">
     <item>faith in what is, going with the flow</item>
     <item>suspending activity, waiting</item>
     <item>patience, taking time</item>
     <item>rest, suspending activity</item>
   </string-array>
-  <integer name="temperance_14_index">114</integer>
-  <string name="temperance_14_title">Temperance</string>
-  <string name="temperance_14_en_title">Temperance</string>
-  <integer name="temperance_14_second_operation_count">12</integer>
-  <string name="temperance_14_astrology">Sagittarius</string>
-  <string name="temperance_14_time_period"></string>
-  <string name="temperance_14_archetype"></string>
-  <string name="temperance_14_journey">maintaining integrity through perspective and moderation</string>
-  <string name="temperance_14_element">fire</string>
-  <string name="temperance_14_hebrew">samekh</string>
-  <string name="temperance_14_occult_title"></string>
-  <string name="temperance_14_keyword"></string>
-  <string name="temperance_14_abst">moderation, self-restraint, combining and recombining</string>
-  <string name="temperance_14_meanings">a need for balance, compromise and cooperation are vital, good health</string>
-  <string name="temperance_14_reversed"></string>
-  <string name="temperance_14_in_spiritual"></string>
-  <string name="temperance_14_in_material"></string>
-  <string name="temperance_14_well_dignified"></string>
-  <string name="temperance_14_ill_dignified"></string>
-  <string name="temperance_14_actions">being temperate, experiencing health, maintaining balance, combining forces</string>
-  <integer-array name="temperance_14_opposition_number">
+  <integer name="trumps_15_index">114</integer>
+  <string name="trumps_15_title">Temperance</string>
+  <string name="trumps_15_en_title">Temperance</string>
+  <integer name="trumps_15_second_operation_count">12</integer>
+  <string name="trumps_15_astrology">Sagittarius</string>
+  <string name="trumps_15_time_period"></string>
+  <string name="trumps_15_archetype"></string>
+  <string name="trumps_15_journey">maintaining integrity through perspective and moderation</string>
+  <string name="trumps_15_element">fire</string>
+  <string name="trumps_15_hebrew">samekh</string>
+  <string name="trumps_15_occult_title"></string>
+  <string name="trumps_15_keyword"></string>
+  <string name="trumps_15_abst">moderation, self-restraint, combining and recombining</string>
+  <string name="trumps_15_meanings">a need for balance, compromise and cooperation are vital, good health</string>
+  <string name="trumps_15_reversed"></string>
+  <string name="trumps_15_in_spiritual"></string>
+  <string name="trumps_15_in_material"></string>
+  <string name="trumps_15_well_dignified"></string>
+  <string name="trumps_15_ill_dignified"></string>
+  <string name="trumps_15_actions">being temperate, experiencing health, maintaining balance, combining forces</string>
+  <integer-array name="trumps_15_opposition_number">
     <item>116</item>
     <item>126</item>
     <item>142</item>
     <item>154</item>
     <item>168</item>
   </integer-array>
-  <string-array name="temperance_14_opposition_text">
+  <string-array name="trumps_15_opposition_text">
     <item>extremes, exploding apart</item>
     <item>disagreement, competition, imbalance</item>
     <item>excess, overindulgence</item>
     <item>discord, lack of harmony</item>
     <item>ill health</item>
   </string-array>
-  <integer-array name="temperance_14_reinforcement_number">
+  <integer-array name="trumps_15_reinforcement_number">
     <item>121</item>
     <item>137</item>
     <item>138</item>
     <item>165</item>
     <item>168</item>
   </integer-array>
-  <string-array name="temperance_14_reinforcement_text">
+  <string-array name="trumps_15_reinforcement_text">
     <item>integration, synthesis, combination</item>
     <item>connection, working together</item>
     <item>joining forces, working together</item>
     <item>balance, finding the right mix</item>
     <item>teamwork, combining</item>
   </string-array>
-  <integer name="the_devil_15_index">115</integer>
-  <string name="the_devil_15_title">The Devil</string>
-  <string name="the_devil_15_en_title">The Devil</string>
-  <integer name="the_devil_15_second_operation_count">12</integer>
-  <string name="the_devil_15_astrology">Capricorn</string>
-  <string name="the_devil_15_time_period"></string>
-  <string name="the_devil_15_archetype">shadow</string>
-  <string name="the_devil_15_journey">preventing progress through ignorance, fanaticism, fundamentalism</string>
-  <string name="the_devil_15_element">earth</string>
-  <string name="the_devil_15_hebrew">ayin</string>
-  <string name="the_devil_15_occult_title"></string>
-  <string name="the_devil_15_keyword"></string>
-  <string name="the_devil_15_abst">big business, the conventions of society, the injustice and cruelty of a social order in which money is god, humanity is bestialized, war is engineered by greed masquerading as patriotism, fear is dominant</string>
-  <string name="the_devil_15_meanings">Bondage, materiality, force </string>
-  <string name="the_devil_15_reversed"></string>
-  <string name="the_devil_15_in_spiritual"></string>
-  <string name="the_devil_15_in_material"></string>
-  <string name="the_devil_15_well_dignified"></string>
-  <string name="the_devil_15_ill_dignified"></string>
-  <string name="the_devil_15_actions">experiencing bondage, staying in ignorance, focusing on material, feeling hopeless</string>
-  <integer-array name="the_devil_15_opposition_number">
+  <integer name="trumps_16_index">115</integer>
+  <string name="trumps_16_title">The Devil</string>
+  <string name="trumps_16_en_title">The Devil</string>
+  <integer name="trumps_16_second_operation_count">12</integer>
+  <string name="trumps_16_astrology">Capricorn</string>
+  <string name="trumps_16_time_period"></string>
+  <string name="trumps_16_archetype">shadow</string>
+  <string name="trumps_16_journey">preventing progress through ignorance, fanaticism, fundamentalism</string>
+  <string name="trumps_16_element">earth</string>
+  <string name="trumps_16_hebrew">ayin</string>
+  <string name="trumps_16_occult_title"></string>
+  <string name="trumps_16_keyword"></string>
+  <string name="trumps_16_abst">big business, the conventions of society, the injustice and cruelty of a social order in which money is god, humanity is bestialized, war is engineered by greed masquerading as patriotism, fear is dominant</string>
+  <string name="trumps_16_meanings">Bondage, materiality, force </string>
+  <string name="trumps_16_reversed"></string>
+  <string name="trumps_16_in_spiritual"></string>
+  <string name="trumps_16_in_material"></string>
+  <string name="trumps_16_well_dignified"></string>
+  <string name="trumps_16_ill_dignified"></string>
+  <string name="trumps_16_actions">experiencing bondage, staying in ignorance, focusing on material, feeling hopeless</string>
+  <integer-array name="trumps_16_opposition_number">
     <item>100</item>
     <item>117</item>
     <item>125</item>
     <item>141</item>
     <item>145</item>
   </integer-array>
-  <string-array name="the_devil_15_opposition_text">
+  <string-array name="trumps_16_opposition_text">
     <item>having faith, believing</item>
     <item>hope, faith, optimism</item>
     <item>freedom, release</item>
     <item>good will, innocence, simple joy</item>
     <item>joy, peace, blessings</item>
   </string-array>
-  <integer-array name="the_devil_15_reinforcement_number">
+  <integer-array name="trumps_16_reinforcement_number">
     <item>142</item>
     <item>157</item>
     <item>158</item>
   </integer-array>
-  <string-array name="the_devil_15_reinforcement_text">
+  <string-array name="trumps_16_reinforcement_text">
     <item>overindulgence, dissipation</item>
     <item>confusion, restriction</item>
     <item>dispair, lack of joy</item>
   </string-array>
-  <integer name="the_tower_16_index">116</integer>
-  <string name="the_tower_16_title">The Tower</string>
-  <string name="the_tower_16_en_title">The Tower</string>
-  <integer name="the_tower_16_second_operation_count">9</integer>
-  <string name="the_tower_16_astrology">Mars</string>
-  <string name="the_tower_16_time_period"></string>
-  <string name="the_tower_16_archetype"></string>
-  <string name="the_tower_16_journey">breaking free from illusions and facing the truth</string>
-  <string name="the_tower_16_element">fire</string>
-  <string name="the_tower_16_hebrew">Peh</string>
-  <string name="the_tower_16_occult_title"></string>
-  <string name="the_tower_16_keyword"></string>
-  <string name="the_tower_16_abst">punctuated equilibrium</string>
-  <string name="the_tower_16_meanings">sudden dramatic upheaval or reversal in fortune</string>
-  <string name="the_tower_16_reversed"></string>
-  <string name="the_tower_16_in_spiritual">the overthrow of mistaken conceptions, or the defeat of activities opposed to the one\'s spiritual development</string>
-  <string name="the_tower_16_in_material">ambition, unforeseen catastrophes, fighting, grave dangers, the ruin of the one\'s plans, the defeat of his hopes</string>
-  <string name="the_tower_16_well_dignified"></string>
-  <string name="the_tower_16_ill_dignified"></string>
-  <string name="the_tower_16_actions">going through sudden change, falling down, releasing, having a revelation</string>
-  <integer-array name="the_tower_16_opposition_number">
+  <integer name="trumps_17_index">116</integer>
+  <string name="trumps_17_title">The Tower</string>
+  <string name="trumps_17_en_title">The Tower</string>
+  <integer name="trumps_17_second_operation_count">9</integer>
+  <string name="trumps_17_astrology">Mars</string>
+  <string name="trumps_17_time_period"></string>
+  <string name="trumps_17_archetype"></string>
+  <string name="trumps_17_journey">breaking free from illusions and facing the truth</string>
+  <string name="trumps_17_element">fire</string>
+  <string name="trumps_17_hebrew">Peh</string>
+  <string name="trumps_17_occult_title"></string>
+  <string name="trumps_17_keyword"></string>
+  <string name="trumps_17_abst">punctuated equilibrium</string>
+  <string name="trumps_17_meanings">sudden dramatic upheaval or reversal in fortune</string>
+  <string name="trumps_17_reversed"></string>
+  <string name="trumps_17_in_spiritual">the overthrow of mistaken conceptions, or the defeat of activities opposed to the one\'s spiritual development</string>
+  <string name="trumps_17_in_material">ambition, unforeseen catastrophes, fighting, grave dangers, the ruin of the one\'s plans, the defeat of his hopes</string>
+  <string name="trumps_17_well_dignified"></string>
+  <string name="trumps_17_ill_dignified"></string>
+  <string name="trumps_17_actions">going through sudden change, falling down, releasing, having a revelation</string>
+  <integer-array name="trumps_17_opposition_number">
     <item>107</item>
     <item>114</item>
     <item>117</item>
     <item>127</item>
     <item>145</item>
   </integer-array>
-  <string-array name="the_tower_16_opposition_text">
+  <string-array name="trumps_17_opposition_text">
     <item>victory, control</item>
     <item>middle ground, staying together, contained</item>
     <item>serenity, calm</item>
     <item>acclaim, pride</item>
     <item>peace, serenity</item>
   </string-array>
-  <integer-array name="the_tower_16_reinforcement_number">
+  <integer-array name="trumps_17_reinforcement_number">
     <item>113</item>
     <item>119</item>
     <item>168</item>
   </integer-array>
-  <string-array name="the_tower_16_reinforcement_text">
+  <string-array name="trumps_17_reinforcement_text">
     <item>sweeping impact, powerful forces</item>
     <item>enlightenment, revelation</item>
     <item>hard times</item>
   </string-array>
-  <integer name="the_star_17_index">117</integer>
-  <string name="the_star_17_title">The Star</string>
-  <string name="the_star_17_en_title">The Star</string>
-  <integer name="the_star_17_second_operation_count">12</integer>
-  <string name="the_star_17_astrology">Aquarius</string>
-  <string name="the_star_17_time_period"></string>
-  <string name="the_star_17_archetype"></string>
-  <string name="the_star_17_journey">reaching enlightenment through development of special talents</string>
-  <string name="the_star_17_element">air</string>
-  <string name="the_star_17_hebrew">tzaddi</string>
-  <string name="the_star_17_occult_title"></string>
-  <string name="the_star_17_keyword"></string>
-  <string name="the_star_17_abst">the light at the end of the tunnel</string>
-  <string name="the_star_17_meanings">relying on intuition, inner wisdom, guidance, inspiration</string>
-  <string name="the_star_17_reversed"></string>
-  <string name="the_star_17_in_spiritual"></string>
-  <string name="the_star_17_in_material"></string>
-  <string name="the_star_17_well_dignified">promises of unexpected help, and the realization of hopes and wishes.</string>
-  <string name="the_star_17_ill_dignified">unreliable friends, a tendency to impracticality or dreaminess</string>
-  <string name="the_star_17_actions">regaining hope, being generous, being inspired, feeling serene</string>
-  <integer-array name="the_star_17_opposition_number">
+  <integer name="trumps_18_index">117</integer>
+  <string name="trumps_18_title">The Star</string>
+  <string name="trumps_18_en_title">The Star</string>
+  <integer name="trumps_18_second_operation_count">12</integer>
+  <string name="trumps_18_astrology">Aquarius</string>
+  <string name="trumps_18_time_period"></string>
+  <string name="trumps_18_archetype"></string>
+  <string name="trumps_18_journey">reaching enlightenment through development of special talents</string>
+  <string name="trumps_18_element">air</string>
+  <string name="trumps_18_hebrew">tzaddi</string>
+  <string name="trumps_18_occult_title"></string>
+  <string name="trumps_18_keyword"></string>
+  <string name="trumps_18_abst">the light at the end of the tunnel</string>
+  <string name="trumps_18_meanings">relying on intuition, inner wisdom, guidance, inspiration</string>
+  <string name="trumps_18_reversed"></string>
+  <string name="trumps_18_in_spiritual"></string>
+  <string name="trumps_18_in_material"></string>
+  <string name="trumps_18_well_dignified">promises of unexpected help, and the realization of hopes and wishes.</string>
+  <string name="trumps_18_ill_dignified">unreliable friends, a tendency to impracticality or dreaminess</string>
+  <string name="trumps_18_actions">regaining hope, being generous, being inspired, feeling serene</string>
+  <integer-array name="trumps_18_opposition_number">
     <item>115</item>
     <item>116</item>
     <item>118</item>
     <item>151</item>
     <item>158</item>
   </integer-array>
-  <string-array name="the_star_17_opposition_text">
+  <string-array name="trumps_18_opposition_text">
     <item>hopelessness, lack of faith, pessimism</item>
     <item>upheaval, chaos</item>
     <item>being troubled, disturbed, anxious</item>
     <item>blocked flow of feelings</item>
     <item>guilt, anguish</item>
   </string-array>
-  <integer-array name="the_star_17_reinforcement_number">
+  <integer-array name="trumps_18_reinforcement_number">
     <item>100</item>
     <item>103</item>
     <item>141</item>
     <item>145</item>
   </integer-array>
-  <string-array name="the_star_17_reinforcement_text">
+  <string-array name="trumps_18_reinforcement_text">
     <item>innocence, faith, trust</item>
     <item>generosity, free flowing love</item>
     <item>good will, sharing</item>
@@ -838,166 +838,166 @@
     <item>deep feelings, intimacy, attunement, compassion, love</item>
     <item>intelligence, reason, justice, truth, clarity, perseverance</item>
   </string-array>
-  <integer name="the_moon_18_index">118</integer>
-  <string name="the_moon_18_title">The Moon</string>
-  <string name="the_moon_18_en_title">The Moon</string>
-  <integer name="the_moon_18_second_operation_count">12</integer>
-  <string name="the_moon_18_astrology">Pisces</string>
-  <string name="the_moon_18_time_period"></string>
-  <string name="the_moon_18_archetype">great mother</string>
-  <string name="the_moon_18_journey">dealing with obscurity, ambiguity, the complexity of reality</string>
-  <string name="the_moon_18_element">water</string>
-  <string name="the_moon_18_hebrew">quoph</string>
-  <string name="the_moon_18_occult_title"></string>
-  <string name="the_moon_18_keyword"></string>
-  <string name="the_moon_18_abst">mystery</string>
-  <string name="the_moon_18_meanings">the realm of shadow and night, inspiration and enchantment, drugs, madness, and intense experiences, the promise that all you imagine can be yours</string>
-  <string name="the_moon_18_reversed"></string>
-  <string name="the_moon_18_in_spiritual"></string>
-  <string name="the_moon_18_in_material"></string>
-  <string name="the_moon_18_well_dignified">Voluntary change, advance into a wider field of activity, but an advance made primarily because one is unhappy in, or dissatisfied with the present position. An element of uncertainty.</string>
-  <string name="the_moon_18_ill_dignified">Error, lying, deception; for limitations resulting from the one\'s own lack of judgement or his want of self-control; for difficulties brought about by the machinations of hidden enemies.</string>
-  <string name="the_moon_18_actions">feeling fear, stimulating the imagination, believing illusions, feeling bewildered</string>
-  <integer-array name="the_moon_18_opposition_number">
+  <integer name="trumps_19_index">118</integer>
+  <string name="trumps_19_title">The Moon</string>
+  <string name="trumps_19_en_title">The Moon</string>
+  <integer name="trumps_19_second_operation_count">12</integer>
+  <string name="trumps_19_astrology">Pisces</string>
+  <string name="trumps_19_time_period"></string>
+  <string name="trumps_19_archetype">great mother</string>
+  <string name="trumps_19_journey">dealing with obscurity, ambiguity, the complexity of reality</string>
+  <string name="trumps_19_element">water</string>
+  <string name="trumps_19_hebrew">quoph</string>
+  <string name="trumps_19_occult_title"></string>
+  <string name="trumps_19_keyword"></string>
+  <string name="trumps_19_abst">mystery</string>
+  <string name="trumps_19_meanings">the realm of shadow and night, inspiration and enchantment, drugs, madness, and intense experiences, the promise that all you imagine can be yours</string>
+  <string name="trumps_19_reversed"></string>
+  <string name="trumps_19_in_spiritual"></string>
+  <string name="trumps_19_in_material"></string>
+  <string name="trumps_19_well_dignified">Voluntary change, advance into a wider field of activity, but an advance made primarily because one is unhappy in, or dissatisfied with the present position. An element of uncertainty.</string>
+  <string name="trumps_19_ill_dignified">Error, lying, deception; for limitations resulting from the one\'s own lack of judgement or his want of self-control; for difficulties brought about by the machinations of hidden enemies.</string>
+  <string name="trumps_19_actions">feeling fear, stimulating the imagination, believing illusions, feeling bewildered</string>
+  <integer-array name="trumps_19_opposition_number">
     <item>117</item>
     <item>119</item>
   </integer-array>
-  <string-array name="the_moon_18_opposition_text">
+  <string-array name="trumps_19_opposition_text">
     <item>being serene, untroubled, at peace</item>
     <item>assurance, clarity, enlightenment</item>
   </string-array>
-  <integer-array name="the_moon_18_reinforcement_number">
+  <integer-array name="trumps_19_reinforcement_number">
     <item>142</item>
     <item>151</item>
     <item>157</item>
   </integer-array>
-  <string-array name="the_moon_18_reinforcement_text">
+  <string-array name="trumps_19_reinforcement_text">
     <item>illusions, unrealistic ideas, fantasy</item>
     <item>self-deception, not seeing the truth</item>
     <item>confusion, lack of clarity</item>
   </string-array>
-  <integer name="the_sun_19_index">119</integer>
-  <string name="the_sun_19_title">The Sun</string>
-  <string name="the_sun_19_en_title">The Sun</string>
-  <integer name="the_sun_19_second_operation_count">9</integer>
-  <string name="the_sun_19_astrology">Sun</string>
-  <string name="the_sun_19_time_period"></string>
-  <string name="the_sun_19_archetype"></string>
-  <string name="the_sun_19_journey">applying knowledge from observation to achieve goals</string>
-  <string name="the_sun_19_element">fire</string>
-  <string name="the_sun_19_hebrew">resh</string>
-  <string name="the_sun_19_occult_title"></string>
-  <string name="the_sun_19_keyword"></string>
-  <string name="the_sun_19_abst">clarity and brilliance</string>
-  <string name="the_sun_19_meanings">success, fulfillment, self expansion</string>
-  <string name="the_sun_19_reversed"></string>
-  <string name="the_sun_19_in_spiritual">Liberation, signifying release from the bondage of lower planes.</string>
-  <string name="the_sun_19_in_material">Signifies gain, glory, or riches</string>
-  <string name="the_sun_19_well_dignified"></string>
-  <string name="the_sun_19_ill_dignified"></string>
-  <string name="the_sun_19_actions">becoming enlightened, feeling vitality, experiencing greatness, having assurance</string>
-  <integer-array name="the_sun_19_opposition_number">
+  <integer name="trumps_20_index">119</integer>
+  <string name="trumps_20_title">The Sun</string>
+  <string name="trumps_20_en_title">The Sun</string>
+  <integer name="trumps_20_second_operation_count">9</integer>
+  <string name="trumps_20_astrology">Sun</string>
+  <string name="trumps_20_time_period"></string>
+  <string name="trumps_20_archetype"></string>
+  <string name="trumps_20_journey">applying knowledge from observation to achieve goals</string>
+  <string name="trumps_20_element">fire</string>
+  <string name="trumps_20_hebrew">resh</string>
+  <string name="trumps_20_occult_title"></string>
+  <string name="trumps_20_keyword"></string>
+  <string name="trumps_20_abst">clarity and brilliance</string>
+  <string name="trumps_20_meanings">success, fulfillment, self expansion</string>
+  <string name="trumps_20_reversed"></string>
+  <string name="trumps_20_in_spiritual">Liberation, signifying release from the bondage of lower planes.</string>
+  <string name="trumps_20_in_material">Signifies gain, glory, or riches</string>
+  <string name="trumps_20_well_dignified"></string>
+  <string name="trumps_20_ill_dignified"></string>
+  <string name="trumps_20_actions">becoming enlightened, feeling vitality, experiencing greatness, having assurance</string>
+  <integer-array name="trumps_20_opposition_number">
     <item>118</item>
     <item>143</item>
     <item>155</item>
     <item>168</item>
   </integer-array>
-  <string-array name="the_sun_19_opposition_text">
+  <string-array name="trumps_20_opposition_text">
     <item>confusion, disorientation, illusion</item>
     <item>weariness</item>
     <item>depressed, listless</item>
     <item>being rundown, tired</item>
   </string-array>
-  <integer-array name="the_sun_19_reinforcement_number">
+  <integer-array name="trumps_20_reinforcement_number">
     <item>116</item>
     <item>121</item>
     <item>123</item>
     <item>127</item>
   </integer-array>
-  <string-array name="the_sun_19_reinforcement_text">
+  <string-array name="trumps_20_reinforcement_text">
     <item>enlightenment, revelation</item>
     <item>accomplishment, great achievement</item>
     <item>personal power, vitality, brilliance</item>
     <item>acclaim, prominence</item>
   </string-array>
-  <integer name="judgement_20_index">120</integer>
-  <string name="judgement_20_title">Judgement</string>
-  <string name="judgement_20_en_title">Judgement</string>
-  <integer name="judgement_20_second_operation_count">3</integer>
-  <string name="judgement_20_astrology">Pluto</string>
-  <string name="judgement_20_time_period"></string>
-  <string name="judgement_20_archetype"></string>
-  <string name="judgement_20_journey">reforming as a result of inspiration</string>
-  <string name="judgement_20_element">fire</string>
-  <string name="judgement_20_hebrew">shin</string>
-  <string name="judgement_20_occult_title"></string>
-  <string name="judgement_20_keyword"></string>
-  <string name="judgement_20_abst">rebirth</string>
-  <string name="judgement_20_meanings">the end of a cycle, a time of renewal and awakening, a time to reap rewards of past actions</string>
-  <string name="judgement_20_reversed"></string>
-  <string name="judgement_20_in_spiritual"></string>
-  <string name="judgement_20_in_material"></string>
-  <string name="judgement_20_well_dignified">A favorable outcome. Often the renewal of hopes and wishes, or the betterment of conditions after a period of depression.</string>
-  <string name="judgement_20_ill_dignified">Especially in legal matters, an unfavorable decision, an outcome over which one is powerless.</string>
-  <string name="judgement_20_actions">making judgement, hearing a call, feeling reborn, finding absolution</string>
-  <integer-array name="judgement_20_opposition_number">
+  <integer name="trumps_21_index">120</integer>
+  <string name="trumps_21_title">Judgement</string>
+  <string name="trumps_21_en_title">Judgement</string>
+  <integer name="trumps_21_second_operation_count">3</integer>
+  <string name="trumps_21_astrology">Pluto</string>
+  <string name="trumps_21_time_period"></string>
+  <string name="trumps_21_archetype"></string>
+  <string name="trumps_21_journey">reforming as a result of inspiration</string>
+  <string name="trumps_21_element">fire</string>
+  <string name="trumps_21_hebrew">shin</string>
+  <string name="trumps_21_occult_title"></string>
+  <string name="trumps_21_keyword"></string>
+  <string name="trumps_21_abst">rebirth</string>
+  <string name="trumps_21_meanings">the end of a cycle, a time of renewal and awakening, a time to reap rewards of past actions</string>
+  <string name="trumps_21_reversed"></string>
+  <string name="trumps_21_in_spiritual"></string>
+  <string name="trumps_21_in_material"></string>
+  <string name="trumps_21_well_dignified">A favorable outcome. Often the renewal of hopes and wishes, or the betterment of conditions after a period of depression.</string>
+  <string name="trumps_21_ill_dignified">Especially in legal matters, an unfavorable decision, an outcome over which one is powerless.</string>
+  <string name="trumps_21_actions">making judgement, hearing a call, feeling reborn, finding absolution</string>
+  <integer-array name="trumps_21_opposition_number">
     <item>113</item>
     <item>140</item>
     <item>158</item>
   </integer-array>
-  <string-array name="judgement_20_opposition_text">
+  <string-array name="trumps_21_opposition_text">
     <item>death, endings</item>
     <item>regret, mistakes</item>
     <item>guilt, blame, feelings of sinfulness</item>
   </string-array>
-  <integer-array name="judgement_20_reinforcement_number">
+  <integer-array name="trumps_21_reinforcement_number">
     <item>100</item>
     <item>111</item>
     <item>170</item>
   </integer-array>
-  <string-array name="judgement_20_reinforcement_text">
+  <string-array name="trumps_21_reinforcement_text">
     <item>rebirth, new starts</item>
     <item>deciding, accepting mistakes/actions</item>
     <item>decision point</item>
   </string-array>
-  <integer name="the_world_21_index">121</integer>
-  <string name="the_world_21_title">The World</string>
-  <string name="the_world_21_en_title">The World</string>
-  <integer name="the_world_21_second_operation_count">9</integer>
-  <string name="the_world_21_astrology">Saturn</string>
-  <string name="the_world_21_time_period"></string>
-  <string name="the_world_21_archetype"></string>
-  <string name="the_world_21_journey">coming full circle</string>
-  <string name="the_world_21_element">earth</string>
-  <string name="the_world_21_hebrew">tau</string>
-  <string name="the_world_21_occult_title"></string>
-  <string name="the_world_21_keyword"></string>
-  <string name="the_world_21_abst">synthesis, dynamic balance</string>
-  <string name="the_world_21_meanings">a positive sign one is on track to achieve one\'s desires, active contribution and service</string>
-  <string name="the_world_21_reversed"></string>
-  <string name="the_world_21_in_spiritual"></string>
-  <string name="the_world_21_in_material"></string>
-  <string name="the_world_21_well_dignified"></string>
-  <string name="the_world_21_ill_dignified"></string>
-  <string name="the_world_21_actions">integrating, becoming involved, accomplishing, feeling fulfilled</string>
-  <integer-array name="the_world_21_opposition_number">
+  <integer name="trumps_22_index">121</integer>
+  <string name="trumps_22_title">The World</string>
+  <string name="trumps_22_en_title">The World</string>
+  <integer name="trumps_22_second_operation_count">9</integer>
+  <string name="trumps_22_astrology">Saturn</string>
+  <string name="trumps_22_time_period"></string>
+  <string name="trumps_22_archetype"></string>
+  <string name="trumps_22_journey">coming full circle</string>
+  <string name="trumps_22_element">earth</string>
+  <string name="trumps_22_hebrew">tau</string>
+  <string name="trumps_22_occult_title"></string>
+  <string name="trumps_22_keyword"></string>
+  <string name="trumps_22_abst">synthesis, dynamic balance</string>
+  <string name="trumps_22_meanings">a positive sign one is on track to achieve one\'s desires, active contribution and service</string>
+  <string name="trumps_22_reversed"></string>
+  <string name="trumps_22_in_spiritual"></string>
+  <string name="trumps_22_in_material"></string>
+  <string name="trumps_22_well_dignified"></string>
+  <string name="trumps_22_ill_dignified"></string>
+  <string name="trumps_22_actions">integrating, becoming involved, accomplishing, feeling fulfilled</string>
+  <integer-array name="trumps_22_opposition_number">
     <item>109</item>
     <item>139</item>
     <item>126</item>
   </integer-array>
-  <string-array name="the_world_21_opposition_text">
+  <string-array name="trumps_22_opposition_text">
     <item>isolation</item>
     <item>lack of involvement, apathy, withdrawal</item>
     <item>working at cross-purposes, lack of integration</item>
   </string-array>
-  <integer-array name="the_world_21_reinforcement_number">
+  <integer-array name="trumps_22_reinforcement_number">
     <item>114</item>
     <item>119</item>
     <item>144</item>
     <item>145</item>
     <item>173</item>
   </integer-array>
-  <string-array name="the_world_21_reinforcement_text">
+  <string-array name="trumps_22_reinforcement_text">
     <item>integration, synthesis, combination</item>
     <item>accomplishment, achievements</item>
     <item>achieving your hearts desire</item>

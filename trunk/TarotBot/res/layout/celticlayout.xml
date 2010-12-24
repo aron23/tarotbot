@@ -265,7 +265,7 @@
 						android:layout_height="wrap_content" android:layout_width="wrap_content"
 						android:clickable="true" android:scaleType="fitCenter"
 						android:adjustViewBounds="true" android:layout_gravity="left"
-						android:gravity="left" android:padding="1px" android:src="@drawable/landscape"></ImageView></LinearLayout>
+						android:gravity="left" android:padding="1px"></ImageView></LinearLayout>
 				</LinearLayout>
 
 

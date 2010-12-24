@@ -1,94 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
   android:background="#000000">
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent" 
-	>
-<RelativeLayout
+    android:layout_height="fill_parent"   
+    android:fillViewport="true"
+    android:fadingEdge="none">	
+<LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
-  android:layout_centerHorizontal="true"
-  android:layout_centerVertical="true"
-  android:gravity="center"
-  android:layout_gravity="center">  
-<ImageView android:id="@+id/pentagram_spirit_back" 
-	android:layout_width="68dip"
-    android:layout_height="122dip"
-    android:layout_marginLeft="115dip"
-    android:layout_marginTop="4dip"
-    android:background="#000000"></ImageView>  
-    
-<ImageView android:id="@+id/pentagram_fire_back" 
-	android:layout_width="68dip"
-    android:layout_height="122dip"
-    android:layout_marginLeft="4dip"
-    android:layout_marginTop="89dip"
-    android:background="#000000"></ImageView>
-    
-<ImageView android:id="@+id/pentagram_earth_back" 
-	android:layout_width="68dip"
-    android:layout_height="122dip"
-    android:layout_marginLeft="221dip"
-    android:layout_marginTop="89dip"
-    android:background="#000000"></ImageView>  
-
-<ImageView android:id="@+id/pentagram_water_back"  
-	android:layout_width="68dip"
-    android:layout_height="122dip"
-    android:layout_marginLeft="56dip"
-    android:layout_marginTop="219dip"
-    android:background="#000000"></ImageView> 
-
-<ImageView android:id="@+id/pentagram_air_back"  
-	android:layout_width="68dip"
-    android:layout_height="122dip"
-    android:layout_marginLeft="171dip"
-    android:layout_marginTop="219dip"
-    android:background="#000000"></ImageView>     
-<ImageView android:id="@+id/pentagram_spirit" 
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="116dip"
-    android:layout_marginTop="5dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>  
-    
+  android:clipChildren="true"
+  android:orientation="vertical">
+<LinearLayout android:id="@+id/toprow"  
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#000000"
+	android:orientation="horizontal"
+	android:layout_gravity="bottom"
+	android:gravity="bottom"
+	android:clipChildren="true"
+	android:layout_weight="2">
+<LinearLayout android:id="@+id/leftcolumn"  
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="#000000"
+	android:orientation="vertical"
+	android:layout_gravity="center"
+	android:gravity="center"
+	android:clipChildren="true"
+	android:layout_weight="1">
+<LinearLayout android:id="@+id/filler" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+  		android:layout_width="fill_parent"
+	  	android:background="#000"  	
+	  	android:layout_gravity="top"
+	  	android:gravity="top"
+	  	android:clipChildren="true"
+	  	android:layout_weight="3"/>
+<LinearLayout android:id="@+id/pentagram_fire_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+	android:layout_width="wrap_content"
+	android:background="#000"	  	  	
+	android:layout_gravity="center"
+	android:gravity="center"	
+	android:clipChildren="true"
+	android:layout_margin="8dip"
+	android:layout_weight="3">  
 <ImageView android:id="@+id/pentagram_fire" 
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="5dip"
-    android:layout_marginTop="90dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
+	android:layout_height="fill_parent"
+	android:layout_width="wrap_content"
+	android:clickable="true"
+	android:scaleType="fitCenter"
+	android:adjustViewBounds="true"
+	android:layout_gravity="bottom"
+	android:gravity="bottom"
+	android:padding="1px"
+    android:src="@drawable/pent_03"></ImageView>          
+</LinearLayout>
+</LinearLayout>
+
+<LinearLayout android:id="@+id/centercolumn"  
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:background="#000000"
+  	android:orientation="vertical"
+  	android:layout_gravity="center"
+  	android:gravity="fill_vertical"
+  	android:clipChildren="true"
+  	android:layout_weight="1">
+<LinearLayout android:id="@+id/pentagram_spirit_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	  	android:layout_width="wrap_content"
+	  	android:background="#000"
+	  	android:layout_gravity="center"
+	  	android:gravity="center"
+	  	android:clipChildren="true"
+	  	android:layout_margin="8dip"
+	  	android:layout_weight="3">  
+<ImageView android:id="@+id/pentagram_spirit" 
+	android:layout_height="fill_parent"
+	    android:layout_width="wrap_content"
+	    android:clickable="true"
+	    android:scaleType="fitCenter"
+	    android:adjustViewBounds="true"
+	    android:layout_gravity="center"
+		android:gravity="center"
+	    android:padding="1px"
+    android:src="@drawable/pent_06"></ImageView>          
+</LinearLayout>
+<LinearLayout android:id="@+id/filler" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+  		android:layout_width="fill_parent"
+	  	android:background="#000"  	
+	  	android:layout_gravity="top"
+	  	android:gravity="top"
+	  	android:clipChildren="true"
+	  	android:layout_weight="3"/>
+</LinearLayout>
+
+<LinearLayout android:id="@+id/rightcolumn"  
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="#000000"
+	android:orientation="vertical"
+	android:layout_gravity="center"
+	android:gravity="center"
+	android:clipChildren="true"
+	android:layout_weight="1">
+<LinearLayout android:id="@+id/filler" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+  		android:layout_width="fill_parent"
+	  	android:background="#000"  	
+	  	android:layout_gravity="top"
+	  	android:gravity="top"
+	  	android:clipChildren="true"
+	  	android:layout_weight="3"/>	
+<LinearLayout android:id="@+id/pentagram_earth_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="fill_parent"
+	  	android:layout_width="wrap_content"
+	  	android:background="#000"  	
+	  	android:layout_gravity="center"
+	  	android:gravity="center"
+	  	android:clipChildren="true"
+	  	android:layout_margin="8dip"
+	  	android:layout_weight="3">  
 <ImageView android:id="@+id/pentagram_earth" 
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="222dip"
-    android:layout_marginTop="90dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>  
+	android:layout_height="wrap_content"
+	    android:layout_width="wrap_content"
+	    android:clickable="true"
+	    android:scaleType="fitCenter"
+	    android:adjustViewBounds="true"
+	    android:layout_gravity="bottom"
+		android:gravity="bottom"
+	    android:padding="1px"
+    android:src="@drawable/pent_04"></ImageView>          
+</LinearLayout>
+</LinearLayout>
 
-<ImageView android:id="@+id/pentagram_water"  
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="57dip"
-    android:layout_marginTop="220dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
+</LinearLayout>
 
-<ImageView android:id="@+id/pentagram_air"  
-	android:layout_width="66dip"
-    android:layout_height="120dip"
-    android:layout_marginLeft="172dip"
-    android:layout_marginTop="220dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>       
-</RelativeLayout>
-</ScrollView>
-</RelativeLayout>
+<LinearLayout android:id="@+id/bottomrow"  
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:background="#000000"
+	android:orientation="horizontal"
+	android:layout_gravity="top"
+	android:gravity="top"
+	android:clipChildren="true"
+	android:layout_weight="3">
+<LinearLayout android:id="@+id/leftbottomfiller" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:layout_height="fill_parent"
+  		android:layout_width="fill_parent"
+	  	android:background="#000"  	
+	  	android:layout_gravity="top"
+	  	android:gravity="top"
+	  	android:clipChildren="true"
+	  	android:layout_weight="4"/>
+<LinearLayout android:id="@+id/pentagram_water_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+	  	android:layout_width="fill_parent"
+	  	android:background="#000"  	
+	  	android:layout_gravity="top"
+	  	android:gravity="top"
+	  	android:clipChildren="true"
+	  	android:layout_margin="8dip"
+	  	android:layout_weight="3">  
+<ImageView android:id="@+id/pentagram_water" 
+	android:layout_height="fill_parent"
+	    android:layout_width="wrap_content"
+	    android:clickable="true"
+	    android:scaleType="fitEnd"
+	    android:adjustViewBounds="true"
+	    android:layout_gravity="top"
+		android:gravity="top"
+	    android:padding="1px"
+    android:src="@drawable/pent_05"></ImageView>          
+</LinearLayout>
+<LinearLayout android:id="@+id/bottomfiller" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:layout_height="fill_parent"
+  		android:layout_width="fill_parent"
+	  	android:background="#000"  	
+	  	android:layout_gravity="top"
+	  	android:gravity="top"
+	  	android:clipChildren="true"
+	  	android:layout_weight="4"/>
+<LinearLayout android:id="@+id/pentagram_air_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:layout_height="wrap_content"
+  		android:layout_width="fill_parent"
+	  	android:background="#000"  	
+	  	android:layout_gravity="top"
+	  	android:gravity="top"
+	  	android:layout_margin="8dip"
+	  	android:clipChildren="true"
+	  	android:layout_weight="3">  
+<ImageView android:id="@+id/pentagram_air" 
+	android:layout_height="fill_parent"
+	    android:layout_width="wrap_content"	    
+	    android:clickable="true"
+	    android:scaleType="fitStart"
+	    android:adjustViewBounds="true"
+	    android:layout_gravity="top"
+		android:gravity="top"
+	    android:padding="1px"
+    android:src="@drawable/pent_02"></ImageView>          
+</LinearLayout>
+<LinearLayout android:id="@+id/rightbottomfiller" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  		android:layout_height="fill_parent"
+  		android:layout_width="fill_parent"
+	  	android:background="#000"  	
+	  	android:layout_gravity="top"
+	  	android:gravity="top"
+	  	android:clipChildren="true"
+	  	android:layout_weight="4"/>
+</LinearLayout>
+
+</LinearLayout>
+</ScrollView>  
+</LinearLayout>
+
+

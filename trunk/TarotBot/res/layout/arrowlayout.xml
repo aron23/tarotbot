@@ -1,66 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
   android:background="#000000">
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent" 
-	>
-<RelativeLayout
+    android:layout_height="fill_parent"   
+    android:fillViewport="true"
+    android:fadingEdge="none">
+<LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
-  android:layout_centerHorizontal="true"
-  android:layout_centerVertical="true"
+  android:layout_margin="4dip"  
+  android:background="#000000"
+  android:orientation="vertical">	
+
+<LinearLayout android:id="@+id/rowone"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:layout_gravity="center"
   android:gravity="center"
-  android:layout_gravity="center">    
+  android:background="#000000"
+  android:layout_weight="1">
 
-<ImageView android:id="@+id/arrow_past_back" 
-	android:layout_width="90dip"
-    android:layout_height="162dip"
-    android:layout_marginLeft="4dip"
-    android:layout_marginTop="4dip"
-    android:background="#000000"></ImageView>
-    
-<ImageView android:id="@+id/arrow_past" 
-	android:layout_width="88dip"
-    android:layout_height="160dip"
-    android:layout_marginLeft="5dip"
-    android:layout_marginTop="5dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-    
-<ImageView android:id="@+id/arrow_present_back" 
-	android:layout_width="90dip"
-    android:layout_height="162dip"
-    android:layout_marginLeft="101dip"
-    android:layout_marginTop="4dip"
-    android:background="#000000"></ImageView>
-
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	android:background="#000"
+	  	android:layout_weight="3"/>
+<LinearLayout android:id="@+id/arrow_present_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  	android:background="#000"	
+  	android:layout_gravity="center"
+	android:gravity="center"
+	android:layout_margin="2dip"
+	android:clipToPadding="true"
+  	android:layout_weight="3">  
 <ImageView android:id="@+id/arrow_present" 
-	android:layout_width="88dip"
-    android:layout_height="160dip"
-    android:layout_marginLeft="102dip"
-    android:layout_marginTop="5dip"
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView> 
-    
-<ImageView android:id="@+id/arrow_future_back" 
-	android:layout_width="90dip"
-    android:layout_height="162dip"
-    android:layout_marginLeft="198dip"
-    android:layout_marginTop="4dip"
-    android:background="#000000"></ImageView>
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+    android:layout_gravity="center"
+	android:gravity="center"
+    android:padding="1px"
+    android:src="@drawable/pent_07"></ImageView>          
+</LinearLayout>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	android:background="#000"
+	  	android:layout_weight="3"/>        
 
-<ImageView android:id="@+id/arrow_future"  
-	android:layout_width="88dip"
-    android:layout_height="160dip"
-    android:layout_marginLeft="199dip"
-    android:layout_marginTop="5dip"
+</LinearLayout>
+
+
+<LinearLayout android:id="@+id/rowtwo"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+    android:layout_gravity="center"
+	android:gravity="center"
+  android:background="#000000"  
+  android:layout_weight="1">
+
+<LinearLayout android:id="@+id/arrow_past_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  android:layout_gravity="center"
+  android:gravity="center"
+  	android:background="#000"
+	android:clipToPadding="true"    
+	android:layout_margin="2dip"
+  	android:layout_weight="3">  
+<ImageView android:id="@+id/arrow_past" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
     android:clickable="true"
-    android:scaleType="fitXY"></ImageView>  
-</RelativeLayout>
-</ScrollView>
-</RelativeLayout>
+    android:scaleType="fitCenter"
+  android:layout_gravity="center"
+  android:gravity="center"    
+    android:adjustViewBounds="true"
+    android:padding="1px"
+    android:src="@drawable/pent_01"></ImageView>          
+</LinearLayout>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	android:background="#000"
+	  	android:layout_weight="3"/>	  		  	
+<LinearLayout android:id="@+id/arrow_future_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  android:layout_gravity="center"
+  android:layout_margin="2dip"
+  android:gravity="center"  	  
+  	android:background="#000"
+  	android:layout_weight="3">  
+<ImageView android:id="@+id/arrow_future" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+  android:layout_gravity="center"
+  android:gravity="center"    
+    android:padding="1px"
+    android:src="@drawable/pent_02"></ImageView>
+</LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>
+</ScrollView>  
+</LinearLayout>

@@ -11,61 +11,28 @@
 				android:layout_width="fill_parent" android:layout_height="fill_parent"
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
-				<ImageView android:id="@+id/the_fool_00"
+				<ImageView android:id="@+id/trumps_01"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart"  android:adjustViewBounds="true"/>
-				<ImageView android:id="@+id/the_magician_01"
+				<ImageView android:id="@+id/trumps_02"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_high_priestess_02"
+				<ImageView android:id="@+id/trumps_03"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_empress_03"
-
-					android:layout_width="fill_parent" android:layout_height="wrap_content"
-
-
-					android:clickable="true" android:layout_weight="1"
-					android:scaleType="fitStart" android:adjustViewBounds="true" />
-			</LinearLayout>
-			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-				android:layout_width="fill_parent" android:layout_height="fill_parent"
-				android:gravity="center" android:layout_gravity="center"
-				android:orientation="horizontal">
-				<ImageView android:id="@+id/the_emperor_04"
-
-					android:layout_width="fill_parent" android:layout_height="wrap_content"
-
-
-					android:clickable="true" android:layout_weight="1"
-					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_hierophant_05"
-
-					android:layout_width="fill_parent" android:layout_height="wrap_content"
-
-
-					android:clickable="true" android:layout_weight="1"
-					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_lovers_06"
-
-					android:layout_width="fill_parent" android:layout_height="wrap_content"
-
-
-					android:clickable="true" android:layout_weight="1"
-					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_chariot_07"
+				<ImageView android:id="@+id/trumps_04"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -77,64 +44,28 @@
 				android:layout_width="fill_parent" android:layout_height="fill_parent"
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
-				<ImageView android:id="@+id/strength_08"
+				<ImageView android:id="@+id/trumps_05"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
-
-
-				<ImageView android:id="@+id/the_hermit_09"
+				<ImageView android:id="@+id/trumps_06"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_wheel_of_fortune_10"
+				<ImageView android:id="@+id/trumps_07"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
-
-				<ImageView android:id="@+id/justice_11"
-
-					android:layout_width="fill_parent" android:layout_height="wrap_content"
-
-
-					android:clickable="true" android:layout_weight="1"
-					android:scaleType="fitStart" android:adjustViewBounds="true" />
-			</LinearLayout>
-			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-				android:layout_width="fill_parent" android:layout_height="fill_parent"
-				android:gravity="center" android:layout_gravity="center"
-				android:orientation="horizontal">
-				<ImageView android:id="@+id/the_hanged_man_12"
-
-					android:layout_width="fill_parent" android:layout_height="wrap_content"
-
-
-					android:clickable="true" android:layout_weight="1"
-					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/death_13"
-
-					android:layout_width="fill_parent" android:layout_height="wrap_content"
-
-
-					android:clickable="true" android:layout_weight="1"
-					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/temperance_14"
-
-					android:layout_width="fill_parent" android:layout_height="wrap_content"
-
-
-					android:clickable="true" android:layout_weight="1"
-					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_devil_15"
+				<ImageView android:id="@+id/trumps_08"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -146,28 +77,97 @@
 				android:layout_width="fill_parent" android:layout_height="fill_parent"
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
-				<ImageView android:id="@+id/the_tower_16"
+				<ImageView android:id="@+id/trumps_09"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_star_17"
+
+
+				<ImageView android:id="@+id/trumps_10"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_moon_18"
+				<ImageView android:id="@+id/trumps_11"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_sun_19"
+
+				<ImageView android:id="@+id/trumps_12"
+
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+
+
+					android:clickable="true" android:layout_weight="1"
+					android:scaleType="fitStart" android:adjustViewBounds="true" />
+			</LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:gravity="center" android:layout_gravity="center"
+				android:orientation="horizontal">
+				<ImageView android:id="@+id/trumps_13"
+
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+
+
+					android:clickable="true" android:layout_weight="1"
+					android:scaleType="fitStart" android:adjustViewBounds="true" />
+				<ImageView android:id="@+id/trumps_14"
+
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+
+
+					android:clickable="true" android:layout_weight="1"
+					android:scaleType="fitStart" android:adjustViewBounds="true" />
+				<ImageView android:id="@+id/trumps_15"
+
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+
+
+					android:clickable="true" android:layout_weight="1"
+					android:scaleType="fitStart" android:adjustViewBounds="true" />
+				<ImageView android:id="@+id/trumps_16"
+
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+
+
+					android:clickable="true" android:layout_weight="1"
+					android:scaleType="fitStart" android:adjustViewBounds="true" />
+			</LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:gravity="center" android:layout_gravity="center"
+				android:orientation="horizontal">
+				<ImageView android:id="@+id/trumps_17"
+
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+
+
+					android:clickable="true" android:layout_weight="1"
+					android:scaleType="fitStart" android:adjustViewBounds="true" />
+				<ImageView android:id="@+id/trumps_18"
+
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+
+
+					android:clickable="true" android:layout_weight="1"
+					android:scaleType="fitStart" android:adjustViewBounds="true" />
+				<ImageView android:id="@+id/trumps_19"
+
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+
+
+					android:clickable="true" android:layout_weight="1"
+					android:scaleType="fitStart" android:adjustViewBounds="true" />
+				<ImageView android:id="@+id/trumps_20"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -183,14 +183,14 @@
 					android:layout_height="wrap_content"
 					android:layout_width="fill_parent"
 					android:layout_weight="1"/>
-				<ImageView android:id="@+id/judgement_20"
+				<ImageView android:id="@+id/trumps_21"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/the_world_21"
+				<ImageView android:id="@+id/trumps_22"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 

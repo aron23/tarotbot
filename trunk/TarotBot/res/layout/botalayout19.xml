@@ -1,306 +1,518 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
-  android:background="#000000">
-<ScrollView android:id="@+id/textAreaScroller" 
-    android:layout_width="fill_parent" 
-    android:layout_height="fill_parent" 
-	>
-<RelativeLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
-  android:layout_centerHorizontal="true"
-  android:layout_centerVertical="true"
-  android:gravity="center"
-  android:layout_gravity="center">  
-  
-<ImageView android:id="@+id/bota_00_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="127dip"
-    android:layout_marginTop="4dip"
-    android:background="#000000"></ImageView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="#000000">
+	<ScrollView android:id="@+id/textAreaScroller"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:fillViewport="true" android:fadingEdge="none">
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:clipChildren="true">
 
-<ImageView android:id="@+id/bota_00" 	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="128dip"
-    android:layout_marginTop="5dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
+			<LinearLayout android:id="@+id/rowone"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coltwo"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colthree"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfour"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfive"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout  android:id="@+id/bota_14_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_14"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/colseven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleight"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+					<LinearLayout android:id="@+id/colnine"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colten"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>
 
-<ImageView android:id="@+id/bota_01_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="153dip"
-    android:layout_marginTop="19dip"
-    android:background="#000000"></ImageView>
+			<LinearLayout android:id="@+id/rowtwo"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coltwo"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colthree"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfour"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout  android:id="@+id/bota_15_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_15"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>					
+				<LinearLayout android:id="@+id/colsix"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout  android:id="@+id/bota_13_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_13"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/coleight"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+					<LinearLayout android:id="@+id/colnine"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colten"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>
+						
+			<LinearLayout android:id="@+id/rowthree"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coltwo"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colthree"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+				<LinearLayout  android:id="@+id/bota_16_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_16"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/colfive"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout android:id="@+id/colsix"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colseven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout  android:id="@+id/bota_12_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_12"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>				
+					<LinearLayout android:id="@+id/colnine"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colten"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>
 
-<ImageView android:id="@+id/bota_01" 	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="154dip"
-    android:layout_marginTop="20dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
+			<LinearLayout android:id="@+id/rowfour"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coltwo"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout  android:id="@+id/bota_17_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_17"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/colfour"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfive"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout android:id="@+id/colsix"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colseven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleight"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />										
+				<LinearLayout  android:id="@+id/bota_11_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_11"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>				
+				<LinearLayout android:id="@+id/colten"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>
 
-<ImageView android:id="@+id/bota_02_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="180dip"
-    android:layout_marginTop="39dip"
-    android:background="#000000"></ImageView>
+			<LinearLayout android:id="@+id/rowfive"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+				<LinearLayout android:id="@+id/bota_18_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_18"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/colthree"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfour"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfive"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout android:id="@+id/colsix"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colseven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleight"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />										
+				<LinearLayout android:id="@+id/colnine"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout  android:id="@+id/bota_10_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_10"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>								
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>
 
-<ImageView android:id="@+id/bota_02" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="181dip"
-    android:layout_marginTop="40dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_03_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="207dip"
-    android:layout_marginTop="64dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_03" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="208dip"
-    android:layout_marginTop="65dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_04_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="234dip"
-    android:layout_marginTop="89dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_04" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="235dip"
-    android:layout_marginTop="90dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_05_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="248dip"
-    android:layout_marginTop="134dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_05" 	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="249dip"
-    android:layout_marginTop="135dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_06_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="221dip"
-    android:layout_marginTop="179dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_06" 	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="222dip"
-    android:layout_marginTop="180dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_07_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="194dip"
-    android:layout_marginTop="204dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_07" 	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="195dip"
-    android:layout_marginTop="205dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_08_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="167dip"
-    android:layout_marginTop="229dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_08" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="168dip"
-    android:layout_marginTop="230dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_09_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="140dip"
-    android:layout_marginTop="249dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_09" 	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="141dip"
-    android:layout_marginTop="250dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_10_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="112dip"
-    android:layout_marginTop="249dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_10" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="113dip"
-    android:layout_marginTop="250dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_11_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="85dip"
-    android:layout_marginTop="229dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_11" 	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="86dip"
-    android:layout_marginTop="230dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_12_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="58dip"
-    android:layout_marginTop="204dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_12" 	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="59dip"
-    android:layout_marginTop="205dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_13_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="31dip"
-    android:layout_marginTop="179dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_13" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="32dip"
-    android:layout_marginTop="180dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_14_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="4dip"
-    android:layout_marginTop="134dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_14" 	
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="5dip"
-    android:layout_marginTop="135dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_15_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="18dip"
-    android:layout_marginTop="89dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_15" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="19dip"
-    android:layout_marginTop="90dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_16_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="45dip"
-    android:layout_marginTop="64dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_16" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="46dip"
-    android:layout_marginTop="65dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_17_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="72dip"
-    android:layout_marginTop="39dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_17" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="73dip"
-    android:layout_marginTop="40dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-
-<ImageView android:id="@+id/bota_18_back" 	
-	android:layout_width="24dip"
-    android:layout_height="42dip"
-    android:layout_marginLeft="99dip"
-    android:layout_marginTop="19dip"
-    android:background="#000000"></ImageView>
-
-<ImageView android:id="@+id/bota_18" 
-	android:layout_width="22dip"
-    android:layout_height="40dip"
-    android:layout_marginLeft="100dip"
-    android:layout_marginTop="20dip"
-    android:clickable="true"
-    android:scaleType="fitXY"></ImageView>
-</RelativeLayout>
-</ScrollView>
-</RelativeLayout>
+			<LinearLayout android:id="@+id/rowsix"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">							
+				<LinearLayout android:id="@+id/bota_00_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView android:id="@+id/bota_00"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/coltwo"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colthree"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfour"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfive"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout android:id="@+id/colsix"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colseven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleight"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />										
+				<LinearLayout android:id="@+id/colnine"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />																
+				<LinearLayout android:id="@+id/colten"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+			</LinearLayout>
+			
+			<LinearLayout android:id="@+id/rowseven"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+				<LinearLayout android:id="@+id/bota_01_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView android:id="@+id/bota_01"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/colthree"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfour"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfive"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout android:id="@+id/colsix"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colseven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleight"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />										
+				<LinearLayout android:id="@+id/colnine"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout  android:id="@+id/bota_09_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_09"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>								
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>
+			
+			<LinearLayout android:id="@+id/roweight"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coltwo"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout  android:id="@+id/bota_02_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_02"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/colfour"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfive"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout android:id="@+id/colsix"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colseven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleight"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />										
+				<LinearLayout  android:id="@+id/bota_08_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_08"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>				
+				<LinearLayout android:id="@+id/colten"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>
+			
+			<LinearLayout android:id="@+id/rownine"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coltwo"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colthree"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+				<LinearLayout  android:id="@+id/bota_03_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_03"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/colfive"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout android:id="@+id/colsix"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colseven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />					
+				<LinearLayout  android:id="@+id/bota_07_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_07"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>				
+					<LinearLayout android:id="@+id/colnine"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colten"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>			
+			
+			<LinearLayout android:id="@+id/rowten"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coltwo"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colthree"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfour"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout  android:id="@+id/bota_04_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_04"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>					
+				<LinearLayout android:id="@+id/colsix"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout  android:id="@+id/bota_06_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_06"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/coleight"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+					<LinearLayout android:id="@+id/colnine"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colten"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>			
+	
+			<LinearLayout android:id="@+id/roweleven"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:clipChildren="true" android:layout_weight="1"
+				android:orientation="vertical">
+				<LinearLayout android:id="@+id/colone"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coltwo"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colthree"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfour"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colfive"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout  android:id="@+id/bota_05_back"
+					android:background="#000000" android:layout_width="fill_parent"
+					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
+					<ImageView  android:id="@+id/bota_05"
+						android:layout_width="fill_parent" android:layout_height="fill_parent"
+						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/colseven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleight"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+					<LinearLayout android:id="@+id/colnine"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/colten"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />
+				<LinearLayout android:id="@+id/coleleven"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:layout_weight="1" />				
+			</LinearLayout>	
+			</LinearLayout>
+	</ScrollView>
+</LinearLayout>

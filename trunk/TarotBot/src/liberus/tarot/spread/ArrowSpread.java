@@ -19,6 +19,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class ArrowSpread extends Spread {
 	
@@ -125,7 +126,7 @@ public class ArrowSpread extends Spread {
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.arrow_past);
-		ImageView shadow = (ImageView)layout.findViewById(R.id.arrow_past_back);
+		
 		placeImage(act.flipdex.get(0),card,ctx);
 		card.setId(0);
 		card.setOnClickListener(act);

@@ -423,114 +423,114 @@ public class BrowseSpread extends Spread {
 	}
 	
 	private View populateTrumps(View layout, AbstractTarotBotActivity act,Context ctx) {
-		ImageView card = (ImageView) layout.findViewById(R.id.the_fool_00);
-		placeImage(Interpretation.getCardIndex(R.id.the_fool_00),card,ctx);
-		card.setId(R.id.the_fool_00);
+		ImageView card = (ImageView) layout.findViewById(R.id.trumps_01);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_01),card,ctx);
+		card.setId(R.id.trumps_01);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_magician_01);
-		placeImage(Interpretation.getCardIndex(R.id.the_magician_01),card,ctx);
-		card.setId(R.id.the_magician_01);
+		card = (ImageView) layout.findViewById(R.id.trumps_02);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_02),card,ctx);
+		card.setId(R.id.trumps_02);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_high_priestess_02);
-		placeImage(Interpretation.getCardIndex(R.id.the_high_priestess_02),card,ctx);
-		card.setId(R.id.the_high_priestess_02);
+		card = (ImageView) layout.findViewById(R.id.trumps_03);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_03),card,ctx);
+		card.setId(R.id.trumps_03);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_empress_03);
-		placeImage(Interpretation.getCardIndex(R.id.the_empress_03),card,ctx);
-		card.setId(R.id.the_empress_03);
+		card = (ImageView) layout.findViewById(R.id.trumps_04);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_04),card,ctx);
+		card.setId(R.id.trumps_04);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_emperor_04);
-		placeImage(Interpretation.getCardIndex(R.id.the_emperor_04),card,ctx);
-		card.setId(R.id.the_emperor_04);
+		card = (ImageView) layout.findViewById(R.id.trumps_05);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_05),card,ctx);
+		card.setId(R.id.trumps_05);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_hierophant_05);
-		placeImage(Interpretation.getCardIndex(R.id.the_hierophant_05),card,ctx);
-		card.setId(R.id.the_hierophant_05);
+		card = (ImageView) layout.findViewById(R.id.trumps_06);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_06),card,ctx);
+		card.setId(R.id.trumps_06);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_lovers_06);
-		placeImage(Interpretation.getCardIndex(R.id.the_lovers_06),card,ctx);
-		card.setId(R.id.the_lovers_06);
+		card = (ImageView) layout.findViewById(R.id.trumps_07);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_07),card,ctx);
+		card.setId(R.id.trumps_07);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_chariot_07);
-		placeImage(Interpretation.getCardIndex(R.id.the_chariot_07),card,ctx);
-		card.setId(R.id.the_chariot_07);
+		card = (ImageView) layout.findViewById(R.id.trumps_08);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_08),card,ctx);
+		card.setId(R.id.trumps_08);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.strength_08);
-		placeImage(Interpretation.getCardIndex(R.id.strength_08),card,ctx);
-		card.setId(R.id.strength_08);
+		card = (ImageView) layout.findViewById(R.id.trumps_09);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_09),card,ctx);
+		card.setId(R.id.trumps_09);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_hermit_09);
-		placeImage(Interpretation.getCardIndex(R.id.the_hermit_09),card,ctx);
-		card.setId(R.id.the_hermit_09);
+		card = (ImageView) layout.findViewById(R.id.trumps_10);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_10),card,ctx);
+		card.setId(R.id.trumps_10);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_wheel_of_fortune_10);
-		placeImage(Interpretation.getCardIndex(R.id.the_wheel_of_fortune_10),card,ctx);
-		card.setId(R.id.the_wheel_of_fortune_10);
+		card = (ImageView) layout.findViewById(R.id.trumps_11);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_11),card,ctx);
+		card.setId(R.id.trumps_11);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.justice_11);
-		placeImage(Interpretation.getCardIndex(R.id.justice_11),card,ctx);
-		card.setId(R.id.justice_11);
+		card = (ImageView) layout.findViewById(R.id.trumps_12);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_12),card,ctx);
+		card.setId(R.id.trumps_12);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_hanged_man_12);
-		placeImage(Interpretation.getCardIndex(R.id.the_hanged_man_12),card,ctx);
-		card.setId(R.id.the_hanged_man_12);
+		card = (ImageView) layout.findViewById(R.id.trumps_13);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_13),card,ctx);
+		card.setId(R.id.trumps_13);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.death_13);
-		placeImage(Interpretation.getCardIndex(R.id.death_13),card,ctx);
-		card.setId(R.id.death_13);
+		card = (ImageView) layout.findViewById(R.id.trumps_14);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_14),card,ctx);
+		card.setId(R.id.trumps_14);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.temperance_14);
-		placeImage(Interpretation.getCardIndex(R.id.temperance_14),card,ctx);
-		card.setId(R.id.temperance_14);
+		card = (ImageView) layout.findViewById(R.id.trumps_15);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_15),card,ctx);
+		card.setId(R.id.trumps_15);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_devil_15);
-		placeImage(Interpretation.getCardIndex(R.id.the_devil_15),card,ctx);
-		card.setId(R.id.the_devil_15);
+		card = (ImageView) layout.findViewById(R.id.trumps_16);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_16),card,ctx);
+		card.setId(R.id.trumps_16);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_tower_16);
-		placeImage(Interpretation.getCardIndex(R.id.the_tower_16),card,ctx);
-		card.setId(R.id.the_tower_16);
+		card = (ImageView) layout.findViewById(R.id.trumps_17);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_17),card,ctx);
+		card.setId(R.id.trumps_17);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_star_17);
-		placeImage(Interpretation.getCardIndex(R.id.the_star_17),card,ctx);
-		card.setId(R.id.the_star_17);
+		card = (ImageView) layout.findViewById(R.id.trumps_18);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_18),card,ctx);
+		card.setId(R.id.trumps_18);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_moon_18);
-		placeImage(Interpretation.getCardIndex(R.id.the_moon_18),card,ctx);
-		card.setId(R.id.the_moon_18);
+		card = (ImageView) layout.findViewById(R.id.trumps_19);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_19),card,ctx);
+		card.setId(R.id.trumps_19);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_sun_19);
-		placeImage(Interpretation.getCardIndex(R.id.the_sun_19),card,ctx);
-		card.setId(R.id.the_sun_19);
+		card = (ImageView) layout.findViewById(R.id.trumps_20);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_20),card,ctx);
+		card.setId(R.id.trumps_20);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.judgement_20);
-		placeImage(Interpretation.getCardIndex(R.id.judgement_20),card,ctx);
-		card.setId(R.id.judgement_20);
+		card = (ImageView) layout.findViewById(R.id.trumps_21);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_21),card,ctx);
+		card.setId(R.id.trumps_21);
 		card.setOnClickListener(act);
 		
-		card = (ImageView) layout.findViewById(R.id.the_world_21);
-		placeImage(Interpretation.getCardIndex(R.id.the_world_21),card,ctx);
-		card.setId(R.id.the_world_21);
+		card = (ImageView) layout.findViewById(R.id.trumps_22);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_22),card,ctx);
+		card.setId(R.id.trumps_22);
 		card.setOnClickListener(act);
 		
 		//layout.setOnTouchListener(act);	

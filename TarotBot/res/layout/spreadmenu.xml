@@ -8,7 +8,7 @@
   android:background="@drawable/menu_background"
   >
 <ImageView  
-	android:id="@+id/gothicmainlogo"
+	android:id="@+id/mainlogo"
 	android:layout_width="fill_parent" 
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
@@ -18,7 +18,7 @@
     android:paddingRight="20dp"
     android:layout_gravity="center"
     android:src="@drawable/biglogo"
-    android:scaleType="fitStart"
+    android:scaleType="fitCenter"
     android:background="@android:color/transparent"
     android:adjustViewBounds="true"
      /> 
@@ -31,9 +31,9 @@
     android:textColor="@color/menu_colors"
 	android:paddingBottom="10dp"	
   	android:background="@drawable/reversal_selector"
-    android:textOn="REVERSE CARDS [YES]"
-    android:textOff="REVERSE CARDS [NO]"
-   	android:layout_below="@id/gothicmainlogo"
+    android:textOn="@string/reverse_cards_yes"
+    android:textOff="@string/reverse_cards_no"
+   	android:layout_below="@id/mainlogo"
    />
 <ListView 
 	android:id="@+id/spreadmenulist" 
@@ -47,7 +47,7 @@
     android:dividerHeight=".25px"
 	android:headerDividersEnabled="true"
 	android:footerDividersEnabled="false"
-	android:divider="#660000"
+	android:divider="#333333"
 	android:drawSelectorOnTop="false"		
 	android:listSelector="@android:color/transparent">
 </ListView> 

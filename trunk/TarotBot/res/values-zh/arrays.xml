@@ -60,19 +60,19 @@
        <string-array name="main_menu">  
     	<item>单牌</item>      
         <item>浏览整副牌</item>
-        <item>Choose a Spread</item>
+        <item>请选择</item>
         <item>下载</item>
-        <item>About Tarot</item>        
-        <item>About the Artist</item>
-        <item>About the App</item>
+        <item>什么是塔罗牌</item>        
+        <item>塔罗牌设计师</item>
+        <item>程序介绍</item>
     </string-array>
     <string-array name="second_menu">        
         <item>选择一张牌</item>
         <item>保存</item>
         <item>分享</item>      
-        <item>Choose Spread</item>
-        <item>About Tarot</item>        
-        <item>About the Artist</item>
-        <item>About the App</item>   
+        <item>请选择</item>
+        <item>什么是塔罗牌</item>        
+        <item>塔罗牌设计师</item>
+        <item>程序介绍</item>   
     </string-array>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string-array name="spread_array">
-	<item>Einzelne Karte</item>
 	<item>Pfeil der Zeit</item>
 	<item>Dialektik</item>
 	<item>Pentagramm</item>
@@ -57,4 +56,22 @@
 	<item>Wegleitung</item>
 	<item>Dorthin führt es </item>
    </string-array>
+   <string-array name="main_menu">  
+    	<item>Einzelne Karte</item>      
+        <item>Deck durchblättern</item>
+        <item>Wähle ein Legesystem</item>
+        <item>Eine Lesung laden</item>
+        <item>Über Tarot</item>        
+        <item>Über den Künstler</item>
+        <item>Über App</item> 
+    </string-array>
+    <string-array name="second_menu">        
+        <item>Legung ansehen</item>
+        <item>Speichern</item>
+        <item>Weiterempfehlen</item>      
+        <item>Wähle ein Legesystem</item>
+        <item>Über Tarot</item>        
+        <item>Über den Künstler</item>
+        <item>Über App</item>   
+    </string-array>
 </resources>

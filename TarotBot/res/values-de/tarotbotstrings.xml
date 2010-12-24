@@ -19,4 +19,6 @@
     <string name="save_label">Label Ihre Lesung</string>
     <string name="save_label_ok">OK</string>
     <string name="save_label_no">nein danke</string>
+    <string name="reverse_cards_yes">Karten einschalten [Ja]</string>
+    <string name="reverse_cards_no">Karten einschalten [Nein]</string>
 </resources>

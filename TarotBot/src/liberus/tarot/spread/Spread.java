@@ -268,12 +268,15 @@ public abstract class Spread {
 		if (browsing)
 			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
 				options.inSampleSize = 2;
-			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
-				options.inSampleSize = 3;
+//			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
+//				options.inSampleSize = 3;
+//			else
+//				options.inSampleSize = 4;
+		if (bmp == null) {	
+			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
+				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
 			else
-				options.inSampleSize = 4;
-	    if (bmp == null) {			
-	       	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCardThumb(index),options);
 	    }
 		int w = bmp.getWidth();
 		int h = bmp.getHeight();
@@ -308,19 +311,26 @@ public abstract class Spread {
 	}
 	
 	public ImageView placeCustomImage(int angle, int index, ImageView toPlace, Context con) {
-		Bitmap bmp;
+		Bitmap bmp = null;
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
 		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
-		if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
-			options.inSampleSize = 2;
-		else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
-			options.inSampleSize = 3;
-		else
-			options.inSampleSize = 4;
+		if (browsing)
+			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
+				options.inSampleSize = 2;
+//			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
+//				options.inSampleSize = 3;
+//			else
+//				options.inSampleSize = 4;
+		if (bmp == null) {	
+			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
+				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+			else
+				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCardThumb(index),options);
+	    }
 		
 		
-		bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
+		//bmp = BitmapFactory.decodeResource(con.getResources(), Interpretation.getCard(index),options);
 		int w = bmp.getWidth();
 		int h = bmp.getHeight();
 		Matrix mtx = new Matrix();

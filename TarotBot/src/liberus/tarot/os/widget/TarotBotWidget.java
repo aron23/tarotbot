@@ -19,6 +19,7 @@ import liberus.tarot.android.R.id;
 import liberus.tarot.android.R.layout;
 import liberus.tarot.os.activity.CardForTheDayActivity;
 import liberus.tarot.interpretation.BotaInt;
+import liberus.utils.TarotBotManager;
 import liberus.utils.WebUtils;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -63,7 +64,8 @@ public abstract class TarotBotWidget extends AppWidgetProvider
             remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay(context,seed));
             //remoteViews = placeImage(BotaInt.getCardIndexForTheDay(context,BotaInt.getRandom(context).nextInt(78)), remoteViews, context, getPath());
             appWidgetManager.updateAppWidget(thisWidget, remoteViews);
-            Intent defineIntent = new Intent(context,getActivityClass());
+            Class myActivityClass = getActivityClass();
+            Intent defineIntent = new Intent(context,myActivityClass);
                     PendingIntent pendingIntent = PendingIntent.getActivity(context,0,defineIntent,0);
             remoteViews.setOnClickPendingIntent(R.id.activecard, pendingIntent);
                     appWidgetManager.updateAppWidget(thisWidget, remoteViews);    		
@@ -107,7 +109,7 @@ public abstract class TarotBotWidget extends AppWidgetProvider
 			
 			try {
 				File toRead = new File(Environment.getExternalStorageDirectory()+"/"+path);
-	            if (toRead.exists() && ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)) {
+	            if (toRead.exists() && TarotBotManager.hasEnoughMemory(32,con)) {
 					FileInputStream raw = new FileInputStream(toRead);
 		            ZipInputStream myZip = new ZipInputStream(raw);
 		            ZipEntry myEntry;

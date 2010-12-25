@@ -110,9 +110,6 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 
 		setFullscreen();
 		setContentView(R.layout.mainmenu);
-		inflater = LayoutInflater.from(this);
-		hireszipsize = getHiResZipSize();
-		tarotbottype = getMyType();
 
 		inflater = LayoutInflater.from(this);
 		state = "mainmenu";
@@ -442,7 +439,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 			
 				
 				if (sharing) {
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),input.getEditableText().toString(),style,getApplicationContext(),tarotbottype);
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),input.getEditableText().toString(),style,getApplicationContext(),getMyType());
 					String url = WebUtils.bitly(saveResult);
 					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}
@@ -817,6 +814,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 				displaySecondStage(secondSetIndex);
 				return true;
 			} else {
+				state = "mainmenu";
+				spreading=false;
+				//spread=false;
+				reInit();
 				return true;
 			}
 		} else if (keyCode == KeyEvent.KEYCODE_MENU) {			

@@ -28,10 +28,10 @@
 				<LinearLayout android:id="@+id/colfive"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />
-				<LinearLayout  android:id="@+id/bota_15_back"
+				<LinearLayout  android:id="@+id/bota_15_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_15"
+					<ImageView  android:id="@+id/bota_15" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -68,20 +68,20 @@
 				<LinearLayout android:id="@+id/colfour"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />
-				<LinearLayout  android:id="@+id/bota_16_back"
+				<LinearLayout  android:id="@+id/bota_16_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_16"
+					<ImageView  android:id="@+id/bota_16" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>					
 				<LinearLayout android:id="@+id/colsix"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />
-				<LinearLayout  android:id="@+id/bota_14_back"
+				<LinearLayout  android:id="@+id/bota_14_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_14"
+					<ImageView  android:id="@+id/bota_14" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -112,10 +112,10 @@
 				<LinearLayout android:id="@+id/colthree"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />				
-				<LinearLayout  android:id="@+id/bota_17_back"
+				<LinearLayout  android:id="@+id/bota_17_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_17"
+					<ImageView  android:id="@+id/bota_17" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -128,10 +128,10 @@
 				<LinearLayout android:id="@+id/colseven"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />					
-				<LinearLayout  android:id="@+id/bota_13_back"
+				<LinearLayout  android:id="@+id/bota_13_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_13"
+					<ImageView  android:id="@+id/bota_13" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>				
@@ -156,10 +156,10 @@
 				<LinearLayout android:id="@+id/coltwo"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />
-				<LinearLayout  android:id="@+id/bota_18_back"
+				<LinearLayout  android:id="@+id/bota_18_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_18"
+					<ImageView  android:id="@+id/bota_18" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -178,10 +178,10 @@
 				<LinearLayout android:id="@+id/coleight"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />										
-				<LinearLayout  android:id="@+id/bota_12_back"
+				<LinearLayout  android:id="@+id/bota_12_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_12"
+					<ImageView  android:id="@+id/bota_12" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>				
@@ -200,10 +200,10 @@
 				<LinearLayout android:id="@+id/colone"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />				
-				<LinearLayout android:id="@+id/bota_19_back"
+				<LinearLayout android:id="@+id/bota_19_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_19"
+					<ImageView  android:id="@+id/bota_19" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -228,10 +228,10 @@
 				<LinearLayout android:id="@+id/colnine"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />					
-				<LinearLayout  android:id="@+id/bota_11_back"
+				<LinearLayout  android:id="@+id/bota_11_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_11"
+					<ImageView  android:id="@+id/bota_11" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>								
@@ -244,10 +244,10 @@
 				android:layout_width="fill_parent" android:layout_height="fill_parent"
 				android:clipChildren="true" android:layout_weight="1"
 				android:orientation="vertical">							
-				<LinearLayout android:id="@+id/bota_00_back"
+				<LinearLayout android:id="@+id/bota_00_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView android:id="@+id/bota_00"
+					<ImageView android:id="@+id/bota_00" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -278,10 +278,10 @@
 				<LinearLayout android:id="@+id/colten"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />				
-				<LinearLayout android:id="@+id/bota_10_back"
+				<LinearLayout android:id="@+id/bota_10_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView android:id="@+id/bota_10"
+					<ImageView android:id="@+id/bota_10" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>	
@@ -294,10 +294,10 @@
 				<LinearLayout android:id="@+id/colone"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />				
-				<LinearLayout android:id="@+id/bota_01_back"
+				<LinearLayout android:id="@+id/bota_01_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView android:id="@+id/bota_01"
+					<ImageView android:id="@+id/bota_01" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -322,10 +322,10 @@
 				<LinearLayout android:id="@+id/colnine"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />					
-				<LinearLayout  android:id="@+id/bota_09_back"
+				<LinearLayout  android:id="@+id/bota_09_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_09"
+					<ImageView  android:id="@+id/bota_09" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>								
@@ -344,10 +344,10 @@
 				<LinearLayout android:id="@+id/coltwo"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />
-				<LinearLayout  android:id="@+id/bota_02_back"
+				<LinearLayout  android:id="@+id/bota_02_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_02"
+					<ImageView  android:id="@+id/bota_02" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -366,10 +366,10 @@
 				<LinearLayout android:id="@+id/coleight"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />										
-				<LinearLayout  android:id="@+id/bota_08_back"
+				<LinearLayout  android:id="@+id/bota_08_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_08"
+					<ImageView  android:id="@+id/bota_08" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>				
@@ -394,10 +394,10 @@
 				<LinearLayout android:id="@+id/colthree"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />				
-				<LinearLayout  android:id="@+id/bota_03_back"
+				<LinearLayout  android:id="@+id/bota_03_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_03"
+					<ImageView  android:id="@+id/bota_03" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -410,10 +410,10 @@
 				<LinearLayout android:id="@+id/colseven"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />					
-				<LinearLayout  android:id="@+id/bota_07_back"
+				<LinearLayout  android:id="@+id/bota_07_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_07"
+					<ImageView  android:id="@+id/bota_07" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>				
@@ -444,20 +444,20 @@
 				<LinearLayout android:id="@+id/colfour"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />
-				<LinearLayout  android:id="@+id/bota_04_back"
+				<LinearLayout  android:id="@+id/bota_04_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_04"
+					<ImageView  android:id="@+id/bota_04" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>					
 				<LinearLayout android:id="@+id/colsix"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />
-				<LinearLayout  android:id="@+id/bota_06_back"
+				<LinearLayout  android:id="@+id/bota_06_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_06"
+					<ImageView  android:id="@+id/bota_06" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>
@@ -494,10 +494,10 @@
 				<LinearLayout android:id="@+id/colfive"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_weight="1" />
-				<LinearLayout  android:id="@+id/bota_05_back"
+				<LinearLayout  android:id="@+id/bota_05_back" android:clipChildren="true"
 					android:background="#000000" android:layout_width="fill_parent"
 					android:layout_height="fill_parent" android:layout_weight="1"><!-- layout backing id goes here -->
-					<ImageView  android:id="@+id/bota_05"
+					<ImageView  android:id="@+id/bota_05" android:padding="1px"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
 						android:clickable="true" android:scaleType="fitCenter" /><!-- card goes here -->
 				</LinearLayout>

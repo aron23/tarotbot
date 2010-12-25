@@ -5,7 +5,7 @@ import liberus.tarot.os.activity.TarotBotActivity;
 
 
 
-//public class TarotBotBeta extends TarotBotActivity {
+//public class TarotBotOS extends TarotBotActivity {
 public class TarotBotBeta extends TarotBotActivity {
 	@Override
 	public String getMyType() {
@@ -16,5 +16,11 @@ public class TarotBotBeta extends TarotBotActivity {
 	public long getHiResZipSize() {
 		// TODO Auto-generated method stub
 		return 14456061;
+	}
+
+	@Override
+	public String getMyFolder() {
+		// TODO Auto-generated method stub
+		return "TarotBotBeta";
 	}
 }

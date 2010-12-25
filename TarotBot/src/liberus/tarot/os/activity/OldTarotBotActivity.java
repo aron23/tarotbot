@@ -106,7 +106,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		tarotbottype = "liberus.tarot.os.activity";
+		//tarotbottype = "liberus.tarot.os.activity";
 		int in = 5;
 		
 		setFullscreen();
@@ -465,7 +465,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 			
 				
 				if (sharing) {
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext(),tarotbottype);
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),saveTitle,style,getApplicationContext(),getMyType());
 					String url = WebUtils.bitly(saveResult);
 					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}
@@ -873,6 +873,13 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 
 	@Override
 	public String getMyType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public String getMyFolder() {
 		// TODO Auto-generated method stub
 		return null;
 	}

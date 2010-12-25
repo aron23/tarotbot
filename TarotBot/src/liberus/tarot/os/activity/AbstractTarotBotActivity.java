@@ -185,10 +185,10 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected String[] spreadmenu;
 	protected ListView myMenuList;
 	protected DatePicker dp;
-	protected String tarotbottype;
-	protected long hireszipsize = 0;
+
 	public abstract long getHiResZipSize();
 	public abstract String getMyType();
+	public abstract String getMyFolder();
 	abstract void reInit();
 
 	protected void reInitSpread(int spreadlayout) {
@@ -256,14 +256,15 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected void initHighRes() {
 		if (!TarotBotManager.hasEnoughMemory(32,getApplicationContext()))
 			return;
-		File d = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5("tarotbot"));
-		d.mkdir();
-		final File f = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5("tarotbot")+"/"+WebUtils.md5(tarotbottype));
+		File d = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder()));
+		if (!d.exists())
+			d.mkdir();
+		final File f = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
 		final Context c = this.getApplicationContext();
 		if ((!f.exists() || !isHighResComplete(f)) && WebUtils.checkWiFi(this.getApplicationContext())) {
 			Looper.prepare();
 			        
-			WebUtils.Download("http://liber.us/tarotbot/"+tarotbottype+".zip", f.getPath(),c,downloadProgress);			
+			WebUtils.Download("http://liber.us/tarotbot/"+getMyType()+".zip", f.getPath(),c,downloadProgress);			
 			
 		}
 	}
@@ -272,7 +273,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	
 	private boolean isHighResComplete(File f) {
 		long length = f.length();
-        if (hireszipsize  > length)
+        if (getHiResZipSize()  > length)
         	return false;
         return true;
 	}
@@ -324,7 +325,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		
 		flipper.addView(activeView);
 
-		divine = placeImage(secondSetIndex,divine,getApplicationContext(),flipdex,tarotbottype);
+		divine = placeImage(secondSetIndex,divine,getApplicationContext(),flipdex);
 		
 		
 		
@@ -644,7 +645,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		
 		flipper.addView(activeView);
 		
-		divine = placeImage(indexin,divine,getApplicationContext(),flipdex,tarotbottype);
+		divine = placeImage(indexin,divine,getApplicationContext(),flipdex);
 		
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
 			showInfo(getResources().getConfiguration().orientation);
@@ -820,13 +821,13 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 
 	}
 	
-	public ImageView placeImage(int index, ImageView toPlace, Context con, ArrayList<Integer> flipdex, String tarotbottype) {
+	public ImageView placeImage(int index, ImageView toPlace, Context con, ArrayList<Integer> flipdex) {
 		Configuration conf =con.getResources().getConfiguration();
 		Bitmap bmp = null;
 		
 		if (TarotBotManager.hasEnoughMemory(32,getApplicationContext())) 	
 			try {
-				File toRead = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5("tarotbot")+"/"+WebUtils.md5(tarotbottype));
+				File toRead = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
 	            if (toRead.exists() ){//&& ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)) {
 					FileInputStream raw = new FileInputStream(toRead);
 		            ZipInputStream myZip = new ZipInputStream(raw);
@@ -851,14 +852,11 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 			        		}
 			        		bmp = BitmapFactory.decodeByteArray(buf, 0,buf.length);
 			        		deckPrefs = getSharedPreferences("decked", 0);
-			        		deckPrefs.edit().putString("path", WebUtils.md5("tarotbot")+"/"+WebUtils.md5(tarotbottype));
+			        		deckPrefs.edit().putString("path", WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
 			        		//
 			        		break;
 			            }
-		            }	
-			        if (bmp == null) {
-			        	toRead.delete();
-			        }
+		            }				        
 	    		}      
 	            
 		    } catch (Exception e) {
@@ -901,7 +899,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 				
 				ImageView divine = (ImageView) v.findViewById(R.id.divine);
 				
-				divine = placeImage(secondSetIndex,divine,getApplicationContext(),flipdex,tarotbottype);
+				divine = placeImage(secondSetIndex,divine,getApplicationContext(),flipdex);
 				
 	}
 

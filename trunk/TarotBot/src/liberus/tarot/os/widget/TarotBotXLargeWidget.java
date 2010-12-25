@@ -1,5 +1,6 @@
 package liberus.tarot.os.widget;
 
+import liberus.tarot.os.TarotBotOS;
 import liberus.tarot.os.activity.CardForTheDayActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.os.widget.TarotBotMediumWidget;
@@ -19,6 +20,6 @@ public class TarotBotXLargeWidget extends TarotBotWidget
 	}
 	@Override
 	public Class getActivityClass() {
-		return TarotBotActivity.class;
+		return TarotBotOS.class;
 	}
 }

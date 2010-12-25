@@ -359,7 +359,7 @@ public class TarotBotGothicActivity extends AbstractTarotBotActivity  {
 			
 				
 				if (sharing) {
-					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),input.getEditableText().toString(),style,getApplicationContext(),tarotbottype);
+					saveResult = WebUtils.saveTarotBot(spreadToString(),deckToString(),reversalsToString(),input.getEditableText().toString(),style,getApplicationContext(),getMyType());
 					String url = WebUtils.bitly(saveResult);
 					share(getString(R.string.share_subject),WebUtils.bitly(saveResult));
 				}
@@ -800,6 +800,15 @@ public class TarotBotGothicActivity extends AbstractTarotBotActivity  {
 
 	@Override
 	public String getMyType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+	@Override
+	public String getMyFolder() {
 		// TODO Auto-generated method stub
 		return null;
 	}

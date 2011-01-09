@@ -3,13 +3,13 @@ package liberus.tarot.spread.gothic;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 
-import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
+import liberus.tarot.android.noads.R;
 import liberus.tarot.spread.Spread;
 import android.content.Context;
 import android.graphics.Bitmap;

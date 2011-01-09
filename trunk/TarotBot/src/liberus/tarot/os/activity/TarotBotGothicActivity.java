@@ -17,11 +17,11 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 
-import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
+import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
 
 import liberus.tarot.spread.ArrowSpread;
@@ -570,7 +570,7 @@ public class TarotBotGothicActivity extends AbstractTarotBotActivity  {
 				else if (style.equals("celtic"))
 					mySpread = new GothicCelticSpread(myInt,celticCross);
 				else
-					mySpread = new SeqSpread(myInt,spreadLabels);
+					mySpread = new SeqSpread(myInt,spreadLabels,false);
 				loaded = false;
 				beginSecondStage();
 		} else if (adapter.getTag().equals("loadmenu")) {//.getContentDescription().equals("querant") {
@@ -811,6 +811,14 @@ public class TarotBotGothicActivity extends AbstractTarotBotActivity  {
 	public String getMyFolder() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+
+	public boolean onKey(DialogInterface arg0, int arg1, KeyEvent arg2) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

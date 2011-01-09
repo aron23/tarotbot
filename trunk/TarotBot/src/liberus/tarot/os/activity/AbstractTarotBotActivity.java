@@ -15,14 +15,16 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
+import liberus.tarot.os.activity.CardForTheDayActivity.MyGestureDetector;
+import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
 import liberus.tarot.spread.ArrowSpread;
 import liberus.tarot.spread.BotaSpread;
@@ -38,6 +40,7 @@ import liberus.utils.EfficientAdapter;
 import liberus.utils.MyProgressDialog;
 import liberus.utils.TarotBotManager;
 import liberus.utils.WebUtils;
+import liberus.utils.ZipUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -45,6 +48,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.DialogInterface.OnKeyListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -96,7 +100,7 @@ import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
 
 
-public abstract class AbstractTarotBotActivity extends Activity implements OnItemClickListener, OnClickListener, View.OnClickListener, OnItemSelectedListener, OnDateChangedListener {
+public abstract class AbstractTarotBotActivity extends Activity implements OnItemClickListener, OnClickListener, View.OnClickListener, OnItemSelectedListener, OnDateChangedListener, OnKeyListener {
 	//protected DatePicker dp;
 	protected Spinner statusspin;
 	protected Button initbutton;
@@ -191,6 +195,10 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	public abstract String getMyFolder();
 	abstract void reInit();
 
+	private String getPath() {
+		
+		return WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType());
+	}
 	protected void reInitSpread(int spreadlayout) {
 		begun = false;
 		browsing = false;
@@ -265,7 +273,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 			Looper.prepare();
 			        
 			WebUtils.Download("http://liber.us/tarotbot/"+getMyType()+".zip", f.getPath(),c,downloadProgress);			
-			
+			ZipUtils.unzipArchive(f, f.getPath());
 		}
 	}
 	
@@ -536,7 +544,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
 			showInfo(getResources().getConfiguration().orientation);
-			
+		
 		
 		
 		postFlip(flipper.getChildAt(0));
@@ -589,7 +597,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		flipdex = new ArrayList<Integer>();
 		Interpretation.myDeck.establishReversal();
 		mySpread.myDeck.reversed = Interpretation.myDeck.noreversal;
-		if (browsing) {}
+		if (browsing || style.equals("single")) {}
 		else if (reverseToggle != null && !reverseToggle.isChecked() &! loaded) {
 			mySpread.myDeck.reversed = Interpretation.myDeck.noreversal;
 		} else if (!loaded) {
@@ -656,7 +664,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		flipper.setDrawingCacheEnabled(false);
 		flipper.setDisplayedChild(0);
 		
-		//toastSpread();
+		toastSpread();
 	}
 
 	protected void redisplaySecondStage(int indexin) {
@@ -782,7 +790,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	public class MyGestureDetector extends SimpleOnGestureListener implements OnGestureListener {
 
 		public boolean onDoubleTap(MotionEvent e) {
-			navigate();
+			if (!state.equals("single"))
+				navigate();
 			return true; 
 		}
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
@@ -827,36 +836,42 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		
 		if (TarotBotManager.hasEnoughMemory(32,getApplicationContext())) 	
 			try {
-				File toRead = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
+				File toRead = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType())+".ex");
 	            if (toRead.exists() ){//&& ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)) {
-					FileInputStream raw = new FileInputStream(toRead);
-		            ZipInputStream myZip = new ZipInputStream(raw);
-		            ZipEntry myEntry;
-		            
-			            //BotaInt.getCard(flipdex.get(index))
-			        int offset = 0;
-			        byte buf[];
-			            // on all the files from the zip.
-			        while (null != (myEntry = myZip.getNextEntry())) {
-			        	
-			        	if (myEntry.getName().matches(BotaInt.getCardName(flipdex.get(index)))) {
-			        		buf = new byte[(int)myEntry.getSize()];
-			
-			        		int off = 0;             // start writing
-			        		int len = buf.length;    // number of byte to write
-			        		int read = 0;            // number of read elements
-			
-			        		while ( (len>0) && (read = myZip.read(buf, off, len))>0 ) {
-			        			off += read;
-			        			len -= read;
-			        		}
-			        		bmp = BitmapFactory.decodeByteArray(buf, 0,buf.length);
-			        		deckPrefs = getSharedPreferences("decked", 0);
-			        		deckPrefs.edit().putString("path", WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
-			        		//
-			        		break;
-			            }
-		            }				        
+
+	            	bmp = BitmapFactory.decodeFile(toRead.getPath()+"/"+WebUtils.md5(getMyType()+"/"+BotaInt.getCardName(flipdex.get(index))));
+	            	System.err.println(toRead.getPath()+"/"+WebUtils.md5(BotaInt.getCardName(flipdex.get(index))));
+	            	//bmp = BitmapFactory.decodeByteArray(buf, 0,buf.length);
+	        		deckPrefs = getSharedPreferences("decked", 0);
+	        		deckPrefs.edit().putString("path", WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
+//					FileInputStream raw = new FileInputStream(toRead);
+//		            ZipInputStream myZip = new ZipInputStream(raw);
+//		            ZipEntry myEntry;
+//		            
+//			            //BotaInt.getCard(flipdex.get(index))
+//			        int offset = 0;
+//			        byte buf[];
+//			            // on all the files from the zip.
+//			        while (null != (myEntry = myZip.getNextEntry())) {
+//			        	
+//			        	if (myEntry.getName().matches(BotaInt.getCardName(flipdex.get(index)))) {
+//			        		buf = new byte[(int)myEntry.getSize()];
+//			
+//			        		int off = 0;             // start writing
+//			        		int len = buf.length;    // number of byte to write
+//			        		int read = 0;            // number of read elements
+//			
+//			        		while ( (len>0) && (read = myZip.read(buf, off, len))>0 ) {
+//			        			off += read;
+//			        			len -= read;
+//			        		}
+//			        		bmp = BitmapFactory.decodeByteArray(buf, 0,buf.length);
+//			        		deckPrefs = getSharedPreferences("decked", 0);
+//			        		deckPrefs.edit().putString("path", WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
+//			        		//
+//			        		break;
+//			            }
+//		            }				        
 	    		}      
 	            
 		    } catch (Exception e) {
@@ -894,6 +909,74 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		return toPlace;
 	}
 
+	public ImageView placeImage(int index, ImageView toPlace, Context con) {
+		Configuration conf =con.getResources().getConfiguration();
+		Bitmap bmp = null;
+		
+		if (TarotBotManager.hasEnoughMemory(32,getApplicationContext())) 	
+			try {
+				File toRead = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
+	            if (toRead.exists() ){//&& ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)) {
+					FileInputStream raw = new FileInputStream(toRead);
+		            ZipInputStream myZip = new ZipInputStream(raw);
+		            ZipEntry myEntry;
+		            
+			            //BotaInt.getCard(flipdex.get(index))
+			        int offset = 0;
+			        byte buf[];
+			            // on all the files from the zip.
+			        while (null != (myEntry = myZip.getNextEntry())) {
+			        	
+			        	if (myEntry.getName().matches(BotaInt.getCardName(index))) {
+			        		buf = new byte[(int)myEntry.getSize()];
+			
+			        		int off = 0;             // start writing
+			        		int len = buf.length;    // number of byte to write
+			        		int read = 0;            // number of read elements
+			
+			        		while ( (len>0) && (read = myZip.read(buf, off, len))>0 ) {
+			        			off += read;
+			        			len -= read;
+			        		}
+			        		bmp = BitmapFactory.decodeByteArray(buf, 0,buf.length);
+			        		deckPrefs = getSharedPreferences("decked", 0);
+			        		deckPrefs.edit().putString("path", WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
+			        		//
+			        		break;
+			            }
+		            }				        
+	    		}      
+	            
+		    } catch (Exception e) {
+		    	    			
+		    }
+		    
+		    if (bmp == null) {
+	        	BitmapFactory.Options options;
+	        	options=new BitmapFactory.Options();
+			//if (browsing &! TarotBotManager.hasEnoughMemory(32, getApplicationContext()) && TarotBotManager.hasEnoughMemory(24, getApplicationContext()))// && 
+				//options.inSampleSize = 2;		
+			
+	        	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+	        }
+		int w = bmp.getWidth();
+        int h = bmp.getHeight();
+        Matrix mtx = new Matrix();
+        int diff = h-w;
+        if (diff < (h/4)*-1) {
+        	mtx.postRotate(90);
+        }
+		
+        bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+		
+        w = bmp.getWidth();
+        h = bmp.getHeight();
+		
+		
+		BitmapDrawable bmd = new BitmapDrawable(bmp);			
+		toPlace.setImageDrawable(bmd);
+		return toPlace;
+	}
 	
 	public void preFlip(View v) {
 				
@@ -905,7 +988,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 
 		
 	public void postFlip(View v) {
-		//toastSpread();
+		toastSpread();
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		flipper.removeView(v);
 		v.destroyDrawingCache();
@@ -927,7 +1010,12 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	}
 	
 	protected void toastSpread() {
-		if (spreadLabels != null && spreadLabels.length >= secondSetIndex && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT && spreadLabels[secondSetIndex] != null && spreadLabels[secondSetIndex].length() > 0) {
+		if (spreadLabels != null && 
+				spreadLabels.length > secondSetIndex && 
+				Spread.circles.size() <78 && 
+				getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT && 
+				spreadLabels[secondSetIndex] != null 
+				&& spreadLabels[secondSetIndex].length() > 0) {
 			Toast toast = new Toast(getApplicationContext());
 			View toaster = inflater.inflate(R.layout.gothic_toast,(ViewGroup) findViewById(R.id.toast_layout_root));
 			toast.setView(toaster);
@@ -948,6 +1036,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		}
 		return false;
 	}
-	
+	public void establishMenu(int menu) {
+		setContentView(menu);
+	}
 
 }

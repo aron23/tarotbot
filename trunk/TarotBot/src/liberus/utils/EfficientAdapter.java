@@ -2,7 +2,7 @@ package liberus.utils;
 
 import java.util.zip.Inflater;
 
-import liberus.tarot.android.R;
+import liberus.tarot.android.noads.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="liberus.tarot.android" android:installLocation="auto" android:versionName="2.04" android:versionCode="50">
-    <application android:icon="@drawable/logo" android:label="@string/app_name" android:debuggable="false">
+      package="liberus.tarot.android.noads" android:installLocation="auto" android:versionName="2.01" android:versionCode="51">
+    <application android:icon="@drawable/logo" android:label="@string/app_name" android:debuggable="true">
         <activity android:name=".TarotBotBeta"
                   android:label="@string/app_name"
                   android:configChanges="keyboardHidden|orientation">

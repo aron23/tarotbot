@@ -147,7 +147,11 @@ public abstract class Deck {
 	public boolean getDirection(int circled) {
 		return direction[circled];
 	}
-	
+	public static Integer[] orderedDeck(int length) {
+		for (int i=0; i < length; i++)
+			cards[i] = i;
+		return cards;
+	}
 	public Integer[] shuffle(Integer[] toReturn, int count) {
 		List<Integer> cardList;
 		for (int i = 0; i < count; i++) {

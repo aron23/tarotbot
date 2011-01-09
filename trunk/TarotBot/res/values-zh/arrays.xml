@@ -58,6 +58,7 @@
 	<item>结果</item>
    </string-array>
        <string-array name="main_menu">  
+        <item>现在</item>
     	<item>单牌</item>      
         <item>浏览整副牌</item>
         <item>请选择</item>

@@ -14,10 +14,10 @@ import java.util.TimerTask;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import liberus.tarot.android.R;
-import liberus.tarot.android.R.id;
-import liberus.tarot.android.R.layout;
 import liberus.tarot.os.activity.CardForTheDayActivity;
+import liberus.tarot.android.noads.R;
+import liberus.tarot.android.noads.R.id;
+import liberus.tarot.android.noads.R.layout;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.utils.TarotBotManager;
 import liberus.utils.WebUtils;

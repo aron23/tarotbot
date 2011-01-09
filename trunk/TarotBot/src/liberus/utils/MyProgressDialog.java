@@ -1,6 +1,6 @@
 package liberus.utils;
 
-import liberus.tarot.android.R;
+import liberus.tarot.android.noads.R;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.ViewGroup.LayoutParams;

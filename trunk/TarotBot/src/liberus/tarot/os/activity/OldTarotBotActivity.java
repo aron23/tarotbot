@@ -17,11 +17,11 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 
-import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
+import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
 
 import liberus.tarot.spread.ArrowSpread;
@@ -106,7 +106,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//tarotbottype = "liberus.tarot.os.activity";
+		//tarotbottype = "liberus.tarot.android.activity";
 		int in = 5;
 		
 		setFullscreen();
@@ -442,7 +442,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 				    		mySpread = new ChaosSpread(myInt,chaosStar);
 				    		spreadLabels = chaosStar;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("single")) {
-				    		mySpread = new SeqSpread(myInt,single);
+				    		mySpread = new SeqSpread(myInt,single,false);
 				    		Spread.circles = Spread.working;
 				    		spreadLabels = single;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("arrow")) {
@@ -507,7 +507,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 					myInt = new BotaInt(new RiderWaiteDeck(), aq);
 					Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
 					Deck.cards = shuffled;
-					mySpread = new SeqSpread(myInt,spreadLabels);
+					mySpread = new SeqSpread(myInt,spreadLabels,false);
 					loaded = false;
 					ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
 			    	for(int card: RiderWaiteDeck.cards) {
@@ -626,7 +626,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 	    		mySpread = new ChaosSpread(myInt,pentagram);
 	    		spreadLabels = pentagram;
 	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("single")) {
-	    		mySpread = new SeqSpread(myInt,single);
+	    		mySpread = new SeqSpread(myInt,single,false);
 	    		Spread.circles = Spread.working;
 	    		spreadLabels = single;
 	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("arrow")) {
@@ -781,7 +781,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 				else if (style.equals("celtic"))
 					mySpread = new CelticSpread(myInt,celticCross);
 				else
-					mySpread = new SeqSpread(myInt,spreadLabels);
+					mySpread = new SeqSpread(myInt,spreadLabels,false);
 				loaded = false;
 				beginSecondStage();
 		}
@@ -882,6 +882,12 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 	public String getMyFolder() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	public boolean onKey(DialogInterface arg0, int arg1, KeyEvent arg2) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

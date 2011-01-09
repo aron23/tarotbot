@@ -17,12 +17,12 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 
-import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.EroticInt;
 import liberus.tarot.interpretation.Interpretation;
+import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
 import liberus.tarot.spread.ArrowSpread;
 import liberus.tarot.spread.BotaSpread;
@@ -515,7 +515,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			else if (style.equals("missionary"))
 				mySpread = new Missionary(myInt,missionary);
 			else
-				mySpread = new SeqSpread(myInt,spreadLabels);
+				mySpread = new SeqSpread(myInt,spreadLabels,false);
 			beginSecondStage();
 			return;	
 		} else if (v.equals(this.findViewById(R.id.reversalcheck))) {
@@ -695,7 +695,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 				    		spreadLabels = eatHim;
 				    		Spread.circles = Spread.working;
 				    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("single")) {
-				    		mySpread = new SeqSpread(myInt,single);
+				    		mySpread = new SeqSpread(myInt,single,false);
 				    		Spread.circles = Spread.working;
 				    		spreadLabels = single;
 				    	}
@@ -757,6 +757,10 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	public String getMyFolder() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public boolean onKey(DialogInterface arg0, int arg1, KeyEvent arg2) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 		
 

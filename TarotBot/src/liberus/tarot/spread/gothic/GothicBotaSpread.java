@@ -6,12 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 
-import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
+import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -57,6 +57,7 @@
         <item>outcome</item>
     </string-array>
     <string-array name="main_menu">  
+    	<item>Card of the Day</item>
     	<item>Draw a Card</item>      
         <item>Browse Deck</item>
         <item>Choose a Spread</item>

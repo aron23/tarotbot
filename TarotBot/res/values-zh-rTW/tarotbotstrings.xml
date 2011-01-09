@@ -1,6 +1,6 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <resources>
-    <string name="app_name">TarotBot</string>
+    <string name="app_name">塔羅牌程序</string>
     <string name="spread_prompt">選擇牌種類</string>
     <string name="navigate_prompt">選擇一張牌</string>
     <string name="launch_reading">讀牌</string>

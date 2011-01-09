@@ -2,14 +2,16 @@ package liberus.tarot.spread;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
-import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.os.activity.TarotBotActivity;
+import liberus.tarot.android.noads.R;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
@@ -18,21 +20,34 @@ public class SeqSpread extends Spread {
 	
 	private static int significatorIn;
 	private int myNum;
+	private boolean isCardOfTheDay;
 
 
-	public SeqSpread(Interpretation myInt, String[] labels) {
+	public SeqSpread(Interpretation myInt, String[] labels, boolean cardOfTheDay) {
 		super(myInt);
 		myNum = labels.length;
 		myLabels = labels;
+		isCardOfTheDay = cardOfTheDay;
 	}
 	
 	@Override
 	public void operate(Context context, boolean loading) {
-		if (!loading) {
+		if (!loading &! isCardOfTheDay) {
 			Integer[] shuffled = myDeck.shuffle(new Integer[78],3);
 			Deck.shuffled = shuffled;
 			for (int i = 0; i < myNum; i++)
 				Spread.working.add(shuffled[i]);
+			Spread.circles = working;
+		} else if (!loading) {
+			Integer[] shuffled = Deck.orderedDeck(78);
+			Deck.shuffled = shuffled;
+			
+			SharedPreferences readingPrefs = context.getSharedPreferences("tarotbot.random", 0);
+
+			Random rand = new Random();
+			int seed = (readingPrefs.getInt("seed", BotaInt.getRandom(context).nextInt(78)));
+			
+			Spread.working.add(seed);
 			Spread.circles = working;
 		}		
 	}

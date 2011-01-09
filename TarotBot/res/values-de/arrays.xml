@@ -57,6 +57,7 @@
 	<item>Dorthin führt es </item>
    </string-array>
    <string-array name="main_menu">  
+   		<item>Gegenwart</item>
     	<item>Einzelne Karte</item>      
         <item>Deck durchblättern</item>
         <item>Wähle ein Legesystem</item>

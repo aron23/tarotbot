@@ -8,12 +8,12 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import liberus.tarot.android.R;
-import liberus.tarot.android.R.id;
-import liberus.tarot.android.R.layout;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.os.activity.AbstractTarotBotActivity.MyGestureDetector;
+import liberus.tarot.android.noads.R;
+import liberus.tarot.android.noads.R.id;
+import liberus.tarot.android.noads.R.layout;
 import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.content.Context;

@@ -17,13 +17,13 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 
-import liberus.tarot.android.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.RiderWaiteDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 
 import liberus.tarot.os.activity.AbstractTarotBotActivity.MyGestureDetector;
+import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
 
 import liberus.tarot.spread.ArrowSpread;
@@ -109,7 +109,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		super.onCreate(savedInstanceState);
 
 		setFullscreen();
-		setContentView(R.layout.mainmenu);
+		establishMenu(R.layout.mainmenu);
 
 		inflater = LayoutInflater.from(this);
 		state = "mainmenu";
@@ -280,15 +280,19 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 			showing = inflater.inflate(R.layout.interpretation, null);
 			infotext = (TextView) showing.findViewById(R.id.interpretation);		
 			infotext.setText(Html.fromHtml(interpretation));
+			infotext.setOnTouchListener(gestureListener);
 			
+			showing.setOnTouchListener(gestureListener);
 //			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 //
 //			builder.setView(showing);
 			
 			Dialog interpretor = new Dialog(this,android.R.style.Theme);
 			interpretor.setTitle(mySpread.myLabels[secondSetIndex]);
-			interpretor.setContentView(showing);
+			interpretor.setContentView(showing);			
+			interpretor.setOnKeyListener(this);			
 			interpretor.show();
+			
 		} else if (type == Configuration.ORIENTATION_LANDSCAPE) {
 			int i = Spread.circles.get(secondSetIndex);
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
@@ -468,7 +472,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		if (adapter.getTag().equals("mainmenu")) {//.getContentDescription().equals("querant")
 			helper = new Dialog(this,android.R.style.Theme);
 			switch (index) {
-				case 0: 
+				case 0:
 					//seqSpread();
 					spreadLabels = single;
 					style = "single";
@@ -476,12 +480,33 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					//spread=true;
 					secondSetIndex = 0;
 					state = "single";
-					begun = true;
-					browsing = true;
+					browsing = false;
+					begun = true;					
+					myInt = new BotaInt(new RiderWaiteDeck(), aq);
+					
+					Deck.cards = Deck.orderedDeck(78);
+					mySpread = new SeqSpread(myInt,spreadLabels,true);
+					loaded = false;
+					
+			    	
+			    	//Interpretation.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
+			    	
+					beginSecondStage();
+					break;
+				case 1: 
+					//seqSpread();
+					spreadLabels = single;
+					style = "single";
+					spreading=false;
+					//spread=true;
+					secondSetIndex = 0;
+					state = "single";
+					browsing = false;
+					begun = true;					
 					myInt = new BotaInt(new RiderWaiteDeck(), aq);
 					Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
 					Deck.cards = shuffled;
-					mySpread = new SeqSpread(myInt,spreadLabels);
+					mySpread = new SeqSpread(myInt,spreadLabels,false);
 					loaded = false;
 					ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
 			    	for(int card: RiderWaiteDeck.cards) {
@@ -492,16 +517,16 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 			    	
 					beginSecondStage();
 					break;				
-				case 1:					
+				case 2:					
 					launchBrowse();
 			        return;
-			    case 2:	
+			    case 3:	
 			    	initSpreadMenu();
 					return;			    	
-			    case 3:
+			    case 4:
 					displaySaved();
 			        return;	
-			    case 4: 
+			    case 5: 
 			    	showing = inflater.inflate(R.layout.interpretation, null);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);		
 					infotext.setText(Html.fromHtml(getString(R.string.about_tarot)));
@@ -512,7 +537,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					helper.setContentView(showing);
 					helper.show();
 					break;
-			    case 5: 	 
+			    case 6: 	 
 					showing = inflater.inflate(R.layout.interpretation, null);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);		
 					infotext.setText(Html.fromHtml(getString(R.string.about_artist)));
@@ -523,7 +548,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					helper.setContentView(showing);
 					helper.show();
 					break;
-			    case 6:
+			    case 7:
 			    	showing = inflater.inflate(R.layout.interpretation, null);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);		
 					infotext.setText(Html.fromHtml(getString(R.string.about_app)+getString(R.string.market_link)+getString(R.string.other_apps)));
@@ -650,7 +675,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 				else if (style.equals("celtic"))
 					mySpread = new CelticSpread(myInt,celticCross);
 				else
-					mySpread = new SeqSpread(myInt,spreadLabels);
+					mySpread = new SeqSpread(myInt,spreadLabels,false);
 				loaded = false;
 				beginSecondStage();
 		} else if (adapter.getTag().equals("loadmenu")) {//.getContentDescription().equals("querant") {
@@ -707,7 +732,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 	    		mySpread = new ChaosSpread(myInt,pentagram);
 	    		spreadLabels = pentagram;
 	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("single")) {
-	    		mySpread = new SeqSpread(myInt,single);
+	    		mySpread = new SeqSpread(myInt,single,false);
 	    		Spread.circles = Spread.working;
 	    		spreadLabels = single;
 	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("arrow")) {
@@ -736,7 +761,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		myInt = new BotaInt(new RiderWaiteDeck(), aq);
 		state = "spreadmenu";		
 		
-		setContentView(R.layout.spreadmenu);
+		establishMenu(R.layout.spreadmenu);
 		myMenuList = (ListView) this.findViewById(R.id.spreadmenulist);
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
 		myMenuList.setOnItemClickListener(this);
@@ -748,7 +773,17 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 	}
 
 
-
+	public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent arg2) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {			
+			state = "new reading";
+			priorstate = "";
+			infoDisplayed = false;
+			dialog.dismiss();
+			//displaySecondStage(secondSetIndex);
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -760,6 +795,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 				if (priorstate.equals("secondmenu") || priorstate.equals("new reading")) {
 					state = "new reading";
 					priorstate = "";
+					infoDisplayed = false;
 					displaySecondStage(secondSetIndex);
 					return true;
 				} else {
@@ -823,7 +859,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		} else if (keyCode == KeyEvent.KEYCODE_MENU) {			
 			priorstate = state;
 			state = "secondmenu";
-			setContentView(R.layout.mainmenu);
+			establishMenu(R.layout.mainmenu);
 			initText();	
 			myMenuList = (ListView) this.findViewById(R.id.menulist);
 			myMenuList.setOnItemClickListener(this);
@@ -842,7 +878,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 	@Override
 	void reInit() {
 		state = "mainmenu";
-		setContentView(R.layout.mainmenu);
+		establishMenu(R.layout.mainmenu);
 		initText();	
 		myMenuList = (ListView) this.findViewById(R.id.menulist);
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
@@ -867,7 +903,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		String[] items = readingLabels.toArray(new String[0]);
 		
 		state = "spreadmenu";
-		setContentView(R.layout.mainmenu);
+		establishMenu(R.layout.mainmenu);
 		
 		myMenuList = (ListView) this.findViewById(R.id.menulist);
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,items,R.layout.load_listitem));
@@ -875,6 +911,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		myMenuList.setTag("loadmenu");
 		
 	}
+
+	
 
 	
 

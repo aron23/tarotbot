@@ -109,17 +109,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		super.onCreate(savedInstanceState);
 
 		setFullscreen();
-		establishMenu(R.layout.mainmenu);
-
+		
 		inflater = LayoutInflater.from(this);
-		state = "mainmenu";
-		
-		initText();	
-		myMenuList = (ListView) this.findViewById(R.id.menulist);
-		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
-		myMenuList.setOnItemClickListener(this);
-		myMenuList.setTag("mainmenu");		
-		
 		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
 		readingPrefsEd = readingPrefs.edit();
 		gestureDetector = new GestureDetector(new MyGestureDetector());
@@ -130,6 +121,33 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 				initHighRes();
 			}
 		},"downloading").start();
+		initText();	
+		if (getIntent().getType() != null && getIntent().getType().equals("widget")) {
+			//seqSpread();
+			spreadLabels = single;
+			style = "single";
+			spreading=false;
+			//spread=true;
+			secondSetIndex = 0;
+			state = "single";
+			browsing = false;
+			begun = true;					
+			myInt = new BotaInt(new RiderWaiteDeck(), aq);
+			
+			Deck.cards = Deck.orderedDeck(78);
+			mySpread = new SeqSpread(myInt,spreadLabels,true);
+			loaded = false;
+			
+			beginSecondStage();
+		} else {		
+			establishMenu(R.layout.mainmenu);
+			state = "mainmenu";						
+			myMenuList = (ListView) this.findViewById(R.id.menulist);
+			myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
+			myMenuList.setOnItemClickListener(this);
+			myMenuList.setTag("mainmenu");		
+		}
+		
 	}
 	
 	protected void launchBrowse() {
@@ -140,7 +158,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		secondSetIndex = 0;
 
 		begun = true;
-		browsing = true;
+		
 		loaded=true;
     	BotaInt.loaded = true;
 		myInt = new BotaInt(new RiderWaiteDeck(), aq);
@@ -155,9 +173,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
     	
 		mySpread = new BrowseSpread(myInt);
 		
-		
+		style="browse";
 		type = new ArrayList<Integer>();
 		flipdex = new ArrayList<Integer>();
+		browsing = true;
 		beginSecondStage();
 		
 	}
@@ -775,7 +794,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 
 	public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent arg2) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {			
-			state = "new reading";
+			state = priorstate;
 			priorstate = "";
 			infoDisplayed = false;
 			dialog.dismiss();

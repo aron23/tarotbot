@@ -26,6 +26,7 @@ import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -35,6 +36,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.widget.ImageView;
@@ -66,7 +68,8 @@ public abstract class TarotBotWidget extends AppWidgetProvider
             appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             Class myActivityClass = getActivityClass();
             Intent defineIntent = new Intent(context,myActivityClass);
-                    PendingIntent pendingIntent = PendingIntent.getActivity(context,0,defineIntent,0);
+            defineIntent.setType("widget");
+            PendingIntent pendingIntent = PendingIntent.getActivity(context,0,defineIntent,0);
             remoteViews.setOnClickPendingIntent(R.id.activecard, pendingIntent);
                     appWidgetManager.updateAppWidget(thisWidget, remoteViews);    		
         }

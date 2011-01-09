@@ -274,6 +274,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 			        
 			WebUtils.Download("http://liber.us/tarotbot/"+getMyType()+".zip", f.getPath(),c,downloadProgress);			
 			ZipUtils.unzipArchive(f, f.getPath());
+		} else if (!new File(f.getPath()+".ex").exists()) {
+			ZipUtils.unzipArchive(f, f.getPath());
 		}
 	}
 	

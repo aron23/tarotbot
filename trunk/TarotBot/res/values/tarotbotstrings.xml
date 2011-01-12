@@ -27,4 +27,8 @@
     <string name="save_label_no">No Thanks</string>
     <string name="reverse_cards_yes">REVERSE CARDS [YES]</string>
     <string name="reverse_cards_no">REVERSE CARDS [NO]</string>
+    
+    <string name="are_you_sure">Are you sure you want to leave your reading?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

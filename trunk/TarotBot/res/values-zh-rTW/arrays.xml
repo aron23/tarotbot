@@ -58,7 +58,7 @@
 	<item>結果</item>
    </string-array>
        <string-array name="main_menu">  
-		<item>現在</item>       
+		<item>今天的運氣牌</item>       
     	<item>單牌</item>      
         <item>瀏覽整副牌</item>
         <item>請選擇</item>

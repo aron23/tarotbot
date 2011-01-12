@@ -827,9 +827,9 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 			} else if (state.equals("new reading") &! browsing) {
 				leavespread = true;
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
-				builder.setMessage("Are you sure you want to leave your reading?")
+				builder.setMessage(getString(R.string.are_you_sure))
 				       .setCancelable(false)
-				       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				       .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
 				           public void onClick(DialogInterface dialog, int id) {
 				        	   spreading=true;
 								//spread=false;
@@ -837,7 +837,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 								
 				           }
 				       })
-				       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+				       .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
 				           public void onClick(DialogInterface dialog, int id) {
 				        	   TarotBotActivity.this.leavespread = false; 
 				        	   dialog.cancel();

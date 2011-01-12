@@ -8,9 +8,11 @@
     >
 <ImageView 
 	android:id="@+id/divine"
-	android:layout_width="250dip"
+	android:layout_width="wrap_content"
     android:layout_height="fill_parent"
     android:scaleType="fitStart"
+    android:adjustViewBounds="true"
+    android:paddingRight="10dip"
     />    	     
 <ScrollView android:id="@+id/ScrollView01"
 	android:layout_width="fill_parent"

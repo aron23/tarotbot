@@ -21,18 +21,6 @@
     android:background="@android:color/transparent"
     android:adjustViewBounds="true"
      /> 
-<ToggleButton android:id="@+id/reversal_button"
-   android:layout_width="fill_parent"
-   android:layout_height="wrap_content"
-   android:typeface="serif"
-    android:textSize="15sp"
-    android:textStyle="bold"
-    android:textColor="@color/menu_colors"
-	android:paddingBottom="10dp"	
-  	android:background="@drawable/reversal_selector"
-    android:textOn="@string/reverse_cards_yes"
-    android:textOff="@string/reverse_cards_no"
-   />
 <LinearLayout
 	android:layout_width="fill_parent" 
     android:layout_height="fill_parent"

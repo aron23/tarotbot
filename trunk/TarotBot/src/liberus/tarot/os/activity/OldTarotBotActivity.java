@@ -18,7 +18,7 @@ import java.util.HashMap;
 
 
 import liberus.tarot.deck.Deck;
-import liberus.tarot.deck.RiderWaiteDeck;
+import liberus.tarot.deck.FullTarotDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.android.noads.R;
@@ -34,6 +34,7 @@ import liberus.tarot.spread.PentagramSpread;
 import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
 import liberus.utils.EfficientAdapter;
+import liberus.utils.MyGestureDetector;
 import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -122,7 +123,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 		
 		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
 		readingPrefsEd = readingPrefs.edit();
-		gestureDetector = new GestureDetector(new MyGestureDetector());
+		gestureDetector = new GestureDetector(new MyGestureDetector(this));
 		gestureListener = getGestureListener(gestureDetector);
 		initSaved("tarotbot");		
 	}
@@ -139,14 +140,14 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 		browsing = true;
 		loaded=true;
     	BotaInt.loaded = true;
-		myInt = new BotaInt(new RiderWaiteDeck(), aq);
+		myInt = new BotaInt(new FullTarotDeck(), aq);
 
 		ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-    	for(int card: RiderWaiteDeck.cards) {
+    	for(int card: FullTarotDeck.cards) {
     		reversals.add(false);
     	}
     	
-    	Interpretation.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));	
+    	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
     	
     	
 		mySpread = new BrowseSpread(myInt);
@@ -219,7 +220,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 		ed.commit();
 	}
 	
-	protected void showInfo(int type) {
+	public void showInfo(int type) {
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 
 		if (type == Configuration.ORIENTATION_PORTRAIT) {
@@ -259,7 +260,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 			begun = true;
             browsing = false;
             changeQuerant();
-            myInt = new BotaInt(new RiderWaiteDeck(), aq);
+            myInt = new BotaInt(new FullTarotDeck(), aq);
             mySpread = new BotaSpread(myInt);
             beginSecondStage();     
 		} else if (v.equals(this.findViewById(R.id.menulist))) {
@@ -427,7 +428,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 				    	loaded=true;
 				    	state = "loaded";
 				    	//Interpretation.myDeck = ;	
-				    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
+				    	myInt = new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])),aq);
 				    	Spread.working = working;
 				    	BotaInt.loaded = true;
 				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("bota")) {
@@ -457,7 +458,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 				    	spreading=false;
 						begun = true;
 						browsing = false;
-				    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+				    	//new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
 				    	beginSecondStage();
 				    	break;
 					}
@@ -504,17 +505,17 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 					state = "single";
 					begun = true;
 					browsing = false;
-					myInt = new BotaInt(new RiderWaiteDeck(), aq);
-					Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
+					myInt = new BotaInt(new FullTarotDeck(), aq);
+					Integer[] shuffled = Interpretation.myDeck.shuffle(Deck.cards,3);
 					Deck.cards = shuffled;
 					mySpread = new SeqSpread(myInt,spreadLabels,false);
 					loaded = false;
 					ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-			    	for(int card: RiderWaiteDeck.cards) {
+			    	for(int card: Deck.cards) {
 			    		reversals.add(false);
 			    	}
 			    	
-			    	Interpretation.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
+			    	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));
 					beginSecondStage();
 					break;				
 				case 1:					
@@ -607,7 +608,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 	    	loaded=true;
 	    	state = "loaded";
 	    	//Interpretation.myDeck = ;	
-	    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
+	    	myInt = new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])),aq);
 	    	Spread.working = working;
 	    	BotaInt.loaded = true;
 	    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("bota")) {
@@ -641,7 +642,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 	    	spreading=false;
 			begun = true;
 			browsing = false;
-	    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+	    	//new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
 	    	beginSecondStage();
 	    	
 			
@@ -667,7 +668,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 			    	BotaInt.loaded = false;
 			    	Spread.circles = new ArrayList<Integer>();
 					Spread.working = new ArrayList<Integer>();
-					myInt = new BotaInt(new RiderWaiteDeck(), aq);
+					myInt = new BotaInt(new FullTarotDeck(), aq);
 			    	type = new ArrayList<Integer>();
 					flipdex = new ArrayList<Integer>();
 					
@@ -767,7 +768,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 				state = "new reading";
 				begun = true;
 				browsing = false;
-				myInt = new BotaInt(new RiderWaiteDeck(), aq);
+				myInt = new BotaInt(new FullTarotDeck(), aq);
 				Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
 				Deck.cards = shuffled;
 				if (style.equals("arrow"))
@@ -819,7 +820,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 		    	BotaInt.loaded = false;
 		    	Spread.circles = new ArrayList<Integer>();
 				Spread.working = new ArrayList<Integer>();
-				myInt = new BotaInt(new RiderWaiteDeck(), aq);
+				myInt = new BotaInt(new FullTarotDeck(), aq);
 		    	type = new ArrayList<Integer>();
 				flipdex = new ArrayList<Integer>();
 				reInit();

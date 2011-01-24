@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import liberus.tarot.deck.Deck;
-import liberus.tarot.deck.RiderWaiteDeck;
+import liberus.tarot.deck.FullTarotDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
@@ -33,7 +33,7 @@ public class GothicBrowseSpread extends GothicSpread {
 	
 	@Override
 	public void operate(Context context, boolean loading) {
-		Spread.working = new ArrayList<Integer>(Arrays.asList(RiderWaiteDeck.cards));
+		Spread.working = new ArrayList<Integer>(Arrays.asList(FullTarotDeck.cards));
 		Spread.circles = Spread.working;
 	}
 	

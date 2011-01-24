@@ -65,6 +65,7 @@
         <item>About Tarot</item>        
         <item>About the Artist</item>
         <item>About the App</item>
+        <item>Options</item>
     </string-array>
     <string-array name="second_menu">        
         <item>View Full Spread</item>
@@ -73,6 +74,7 @@
         <item>Choose Spread</item>
         <item>About Tarot</item>        
         <item>About the Artist</item>
-        <item>About the App</item>   
+        <item>About the App</item>
+        <item>Options</item>   
     </string-array>
 </resources>

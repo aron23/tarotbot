@@ -21,7 +21,8 @@
     <string name="save_label_no">不用，謝謝</string>
     <string name="reverse_cards_yes">反轉牌 [是]</string>
     <string name="reverse_cards_no">反轉牌 [否]</string>
-    
+    <string name="trumps_only_yes">僅勝過 [是]</string>
+    <string name="trumps_only_no">僅勝過 [否]</string>
     <string name="are_you_sure">您確定要退出麼？</string>
     <string name="yes">是</string>
     <string name="no">否</string>

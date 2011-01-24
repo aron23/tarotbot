@@ -36,10 +36,9 @@ public class PentagramSpread extends Spread {
 	@Override
 	public void operate(Context context, boolean loading) {
 		if (!loading) {
-			Integer[] shuffled = myDeck.shuffle(new Integer[78],3);
-			Deck.shuffled = shuffled;
+			Deck.cards = myDeck.shuffle(Deck.cards,3);			
 			for (int i = 0; i < myNum; i++)
-				Spread.working.add(shuffled[i]);
+				Spread.working.add(Deck.cards[i]);
 			Spread.circles = working;
 		}		
 	}
@@ -131,35 +130,35 @@ public class PentagramSpread extends Spread {
 		placeImage(act.flipdex.get(0),card,ctx);
 		card.setId(0);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 0)
+		if (act.secondSetIndex == 0)
 			layout.findViewById(R.id.pentagram_fire_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.pentagram_water);
 		placeImage(act.flipdex.get(1),card,ctx);
 		card.setId(1);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 1)
+		if (act.secondSetIndex == 1)
 			layout.findViewById(R.id.pentagram_water_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.pentagram_air);
 		placeImage(act.flipdex.get(2),card,ctx);
 		card.setId(2);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 2)
+		if (act.secondSetIndex == 2)
 			layout.findViewById(R.id.pentagram_air_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.pentagram_earth);
 		placeImage(act.flipdex.get(3),card,ctx);
 		card.setId(3);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 3)
+		if (act.secondSetIndex == 3)
 			layout.findViewById(R.id.pentagram_earth_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.pentagram_spirit);
 		placeImage(act.flipdex.get(4),card,ctx);
 		card.setId(4);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 4)
+		if (act.secondSetIndex == 4)
 			layout.findViewById(R.id.pentagram_spirit_back).setBackgroundColor(Color.RED);
 		
 		return layout;

@@ -12,20 +12,19 @@ import liberus.tarot.interpretation.Interpretation;
 
 public abstract class Deck {
 	public static String[] deck = new String[78];
-	protected boolean[] direction = new boolean[78];
+	
 	public Boolean[] reversed = new Boolean[78];
 	public Boolean[] noreversal = new Boolean[78];
 	protected Interpretation meaning;
-	public static Integer[] shuffled;
-	public static Integer[] cards = new Integer[78];
+	
+	public static Integer[] cards;
 	public static ArrayList<Integer> firetrumps = new ArrayList<Integer>();
 	public static ArrayList<Integer> watertrumps = new ArrayList<Integer>();
 	public static ArrayList<Integer> airtrumps = new ArrayList<Integer>();
 	public static ArrayList<Integer> earthtrumps = new ArrayList<Integer>();
 	static {
 		
-		for (int i=0; i < cards.length; i++)
-			cards[i] = i;
+		
 		
 		firetrumps.add(4);
 		firetrumps.add(11);
@@ -138,16 +137,15 @@ public abstract class Deck {
 	}
 	
 	public Deck() {
-		initDirection();
+		initStatic();
 		for (int i=0; i < cards.length; i++)
 			cards[i] = i;
 	}
-	public abstract void initDirection();
-	public abstract HashMap<Integer,String> getCards();
-	public boolean getDirection(int circled) {
-		return direction[circled];
-	}
+
+	public abstract void initStatic();
+	
 	public static Integer[] orderedDeck(int length) {
+		cards = new Integer[length];
 		for (int i=0; i < length; i++)
 			cards[i] = i;
 		return cards;

@@ -14,7 +14,7 @@ import liberus.tarot.querant.Querant;
 
 
 public abstract class Interpretation {
-	protected static Integer[] cards = new Integer[78];
+	//protected static Integer[] cards = new Integer[78];
 	public static Querant myQuerant;
 	public static Pattern suitpat = Pattern.compile("(Wands|Cups|Swords|Pentacles)");
 	public static Deck myDeck;
@@ -232,6 +232,9 @@ public abstract class Interpretation {
 		}
 		return 0;
 	}
+	
+	
+		
 	
 	public static String getCardName(int index) {
 		switch (index) {

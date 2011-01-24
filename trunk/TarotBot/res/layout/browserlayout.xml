@@ -12,13 +12,14 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/trumps_01"
-
+					android:src="@drawable/trumps_01_th"
+				
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
-
 
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart"  android:adjustViewBounds="true"/>
 				<ImageView android:id="@+id/trumps_02"
+					android:src="@drawable/trumps_02_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -26,6 +27,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_03"
+					android:src="@drawable/trumps_03_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -33,6 +35,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_04"
+					android:src="@drawable/trumps_04_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -45,6 +48,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/trumps_05"
+					android:src="@drawable/trumps_05_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -52,6 +56,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_06"
+					android:src="@drawable/trumps_06_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -59,6 +64,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_07"
+					android:src="@drawable/trumps_07_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -66,6 +72,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_08"
+					android:src="@drawable/trumps_08_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -78,6 +85,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/trumps_09"
+					android:src="@drawable/trumps_09_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -87,6 +95,7 @@
 
 
 				<ImageView android:id="@+id/trumps_10"
+					android:src="@drawable/trumps_10_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -94,6 +103,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_11"
+					android:src="@drawable/trumps_11_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -102,6 +112,7 @@
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 
 				<ImageView android:id="@+id/trumps_12"
+					android:src="@drawable/trumps_12_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -114,6 +125,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/trumps_13"
+					android:src="@drawable/trumps_13_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -121,6 +133,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_14"
+					android:src="@drawable/trumps_14_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -128,6 +141,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_15"
+					android:src="@drawable/trumps_15_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -135,6 +149,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_16"
+					android:src="@drawable/trumps_16_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -147,6 +162,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/trumps_17"
+					android:src="@drawable/trumps_17_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -154,6 +170,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_18"
+					android:src="@drawable/trumps_18_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -161,6 +178,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_19"
+					android:src="@drawable/trumps_19_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -168,6 +186,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_20"
+					android:src="@drawable/trumps_20_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -184,6 +203,7 @@
 					android:layout_width="fill_parent"
 					android:layout_weight="1"/>
 				<ImageView android:id="@+id/trumps_21"
+					android:src="@drawable/trumps_21_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -191,6 +211,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/trumps_22"
+					android:src="@drawable/trumps_22_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -207,6 +228,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/wands_01"
+					android:src="@drawable/wands_01_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -214,6 +236,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_02"
+					android:src="@drawable/wands_02_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -221,6 +244,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_03"
+					android:src="@drawable/wands_03_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -228,6 +252,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_04"
+					android:src="@drawable/wands_04_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -240,6 +265,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/wands_05"
+					android:src="@drawable/wands_05_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -247,6 +273,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_06"
+					android:src="@drawable/wands_06_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -254,6 +281,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_07"
+					android:src="@drawable/wands_07_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -261,6 +289,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_08"
+					android:src="@drawable/wands_08_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -273,6 +302,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/wands_09"
+					android:src="@drawable/wands_09_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -280,6 +310,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_10"
+					android:src="@drawable/wands_10_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -287,6 +318,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_page"
+					android:src="@drawable/wands_page_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -294,6 +326,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_knight"
+					android:src="@drawable/wands_knight_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -310,6 +343,7 @@
 					android:layout_width="fill_parent"
 					android:layout_weight="1"/>
 				<ImageView android:id="@+id/wands_queen"
+					android:src="@drawable/wands_queen_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -317,6 +351,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/wands_king"
+					android:src="@drawable/wands_king_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -332,16 +367,20 @@
 				android:layout_width="fill_parent" android:layout_height="fill_parent"
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
-				<ImageView android:id="@+id/cups_01" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/cups_01"
+					android:src="@drawable/cups_01_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/cups_02" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/cups_02"
+					android:src="@drawable/cups_02_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/cups_03" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/cups_03"
+					android:src="@drawable/cups_03_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/cups_04" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/cups_04"
+					android:src="@drawable/cups_04_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
 			</LinearLayout>
@@ -349,16 +388,20 @@
 				android:layout_width="fill_parent" android:layout_height="fill_parent"
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
-				<ImageView android:id="@+id/cups_05" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/cups_05"
+					android:src="@drawable/cups_05_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/cups_06" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/cups_06"
+					android:src="@drawable/cups_06_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/cups_07" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/cups_07"
+					android:src="@drawable/cups_07_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-					<ImageView android:id="@+id/cups_08" android:layout_width="fill_parent"
+					<ImageView android:id="@+id/cups_08"
+					android:src="@drawable/cups_08_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
 			</LinearLayout>
@@ -367,13 +410,16 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 
-				<ImageView android:id="@+id/cups_09" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/cups_09"
+					android:src="@drawable/cups_09_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/cups_10" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/cups_10"
+					android:src="@drawable/cups_10_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/cups_page"
+					android:src="@drawable/cups_page_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -381,6 +427,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/cups_knight"
+					android:src="@drawable/cups_knight_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -397,6 +444,7 @@
 					android:layout_width="fill_parent"
 					android:layout_weight="1"/>
 				<ImageView android:id="@+id/cups_queen"
+					android:src="@drawable/cups_queen_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -404,6 +452,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/cups_king"
+					android:src="@drawable/cups_king_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -420,6 +469,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/swords_01"
+					android:src="@drawable/swords_01_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -427,6 +477,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_02"
+					android:src="@drawable/swords_02_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -434,6 +485,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_03"
+					android:src="@drawable/swords_03_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -441,6 +493,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_04"
+					android:src="@drawable/swords_04_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -453,6 +506,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/swords_05"
+					android:src="@drawable/swords_05_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -460,6 +514,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_06"
+					android:src="@drawable/swords_06_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -467,6 +522,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_07"
+					android:src="@drawable/swords_07_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -474,6 +530,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_08"
+					android:src="@drawable/swords_08_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -486,6 +543,7 @@
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
 				<ImageView android:id="@+id/swords_09"
+					android:src="@drawable/swords_09_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -493,6 +551,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_10"
+					android:src="@drawable/swords_10_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -500,6 +559,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_page"
+					android:src="@drawable/swords_page_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -507,6 +567,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_knight"
+					android:src="@drawable/swords_knight_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -523,6 +584,7 @@
 					android:layout_width="fill_parent"
 					android:layout_weight="1"/>
 				<ImageView android:id="@+id/swords_queen"
+					android:src="@drawable/swords_queen_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -530,6 +592,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/swords_king"
+					android:src="@drawable/swords_king_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -545,33 +608,20 @@
 				android:layout_width="fill_parent" android:layout_height="fill_parent"
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
-				<ImageView android:id="@+id/pent_01" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/pent_01"
+					android:src="@drawable/pent_01_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/pent_02" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/pent_02"
+					android:src="@drawable/pent_02_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/pent_03" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/pent_03"
+					android:src="@drawable/pent_03_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/pent_04" android:layout_width="fill_parent"
-					android:layout_height="wrap_content" android:clickable="true"
-					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-			</LinearLayout>
-			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-				android:layout_width="fill_parent" android:layout_height="fill_parent"
-				android:gravity="center" android:layout_gravity="center"
-				android:orientation="horizontal">
-				<ImageView android:id="@+id/pent_05" android:layout_width="fill_parent"
-					android:layout_height="wrap_content" android:clickable="true"
-					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/pent_06" android:layout_width="fill_parent"
-					android:layout_height="wrap_content" android:clickable="true"
-					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/pent_07" android:layout_width="fill_parent"
-					android:layout_height="wrap_content" android:clickable="true"
-					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/pent_08" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/pent_04"
+					android:src="@drawable/pent_04_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
 			</LinearLayout>
@@ -579,13 +629,37 @@
 				android:layout_width="fill_parent" android:layout_height="fill_parent"
 				android:gravity="center" android:layout_gravity="center"
 				android:orientation="horizontal">
-				<ImageView android:id="@+id/pent_09" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/pent_05"
+					android:src="@drawable/pent_05_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
-				<ImageView android:id="@+id/pent_10" android:layout_width="fill_parent"
+				<ImageView android:id="@+id/pent_06"
+					android:src="@drawable/pent_06_th" android:layout_width="fill_parent"
+					android:layout_height="wrap_content" android:clickable="true"
+					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
+				<ImageView android:id="@+id/pent_07"
+					android:src="@drawable/pent_07_th" android:layout_width="fill_parent"
+					android:layout_height="wrap_content" android:clickable="true"
+					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
+				<ImageView android:id="@+id/pent_08"
+					android:src="@drawable/pent_08_th" android:layout_width="fill_parent"
+					android:layout_height="wrap_content" android:clickable="true"
+					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
+			</LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="fill_parent" android:layout_height="fill_parent"
+				android:gravity="center" android:layout_gravity="center"
+				android:orientation="horizontal">
+				<ImageView android:id="@+id/pent_09"
+					android:src="@drawable/pent_09_th" android:layout_width="fill_parent"
+					android:layout_height="wrap_content" android:clickable="true"
+					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
+				<ImageView android:id="@+id/pent_10"
+					android:src="@drawable/pent_10_th" android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:clickable="true"
 					android:layout_weight="1" android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/pent_page"
+					android:src="@drawable/pent_page_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -593,6 +667,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/pent_knight"
+					android:src="@drawable/pent_knight_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -609,6 +684,7 @@
 					android:layout_width="fill_parent"
 					android:layout_weight="1"/>
 				<ImageView android:id="@+id/pent_queen"
+					android:src="@drawable/pent_queen_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 
@@ -616,6 +692,7 @@
 					android:clickable="true" android:layout_weight="1"
 					android:scaleType="fitStart" android:adjustViewBounds="true" />
 				<ImageView android:id="@+id/pent_king"
+					android:src="@drawable/pent_king_th"
 
 					android:layout_width="fill_parent" android:layout_height="wrap_content"
 

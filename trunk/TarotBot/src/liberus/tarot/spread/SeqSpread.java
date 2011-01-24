@@ -33,14 +33,13 @@ public class SeqSpread extends Spread {
 	@Override
 	public void operate(Context context, boolean loading) {
 		if (!loading &! isCardOfTheDay) {
-			Integer[] shuffled = myDeck.shuffle(new Integer[78],3);
-			Deck.shuffled = shuffled;
+			Deck.cards = myDeck.shuffle(Deck.cards,3);			
 			for (int i = 0; i < myNum; i++)
-				Spread.working.add(shuffled[i]);
+				Spread.working.add(Deck.cards[i]);
 			Spread.circles = working;
 		} else if (!loading) {
-			Integer[] shuffled = Deck.orderedDeck(78);
-			Deck.shuffled = shuffled;
+			Deck.cards = Deck.orderedDeck(78);
+			
 			
 			SharedPreferences readingPrefs = context.getSharedPreferences("tarotbot.random", 0);
 

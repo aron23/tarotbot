@@ -15,7 +15,7 @@ import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 import liberus.tarot.deck.Deck;
-import liberus.tarot.deck.RiderWaiteDeck;
+import liberus.tarot.deck.FullTarotDeck;
 import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
@@ -40,13 +40,13 @@ public class EroticInt extends Interpretation {
 	private static int loadedsignificator;
 	
 	
-	public EroticInt(RiderWaiteDeck deck, Querant q) {
+	public EroticInt(FullTarotDeck deck, Querant q) {
 		super(deck);
 		myQuerant = q;
 		loaded=false;
 	}
 	
-	public EroticInt(RiderWaiteDeck deck, Querant q, ArrayList<Integer> loading) {
+	public EroticInt(FullTarotDeck deck, Querant q, ArrayList<Integer> loading) {
 		super(deck);
 		myDeck = deck;
 		myQuerant = q;

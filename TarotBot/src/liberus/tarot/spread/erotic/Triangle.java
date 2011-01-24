@@ -36,10 +36,9 @@ public class Triangle extends Spread {
 	@Override
 	public void operate(Context context, boolean loading) {
 		if (!loading) {
-			Integer[] shuffled = myDeck.shuffle(new Integer[78],3);
-			Deck.shuffled = shuffled;
+			Deck.cards = myDeck.shuffle(Deck.cards,3);			
 			for (int i = 0; i < myNum; i++)
-				Spread.working.add(shuffled[i]);
+				Spread.working.add(Deck.cards[i]);
 			Spread.circles = working;
 		}		
 	}
@@ -129,21 +128,21 @@ public class Triangle extends Spread {
 		placeImage(act.flipdex.get(0),card,ctx);
 		card.setId(0);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 0)
+		if (act.secondSetIndex == 0)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
 		card = (ImageView) layout.findViewById(R.id.triangle_center);
 		placeImage(act.flipdex.get(1),card,ctx);
 		card.setId(1);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 1)
+		if (act.secondSetIndex == 1)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		
 		card = (ImageView) layout.findViewById(R.id.triangle_right);
 		placeImage(act.flipdex.get(2),card,ctx);
 		card.setId(2);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 2)
+		if (act.secondSetIndex == 2)
 			card.setColorFilter(0xFFFFFF00, PorterDuff.Mode.MULTIPLY);
 		return layout;
 	}

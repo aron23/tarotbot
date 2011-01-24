@@ -30,10 +30,9 @@ public class GothicSeqSpread extends GothicSpread {
 	@Override
 	public void operate(Context context, boolean loading) {
 		if (!loading) {
-			Integer[] shuffled = myDeck.shuffle(new Integer[78],3);
-			Deck.shuffled = shuffled;
+			Deck.cards = myDeck.shuffle(Deck.cards,3);			
 			for (int i = 0; i < myNum; i++)
-				Spread.working.add(shuffled[i]);
+				Spread.working.add(Deck.cards[i]);
 			Spread.circles = working;
 		}		
 	}

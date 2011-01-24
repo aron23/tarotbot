@@ -18,7 +18,7 @@ import java.util.HashMap;
 
 
 import liberus.tarot.deck.Deck;
-import liberus.tarot.deck.RiderWaiteDeck;
+import liberus.tarot.deck.FullTarotDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.EroticInt;
 import liberus.tarot.interpretation.Interpretation;
@@ -38,6 +38,7 @@ import liberus.tarot.spread.erotic.EatHim;
 import liberus.tarot.spread.erotic.Missionary;
 import liberus.tarot.spread.erotic.SixtyNine;
 import liberus.tarot.spread.erotic.Triangle;
+import liberus.utils.MyGestureDetector;
 import liberus.utils.WebUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -107,7 +108,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		inflater = LayoutInflater.from(this);
 		readingPrefs = getSharedPreferences("tarotbot.erotic.reading", 0);
 		readingPrefsEd = readingPrefs.edit();
-		gestureDetector = new GestureDetector(new MyGestureDetector());
+		gestureDetector = new GestureDetector(new MyGestureDetector(this));
 		gestureListener = getGestureListener(gestureDetector);
 		//initDeck();
 		initSaved();
@@ -118,15 +119,15 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		browsing = true;
 		spreading = false;
 		ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-    	for(int card: RiderWaiteDeck.cards) {
+    	for(int card: FullTarotDeck.cards) {
     		reversals.add(false);
     	}
     	loaded=true;
-    	Interpretation.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));	
+    	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
     	BotaInt.loaded = true;
     	
 		mySpread = new BrowseSpread(myInt);
-		Spread.working = new ArrayList<Integer>(Arrays.asList(RiderWaiteDeck.cards));
+		Spread.working = new ArrayList<Integer>(Arrays.asList(FullTarotDeck.cards));
 		Spread.circles = Spread.working;
 		
 		flipdex = new ArrayList<Integer>();
@@ -190,14 +191,14 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		inflater = LayoutInflater.from(this);
 		readingPrefs = getSharedPreferences("tarotbot.erotic.reading", 0);
 		readingPrefsEd = readingPrefs.edit();
-		gestureDetector = new GestureDetector(new MyGestureDetector());
+		gestureDetector = new GestureDetector(new MyGestureDetector(this));
 		gestureListener = getGestureListener(gestureDetector);
 		begun = false;
 		browsing = false;
 		loaded = false;
 		Spread.circles = new ArrayList<Integer>();
 		Spread.working = new ArrayList<Integer>();
-		myInt = new EroticInt(new RiderWaiteDeck(), aq);
+		myInt = new EroticInt(new FullTarotDeck(), aq);
 		//mySpread.myDeck = myInt.myDeck;
 		
 		initText();		
@@ -310,7 +311,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		//changeQuerant();		
 		
 		if (canBeRestored()) {
-			myInt = new BotaInt(new RiderWaiteDeck(), aq);
+			myInt = new BotaInt(new FullTarotDeck(), aq);
 			restoreMe();
 			restoreSecondStage();
 		} else {
@@ -337,7 +338,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 
 		//reversalCheck = (CheckBox)this.findViewById(R.id.reversalcheck);
 		
-		gestureDetector = new GestureDetector(new MyGestureDetector());
+		gestureDetector = new GestureDetector(new MyGestureDetector(this));
 		gestureListener = new View.OnTouchListener() {
 			public boolean onTouch(View v, MotionEvent event) {
 				if (gestureDetector.onTouchEvent(event)) {
@@ -349,7 +350,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 				
 		
 		if (canBeRestored()) {
-			myInt = new BotaInt(new RiderWaiteDeck(), aq);
+			myInt = new BotaInt(new FullTarotDeck(), aq);
 			restoreMe();
 			restoreSecondStage();
 		} else {
@@ -406,7 +407,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		ed.commit();
 	}
 	
-	protected void showInfo(int type) {
+	public void showInfo(int type) {
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 
 		if (type == Configuration.ORIENTATION_PORTRAIT) {
@@ -503,7 +504,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 			
 			begun = true;
 			browsing = false;
-			myInt = new BotaInt(new RiderWaiteDeck(), aq);
+			myInt = new BotaInt(new FullTarotDeck(), aq);
 			if (style.equals("triangle"))
 				mySpread = new Triangle(myInt,triangle);
 			else if (style.equals("sixtyNine"))
@@ -671,7 +672,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 				    	}
 				    	loaded=true;
 				    	//Interpretation.myDeck = ;	
-				    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
+				    	myInt = new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])),aq);
 				    	Spread.working = working;
 				    	BotaInt.loaded = true;
 				    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(which)))).get("type").equals("triangle")) {
@@ -702,7 +703,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 				    	spreading=false;
 						begun = true;
 						browsing = false;
-				    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+				    	//new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
 				    	beginSecondStage();
 				    	break;
 					}

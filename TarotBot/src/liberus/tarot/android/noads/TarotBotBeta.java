@@ -23,4 +23,5 @@ public class TarotBotBeta extends TarotBotActivity {
 		// TODO Auto-generated method stub
 		return "TarotBotBeta";
 	}
+	
 }

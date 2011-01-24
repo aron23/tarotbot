@@ -3,7 +3,7 @@ package liberus.tarot.querant;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import liberus.tarot.deck.RiderWaiteDeck;
+import liberus.tarot.deck.FullTarotDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.utils.*;
 public class Querant {
@@ -68,7 +68,7 @@ public class Querant {
 		this.youth = youth;
 	}
 	public static void main(String[] args) {
-		BotaInt myBota = new BotaInt(new RiderWaiteDeck(), new Querant(true,true,new GregorianCalendar(1976,10,4)));
+		BotaInt myBota = new BotaInt(new FullTarotDeck(), new Querant(true,true,new GregorianCalendar(1976,10,4)));
 		//myBota.findMeaning();
 		
 	}

@@ -8,9 +8,9 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import liberus.tarot.deck.RiderWaiteDeck;
+import liberus.tarot.deck.FullTarotDeck;
 import liberus.tarot.interpretation.BotaInt;
-import liberus.tarot.os.activity.AbstractTarotBotActivity.MyGestureDetector;
+import liberus.utils.MyGestureDetector;
 import liberus.tarot.android.noads.R;
 import liberus.tarot.android.noads.R.id;
 import liberus.tarot.android.noads.R.layout;
@@ -71,7 +71,7 @@ public class CardForTheDayActivity extends Activity implements OnClickListener
         
         
         secondlayout = (RelativeLayout) this.findViewById(R.id.secondsetlayout);
-        myInt = new BotaInt(new RiderWaiteDeck(), null);
+        myInt = new BotaInt(new FullTarotDeck(), null);
         
         SharedPreferences readingPrefs = getSharedPreferences("tarotbot.random", 0);
 

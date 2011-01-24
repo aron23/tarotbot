@@ -18,6 +18,7 @@ import liberus.utils.MyProgressDialog;
 import liberus.utils.TarotBotManager;
 import liberus.utils.WebUtils;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,8 +30,8 @@ import android.widget.ImageView;
 
 public abstract class Spread {
 	
-	private static final int HIGHRES = 32;
-	private static final int MIDRES = 32;
+	protected static final int HIGHRES = 32;
+	protected static final int MIDRES = 24;
 	public Deck myDeck;
 	protected static Interpretation myInt; 
 	public String[] myLabels;
@@ -218,9 +219,27 @@ public abstract class Spread {
 		
 		return returner;
 	}
-
-	public ImageView placeImage(int index, ImageView toPlace, Context con) {
-		//Configuration conf =con.getResources().getConfiguration();
+		
+	private ImageView postPositioning(int index, int rotation, boolean changed, Matrix mtx, Bitmap bmp, int w, int h, ImageView toPlace) {
+		if (myDeck.reversed[index]) {		
+			rotation+=180;
+			changed = true;
+		} 
+		if (changed) {
+			mtx = new Matrix();
+			mtx.postRotate(rotation);
+			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
+			
+        	w = bmp.getWidth();
+            h = bmp.getHeight();
+		}
+		BitmapDrawable bmd = new BitmapDrawable(bmp);			
+		toPlace.setImageDrawable(bmd);
+		return toPlace;
+	}
+	
+	private Bitmap preImagePlacement(int index, Context con) {
+		SharedPreferences displayPrefs = con.getSharedPreferences("tarotbot.display", 0);
 		Bitmap bmp = null;
 		
 		BitmapFactory.Options options;
@@ -228,86 +247,64 @@ public abstract class Spread {
 		if (browsing)
 			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
 				options.inSampleSize = 2;
-//			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
-//				options.inSampleSize = 3;
-//			else
-//				options.inSampleSize = 4;
-		if (bmp == null) {	
-			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
-				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
+				options.inSampleSize = 3;
 			else
+				options.inSampleSize = 4;
+		if (bmp == null) {	
+			File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index).replaceAll("(\\.jpg)", "_th$1"));
+	        if (customFile.exists() &! TarotBotManager.hasEnoughMemory(HIGHRES,con) && displayPrefs.getBoolean("custom.deck", false)) 
+	        	bmp = BitmapFactory.decodeFile(customFile.getPath());
+	        else
+	        	customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index));
+	        
+	        if (bmp == null && customFile.exists() && displayPrefs.getBoolean("custom.deck", false)) 
+	        	bmp = BitmapFactory.decodeFile(customFile.getPath());
+	        
+	        if (bmp == null && TarotBotManager.hasEnoughMemory(HIGHRES,con))
+				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+			else if (bmp == null)
 				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCardThumb(index),options);
 	    }		    
+		return bmp;
+	}
+	
+	public ImageView placeImage(int index, ImageView toPlace, Context con) {
+		
+        Bitmap bmp = preImagePlacement(index,con);
 		int w = bmp.getWidth();
         int h = bmp.getHeight();
+        
+        boolean changed = false;
+        int rotation = 0;
+        
         Matrix mtx = new Matrix();
         int diff = h-w;
+		
         if (diff < (h/4)*-1) {
-        	mtx.postRotate(90);
-        }
+        	rotation+=90;
+        	changed = true;        	
+        }		
 		
-        bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-		
-        w = bmp.getWidth();
-        h = bmp.getHeight();
-		
-		if (myDeck.reversed[index]) {		
-			mtx = new Matrix();
-			mtx.postRotate(180);
-			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-		} 
-		BitmapDrawable bmd = new BitmapDrawable(bmp);			
-		toPlace.setImageDrawable(bmd);
-		return toPlace;
+		return postPositioning(index, rotation, changed, mtx, bmp, w, h, toPlace);
 	}
 	
 	public ImageView placeLandscapeImage(int index, ImageView toPlace, Context con) {
-		Bitmap bmp=null;
-		BitmapFactory.Options options;
-		options=new BitmapFactory.Options();
-		if (browsing)
-			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
-				options.inSampleSize = 2;
-//			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
-//				options.inSampleSize = 3;
-//			else
-//				options.inSampleSize = 4;
-		if (bmp == null) {	
-			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
-				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
-			else
-				bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCardThumb(index),options);
-	    }
+		Bitmap bmp = preImagePlacement(index,con);
 		int w = bmp.getWidth();
-		int h = bmp.getHeight();
-		Matrix mtx = new Matrix();
-		int diff = h-w;
-		if (diff < (h/4)*-1) {
-			mtx.postRotate(90);
-		}
-		
-		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-		
-		w = bmp.getWidth();
-		h = bmp.getHeight();
-		
-		if (Interpretation.myDeck.reversed[index]) {		
-			mtx = new Matrix();
-			mtx.postRotate(180);
-			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-		} 
-		
-		w = bmp.getWidth();
-		h = bmp.getHeight();
-		
-		mtx = new Matrix();
-		mtx.postRotate(90);
-		bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);
-		
-		
-		BitmapDrawable bmd = new BitmapDrawable(bmp);			
-		toPlace.setImageDrawable(bmd);
-		return toPlace;
+        int h = bmp.getHeight();
+        
+        boolean changed = false;
+        int rotation = 0;
+        
+        Matrix mtx = new Matrix();
+        int diff = h-w;
+        
+        if (diff > (h/4)*-1) {
+        	rotation+=90;
+        	changed = true;        	
+        }		
+        return postPositioning(index, rotation, changed, mtx, bmp, w, h, toPlace);
 	}
 	
 	public ImageView placeCustomImage(int angle, int index, ImageView toPlace, Context con) {

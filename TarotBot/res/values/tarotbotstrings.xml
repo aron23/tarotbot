@@ -25,10 +25,20 @@
     <string name="save_label">Label Your Reading</string>
     <string name="save_label_ok">OK</string>
     <string name="save_label_no">No Thanks</string>
-    <string name="reverse_cards_yes">REVERSE CARDS [YES]</string>
-    <string name="reverse_cards_no">REVERSE CARDS [NO]</string>
-    
+    <string name="reverse_cards_yes">USE REVERSE CARDS</string>
+    <string name="reverse_cards_no">NO REVERSE CARDS</string>
+    <string name="trumps_only_yes">USE TRUMPS ONLY</string>
+    <string name="trumps_only_no">USE FULL DECK</string>
+    <string name="custom_deck_yes">USE CUSTOM DECK</string>
+    <string name="custom_deck_no">USE DEFAULT DECK</string>
+    <string name="custom_deck_note">&lt;i>Compatibility of custom decks is dependent upon image size and hardware capacity &lt;a href=\'http://liber.us/tarotbot/custom-decks\'>instructions available here&lt;/a>.&lt;/i></string>
     <string name="are_you_sure">Are you sure you want to leave your reading?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="background_color_choice">CHOOSE BACKGROUND COLOR</string>
+    <string name="color_dialog_title">COLOR SELECTION</string>
+	<string name="color_h">HUE</string>
+	<string name="color_s">SATURATION</string>
+	<string name="color_v">VALUE</string>
+	<string name="color_a">ALPHA</string>
 </resources>

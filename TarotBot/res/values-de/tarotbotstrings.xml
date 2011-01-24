@@ -21,4 +21,9 @@
     <string name="save_label_no">nein danke</string>
     <string name="reverse_cards_yes">Karten einschalten [Ja]</string>
     <string name="reverse_cards_no">Karten einschalten [Nein]</string>
+    <string name="trumps_only_yes">Trümpfe nur [Ja]</string>
+    <string name="trumps_only_no">Trümpfe nur [Nein]</string>
+    <string name="are_you_sure">Sind Sie sicher?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
 </resources>

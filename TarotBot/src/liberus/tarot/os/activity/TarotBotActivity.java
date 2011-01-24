@@ -18,11 +18,12 @@ import java.util.HashMap;
 
 
 import liberus.tarot.deck.Deck;
-import liberus.tarot.deck.RiderWaiteDeck;
+import liberus.tarot.deck.FullTarotDeck;
+import liberus.tarot.deck.TarotTrumpDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 
-import liberus.tarot.os.activity.AbstractTarotBotActivity.MyGestureDetector;
+import liberus.utils.MyGestureDetector;
 import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
 
@@ -38,6 +39,7 @@ import liberus.tarot.spread.Spread;
 
 import liberus.utils.EfficientAdapter;
 import liberus.utils.WebUtils;
+import liberus.utils.color.ColorDialog;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -47,10 +49,12 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -98,10 +102,12 @@ import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
 
 
-public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
+public abstract class TarotBotActivity extends AbstractTarotBotActivity implements ColorDialog.OnClickListener  {
 
 	private Dialog helper;
 	private boolean leavespread;
+	private TextView deckNote;
+	
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -113,7 +119,11 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		inflater = LayoutInflater.from(this);
 		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
 		readingPrefsEd = readingPrefs.edit();
-		gestureDetector = new GestureDetector(new MyGestureDetector());
+		
+		displayPrefs = getSharedPreferences("tarotbot.display", 0);
+		displayPrefsEd = displayPrefs.edit();
+		
+		gestureDetector = new GestureDetector(new MyGestureDetector(this));
 		gestureListener = getGestureListener(gestureDetector);
 		initSaved("tarotbot");
 		new Thread(new Runnable(){
@@ -131,8 +141,11 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 			secondSetIndex = 0;
 			state = "single";
 			browsing = false;
-			begun = true;					
-			myInt = new BotaInt(new RiderWaiteDeck(), aq);
+			begun = true;	
+			if (readingPrefs.getBoolean("trumps.only", false))
+				myInt = new BotaInt(new TarotTrumpDeck(), aq);
+			else
+				myInt = new BotaInt(new FullTarotDeck(), aq);
 			
 			Deck.cards = Deck.orderedDeck(78);
 			mySpread = new SeqSpread(myInt,spreadLabels,true);
@@ -161,14 +174,14 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		
 		loaded=true;
     	BotaInt.loaded = true;
-		myInt = new BotaInt(new RiderWaiteDeck(), aq);
+		myInt = new BotaInt(new FullTarotDeck(), aq);
 
 		ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-    	for(int card: RiderWaiteDeck.cards) {
+    	for(int card: FullTarotDeck.cards) {
     		reversals.add(false);
     	}
     	
-    	Interpretation.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));	
+    	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
     	
     	
 		mySpread = new BrowseSpread(myInt);
@@ -206,11 +219,12 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 	  super.onConfigurationChanged(newConfig);
-	  if (spreading) {
-		  reInitSpread(R.layout.spreadmenu);		  
-	  } else if (!begun && !browsing) {
-		  reInit();
-	  } else if (!state.equals("navigate")) {
+//	  if (spreading) {
+//		  reInitSpread(R.layout.spreadmenu);		  
+//	  } else if (!begun && !browsing) {
+//		  reInit();
+//	  } else 
+	  if (state.equals("new reading") || state.equals("loaded")) {
 		  rotateDisplay();
 	  }
 	}
@@ -273,7 +287,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
         //changeQuerant();                
         
         if (canBeRestored()) {
-                myInt = new BotaInt(new RiderWaiteDeck(), aq);
+        	if (readingPrefs.getBoolean("trumps.only", false))
+				myInt = new BotaInt(new TarotTrumpDeck(), aq);
+			else
+				myInt = new BotaInt(new FullTarotDeck(), aq);
                 //restoreMe();
                 restoreSecondStage();
         } else {
@@ -289,7 +306,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
         }
 }
 	
-	protected void showInfo(int type) {
+	public void showInfo(int type) {
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 
 		if (type == Configuration.ORIENTATION_PORTRAIT) {
@@ -297,7 +314,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 			int i = Spread.circles.get(secondSetIndex);
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			showing = inflater.inflate(R.layout.interpretation, null);
-			infotext = (TextView) showing.findViewById(R.id.interpretation);		
+			infotext = (TextView) showing.findViewById(R.id.interpretation);	
+			
 			infotext.setText(Html.fromHtml(interpretation));
 			infotext.setOnTouchListener(gestureListener);
 			
@@ -307,7 +325,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 //			builder.setView(showing);
 			
 			Dialog interpretor = new Dialog(this,android.R.style.Theme);
-			interpretor.setTitle(mySpread.myLabels[secondSetIndex]);
+			if (mySpread.myLabels.length > secondSetIndex)
+				interpretor.setTitle(mySpread.myLabels[secondSetIndex]);
+			else
+				interpretor.setTitle("");
 			interpretor.setContentView(showing);			
 			interpretor.setOnKeyListener(this);			
 			interpretor.show();
@@ -325,7 +346,12 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		}			
 	}
 	
-	
+	public void onClick(Object tag, int color) {
+		displayPrefsEd.putInt("background.color", color);
+		displayPrefsEd.commit();
+		View options = findViewById(R.id.optionlayout);
+		options.setBackgroundColor(color);
+	}
 	
 	public void onClick(View v) {	
 		if (v.equals(this.findViewById(R.id.initbotabutton))) {
@@ -333,13 +359,30 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 			begun = true;
             browsing = false;
             changeQuerant();
-            myInt = new BotaInt(new RiderWaiteDeck(), aq);
+            myInt = new BotaInt(new FullTarotDeck(), aq);
             mySpread = new BotaSpread(myInt);
             beginSecondStage();     
 		} else if (v.equals(this.findViewById(R.id.reversal_button))) {
 			if (!init) {
 				readingPrefsEd.putBoolean("reversal", reverseToggle.isChecked());
 				readingPrefsEd.commit();
+			}
+		} else if (v.equals(this.findViewById(R.id.trumps_only_button))) {
+			if (!init) {
+				readingPrefsEd.putBoolean("trumps.only", trumpToggle.isChecked());
+				readingPrefsEd.commit();
+			}
+		} else if (v.equals(this.findViewById(R.id.custom_deck_button))) {
+			if (!init) {
+				displayPrefsEd.putBoolean("custom.deck", deckToggle.isChecked());
+				displayPrefsEd.commit();
+				if (deckToggle.isChecked()) {
+					deckNote.setText(Html.fromHtml(getString(R.string.custom_deck_note)));
+					Linkify.addLinks(deckNote, Linkify.ALL);
+					deckNote.setLinksClickable(true);
+					deckNote.setMovementMethod(LinkMovementMethod.getInstance());				
+				} else
+					deckNote.setText("");
 			}
 		} else if (v instanceof ImageView && v.getId() > -1) {
 			if (navigator != null) {
@@ -501,14 +544,17 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					state = "single";
 					browsing = false;
 					begun = true;					
-					myInt = new BotaInt(new RiderWaiteDeck(), aq);
+					if (readingPrefs.getBoolean("trumps.only", false))
+						myInt = new BotaInt(new TarotTrumpDeck(), aq);
+					else
+						myInt = new BotaInt(new FullTarotDeck(), aq);
 					
 					Deck.cards = Deck.orderedDeck(78);
 					mySpread = new SeqSpread(myInt,spreadLabels,true);
 					loaded = false;
 					
 			    	
-			    	//Interpretation.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
+			    	//Interpretation.myDeck = new TarotTrumpDeck(reversals.toArray(new Boolean[0]));
 			    	
 					beginSecondStage();
 					break;
@@ -522,17 +568,19 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					state = "single";
 					browsing = false;
 					begun = true;					
-					myInt = new BotaInt(new RiderWaiteDeck(), aq);
-					Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
-					Deck.cards = shuffled;
+					if (readingPrefs.getBoolean("trumps.only", false))
+						myInt = new BotaInt(new TarotTrumpDeck(), aq);
+					else
+						myInt = new BotaInt(new FullTarotDeck(), aq);
+					Deck.cards = Interpretation.myDeck.shuffle(Deck.cards,3);					
 					mySpread = new SeqSpread(myInt,spreadLabels,false);
 					loaded = false;
 					ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-			    	for(int card: RiderWaiteDeck.cards) {
+			    	for(int card: Deck.cards) {
 			    		reversals.add(false);
 			    	}
 			    	
-			    	//Interpretation.myDeck = new RiderWaiteDeck(reversals.toArray(new Boolean[0]));
+			    	//Interpretation.myDeck = new TarotTrumpDeck(reversals.toArray(new Boolean[0]));
 			    	
 					beginSecondStage();
 					break;				
@@ -547,7 +595,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 			        return;	
 			    case 5: 
 			    	showing = inflater.inflate(R.layout.interpretation, null);
-					infotext = (TextView) showing.findViewById(R.id.interpretation);		
+					infotext = (TextView) showing.findViewById(R.id.interpretation);
+					
 					infotext.setText(Html.fromHtml(getString(R.string.about_tarot)));
 					Linkify.addLinks(infotext, Linkify.ALL);
 					infotext.setLinksClickable(true);
@@ -558,7 +607,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					break;
 			    case 6: 	 
 					showing = inflater.inflate(R.layout.interpretation, null);
-					infotext = (TextView) showing.findViewById(R.id.interpretation);		
+					infotext = (TextView) showing.findViewById(R.id.interpretation);	
+					
 					infotext.setText(Html.fromHtml(getString(R.string.about_artist)));
 					Linkify.addLinks(infotext, Linkify.ALL);
 					infotext.setLinksClickable(true);
@@ -569,7 +619,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					break;
 			    case 7:
 			    	showing = inflater.inflate(R.layout.interpretation, null);
-					infotext = (TextView) showing.findViewById(R.id.interpretation);		
+					infotext = (TextView) showing.findViewById(R.id.interpretation);	
+					
 					infotext.setText(Html.fromHtml(getString(R.string.about_app)+getString(R.string.market_link)+getString(R.string.other_apps)));
 					Linkify.addLinks(infotext, Linkify.ALL);
 					infotext.setLinksClickable(true);
@@ -577,7 +628,11 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					helper.setTitle("About the App");
 					helper.setContentView(showing);
 					helper.show();
-					break;				
+					break;
+			    case 8:	
+			    	state = "spreadmenu";
+			    	initOptionsMenu();
+					return;						
 				}			
 			
 
@@ -598,7 +653,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					return;			    	
 			    case 4: 
 			    	showing = inflater.inflate(R.layout.interpretation, null);
-					infotext = (TextView) showing.findViewById(R.id.interpretation);		
+					infotext = (TextView) showing.findViewById(R.id.interpretation);
+					
 					infotext.setText(Html.fromHtml(getString(R.string.about_tarot)));
 					Linkify.addLinks(infotext, Linkify.ALL);
 					infotext.setLinksClickable(true);
@@ -609,7 +665,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					break;
 			    case 5: 	 
 					showing = inflater.inflate(R.layout.interpretation, null);
-					infotext = (TextView) showing.findViewById(R.id.interpretation);		
+					infotext = (TextView) showing.findViewById(R.id.interpretation);	
+					
 					infotext.setText(Html.fromHtml(getString(R.string.about_artist)));
 					Linkify.addLinks(infotext, Linkify.ALL);
 					infotext.setLinksClickable(true);
@@ -620,7 +677,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					break;
 			    case 6:
 			    	showing = inflater.inflate(R.layout.interpretation, null);
-					infotext = (TextView) showing.findViewById(R.id.interpretation);		
+					infotext = (TextView) showing.findViewById(R.id.interpretation);	
+					
 					infotext.setText(Html.fromHtml(getString(R.string.about_app)+getString(R.string.market_link)+getString(R.string.other_apps)));
 					Linkify.addLinks(infotext, Linkify.ALL);
 					infotext.setLinksClickable(true);
@@ -629,6 +687,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 					helper.setContentView(showing);
 					helper.show();
 					break;
+			    case 7:	
+			    	state = "secondmenu";
+			    	initOptionsMenu();
+					return;
 				}
 			
 			
@@ -680,9 +742,12 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 				state = "new reading";
 				begun = true;
 				browsing = false;
-				myInt = new BotaInt(new RiderWaiteDeck(), aq);
-				Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
-				Deck.cards = shuffled;
+				if (readingPrefs.getBoolean("trumps.only", false))
+					myInt = new BotaInt(new TarotTrumpDeck(), aq);
+				else
+					myInt = new BotaInt(new FullTarotDeck(), aq);
+				Deck.cards = Interpretation.myDeck.shuffle(Deck.cards,3);
+				
 				if (style.equals("arrow"))
 					mySpread = new ArrowSpread(myInt,timeArrow);
 				else if (style.equals("dialectic"))
@@ -732,7 +797,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 	    	loaded=true;
 	    	state = "loaded";
 	    	//Interpretation.myDeck = ;	
-	    	myInt = new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),aq);
+	    	if (readingPrefs.getBoolean("trumps.only", false))
+				myInt = new BotaInt(new TarotTrumpDeck(), aq);
+			else
+				myInt = new BotaInt(new FullTarotDeck(), aq);
 	    	Spread.working = working;
 	    	BotaInt.loaded = true;
 	    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("bota")) {
@@ -767,7 +835,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 	    	spreading=false;
 			begun = true;
 			browsing = false;
-	    	//new BotaInt(new RiderWaiteDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+	    	//new BotaInt(new TarotTrumpDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
 	    	beginSecondStage();
 		}
 	}
@@ -777,7 +845,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		loaded = false;
 		Spread.circles = new ArrayList<Integer>();
 		Spread.working = new ArrayList<Integer>();
-		myInt = new BotaInt(new RiderWaiteDeck(), aq);
+		//myInt = new BotaInt(new TarotTrumpDeck(), aq);
 		state = "spreadmenu";		
 		
 		establishMenu(R.layout.spreadmenu);
@@ -785,13 +853,33 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
 		myMenuList.setOnItemClickListener(this);
 		myMenuList.setTag("spreadmenu");
+	}
+	
+	
+
+	public void displayBackgroundColorChoice(View v) {
+		ColorDialog dialog = new ColorDialog(this, true, v, displayPrefs.getInt("background.color", Color.BLACK), this, R.drawable.logo);		
+		dialog.show();
+		
+	}
+	
+	private void initOptionsMenu() {
+		establishMenu(R.layout.optionsmenu);		
 		reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
 		reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
 		reverseToggle.setClickable(true);
 		reverseToggle.setOnClickListener(this);
+		trumpToggle = (ToggleButton) this.findViewById(R.id.trumps_only_button);
+		trumpToggle.setChecked(readingPrefs.getBoolean("trumps.only", false));
+		trumpToggle.setClickable(true);
+		trumpToggle.setOnClickListener(this);
+		deckToggle = (ToggleButton) this.findViewById(R.id.custom_deck_button);
+		deckToggle.setChecked(displayPrefs.getBoolean("custom.deck", false));
+		deckToggle.setClickable(true);
+		deckToggle.setOnClickListener(this);
+		deckNote = (TextView) this.findViewById(R.id.custom_deck_note);		
 	}
-
-
+	
 	public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent arg2) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {			
 			state = priorstate;
@@ -856,7 +944,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity  {
 		    	BotaInt.loaded = false;
 		    	Spread.circles = new ArrayList<Integer>();
 				Spread.working = new ArrayList<Integer>();
-				myInt = new BotaInt(new RiderWaiteDeck(), aq);
+				if (readingPrefs.getBoolean("trumps.only", false))
+					myInt = new BotaInt(new TarotTrumpDeck(), aq);
+				else
+					myInt = new BotaInt(new FullTarotDeck(), aq);
 		    	type = new ArrayList<Integer>();
 				flipdex = new ArrayList<Integer>();
 				reInit();

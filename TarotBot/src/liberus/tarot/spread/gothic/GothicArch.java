@@ -37,10 +37,9 @@ public class GothicArch extends GothicSpread {
 	@Override
 	public void operate(Context context, boolean loading) {
 		if (!loading) {
-			Integer[] shuffled = myDeck.shuffle(new Integer[78],3);
-			Deck.shuffled = shuffled;
+			Deck.cards = myDeck.shuffle(Deck.cards,3);			
 			for (int i = 0; i < myNum; i++)
-				Spread.working.add(shuffled[i]);
+				Spread.working.add(Deck.cards[i]);
 			Spread.circles = working;
 		}		
 	}
@@ -55,35 +54,35 @@ public class GothicArch extends GothicSpread {
 		placeImage(act.flipdex.get(0),card,ctx);
 		card.setId(0);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 0)
+		if (act.secondSetIndex == 0)
 			layout.findViewById(R.id.arch_one_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.arch_two);
 		placeImage(act.flipdex.get(1),card,ctx);
 		card.setId(1);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 1)
+		if (act.secondSetIndex == 1)
 			layout.findViewById(R.id.arch_two_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.arch_three);
 		placeImage(act.flipdex.get(2),card,ctx);
 		card.setId(2);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 2)
+		if (act.secondSetIndex == 2)
 			layout.findViewById(R.id.arch_three_back).setBackgroundColor(Color.RED);
 		
 		card = (ImageView) layout.findViewById(R.id.arch_four);
 		placeImage(act.flipdex.get(3),card,ctx);
 		card.setId(3);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 3)
+		if (act.secondSetIndex == 3)
 			layout.findViewById(R.id.arch_four_back).setBackgroundColor(Color.RED);
 
 		card = (ImageView) layout.findViewById(R.id.arch_five);
 		placeImage(act.flipdex.get(4),card,ctx);
 		card.setId(4);
 		card.setOnClickListener(act);
-		if (TarotBotActivity.secondSetIndex == 4)
+		if (act.secondSetIndex == 4)
 			layout.findViewById(R.id.arch_five_back).setBackgroundColor(Color.RED);
 		
 		return layout;

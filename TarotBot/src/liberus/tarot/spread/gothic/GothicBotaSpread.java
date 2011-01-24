@@ -313,7 +313,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(0))) {
 			card.setId(circles.indexOf(working.get(0)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(0)))
+			if (act.secondSetIndex == circles.indexOf(working.get(0)))
 				layout.findViewById(R.id.bota_00_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -324,7 +324,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(1))) {
 			card.setId(circles.indexOf(working.get(1)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(1)))
+			if (act.secondSetIndex == circles.indexOf(working.get(1)))
 				layout.findViewById(R.id.bota_01_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -335,7 +335,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(2))) {
 			card.setId(circles.indexOf(working.get(2)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(2)))
+			if (act.secondSetIndex == circles.indexOf(working.get(2)))
 				layout.findViewById(R.id.bota_02_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -346,7 +346,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(3))) {
 			card.setId(circles.indexOf(working.get(3)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(3)))
+			if (act.secondSetIndex == circles.indexOf(working.get(3)))
 				layout.findViewById(R.id.bota_03_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -357,7 +357,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(4))) {
 			card.setId(circles.indexOf(working.get(4)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(4)))
+			if (act.secondSetIndex == circles.indexOf(working.get(4)))
 				layout.findViewById(R.id.bota_04_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -368,7 +368,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(5))) {
 			card.setId(circles.indexOf(working.get(5)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(5)))
+			if (act.secondSetIndex == circles.indexOf(working.get(5)))
 				layout.findViewById(R.id.bota_05_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -379,7 +379,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(6))) {
 			card.setId(circles.indexOf(working.get(6)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(6)))
+			if (act.secondSetIndex == circles.indexOf(working.get(6)))
 				layout.findViewById(R.id.bota_06_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -390,7 +390,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(7))) {
 			card.setId(circles.indexOf(working.get(7)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(7)))
+			if (act.secondSetIndex == circles.indexOf(working.get(7)))
 				layout.findViewById(R.id.bota_07_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -401,7 +401,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(8))) {
 			card.setId(circles.indexOf(working.get(8)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(8)))
+			if (act.secondSetIndex == circles.indexOf(working.get(8)))
 				layout.findViewById(R.id.bota_08_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -412,7 +412,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(9))) {
 			card.setId(circles.indexOf(working.get(9)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(9)))
+			if (act.secondSetIndex == circles.indexOf(working.get(9)))
 				layout.findViewById(R.id.bota_09_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -423,7 +423,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(10))) {
 			card.setId(circles.indexOf(working.get(10)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(10)))
+			if (act.secondSetIndex == circles.indexOf(working.get(10)))
 				layout.findViewById(R.id.bota_10_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -434,7 +434,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(11))) {
 			card.setId(circles.indexOf(working.get(11)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(11)))
+			if (act.secondSetIndex == circles.indexOf(working.get(11)))
 				layout.findViewById(R.id.bota_11_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -446,7 +446,7 @@ public class GothicBotaSpread extends GothicSpread {
 			card.setId(circles.indexOf(working.get(12)));
 
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(12)))
+			if (act.secondSetIndex == circles.indexOf(working.get(12)))
 				layout.findViewById(R.id.bota_12_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -457,7 +457,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(13))) {
 			card.setId(circles.indexOf(working.get(13)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(13)))
+			if (act.secondSetIndex == circles.indexOf(working.get(13)))
 				layout.findViewById(R.id.bota_13_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -469,7 +469,7 @@ public class GothicBotaSpread extends GothicSpread {
 			card.setId(circles.indexOf(working.get(14)));
 
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(14)))
+			if (act.secondSetIndex == circles.indexOf(working.get(14)))
 				layout.findViewById(R.id.bota_14_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -482,7 +482,7 @@ public class GothicBotaSpread extends GothicSpread {
 			card.setId(circles.indexOf(working.get(15)));
 
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(15)))
+			if (act.secondSetIndex == circles.indexOf(working.get(15)))
 				layout.findViewById(R.id.bota_15_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -494,7 +494,7 @@ public class GothicBotaSpread extends GothicSpread {
 			card.setId(circles.indexOf(working.get(16)));
 
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(16)))
+			if (act.secondSetIndex == circles.indexOf(working.get(16)))
 				layout.findViewById(R.id.bota_16_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -505,7 +505,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(17))) {
 			card.setId(circles.indexOf(working.get(17)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(17)))
+			if (act.secondSetIndex == circles.indexOf(working.get(17)))
 				layout.findViewById(R.id.bota_17_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -516,7 +516,7 @@ public class GothicBotaSpread extends GothicSpread {
 		if (circles.contains(working.get(18))) {
 			card.setId(circles.indexOf(working.get(18)));
 			card.setOnClickListener(act);
-			if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(18)))
+			if (act.secondSetIndex == circles.indexOf(working.get(18)))
 				layout.findViewById(R.id.bota_18_back).setBackgroundColor(Color.RED);
 		} else {
 			card.setAlpha(75);
@@ -528,7 +528,7 @@ public class GothicBotaSpread extends GothicSpread {
 			if (circles.contains(working.get(19))) {
 				card.setId(circles.indexOf(working.get(19)));
 				card.setOnClickListener(act);
-				if (TarotBotActivity.secondSetIndex == circles.indexOf(working.get(19)))
+				if (act.secondSetIndex == circles.indexOf(working.get(19)))
 					layout.findViewById(R.id.bota_19_back).setBackgroundColor(Color.RED);
 			} else {
 				card.setAlpha(75);

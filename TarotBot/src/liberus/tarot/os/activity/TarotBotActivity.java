@@ -125,7 +125,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		
 		gestureDetector = new GestureDetector(new MyGestureDetector(this));
 		gestureListener = getGestureListener(gestureDetector);
-		initSaved("tarotbot");
+		initSaved(getStorageFile());
 		new Thread(new Runnable(){
 			public void run(){				
 				initHighRes();
@@ -142,13 +142,15 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			state = "single";
 			browsing = false;
 			begun = true;	
-			if (readingPrefs.getBoolean("trumps.only", false))
-				myInt = new BotaInt(new TarotTrumpDeck(), aq);
-			else
-				myInt = new BotaInt(new FullTarotDeck(), aq);
+			if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly()){
+					myInt = new BotaInt(new TarotTrumpDeck(), aq); 
+					Deck.cards = Deck.orderedDeck(22);
+				} else {
+					myInt = new BotaInt(new FullTarotDeck(), aq);
+					Deck.cards = Deck.orderedDeck(78);
+				}
 			
-			Deck.cards = Deck.orderedDeck(78);
-			mySpread = new SeqSpread(myInt,spreadLabels,true);
+			mySpread = new SeqSpread(myInt,spreadLabels,true,isTrumpsOnly());
 			loaded = false;
 			
 			beginSecondStage();
@@ -174,17 +176,27 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		
 		loaded=true;
     	BotaInt.loaded = true;
-		myInt = new BotaInt(new FullTarotDeck(), aq);
+    	Spread.circles = new ArrayList<Integer>();
+		Spread.working = new ArrayList<Integer>();
+    	if (isTrumpsOnly())
+			myInt = new BotaInt(new TarotTrumpDeck(), aq);
+		else
+			myInt = new BotaInt(new FullTarotDeck(), aq);
+		
 
 		ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-    	for(int card: FullTarotDeck.cards) {
+    	for(int card: myInt.myDeck.cards) {
     		reversals.add(false);
     	}
     	
-    	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
+    	if (isTrumpsOnly())
+    		Interpretation.myDeck = new TarotTrumpDeck(reversals.toArray(new Boolean[0]));
+		else
+			Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));
+    		
     	
     	
-		mySpread = new BrowseSpread(myInt);
+		mySpread = new BrowseSpread(myInt,isTrumpsOnly());
 		
 		style="browse";
 		type = new ArrayList<Integer>();
@@ -287,7 +299,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
         //changeQuerant();                
         
         if (canBeRestored()) {
-        	if (readingPrefs.getBoolean("trumps.only", false))
+        	if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
 				myInt = new BotaInt(new TarotTrumpDeck(), aq);
 			else
 				myInt = new BotaInt(new FullTarotDeck(), aq);
@@ -359,7 +371,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			begun = true;
             browsing = false;
             changeQuerant();
-            myInt = new BotaInt(new FullTarotDeck(), aq);
+            if (isTrumpsOnly())
+    			myInt = new BotaInt(new TarotTrumpDeck(), aq);
+    		else
+    			myInt = new BotaInt(new FullTarotDeck(), aq);
             mySpread = new BotaSpread(myInt);
             beginSecondStage();     
 		} else if (v.equals(this.findViewById(R.id.reversal_button))) {
@@ -444,7 +459,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				    File root = Environment.getExternalStorageDirectory();
 				    
 				    //if (root.canWrite()){
-				        File gpxfile = new File(root, "tarotbot.store");
+				        File gpxfile = new File(root, getStorageFile());
 				        FileWriter gpxwriter = new FileWriter(gpxfile);
 				        BufferedWriter out = new BufferedWriter(gpxwriter);
 				        for (String reader: savedList) {
@@ -483,7 +498,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				    File root = Environment.getExternalStorageDirectory();
 				    
 				    //if (root.canWrite()){
-				        File gpxfile = new File(root, "tarotbot.store");
+				        File gpxfile = new File(root, getStorageFile());
 				        FileWriter gpxwriter = new FileWriter(gpxfile);
 				        BufferedWriter out = new BufferedWriter(gpxwriter);
 				        for (String reader: savedList) {
@@ -511,6 +526,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				}
 		} 
 	}
+	
+
 	
 
 	public void onItemSelected(AdapterView<?> adapter, View list, int arg2,
@@ -544,13 +561,14 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					state = "single";
 					browsing = false;
 					begun = true;					
-					if (readingPrefs.getBoolean("trumps.only", false))
+					if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly()) {
 						myInt = new BotaInt(new TarotTrumpDeck(), aq);
-					else
+						Deck.cards = Deck.orderedDeck(22);
+					} else {
 						myInt = new BotaInt(new FullTarotDeck(), aq);
-					
-					Deck.cards = Deck.orderedDeck(78);
-					mySpread = new SeqSpread(myInt,spreadLabels,true);
+						Deck.cards = Deck.orderedDeck(78);
+					}
+					mySpread = new SeqSpread(myInt,spreadLabels,true,isTrumpsOnly());
 					loaded = false;
 					
 			    	
@@ -568,12 +586,12 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					state = "single";
 					browsing = false;
 					begun = true;					
-					if (readingPrefs.getBoolean("trumps.only", false))
+					if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
 						myInt = new BotaInt(new TarotTrumpDeck(), aq);
 					else
 						myInt = new BotaInt(new FullTarotDeck(), aq);
 					Deck.cards = Interpretation.myDeck.shuffle(Deck.cards,3);					
-					mySpread = new SeqSpread(myInt,spreadLabels,false);
+					mySpread = new SeqSpread(myInt,spreadLabels,false,isTrumpsOnly());
 					loaded = false;
 					ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
 			    	for(int card: Deck.cards) {
@@ -742,7 +760,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				state = "new reading";
 				begun = true;
 				browsing = false;
-				if (readingPrefs.getBoolean("trumps.only", false))
+				if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
 					myInt = new BotaInt(new TarotTrumpDeck(), aq);
 				else
 					myInt = new BotaInt(new FullTarotDeck(), aq);
@@ -759,7 +777,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				else if (style.equals("celtic"))
 					mySpread = new CelticSpread(myInt,celticCross);
 				else
-					mySpread = new SeqSpread(myInt,spreadLabels,false);
+					mySpread = new SeqSpread(myInt,spreadLabels,false,isTrumpsOnly());
 				loaded = false;
 				beginSecondStage();
 		} else if (adapter.getTag().equals("loadmenu")) {//.getContentDescription().equals("querant") {
@@ -797,7 +815,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	    	loaded=true;
 	    	state = "loaded";
 	    	//Interpretation.myDeck = ;	
-	    	if (readingPrefs.getBoolean("trumps.only", false))
+	    	if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
 				myInt = new BotaInt(new TarotTrumpDeck(), aq);
 			else
 				myInt = new BotaInt(new FullTarotDeck(), aq);
@@ -819,7 +837,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	    		mySpread = new ChaosSpread(myInt,pentagram);
 	    		spreadLabels = pentagram;
 	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("single")) {
-	    		mySpread = new SeqSpread(myInt,single,false);
+	    		mySpread = new SeqSpread(myInt,single,false,isTrumpsOnly());
 	    		Spread.circles = Spread.working;
 	    		spreadLabels = single;
 	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("arrow")) {
@@ -859,8 +877,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 
 	public void displayBackgroundColorChoice(View v) {
 		ColorDialog dialog = new ColorDialog(this, true, v, displayPrefs.getInt("background.color", Color.BLACK), this, R.drawable.logo);		
-		dialog.show();
-		
+		dialog.show();		
 	}
 	
 	private void initOptionsMenu() {
@@ -944,7 +961,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		    	BotaInt.loaded = false;
 		    	Spread.circles = new ArrayList<Integer>();
 				Spread.working = new ArrayList<Integer>();
-				if (readingPrefs.getBoolean("trumps.only", false))
+				if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
 					myInt = new BotaInt(new TarotTrumpDeck(), aq);
 				else
 					myInt = new BotaInt(new FullTarotDeck(), aq);

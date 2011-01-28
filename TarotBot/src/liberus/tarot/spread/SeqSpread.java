@@ -21,6 +21,7 @@ public class SeqSpread extends Spread {
 	private static int significatorIn;
 	private int myNum;
 	private boolean isCardOfTheDay;
+	private boolean isTrumpsOnly;
 
 
 	public SeqSpread(Interpretation myInt, String[] labels, boolean cardOfTheDay) {
@@ -28,8 +29,15 @@ public class SeqSpread extends Spread {
 		myNum = labels.length;
 		myLabels = labels;
 		isCardOfTheDay = cardOfTheDay;
+		isTrumpsOnly = false;
 	}
-	
+	public SeqSpread(Interpretation myInt, String[] labels, boolean cardOfTheDay,boolean trumpsOnly) {
+		super(myInt);
+		myNum = labels.length;
+		myLabels = labels;
+		isCardOfTheDay = cardOfTheDay;
+		isTrumpsOnly = trumpsOnly;
+	}
 	@Override
 	public void operate(Context context, boolean loading) {
 		if (!loading &! isCardOfTheDay) {
@@ -38,13 +46,21 @@ public class SeqSpread extends Spread {
 				Spread.working.add(Deck.cards[i]);
 			Spread.circles = working;
 		} else if (!loading) {
-			Deck.cards = Deck.orderedDeck(78);
+			if (isTrumpsOnly)
+				Deck.cards = Deck.orderedDeck(22);
+			else
+				Deck.cards = Deck.orderedDeck(78);
 			
 			
 			SharedPreferences readingPrefs = context.getSharedPreferences("tarotbot.random", 0);
 
 			Random rand = new Random();
-			int seed = (readingPrefs.getInt("seed", BotaInt.getRandom(context).nextInt(78)));
+			int seed = 0;
+			if (isTrumpsOnly)
+				seed = (readingPrefs.getInt("seed", BotaInt.getRandom(context).nextInt(22)));
+			else
+				seed = (readingPrefs.getInt("seed", BotaInt.getRandom(context).nextInt(78)));
+			 
 			
 			Spread.working.add(seed);
 			Spread.circles = working;

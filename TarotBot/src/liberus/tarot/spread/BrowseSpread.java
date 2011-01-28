@@ -22,18 +22,24 @@ public class BrowseSpread extends Spread {
 	
 	private static int significatorIn;
 	private int myNum;
+	private boolean trumpsonly;
 
-
-	public BrowseSpread(Interpretation in) {
+	public BrowseSpread(Interpretation in, boolean trumps) {
 		super(in);
-		myNum = 78;
-		myLabels = new String[78];
-		browsing = true;
+		trumpsonly = trumps;
+		if (trumpsonly) {
+			myNum = 22;
+			myLabels = new String[22];
+		} else {
+			myNum = 78;
+			myLabels = new String[78];			
+		}
+		browsing = true;	
 	}
 	
 	@Override
 	public void operate(Context context, boolean loading) {
-		for (int i = 0; i < 78; i++)
+		for (int i = 0; i < myNum; i++)
 			working.add(i);
 		Spread.circles = working;
 	}
@@ -119,6 +125,8 @@ public class BrowseSpread extends Spread {
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
 		layout = populateTrumps(layout,act,ctx);
+		if (act.isTrumpsOnly())
+			return layout;
 		layout = populateWands(layout,act,ctx);
 		layout = populateCups(layout,act,ctx);
 		layout = populateSwords(layout,act,ctx);

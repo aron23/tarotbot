@@ -126,7 +126,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
     	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
     	BotaInt.loaded = true;
     	
-		mySpread = new BrowseSpread(myInt);
+		mySpread = new BrowseSpread(myInt,isTrumpsOnly());
 		Spread.working = new ArrayList<Integer>(Arrays.asList(FullTarotDeck.cards));
 		Spread.circles = Spread.working;
 		

@@ -198,6 +198,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected String[] spreadmenu;
 	protected ListView myMenuList;
 	protected DatePicker dp;
+	
 	private static final int HIGHRES=32;
 	private static final int MIDRES=24;
 
@@ -217,7 +218,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		spreading = true;
 		Spread.circles = new ArrayList<Integer>();
 		Spread.working = new ArrayList<Integer>();
-		if (readingPrefs.getBoolean("trumps.only", false))
+		if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
 			myInt = new BotaInt(new TarotTrumpDeck(), aq);
 		else
 			myInt = new BotaInt(new FullTarotDeck(), aq);
@@ -234,9 +235,13 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 //		reverseToggle.setOnClickListener(this);
 	}
 	
+	public boolean isTrumpsOnly() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	protected void initSaved(String saveas) {
 		try{
-			File f = new File(Environment.getExternalStorageDirectory()+"/"+saveas+".store");
+			File f = new File(Environment.getExternalStorageDirectory()+"/"+saveas);
 			if (!f.exists())
 				return;
 			FileInputStream fileIS = new FileInputStream(f);
@@ -616,7 +621,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		Interpretation.myDeck.establishReversal();
 		mySpread.myDeck.reversed = Interpretation.myDeck.noreversal;
 		if (browsing || style.equals("single")) {}
-		else if (reverseToggle != null && !reverseToggle.isChecked() &! loaded) {
+		else if (!readingPrefs.getBoolean("reversal", false) &! loaded) {
 			mySpread.myDeck.reversed = Interpretation.myDeck.noreversal;
 		} else if (!loaded) {
 			mySpread.myDeck.reversed = Deck.establishReversal(mySpread.myDeck);
@@ -998,7 +1003,10 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	public Object onRetainNonConfigurationInstance() {
 		return 1;
 	}
-	
+	public String getStorageFile() {
+		// TODO Auto-generated method stub
+		return "tarotbot.store";
+	}
 	protected boolean canBeRestored() {
 		if (getLastNonConfigurationInstance()!=null) {
 			return true;

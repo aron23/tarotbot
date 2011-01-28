@@ -71,6 +71,13 @@ public class BotaInt extends Interpretation {
 		return getCard(getRandom(context).nextInt(78));		 
 	}
 	
+	public static int getCardForTheDay(Context context, int seed, boolean trumpsonly) {
+		if (trumpsonly)
+			return getCard(getRandom(context).nextInt(22));
+		else
+			return getCard(getRandom(context).nextInt(78));
+	}
+	
 	public static int getCardIndexForTheDay(Context context, int seed) {
 		return getCardIndex(getRandom(context).nextInt(78));		 
 	}

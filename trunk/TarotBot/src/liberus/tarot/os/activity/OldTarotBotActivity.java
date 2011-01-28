@@ -150,7 +150,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
     	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
     	
     	
-		mySpread = new BrowseSpread(myInt);
+		mySpread = new BrowseSpread(myInt,isTrumpsOnly());
 		
 		
 		type = new ArrayList<Integer>();

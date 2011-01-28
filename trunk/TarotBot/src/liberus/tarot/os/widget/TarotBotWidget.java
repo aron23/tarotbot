@@ -52,6 +52,7 @@ public abstract class TarotBotWidget extends AppWidgetProvider
 		ComponentName thisWidget;
 		Context context;
 		private int seed;
+		
         public MyTime(Context ctx, AppWidgetManager appWidgetManager) {
         	context = ctx;
         	SharedPreferences readingPrefs = context.getSharedPreferences("tarotbot.random", 0);
@@ -63,7 +64,7 @@ public abstract class TarotBotWidget extends AppWidgetProvider
             thisWidget = new ComponentName(context, getWidgetClass());
             //for (int appWidgetId : appWidgetIds) {
             remoteViews = new RemoteViews(context.getPackageName(), R.layout.individual);
-            remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay(context,seed));
+            remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay(context,seed,isTrumpsOnly()));
             //remoteViews = placeImage(BotaInt.getCardIndexForTheDay(context,BotaInt.getRandom(context).nextInt(78)), remoteViews, context, getPath());
             appWidgetManager.updateAppWidget(thisWidget, remoteViews);
             Class myActivityClass = getActivityClass();
@@ -76,9 +77,9 @@ public abstract class TarotBotWidget extends AppWidgetProvider
         @Override
         public void run() {        	
     		//remoteViews = placeImage(BotaInt.getCardIndexForTheDay(context,BotaInt.getRandom(context).nextInt(78)), remoteViews, context, getPath());
-        	remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay(context,seed));
+        	remoteViews.setImageViewResource(R.id.activecard, BotaInt.getCardForTheDay(context,seed,isTrumpsOnly()));
             appWidgetManager.updateAppWidget(thisWidget, remoteViews); 
-        }
+        }	
  }
 	
 	@Override
@@ -174,5 +175,11 @@ public abstract class TarotBotWidget extends AppWidgetProvider
 	public abstract String getPath();
 	public abstract Class getWidgetClass();
 	public abstract Class getActivityClass();
+
+
+	public boolean isTrumpsOnly() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
 

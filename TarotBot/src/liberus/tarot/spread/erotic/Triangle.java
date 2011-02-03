@@ -7,7 +7,6 @@ import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.EroticInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
-import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.android.noads.R;
 import liberus.tarot.spread.Spread;
 import android.content.Context;

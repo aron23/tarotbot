@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:background="#000000">
+	>
 	<ScrollView android:id="@+id/textAreaScroller"
 		android:layout_width="fill_parent" android:layout_height="fill_parent"
 		android:fillViewport="true" android:fadingEdge="none">
 		<FrameLayout android:layout_height="fill_parent"
-			android:layout_width="fill_parent" android:background="#000">
+			android:layout_width="fill_parent" >
 			
 			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 				android:layout_width="fill_parent" android:layout_height="fill_parent">
@@ -14,22 +14,22 @@
 					xmlns:android="http://schemas.android.com/apk/res/android"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_margin="4dip"
-					android:background="#000000" android:orientation="vertical"
+					 android:orientation="vertical"
 					android:layout_weight="4">
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="4" />
+						 android:layout_weight="4" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 					<LinearLayout
 						xmlns:android="http://schemas.android.com/apk/res/android"
 
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_gravity="right"
+						 android:layout_gravity="right"
 						android:gravity="right" android:clipChildren="true"
 						android:layout_weight="4">
 						<LinearLayout android:id="@+id/celtic_future_back"
@@ -38,36 +38,36 @@
 							android:layout_height="wrap_content" android:layout_width="wrap_content"
 							android:clickable="true" android:scaleType="fitCenter"
 							android:adjustViewBounds="true" android:layout_gravity="center"
-							android:gravity="center" android:padding="1px" android:src="@drawable/pent_06"></ImageView></LinearLayout>
+							android:gravity="center" android:padding="1px" ></ImageView></LinearLayout>
 					</LinearLayout>
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="4" />
+						 android:layout_weight="4" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 				</LinearLayout>
 
 				<LinearLayout android:id="@+id/centercolumn"
 					xmlns:android="http://schemas.android.com/apk/res/android"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
-					android:background="#000000" android:orientation="vertical"
+					 android:orientation="vertical"
 					android:layout_margin="4dip"
 					android:layout_weight="4">
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 					<LinearLayout 
 						xmlns:android="http://schemas.android.com/apk/res/android"
 					
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_gravity="right"
+						 android:layout_gravity="right"
 						android:gravity="right" android:clipChildren="true"
 						android:layout_weight="4">
 						<LinearLayout android:id="@+id/celtic_root_back"
@@ -76,13 +76,13 @@
 							android:layout_height="wrap_content" android:layout_width="wrap_content"
 							android:clickable="true" android:scaleType="fitCenter"
 							android:adjustViewBounds="true" android:padding="1px"
-							android:src="@drawable/pent_03"></ImageView></LinearLayout>
+							></ImageView></LinearLayout>
 					</LinearLayout>
 					<LinearLayout 
 						xmlns:android="http://schemas.android.com/apk/res/android"
 						
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_gravity="right"
+						 android:layout_gravity="right"
 						android:gravity="right" android:clipChildren="true"
 						android:layout_weight="4">
 						<LinearLayout android:id="@+id/celtic_heart_back"
@@ -91,14 +91,14 @@
 							android:layout_height="wrap_content" android:layout_width="wrap_content"
 							android:clickable="true" android:scaleType="fitCenter"
 							android:adjustViewBounds="true" android:padding="1px"
-							android:src="@drawable/pent_01"></ImageView></LinearLayout>
+							></ImageView></LinearLayout>
 					</LinearLayout>
 					<LinearLayout 
 						xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
 						
 
-						android:background="#000" android:layout_gravity="right"
+						 android:layout_gravity="right"
 						android:gravity="right" android:clipChildren="true"
 						android:layout_weight="4">
 						<LinearLayout android:id="@+id/celtic_past_back"
@@ -107,37 +107,37 @@
 							android:layout_height="wrap_content" android:layout_width="wrap_content"
 							android:clickable="true" android:scaleType="fitCenter"
 							android:adjustViewBounds="true" android:padding="1px"
-							android:src="@drawable/pent_04"></ImageView>
+							></ImageView>
 						</LinearLayout>
 					</LinearLayout>
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 				</LinearLayout>
 
 				<LinearLayout android:id="@+id/rightcross"
 					xmlns:android="http://schemas.android.com/apk/res/android"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_margin="4dip"
-					android:background="#000000" android:orientation="vertical"
+					 android:orientation="vertical"
 					android:layout_weight="4">
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="4" />
+						 android:layout_weight="4" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 					<LinearLayout
 						xmlns:android="http://schemas.android.com/apk/res/android"
 
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_gravity="right"
+						 android:layout_gravity="right"
 						android:gravity="right" android:clipChildren="true"
 						android:layout_weight="4">
 						<LinearLayout android:id="@+id/celtic_belief_back"
@@ -146,30 +146,30 @@
 							android:layout_height="wrap_content" android:layout_width="wrap_content"
 							android:clickable="true" android:scaleType="fitCenter"
 							android:adjustViewBounds="true" android:padding="1px"
-							android:src="@drawable/pent_05"></ImageView></LinearLayout>
+							></ImageView></LinearLayout>
 					</LinearLayout>
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="4" />
+						 android:layout_weight="4" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 					<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_weight="5" />
+						 android:layout_weight="5" />
 				</LinearLayout>
 
 				<LinearLayout android:id="@+id/crossbar"
 					xmlns:android="http://schemas.android.com/apk/res/android"
 					android:layout_width="fill_parent" android:layout_height="fill_parent"
 					android:layout_margin="4dip"
-					android:background="#000000" android:orientation="vertical"
+					 android:orientation="vertical"
 					android:layout_weight="4">
 					<LinearLayout
 						xmlns:android="http://schemas.android.com/apk/res/android"
 
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_gravity="center"
+						 android:layout_gravity="center"
 						android:gravity="center" android:clipChildren="true"
 						android:layout_weight="4">
 						<LinearLayout android:id="@+id/celtic_outcome_back"
@@ -178,13 +178,13 @@
 							android:layout_height="wrap_content" android:layout_width="wrap_content"
 							android:clickable="true" android:scaleType="fitCenter"
 							android:adjustViewBounds="true" android:padding="1px"
-							android:src="@drawable/pent_10"></ImageView></LinearLayout>
+							></ImageView></LinearLayout>
 					</LinearLayout>
 					<LinearLayout
 						xmlns:android="http://schemas.android.com/apk/res/android"
 
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_gravity="center"
+						 android:layout_gravity="center"
 						android:gravity="center" android:clipChildren="true"
 						android:layout_weight="4">
 						<LinearLayout android:id="@+id/celtic_guidance_back"
@@ -193,13 +193,13 @@
 							android:layout_height="wrap_content" android:layout_width="wrap_content"
 							android:clickable="true" android:scaleType="fitCenter"
 							android:adjustViewBounds="true" android:padding="1px"
-							android:src="@drawable/pent_09"></ImageView></LinearLayout>
+							></ImageView></LinearLayout>
 					</LinearLayout>
 					<LinearLayout 
 						xmlns:android="http://schemas.android.com/apk/res/android"
 
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_gravity="center"
+						 android:layout_gravity="center"
 						android:gravity="center" android:clipChildren="true"
 						android:layout_weight="4">
 						<LinearLayout android:id="@+id/celtic_environment_back"
@@ -208,13 +208,13 @@
 							android:layout_height="wrap_content" android:layout_width="wrap_content"
 							android:clickable="true" android:scaleType="fitCenter"
 							android:adjustViewBounds="true" android:padding="1px"
-							android:src="@drawable/pent_08"></ImageView></LinearLayout>
+							></ImageView></LinearLayout>
 					</LinearLayout>
 					<LinearLayout 
 						xmlns:android="http://schemas.android.com/apk/res/android"
 
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
-						android:background="#000" android:layout_gravity="center"
+						 android:layout_gravity="center"
 						android:gravity="center" android:clipChildren="true"
 						android:layout_weight="4">
 						<LinearLayout android:id="@+id/celtic_you_back"
@@ -223,7 +223,7 @@
 							android:layout_height="wrap_content" android:layout_width="wrap_content"
 							android:clickable="true" android:scaleType="fitCenter"
 							android:adjustViewBounds="true" android:padding="1px"
-							android:src="@drawable/pent_07"></ImageView></LinearLayout>
+							></ImageView></LinearLayout>
 					</LinearLayout>
 				</LinearLayout>
 			</LinearLayout>

@@ -15,5 +15,9 @@
     android:textColor="#FFFFFF"
     android:gravity="top"
     android:layout_gravity="top"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
     />
 </RelativeLayout>

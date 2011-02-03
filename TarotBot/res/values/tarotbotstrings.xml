@@ -36,6 +36,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="background_color_choice">CHOOSE BACKGROUND COLOR</string>
+    <string name="background_image_choice">CHOOSE BACKGROUND IMAGE</string>
     <string name="color_dialog_title">COLOR SELECTION</string>
 	<string name="color_h">HUE</string>
 	<string name="color_s">SATURATION</string>

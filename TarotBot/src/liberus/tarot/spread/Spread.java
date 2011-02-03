@@ -12,7 +12,6 @@ import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
-import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.android.noads.R;
 import liberus.utils.MyProgressDialog;
 import liberus.utils.TarotBotManager;
@@ -26,6 +25,7 @@ import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Environment;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public abstract class Spread {
@@ -33,11 +33,13 @@ public abstract class Spread {
 	protected static final int HIGHRES = 32;
 	protected static final int MIDRES = 24;
 	public Deck myDeck;
+	public ViewGroup myview;
 	protected static Interpretation myInt; 
 	public String[] myLabels;
 	public static ArrayList<Integer> working = new ArrayList<Integer>();
 	public static ArrayList<Integer> circles = new ArrayList<Integer>();
 	public boolean browsing = false;
+	private ViewGroup mybrowseview;
 	public Spread(Interpretation inInt) {		
 		myInt = inInt;
 		myDeck = Interpretation.myDeck;
@@ -46,9 +48,38 @@ public abstract class Spread {
 	public abstract String getInterpretation(int card, Context context);
 	public abstract int getLayout();
 	
-	public View navigate(View layout, AbstractTarotBotActivity act,Context ctx) {
+	public void clearView(ViewGroup v) {
+		if (myview == null)
+			return;
+		int children = v.getChildCount();
+		for (int i = 0; i < children; i++) {
+			View toClear = v.getChildAt(i);
+			if (toClear instanceof ImageView) {
+				if (((ImageView)toClear).getDrawable() instanceof BitmapDrawable)
+					((BitmapDrawable)((ImageView)toClear).getDrawable()).getBitmap().recycle();
+				v.removeView(toClear);
+				toClear.destroyDrawingCache();
+				((ImageView)toClear).getDrawable().setCallback(null);
+				((ImageView)toClear).setImageDrawable(null);
+				((ImageView)toClear).getResources().flushLayoutCache();
+				((ImageView)toClear).destroyDrawingCache();
+				toClear=null;
+			} else if (toClear instanceof ViewGroup) { 
+				clearView((ViewGroup)toClear);
+			}
+		}
+		v.destroyDrawingCache();		
+	}
+	
+	public View navigate(View layout, AbstractTarotBotActivity abstractTarotBotActivity,Context ctx) {		
+		if (myview != null &! browsing) {
+			clearView(myview);
+			myview = (ViewGroup) populateSpread(layout,abstractTarotBotActivity,ctx);
+			return myview;
+		}
+		mybrowseview = (ViewGroup) populateSpread(layout,abstractTarotBotActivity,ctx);
+		return mybrowseview;
 		
-		return populateSpread(layout,act,ctx);
 	}
 	
 	public abstract View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx);
@@ -233,7 +264,8 @@ public abstract class Spread {
         	w = bmp.getWidth();
             h = bmp.getHeight();
 		}
-		BitmapDrawable bmd = new BitmapDrawable(bmp);			
+		BitmapDrawable bmd = new BitmapDrawable(bmp);
+		
 		toPlace.setImageDrawable(bmd);
 		return toPlace;
 	}
@@ -243,12 +275,15 @@ public abstract class Spread {
 		Bitmap bmp = null;
 		
 		BitmapFactory.Options options;
-		options=new BitmapFactory.Options();
+		options=new BitmapFactory.Options();	
+    	options.inDither=false;
+	    options.inPurgeable=true;
+	    options.inInputShareable=true;
 		if (browsing)
 			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
 				options.inSampleSize = 2;
-			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
-				options.inSampleSize = 3;
+//			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
+//				options.inSampleSize = 3;
 			else
 				options.inSampleSize = 4;
 		if (bmp == null) {	
@@ -311,6 +346,9 @@ public abstract class Spread {
 		Bitmap bmp = null;
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
+		options.inDither=false;
+	    options.inPurgeable=true;
+	    options.inInputShareable=true;
 		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
 		if (browsing)
 			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))

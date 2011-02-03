@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
-  android:background="#000000">
+  >
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent"   
@@ -14,7 +14,7 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
   android:layout_margin="4dip"  
-  android:background="#000000"
+  
   android:orientation="vertical">	
   
 <LinearLayout android:id="@+id/rowone"
@@ -23,7 +23,7 @@
   android:layout_height="fill_parent"
   android:layout_gravity="center"
   android:gravity="center"
-  android:background="#000000"
+  
   android:layout_weight="1">
 <LinearLayout android:id="@+id/vampire_one_back" 
   	xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,7 +31,7 @@
   	android:layout_width="fill_parent"
   android:layout_gravity="center"
   android:gravity="center"
-  	android:background="#000"
+  	
 	android:clipToPadding="true"    
 	android:layout_margin="2dip"
   	android:layout_weight="1">  
@@ -44,19 +44,19 @@
   android:gravity="center"    
     android:adjustViewBounds="true"
     android:padding="1px"
-    android:src="@drawable/pent_01"></ImageView>          
+    ></ImageView>          
 </LinearLayout>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="1"/>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="1"/>	  		  	
 <LinearLayout android:id="@+id/vampire_two_back" 
   	xmlns:android="http://schemas.android.com/apk/res/android"
@@ -65,7 +65,7 @@
   android:layout_gravity="center"
   android:layout_margin="2dip"
   android:gravity="center"  	  
-  	android:background="#000"
+  	
   	android:layout_weight="1">  
 <ImageView android:id="@+id/vampire_two" 
 	android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
   android:layout_gravity="center"
   android:gravity="center"    
     android:padding="1px"
-    android:src="@drawable/pent_02"></ImageView>          
+    ></ImageView>          
 </LinearLayout>
 </LinearLayout>
 
@@ -84,7 +84,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
-  android:background="#000000"
+  
   android:layout_gravity="center"
   android:gravity="center"
   android:layout_weight="1">
@@ -92,19 +92,19 @@
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>	  	
 <LinearLayout android:id="@+id/vampire_three_back" 
   	xmlns:android="http://schemas.android.com/apk/res/android"
   	android:layout_height="wrap_content"
   	android:layout_width="fill_parent"
-  	android:background="#000"
+  	
   	android:layout_margin="2dip"
   android:layout_gravity="center"
   android:gravity="center"    
@@ -119,37 +119,37 @@
   android:layout_gravity="center"
   android:gravity="center"    
     android:padding="1px"
-    android:src="@drawable/pent_03"></ImageView>          
+    ></ImageView>          
 </LinearLayout>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>	  	
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>	  	
 <LinearLayout android:id="@+id/vampire_four_back" 
   	xmlns:android="http://schemas.android.com/apk/res/android"
   	android:layout_height="wrap_content"
   	android:layout_width="fill_parent"
-  	android:background="#000"
+  	
   	android:layout_margin="2dip"
   android:layout_gravity="center"
   android:gravity="center"      	
@@ -164,19 +164,19 @@
   android:layout_gravity="center"
   android:gravity="center"    
     android:padding="1px"
-    android:src="@drawable/pent_04"></ImageView>          
+    ></ImageView>          
 </LinearLayout>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>
 </LinearLayout>
 
@@ -191,7 +191,7 @@
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="1"/>
 <LinearLayout android:id="@+id/vampire_five_back" 
   	xmlns:android="http://schemas.android.com/apk/res/android"
@@ -201,7 +201,7 @@
   	android:layout_margin="2dip"
   android:layout_gravity="center"
   android:gravity="center"      	
-  	android:background="#000"
+  	
   	android:clipToPadding="true"
   	android:layout_weight="1">  
 <ImageView android:id="@+id/vampire_five" 
@@ -213,13 +213,13 @@
   android:layout_gravity="center"
   android:gravity="center"    
     android:padding="1px"
-    android:src="@drawable/pent_05"></ImageView>          
+    ></ImageView>          
 </LinearLayout>
 <LinearLayout android:id="@+id/vampire_six_back" 
   	xmlns:android="http://schemas.android.com/apk/res/android"
   	android:layout_height="wrap_content"
   	android:layout_width="fill_parent"
-  	android:background="#000"
+  	
   android:layout_gravity="center"
   android:gravity="center"      
   android:layout_margin="2dip"	
@@ -234,13 +234,13 @@
   android:layout_gravity="center"
   android:gravity="center"    
     android:padding="1px"
-    android:src="@drawable/pent_06"></ImageView>          
+    ></ImageView>          
 </LinearLayout>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="1"/>
 </LinearLayout>
 
@@ -250,31 +250,31 @@
   android:layout_height="fill_parent"
     android:layout_gravity="center"
 	android:gravity="center"
-  android:background="#000000"  
+    
   android:layout_weight="1">
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="4"/>
 <LinearLayout android:id="@+id/vampire_seven_back" 
   	xmlns:android="http://schemas.android.com/apk/res/android"
   	android:layout_height="wrap_content"
   	android:layout_width="fill_parent"
-  	android:background="#000"
+  	
   	android:layout_gravity="center"
 	android:gravity="center"
 	android:layout_margin="2dip"
@@ -289,25 +289,25 @@
     android:layout_gravity="center"
 	android:gravity="center"
     android:padding="1px"
-    android:src="@drawable/pent_07"></ImageView>          
+    ></ImageView>          
 </LinearLayout>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="4"/>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="5"/>	  		  	
 </LinearLayout>
 </LinearLayout>

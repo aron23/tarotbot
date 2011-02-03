@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
-  android:background="#000000">
+  >
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent"   
@@ -11,10 +11,10 @@
     android:fadingEdge="none">
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
+  android:id="@+id/mainview"
+  android:layout_width="fill_parent"  
   android:layout_height="fill_parent"
-  android:layout_margin="4dip"  
-  android:background="#000000"
+  android:layout_margin="4dip"     
   android:orientation="vertical">	
 
 <LinearLayout android:id="@+id/rowone"
@@ -23,20 +23,20 @@
   android:layout_height="fill_parent"
   android:layout_gravity="center"
   android:gravity="center"
-  android:background="#000000"
+  
   android:layout_weight="1">
 
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="3"/>
 <LinearLayout android:id="@+id/arrow_present_back" 
   	xmlns:android="http://schemas.android.com/apk/res/android"
   	android:layout_height="wrap_content"
   	android:layout_width="fill_parent"
-  	android:background="#000"	
+  		
   	android:layout_gravity="center"
 	android:gravity="center"
 	android:layout_margin="2dip"
@@ -51,13 +51,13 @@
     android:layout_gravity="center"
 	android:gravity="center"
     android:padding="1px"
-    android:src="@drawable/pent_07"></ImageView>          
+    ></ImageView>          
 </LinearLayout>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="3"/>        
 
 </LinearLayout>
@@ -69,7 +69,7 @@
   android:layout_height="fill_parent"
     android:layout_gravity="center"
 	android:gravity="center"
-  android:background="#000000"  
+    
   android:layout_weight="1">
 
 <LinearLayout android:id="@+id/arrow_past_back" 
@@ -78,7 +78,7 @@
   	android:layout_width="fill_parent"
   android:layout_gravity="center"
   android:gravity="center"
-  	android:background="#000"
+  	
 	android:clipToPadding="true"    
 	android:layout_margin="2dip"
   	android:layout_weight="3">  
@@ -91,13 +91,13 @@
   android:gravity="center"    
     android:adjustViewBounds="true"
     android:padding="1px"
-    android:src="@drawable/pent_01"></ImageView>          
+    ></ImageView>          
 </LinearLayout>
 <LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="fill_parent"
-	  	android:background="#000"
+	  	
 	  	android:layout_weight="3"/>	  		  	
 <LinearLayout android:id="@+id/arrow_future_back" 
   	xmlns:android="http://schemas.android.com/apk/res/android"
@@ -106,7 +106,7 @@
   android:layout_gravity="center"
   android:layout_margin="2dip"
   android:gravity="center"  	  
-  	android:background="#000"
+  	
   	android:layout_weight="3">  
 <ImageView android:id="@+id/arrow_future" 
 	android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
   android:layout_gravity="center"
   android:gravity="center"    
     android:padding="1px"
-    android:src="@drawable/pent_02"></ImageView>
+    ></ImageView>
 </LinearLayout>
 
 </LinearLayout>

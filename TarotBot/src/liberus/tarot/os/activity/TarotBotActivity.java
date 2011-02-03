@@ -38,6 +38,7 @@ import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
 
 import liberus.utils.EfficientAdapter;
+import liberus.utils.MyProgressDialog;
 import liberus.utils.WebUtils;
 import liberus.utils.color.ColorDialog;
 import android.app.Activity;
@@ -326,6 +327,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			int i = Spread.circles.get(secondSetIndex);
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			showing = inflater.inflate(R.layout.interpretation, null);
+			setBackground(showing);
 			infotext = (TextView) showing.findViewById(R.id.interpretation);	
 			
 			infotext.setText(Html.fromHtml(interpretation));
@@ -349,8 +351,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			int i = Spread.circles.get(secondSetIndex);
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			View v = flipper.getCurrentView();
-			infotext = (TextView)v.findViewById(R.id.interpretation);		
-			
+			setBackground(v);
+			infotext = (TextView)v.findViewById(R.id.interpretation);
 			if (mySpread.myLabels[secondSetIndex] != null)
 				infotext.setText(Html.fromHtml("<br/><i>"+mySpread.myLabels[secondSetIndex]+"</i><br/><br/>"+interpretation));
 			else
@@ -417,12 +419,15 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 //					secondSetIndex = GothicSpread.working.size()-1;
 //				else
 					secondSetIndex = v.getId();
-					state = priorstate;
+					if (loaded)
+						state = "loaded";
+					else
+						state = "new reading";
 					priorstate = "";
 					displaySecondStage(secondSetIndex);
 			}
-			
-			
+			if (!browsing && mySpread != null)
+				mySpread.clearView(mySpread.myview);
 		}
 			//incrementSecondSet(secondSetIndex);
 	}
@@ -613,6 +618,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			        return;	
 			    case 5: 
 			    	showing = inflater.inflate(R.layout.interpretation, null);
+			    	setBackground(showing);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);
 					
 					infotext.setText(Html.fromHtml(getString(R.string.about_tarot)));
@@ -625,6 +631,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					break;
 			    case 6: 	 
 					showing = inflater.inflate(R.layout.interpretation, null);
+					setBackground(showing);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);	
 					
 					infotext.setText(Html.fromHtml(getString(R.string.about_artist)));
@@ -637,6 +644,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					break;
 			    case 7:
 			    	showing = inflater.inflate(R.layout.interpretation, null);
+			    	setBackground(showing);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);	
 					
 					infotext.setText(Html.fromHtml(getString(R.string.about_app)+getString(R.string.market_link)+getString(R.string.other_apps)));
@@ -671,6 +679,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					return;			    	
 			    case 4: 
 			    	showing = inflater.inflate(R.layout.interpretation, null);
+			    	setBackground(showing);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);
 					
 					infotext.setText(Html.fromHtml(getString(R.string.about_tarot)));
@@ -683,6 +692,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					break;
 			    case 5: 	 
 					showing = inflater.inflate(R.layout.interpretation, null);
+					setBackground(showing);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);	
 					
 					infotext.setText(Html.fromHtml(getString(R.string.about_artist)));
@@ -695,6 +705,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					break;
 			    case 6:
 			    	showing = inflater.inflate(R.layout.interpretation, null);
+			    	setBackground(showing);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);	
 					
 					infotext.setText(Html.fromHtml(getString(R.string.about_app)+getString(R.string.market_link)+getString(R.string.other_apps)));
@@ -880,6 +891,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		dialog.show();		
 	}
 	
+	public void displayBackgroundImageChoice(View v) {
+				
+	}
+	
 	private void initOptionsMenu() {
 		establishMenu(R.layout.optionsmenu);		
 		reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
@@ -921,6 +936,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					priorstate = "";
 					infoDisplayed = false;
 					displaySecondStage(secondSetIndex);
+					if (mySpread.myview != null)
+						mySpread.clearView(mySpread.myview);
 					return true;
 				} else {
 					state = "mainmenu";
@@ -953,6 +970,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				return true;
 				
 			} else if (state.equals("spreadmenu") || (state.equals("loaded") &! browsing) || state.equals("single") || (state.equals("navigate") && browsing)) {
+				if (mySpread != null && mySpread.myview != null &! browsing)
+					mySpread.clearView(mySpread.myview);
 				spreading=false;
 				//spread=false;
 				begun = false;
@@ -968,6 +987,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		    	type = new ArrayList<Integer>();
 				flipdex = new ArrayList<Integer>();
 				reInit();
+				
 				return true;
 			} else if (browsing) {
 				navigate();
@@ -975,15 +995,21 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			} else if (state.equals("secondmenu") || state.equals("navigate")) {
 				state = priorstate;
 				displaySecondStage(secondSetIndex);
+				if (mySpread.myview != null)
+					mySpread.clearView(mySpread.myview);
 				return true;
 			} else {
+				if (mySpread.myview != null)
+					mySpread.clearView(mySpread.myview);
 				state = "mainmenu";
 				spreading=false;
 				//spread=false;
 				reInit();
 				return true;
 			}
-		} else if (keyCode == KeyEvent.KEYCODE_MENU) {			
+		} else if (keyCode == KeyEvent.KEYCODE_MENU) {
+			if (state.endsWith("menu"))
+				return true;
 			priorstate = state;
 			state = "secondmenu";
 			establishMenu(R.layout.mainmenu);
@@ -1038,8 +1064,6 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		myMenuList.setTag("loadmenu");
 		
 	}
-
-	
 
 	
 

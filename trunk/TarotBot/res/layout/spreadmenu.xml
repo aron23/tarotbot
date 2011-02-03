@@ -36,4 +36,8 @@
 	android:listSelector="@android:color/transparent"
 	android:layout_weight="2">
 </ListView>
+<com.admob.android.ads.AdView
+android:id="@+id/ad"
+android:layout_width="0px"
+android:layout_height="0px"/>
 </LinearLayout>

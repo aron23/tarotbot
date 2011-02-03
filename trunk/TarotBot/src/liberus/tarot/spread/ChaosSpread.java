@@ -7,7 +7,6 @@ import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
-import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.android.noads.R;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -125,7 +124,7 @@ public class ChaosSpread extends Spread {
 	}
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
-		
+		act.setBackground(layout);
 		ImageView card = (ImageView) layout.findViewById(R.id.chaos_red);
 		placeImage(act.flipdex.get(0),card,ctx);
 		card.setId(0);

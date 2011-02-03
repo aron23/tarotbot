@@ -8,11 +8,11 @@ import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
-import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.android.noads.R;
 import liberus.utils.TarotBotManager;
 import android.content.Context;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
@@ -124,6 +124,7 @@ public class BrowseSpread extends Spread {
 	}
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
+		act.setBackground(layout);
 		layout = populateTrumps(layout,act,ctx);
 		if (act.isTrumpsOnly())
 			return layout;

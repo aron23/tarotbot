@@ -7,7 +7,6 @@ import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
-import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.spread.Spread;
 import liberus.tarot.android.noads.R;
 import android.content.Context;

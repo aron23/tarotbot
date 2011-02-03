@@ -5,7 +5,7 @@ import liberus.tarot.os.activity.TarotBotActivity;
 
 
 
-//public class TarotBotBeta extends TarotBotActivity {
+//public class TarotBotAdLib extends TarotBotActivity {
 public class TarotBotBeta extends TarotBotActivity {
 	@Override
 	public String getMyType() {
@@ -21,7 +21,7 @@ public class TarotBotBeta extends TarotBotActivity {
 	@Override
 	public String getMyFolder() {
 		// TODO Auto-generated method stub
-		return "TarotBotBeta";
+		return "TarotBotAdLib";
 	}
 	
 }

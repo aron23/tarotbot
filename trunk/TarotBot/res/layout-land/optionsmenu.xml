@@ -34,6 +34,10 @@
   	android:background="@drawable/reversal_selector"
     android:textOn="@string/reverse_cards_yes"
     android:textOff="@string/reverse_cards_no"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
    />
 <ToggleButton android:id="@+id/trumps_only_button"
    android:layout_width="fill_parent"
@@ -46,6 +50,10 @@
   	android:background="@drawable/reversal_selector"
     android:textOn="@string/trumps_only_yes"
     android:textOff="@string/trumps_only_no"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
    />
 <ToggleButton android:id="@+id/custom_deck_button"
    android:layout_width="fill_parent"
@@ -58,10 +66,18 @@
   	android:background="@drawable/reversal_selector"
     android:textOn="@string/custom_deck_yes"
     android:textOff="@string/custom_deck_no"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
    />     
 <TextView android:id="@+id/custom_deck_note"
    android:layout_width="fill_parent"
    android:layout_height="wrap_content"
+   android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
    />
 	
 <ToggleButton android:id="@+id/background_color_button"
@@ -75,5 +91,9 @@
   	android:background="@drawable/reversal_selector"
      android:textOn="@string/background_color_choice"
      android:textOff="@string/background_color_choice"
-     android:onClick="displayBackgroundColorChoice" />
+     android:onClick="displayBackgroundColorChoice"
+     android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1" />
 </LinearLayout>

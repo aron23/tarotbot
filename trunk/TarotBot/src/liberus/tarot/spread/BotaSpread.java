@@ -10,7 +10,6 @@ import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
-import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
 import android.content.Context;
@@ -361,7 +360,7 @@ public class BotaSpread extends Spread {
 	}
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
-		
+		act.setBackground(layout);
 		ImageView card = (ImageView) layout.findViewById(R.id.bota_00);
 		placeImage(working.get(0),card,ctx);	
 		

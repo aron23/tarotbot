@@ -36,6 +36,11 @@
 	android:footerDividersEnabled="false"
 	android:divider="#333333"
 	android:drawSelectorOnTop="false"		
-	android:listSelector="@android:color/transparent">
+	android:listSelector="@android:color/transparent"
+	android:background="@android:color/transparent">
 </ListView> 
+<com.admob.android.ads.AdView
+android:id="@+id/ad"
+android:layout_width="0px"
+android:layout_height="0px"/>
 </RelativeLayout>

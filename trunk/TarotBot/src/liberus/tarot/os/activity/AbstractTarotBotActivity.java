@@ -136,7 +136,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 
 	protected SharedPreferences querantPrefs;
 	protected SharedPreferences readingPrefs;
-	protected SharedPreferences displayPrefs;
+	public SharedPreferences displayPrefs;
 	protected SharedPreferences deckPrefs;
 	protected int statusselected;
 
@@ -371,10 +371,12 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		//navigator.
 		priorstate = state;
 		state = "navigate";
-		new MyProgressDialog(this);
-		MyProgressDialog.show(this,null,null,true,false,null);
-		setContentView(mySpread.navigate(inflater.inflate(mySpread.getLayout(), null), this, getApplicationContext()));
-		MyProgressDialog.dismissed();
+		//new MyProgressDialog(this);
+		//MyProgressDialog.show(this,null,null,true,false,null);
+		View v = mySpread.navigate(inflater.inflate(mySpread.getLayout(), null), this, getApplicationContext());
+		setBackground(v);
+		setContentView(v);
+		//MyProgressDialog.dismissed();
 	}
 
 	protected abstract void launchBrowse();
@@ -809,15 +811,23 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 //			finish();
 //		}
 	}
-
+	@Override
 	protected void onPause() {
-		super.onPause();		
+		super.onPause();	
+		System.gc();
 	}
 
-	
+	@Override
 	protected void onResume() {
 		super.onResume();	
-		
+		System.gc();
+	}
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();	
+		if (mySpread != null && mySpread.myview != null)
+			mySpread.clearView(mySpread.myview);
+		System.gc();
 	}
 	
 	
@@ -846,6 +856,9 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		    	    			
 		    }
 		    BitmapFactory.Options options=new BitmapFactory.Options();
+		    options.inDither=false;
+		    options.inPurgeable=true;
+		    options.inInputShareable=true;
 		    if (bmp == null) {	        	
 	        	//if (!TarotBotManager.hasEnoughMemory(MIDRES, getApplicationContext()))// && 
 	        		//options.inSampleSize = 2;					
@@ -876,8 +889,12 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
         	w = bmp.getWidth();
             h = bmp.getHeight();
 		}
-		BitmapDrawable bmd = new BitmapDrawable(bmp);			
+		BitmapDrawable bmd = new BitmapDrawable(bmp);
+		
 		toPlace.setImageDrawable(bmd);
+		
+		setBackground(toPlace);
+		
 		return toPlace;
 	}
 
@@ -922,14 +939,13 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		    } catch (Exception e) {
 		    	    			
 		    }
-		    
+		    BitmapFactory.Options options;
+        	options=new BitmapFactory.Options();
+        	options.inDither=false;
+		    options.inPurgeable=true;
+		    options.inInputShareable=true;
 		    if (bmp == null) {
-	        	BitmapFactory.Options options;
-	        	options=new BitmapFactory.Options();
-			//if (browsing &! TarotBotManager.hasEnoughMemory(32, getApplicationContext()) && TarotBotManager.hasEnoughMemory(24, getApplicationContext()))// && 
-				//options.inSampleSize = 2;		
-			
-	        	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
+		    	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
 	        }
 		int w = bmp.getWidth();
         int h = bmp.getHeight();
@@ -945,8 +961,10 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
         h = bmp.getHeight();
 		
 		
-		BitmapDrawable bmd = new BitmapDrawable(bmp);			
-		toPlace.setImageDrawable(bmd);
+		BitmapDrawable bmd = new BitmapDrawable(bmp);
+		
+		toPlace.setImageDrawable(bmd);		
+		setBackground(toPlace);
 		return toPlace;
 	}
 	
@@ -964,6 +982,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		flipper.removeView(v);
 		v.destroyDrawingCache();
+		((BitmapDrawable)((ImageView) v.findViewById(R.id.divine)).getDrawable()).getBitmap().recycle();		
 		((ImageView) v.findViewById(R.id.divine)).getDrawable().setCallback(null);
 		((ImageView) v.findViewById(R.id.divine)).setImageDrawable(null);
 		((ImageView) v.findViewById(R.id.divine)).getResources().flushLayoutCache();
@@ -992,6 +1011,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 				&& spreadLabels[secondSetIndex].length() > 0) {
 			Toast toast = new Toast(getApplicationContext());
 			View toaster = inflater.inflate(R.layout.gothic_toast,(ViewGroup) findViewById(R.id.toast_layout_root));
+			setBackground(toaster);
 			toast.setView(toaster);
 			((TextView)toaster.findViewById(R.id.toast_text)).setText(spreadLabels[secondSetIndex]);			
 			toast.setDuration(Toast.LENGTH_SHORT);			
@@ -1015,9 +1035,15 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	}
 	public void establishMenu(int menu) {
 		View menulay = inflater.inflate(menu, null);
-		menulay.setBackgroundColor(displayPrefs.getInt("background.color", Color.BLACK));
+		setBackground(menulay);
 		setContentView(menulay);
 		
 	}
-
+	public void setBackground(View v) {
+		v.setBackgroundColor(displayPrefs.getInt("background.color", Color.BLACK));
+		if (v.findViewById(R.id.menulist) != null)
+			((ListView)v.findViewById(R.id.menulist)).setCacheColorHint(displayPrefs.getInt("background.color", Color.BLACK));
+		if (v.findViewById(R.id.spreadmenulist) != null)
+			((ListView)v.findViewById(R.id.spreadmenulist)).setCacheColorHint(displayPrefs.getInt("background.color", Color.BLACK));
+	}
 }

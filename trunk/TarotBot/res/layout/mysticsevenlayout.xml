@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
-  android:background="#000000">
+  >
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent"   
@@ -17,7 +17,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
-  android:background="#000000"
+  
   android:orientation="vertical"
   android:layout_gravity="center"
   android:gravity="center"
@@ -27,7 +27,7 @@
 	  	xmlns:android="http://schemas.android.com/apk/res/android"
 	  	android:layout_height="fill_parent"
 	  	android:layout_width="wrap_content"
-	  	android:background="#000"	  	  
+	  		  	  
 	  	android:layout_gravity="center"
 	  	android:gravity="bottom"
 	  	android:layout_margin="8dip"
@@ -42,13 +42,13 @@
     android:layout_gravity="center"
 	  	android:gravity="center"
     android:padding="1px"
-	    android:src="@drawable/pent_05"></ImageView>          
+	    ></ImageView>          
 	</LinearLayout>
 	<LinearLayout android:id="@+id/mystic_three_back" 
 	  	xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="wrap_content"
-	  	android:background="#000"	  	  	
+	  		  	  	
 	  	android:layout_gravity="center"
 	  	android:gravity="top"
 	  	android:layout_margin="8dip"
@@ -63,7 +63,7 @@
     android:layout_gravity="center"
 	android:gravity="center"
     android:padding="1px"
-	    android:src="@drawable/pent_03"></ImageView>          
+	    ></ImageView>          
 	</LinearLayout>
   </LinearLayout>
   
@@ -71,7 +71,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
-  android:background="#000000"
+  
   android:orientation="vertical"
   android:layout_gravity="center"
   android:gravity="center"
@@ -81,7 +81,7 @@
 	  	xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="fill_parent"
 	  	android:layout_width="wrap_content"
-	  	android:background="#000"
+	  	
 	  	android:layout_gravity="center"
 	  	android:gravity="bottom"
 	  	android:layout_margin="8dip"
@@ -96,13 +96,13 @@
 	    android:layout_gravity="center"
 		android:gravity="center"
 	    android:padding="1px"
-	    android:src="@drawable/pent_01"></ImageView>          
+	    ></ImageView>          
 	</LinearLayout>	
 	<LinearLayout android:id="@+id/mystic_seven_back" 
 	  	xmlns:android="http://schemas.android.com/apk/res/android"
 	  	android:layout_height="fill_parent"
 	  	android:layout_width="wrap_content"
-	  	android:background="#000"	
+	  		
 	  	android:layout_gravity="center"
 	  	android:gravity="center"
 	  	android:layout_margin="8dip"	  	
@@ -117,13 +117,13 @@
 	    android:layout_gravity="center"
 		android:gravity="center"
 	    android:padding="1px"
-	    android:src="@drawable/pent_07"></ImageView>          
+	    ></ImageView>          
 	</LinearLayout>
 	<LinearLayout android:id="@+id/mystic_four_back" 
 	  	xmlns:android="http://schemas.android.com/apk/res/android"
 	  	android:layout_height="fill_parent"
 	  	android:layout_width="wrap_content"
-	  	android:background="#000"
+	  	
 	  	android:layout_gravity="center"
 	  	android:gravity="top"
 	  	android:layout_margin="8dip"
@@ -138,7 +138,7 @@
 	    android:layout_gravity="center"
 		android:gravity="center"
 	    android:padding="1px"
-	    android:src="@drawable/pent_04"></ImageView>          
+	    ></ImageView>          
 	</LinearLayout>
   </LinearLayout>
   
@@ -146,7 +146,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
-  android:background="#000000"
+  
   android:orientation="vertical"
   android:layout_gravity="center"
   android:gravity="center"
@@ -156,7 +156,7 @@
 	  	xmlns:android="http://schemas.android.com/apk/res/android"
 	  	android:layout_height="fill_parent"
 	  	android:layout_width="wrap_content"
-	  	android:background="#000"  	
+	  	  	
 	  	android:layout_gravity="center"
 	  	android:gravity="bottom"
 	  	android:layout_margin="8dip"
@@ -171,13 +171,13 @@
 	    android:layout_gravity="center"
 		android:gravity="center"
 	    android:padding="1px"
-	    android:src="@drawable/pent_06"></ImageView>          
+	    ></ImageView>          
 	</LinearLayout> 
 	<LinearLayout android:id="@+id/mystic_two_back" 
 	  	xmlns:android="http://schemas.android.com/apk/res/android"
 	  	android:layout_height="fill_parent"
 	  	android:layout_width="wrap_content"
-	  	android:background="#000"	  	 
+	  		  	 
 	  	android:layout_gravity="center"
 	  	android:gravity="top"
 	  	android:layout_margin="8dip"
@@ -192,7 +192,7 @@
 	    android:layout_gravity="center"
 		android:gravity="center"
 	    android:padding="1px"
-	    android:src="@drawable/pent_02"></ImageView>          
+	    ></ImageView>          
 	</LinearLayout>	
   </LinearLayout>  
 </LinearLayout>

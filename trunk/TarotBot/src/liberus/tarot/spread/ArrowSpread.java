@@ -7,7 +7,6 @@ import liberus.tarot.deck.Deck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
-import liberus.tarot.os.activity.TarotBotActivity;
 import liberus.tarot.android.noads.R;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -124,6 +123,7 @@ public class ArrowSpread extends Spread {
 	}	
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
+		
 		ImageView card = (ImageView) layout.findViewById(R.id.arrow_past);
 		
 		placeImage(act.flipdex.get(0),card,ctx);

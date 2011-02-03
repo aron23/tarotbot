@@ -93,6 +93,8 @@ public class BotaInt extends Interpretation {
 		if (seed == null || seed.length() < 1 || seed.matches("^0+$"))
 			seed = "10000";
 		seed = seed.replaceAll("[\\D0]", "1");
+		while (seed.length() < 10)
+			seed += "0";
 		return new Random(Integer.valueOf(seed.substring(seed.length()-8))*(begin.get(Calendar.DAY_OF_MONTH))*(begin.get(Calendar.MONTH)+1)*begin.get(Calendar.YEAR));
 	}
 	

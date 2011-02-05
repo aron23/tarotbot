@@ -277,8 +277,7 @@ public abstract class Spread {
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();	
     	options.inDither=false;
-	    options.inPurgeable=true;
-	    options.inInputShareable=true;
+	   
 		if (browsing)
 			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
 				options.inSampleSize = 2;
@@ -347,8 +346,7 @@ public abstract class Spread {
 		BitmapFactory.Options options;
 		options=new BitmapFactory.Options();
 		options.inDither=false;
-	    options.inPurgeable=true;
-	    options.inInputShareable=true;
+	    
 		//if (Runtime.getRuntime().maxMemory() < 20165824)// && 
 		if (browsing)
 			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))

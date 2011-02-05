@@ -24,7 +24,6 @@ import liberus.tarot.deck.FullTarotDeck;
 import liberus.tarot.deck.TarotTrumpDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
-import liberus.tarot.os.activity.CardForTheDayActivity.MyGestureDetector;
 import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
 import liberus.tarot.spread.ArrowSpread;
@@ -857,8 +856,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		    }
 		    BitmapFactory.Options options=new BitmapFactory.Options();
 		    options.inDither=false;
-		    options.inPurgeable=true;
-		    options.inInputShareable=true;
+		    
 		    if (bmp == null) {	        	
 	        	//if (!TarotBotManager.hasEnoughMemory(MIDRES, getApplicationContext()))// && 
 	        		//options.inSampleSize = 2;					
@@ -942,8 +940,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		    BitmapFactory.Options options;
         	options=new BitmapFactory.Options();
         	options.inDither=false;
-		    options.inPurgeable=true;
-		    options.inInputShareable=true;
+
 		    if (bmp == null) {
 		    	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(index),options);
 	        }

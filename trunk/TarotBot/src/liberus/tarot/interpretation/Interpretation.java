@@ -2084,6 +2084,94 @@ public abstract class Interpretation {
 		return 0;
 	}
 	
+	public static int getAbstReversed(int index) {
+		switch (index) {
+			case 0:return R.string.trumps_01_abst_reversed;
+			case 1:return R.string.trumps_02_abst_reversed;
+			case 2:return R.string.trumps_03_abst_reversed;
+			case 3:return R.string.trumps_04_abst_reversed;
+			case 4:return R.string.trumps_05_abst_reversed;
+			case 5:return R.string.trumps_06_abst_reversed;
+			case 6:return R.string.trumps_07_abst_reversed;
+			case 7:return R.string.trumps_08_abst_reversed;
+			case 8:return R.string.trumps_09_abst_reversed;
+			case 9:return R.string.trumps_10_abst_reversed;
+			case 10:return R.string.trumps_11_abst_reversed;
+			case 11:return R.string.trumps_12_abst_reversed;
+			case 12:return R.string.trumps_13_abst_reversed;
+			case 13:return R.string.trumps_14_abst_reversed;
+			case 14:return R.string.trumps_15_abst_reversed;
+			case 15:return R.string.trumps_16_abst_reversed;
+			case 16:return R.string.trumps_17_abst_reversed;
+			case 17:return R.string.trumps_18_abst_reversed;
+			case 18:return R.string.trumps_19_abst_reversed;		
+			case 19:return R.string.trumps_20_abst_reversed;
+			case 20:return R.string.trumps_21_abst_reversed;
+			case 21:return R.string.trumps_22_abst_reversed;
+	
+			case 22:return R.string.wands_01_abst_reversed;
+			case 23:return R.string.wands_02_abst_reversed;
+			case 24:return R.string.wands_03_abst_reversed;
+			case 25:return R.string.wands_04_abst_reversed;
+			case 26:return R.string.wands_05_abst_reversed;
+			case 27:return R.string.wands_06_abst_reversed;
+			case 28:return R.string.wands_07_abst_reversed;
+			case 29:return R.string.wands_08_abst_reversed;
+			case 30:return R.string.wands_09_abst_reversed;
+			case 31:return R.string.wands_10_abst_reversed;
+			case 32:return R.string.wands_page_abst_reversed;
+			case 33:return R.string.wands_knight_abst_reversed;
+			case 34:return R.string.wands_queen_abst_reversed;
+			case 35:return R.string.wands_king_abst_reversed;
+	
+			case 36:return R.string.cups_01_abst_reversed;
+			case 37:return R.string.cups_02_abst_reversed;
+			case 38:return R.string.cups_03_abst_reversed;
+			case 39:return R.string.cups_04_abst_reversed;
+			case 40:return R.string.cups_05_abst_reversed;
+			case 41:return R.string.cups_06_abst_reversed;
+			case 42:return R.string.cups_07_abst_reversed;
+			case 43:return R.string.cups_08_abst_reversed;
+			case 44:return R.string.cups_09_abst_reversed;
+			case 45:return R.string.cups_10_abst_reversed;
+			case 46:return R.string.cups_page_abst_reversed;
+			case 47:return R.string.cups_knight_abst_reversed;
+			case 48:return R.string.cups_queen_abst_reversed;
+			case 49:return R.string.cups_king_abst_reversed;
+	
+			case 50:return R.string.swords_01_abst_reversed;
+			case 51:return R.string.swords_02_abst_reversed;
+			case 52:return R.string.swords_03_abst_reversed;
+			case 53:return R.string.swords_04_abst_reversed;
+			case 54:return R.string.swords_05_abst_reversed;
+			case 55:return R.string.swords_06_abst_reversed;
+			case 56:return R.string.swords_07_abst_reversed;
+			case 57:return R.string.swords_08_abst_reversed;
+			case 58:return R.string.swords_09_abst_reversed;
+			case 59:return R.string.swords_10_abst_reversed;
+			case 60:return R.string.swords_page_abst_reversed;
+			case 61:return R.string.swords_knight_abst_reversed;
+			case 62:return R.string.swords_queen_abst_reversed;
+			case 63:return R.string.swords_king_abst_reversed;
+	
+			case 64:return R.string.pentacles_01_abst_reversed;
+			case 65:return R.string.pentacles_02_abst_reversed;
+			case 66:return R.string.pentacles_03_abst_reversed;
+			case 67:return R.string.pentacles_04_abst_reversed;
+			case 68:return R.string.pentacles_05_abst_reversed;
+			case 69:return R.string.pentacles_06_abst_reversed;
+			case 70:return R.string.pentacles_07_abst_reversed;
+			case 71:return R.string.pentacles_08_abst_reversed;
+			case 72:return R.string.pentacles_09_abst_reversed;
+			case 73:return R.string.pentacles_10_abst_reversed;
+			case 74:return R.string.pentacles_page_abst_reversed;
+			case 75:return R.string.pentacles_knight_abst_reversed;
+			case 76:return R.string.pentacles_queen_abst_reversed;
+			case 77:return R.string.pentacles_king_abst_reversed;				
+		}
+	return 0;
+	}
+	
 	public static int getActions(int index) {
 		switch (index) {
 			case 0:return R.string.trumps_01_actions;

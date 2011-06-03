@@ -891,4 +891,19 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 		return false;
 	}
 
+
+	@Override
+	public Spread getMySeqSpread(Interpretation myInt, String[] labels,
+			boolean cardOfTheDay, boolean trumpsOnly) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Spread getMyBrowseSpread(Interpretation in, boolean trumps) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

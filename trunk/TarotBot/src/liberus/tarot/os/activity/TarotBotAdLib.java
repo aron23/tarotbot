@@ -2,14 +2,10 @@ package liberus.tarot.os.activity;
 
 
 import liberus.tarot.android.noads.R;
-import liberus.tarot.os.activity.TarotBotActivity;
-
-import android.graphics.Color;
 import android.view.View;
-import android.widget.ListView;
 
-import com.admob.android.ads.AdManager;
-import com.admob.android.ads.AdView;
+import com.google.ads.AdView;
+import com.google.ads.AdRequest;
 
 
 
@@ -38,6 +34,6 @@ public class TarotBotAdLib extends TarotBotActivity {
 		setBackground(menulay);
 		setContentView(menulay);
 		AdView myad = (AdView)findViewById(R.id.ad);
-		myad.requestFreshAd();
+		AdRequest myreq = new AdRequest();
 	}	
 }

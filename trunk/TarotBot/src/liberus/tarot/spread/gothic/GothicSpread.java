@@ -17,6 +17,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public abstract class GothicSpread extends Spread {
@@ -25,6 +26,13 @@ public GothicSpread(Interpretation inInt) {
 		super(inInt);
 		// TODO Auto-generated constructor stub
 	}
+
+
+@Override
+public int getMySampleSize() {
+	// TODO Auto-generated method stub
+	return 1;
+}
 @Override
 public String getInterpretation(int circled, Context appcontext) {
 		
@@ -32,17 +40,29 @@ public String getInterpretation(int circled, Context appcontext) {
 		int[] context = getContext(circled, appcontext);
 		String returner = "";
 		
-		
-		returner += "<big><b>"+appcontext.getString(BotaInt.getTitle(circled))+"</b></big><br/>";
-		
 		if (myDeck.isReversed(circled) && appcontext.getString(BotaInt.getReversed(circled)).length() > 0)
 			returner += "<br/>"+ appcontext.getString(BotaInt.getReversed(circled))+"<br/>";
 		else 
 			returner += "<br/>"+appcontext.getString(BotaInt.getMeanings(circled))+"<br/>";
 		
-		if (BotaInt.getAbst(circled) > 0 && appcontext.getString(BotaInt.getAbst(circled)).length() > 0)
+		if (myDeck.isReversed(circled) && BotaInt.getAbstReversed(circled) > 0 && appcontext.getString(BotaInt.getAbstReversed(circled)).length() > 0)
+			returner += "<br/>" + appcontext.getString(BotaInt.getAbstReversed(circled))+"<br/>";
+		else if (BotaInt.getAbst(circled) > 0 && appcontext.getString(BotaInt.getAbst(circled)).length() > 0)
 			returner += "<br/>" + appcontext.getString(BotaInt.getAbst(circled))+"<br/>";
 		
 		return returner;
 	}
+
+public String getCardTitle(int circled, Context appcontext) {
+	
+	int pos = working.indexOf(circled);
+	int[] context = getContext(circled, appcontext);
+	String returner = "";
+	
+	
+	returner += appcontext.getString(BotaInt.getTitle(circled));
+	
+	return returner;
 }
+}
+

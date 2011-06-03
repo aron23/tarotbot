@@ -151,7 +151,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					Deck.cards = Deck.orderedDeck(78);
 				}
 			
-			mySpread = new SeqSpread(myInt,spreadLabels,true,isTrumpsOnly());
+			mySpread = getMySeqSpread(myInt,spreadLabels,true,isTrumpsOnly());
 			loaded = false;
 			
 			beginSecondStage();
@@ -165,7 +165,14 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		}
 		
 	}
-	
+	@Override
+	public Spread getMySeqSpread(Interpretation myInt, String[] labels, boolean cardOfTheDay,boolean trumpsOnly) {
+		return new SeqSpread(myInt,labels,cardOfTheDay,trumpsOnly);
+	}
+	@Override
+	public Spread getMyBrowseSpread(Interpretation myInt, boolean trumpsOnly) {
+		return new BrowseSpread(myInt,trumpsOnly);
+	}
 	protected void launchBrowse() {
 		state = "loaded";
 		
@@ -197,7 +204,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
     		
     	
     	
-		mySpread = new BrowseSpread(myInt,isTrumpsOnly());
+		mySpread = getMyBrowseSpread(myInt,isTrumpsOnly());
 		
 		style="browse";
 		type = new ArrayList<Integer>();
@@ -273,7 +280,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	}
 	
 	public void botaSpread() {
-		state = "new reading";
+		state = "bota reading";
         setContentView(R.layout.botastart);             
         
         querantPrefs = getSharedPreferences("tarotbot", 0);
@@ -406,7 +413,16 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				navigator.dismiss();
 				navigator = null;				
 			}
+			if (browsing && v.getId() < 5) {
+				ViewGroup viewey = (ViewGroup) findViewById(android.R.id.content);
+				mySpread.clearView(viewey);
+				mySpread.paged = v.getId();
+				navigate();
+				return;
+			}
 			if (browsing) {
+				ViewGroup viewey = (ViewGroup) findViewById(android.R.id.content);
+				mySpread.clearView(viewey);
 				if (Interpretation.getCardIndex(v.getId()) >= 0)
 					secondSetIndex = Interpretation.getCardIndex(v.getId());
 				else
@@ -554,7 +570,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	public void onItemClick(AdapterView<?> adapter, View list, int index, long arg3) {
 		
 		if (adapter.getTag().equals("mainmenu")) {//.getContentDescription().equals("querant")
-			helper = new Dialog(this,android.R.style.Theme);
+			helper = new Dialog(this,R.style.interpretation_style);
 			switch (index) {
 				case 0:
 					//seqSpread();
@@ -573,7 +589,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 						myInt = new BotaInt(new FullTarotDeck(), aq);
 						Deck.cards = Deck.orderedDeck(78);
 					}
-					mySpread = new SeqSpread(myInt,spreadLabels,true,isTrumpsOnly());
+					mySpread = getMySeqSpread(myInt,spreadLabels,true,isTrumpsOnly());
 					loaded = false;
 					
 			    	
@@ -596,7 +612,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					else
 						myInt = new BotaInt(new FullTarotDeck(), aq);
 					Deck.cards = Interpretation.myDeck.shuffle(Deck.cards,3);					
-					mySpread = new SeqSpread(myInt,spreadLabels,false,isTrumpsOnly());
+					mySpread = getMySeqSpread(myInt,spreadLabels,false,isTrumpsOnly());
 					loaded = false;
 					ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
 			    	for(int card: Deck.cards) {
@@ -625,7 +641,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					Linkify.addLinks(infotext, Linkify.ALL);
 					infotext.setLinksClickable(true);
 					infotext.setMovementMethod(LinkMovementMethod.getInstance());
-					helper.setTitle("About the Tarot");
+					//helper.setTitle("About the Tarot");
+					((TextView)showing.findViewById(R.id.title)).setText("About the Tarot");
 					helper.setContentView(showing);
 					helper.show();
 					break;
@@ -638,7 +655,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					Linkify.addLinks(infotext, Linkify.ALL);
 					infotext.setLinksClickable(true);
 					infotext.setMovementMethod(LinkMovementMethod.getInstance());
-					helper.setTitle("About the Artist");
+					//helper.setTitle("About the Artist");
+					((TextView)showing.findViewById(R.id.title)).setText("About the Artist");
 					helper.setContentView(showing);
 					helper.show();
 					break;
@@ -651,7 +669,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					Linkify.addLinks(infotext, Linkify.ALL);
 					infotext.setLinksClickable(true);
 					infotext.setMovementMethod(LinkMovementMethod.getInstance());
-					helper.setTitle("About the App");
+					((TextView)showing.findViewById(R.id.title)).setText("About the App");
 					helper.setContentView(showing);
 					helper.show();
 					break;
@@ -665,7 +683,12 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		} else if (adapter.getTag().equals("secondmenu")) {//.getContentDescription().equals("querant")
 			Dialog helper = new Dialog(this,android.R.style.Theme);
 			switch (index) {
-				case 0:					
+				case 0:			
+					loaded=true;
+			    	state = "loaded";
+			    	spreading=false;
+					begun = true;
+					browsing = false;
 					navigate();
 			        return;
 				case 1:
@@ -725,149 +748,157 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			
 
 		} else if (adapter.getTag().equals("spreadmenu")) {//.getContentDescription().equals("querant")			
-			readingPrefsEd.putInt("spread", adapter.getSelectedItemPosition());
-			readingPrefsEd.commit();
-			switch (index) {
-			case 0: {
-				//seqSpread();
-				spreadLabels = timeArrow;
-				style = "arrow";
-				break;
-			}
-			case 1: {
-				//seqSpread();
-				spreadLabels = dialectic;
-				style = "dialectic";
-				break;
-			}			
-			case 2: {
-				//seqSpread();
-				spreadLabels = pentagram;
-				style = "pentagram";
-				break;
-			}	
-			case 3: {
-				//seqSpread();
-				spreadLabels = chaosStar;
-				style = "chaos";
-				break;
-			}
-			case 4: {
-				//seqSpread();
-				spreadLabels = celticCross;
-				style = "celtic";
-				break;
-			}
-			case 5: {
-				botaSpread();		
-				style = "bota";
-				spreading=false;
-				return;
-			}	
-			}
-				spreading=false;
-				//spread=true;
-				secondSetIndex = 0;
-				state = "new reading";
-				begun = true;
-				browsing = false;
-				if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
-					myInt = new BotaInt(new TarotTrumpDeck(), aq);
-				else
-					myInt = new BotaInt(new FullTarotDeck(), aq);
-				Deck.cards = Interpretation.myDeck.shuffle(Deck.cards,3);
-				
-				if (style.equals("arrow"))
-					mySpread = new ArrowSpread(myInt,timeArrow);
-				else if (style.equals("dialectic"))
-					mySpread = new DialecticSpread(myInt,dialectic);
-				else if (style.equals("pentagram"))
-					mySpread = new PentagramSpread(myInt,pentagram);
-				else if (style.equals("chaos"))
-					mySpread = new ChaosSpread(myInt,chaosStar);
-				else if (style.equals("celtic"))
-					mySpread = new CelticSpread(myInt,celticCross);
-				else
-					mySpread = new SeqSpread(myInt,spreadLabels,false,isTrumpsOnly());
-				loaded = false;
-				beginSecondStage();
+			handleSpreadSelection(index,adapter);
 		} else if (adapter.getTag().equals("loadmenu")) {//.getContentDescription().equals("querant") {
-			Spread.circles = new ArrayList<Integer>();
-			Spread.working = new ArrayList<Integer>();
-			flipdex = new ArrayList<Integer>();
-			//ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
-			ArrayList<String[]> deck = new ArrayList<String[]>();
-	    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-	    	ArrayList<Integer> working = new ArrayList<Integer>();
-	    	int significator = Integer.valueOf(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("significator"));
-	    	int count = 0;
-	    	String[] reversed = savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("reversals").split(",");
-	    	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("spread").split(",")));
-	    	for(String card: savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("deck").split(",")) {
-	    		String rev = "0";
-	    		String spr = "0";
-	    		if (reversed[count].equals("R")) {
-	    			reversals.add(true);
-	    			rev = "1";
-	    		} else
-	    			reversals.add(false);
-	    		
-	    		if (spreaded.contains(card)) {
-	    			spr = "1";
-	    			working.add(Integer.valueOf(card)-100);
-	    		}
-	    		
-	    		
-	    			
-	    		
-	    		deck.add(new String[] {card,String.valueOf(count+1),rev,spr});
-	    		count++;
-	    	}
-	    	loaded=true;
-	    	state = "loaded";
-	    	//Interpretation.myDeck = ;	
-	    	if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
+			handleLoadMenu(index,adapter);
+		}
+	}
+	public void handleLoadMenu(int index, AdapterView<?> adapter) {
+		Spread.circles = new ArrayList<Integer>();
+		Spread.working = new ArrayList<Integer>();
+		flipdex = new ArrayList<Integer>();
+		//ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
+		ArrayList<String[]> deck = new ArrayList<String[]>();
+    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
+    	ArrayList<Integer> working = new ArrayList<Integer>();
+    	int significator = Integer.valueOf(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("significator"));
+    	int count = 0;
+    	String[] reversed = savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("reversals").split(",");
+    	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("spread").split(",")));
+    	for(String card: savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("deck").split(",")) {
+    		String rev = "0";
+    		String spr = "0";
+    		if (reversed[count].equals("R")) {
+    			reversals.add(true);
+    			rev = "1";
+    		} else
+    			reversals.add(false);
+    		
+    		if (spreaded.contains(card)) {
+    			spr = "1";
+    			working.add(Integer.valueOf(card)-100);
+    		}
+    		
+    		
+    			
+    		
+    		deck.add(new String[] {card,String.valueOf(count+1),rev,spr});
+    		count++;
+    	}
+    	//Interpretation.myDeck = ;	
+    	if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
+			myInt = new BotaInt(new TarotTrumpDeck(), aq);
+		else
+			myInt = new BotaInt(new FullTarotDeck(), aq);
+    	Spread.working = working;
+    	BotaInt.loaded = true;
+    	
+    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("bota")) {
+    		BotaInt.setMyQuerant(new Querant(significator));
+    		mySpread = new BotaSpread(myInt);				    		
+    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("celtic")) {
+    		mySpread = new CelticSpread(myInt,celticCross);
+    		spreadLabels = celticCross;
+    		Spread.circles = Spread.working;
+    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("chaos")) {
+    		Spread.circles = Spread.working;
+    		mySpread = new ChaosSpread(myInt,chaosStar);
+    		spreadLabels = chaosStar;
+    	}  else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("pentagram")) {
+    		Spread.circles = Spread.working;
+    		mySpread = new ChaosSpread(myInt,pentagram);
+    		spreadLabels = pentagram;
+    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("single")) {
+    		mySpread = getMySeqSpread(myInt,single,false,isTrumpsOnly());
+    		Spread.circles = Spread.working;
+    		spreadLabels = single;
+    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("arrow")) {
+    		mySpread = new ArrowSpread(myInt,timeArrow);
+    		spreadLabels = timeArrow;
+    		Spread.circles = Spread.working;				    		
+    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("dialectic")) {
+    		Spread.circles = Spread.working;
+    		spreadLabels = dialectic;
+    		mySpread = new DialecticSpread(myInt,dialectic);
+    	}
+    	loaded=true;
+    	state = "loaded";
+    	spreading=false;
+		begun = true;
+		browsing = false;
+    	//new BotaInt(new TarotTrumpDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+    	beginSecondStage();
+	}
+
+	public void handleSpreadSelection(int index, AdapterView<?> adapter) {
+		readingPrefsEd.putInt("spread", adapter.getSelectedItemPosition());
+		readingPrefsEd.commit();
+		switch (index) {
+		case 0: {
+			//seqSpread();
+			spreadLabels = timeArrow;
+			style = "arrow";
+			break;
+		}
+		case 1: {
+			//seqSpread();
+			spreadLabels = dialectic;
+			style = "dialectic";
+			break;
+		}			
+		case 2: {
+			//seqSpread();
+			spreadLabels = pentagram;
+			style = "pentagram";
+			break;
+		}	
+		case 3: {
+			//seqSpread();
+			spreadLabels = chaosStar;
+			style = "chaos";
+			break;
+		}
+		case 4: {
+			//seqSpread();
+			spreadLabels = celticCross;
+			style = "celtic";
+			break;
+		}
+		case 5: {
+			botaSpread();		
+			style = "bota";
+			spreading=false;
+			return;
+		}	
+		}
+			spreading=false;
+			//spread=true;
+			secondSetIndex = 0;
+			state = "new reading";
+			begun = true;
+			browsing = false;
+			if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
 				myInt = new BotaInt(new TarotTrumpDeck(), aq);
 			else
 				myInt = new BotaInt(new FullTarotDeck(), aq);
-	    	Spread.working = working;
-	    	BotaInt.loaded = true;
-	    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("bota")) {
-	    		BotaInt.setMyQuerant(new Querant(significator));
-	    		mySpread = new BotaSpread(myInt);				    		
-	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("celtic")) {
-	    		mySpread = new CelticSpread(myInt,celticCross);
-	    		spreadLabels = celticCross;
-	    		Spread.circles = Spread.working;
-	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("chaos")) {
-	    		Spread.circles = Spread.working;
-	    		mySpread = new ChaosSpread(myInt,chaosStar);
-	    		spreadLabels = chaosStar;
-	    	}  else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("pentagram")) {
-	    		Spread.circles = Spread.working;
-	    		mySpread = new ChaosSpread(myInt,pentagram);
-	    		spreadLabels = pentagram;
-	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("single")) {
-	    		mySpread = new SeqSpread(myInt,single,false,isTrumpsOnly());
-	    		Spread.circles = Spread.working;
-	    		spreadLabels = single;
-	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("arrow")) {
-	    		mySpread = new ArrowSpread(myInt,timeArrow);
-	    		spreadLabels = timeArrow;
-	    		Spread.circles = Spread.working;				    		
-	    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("dialectic")) {
-	    		Spread.circles = Spread.working;
-	    		spreadLabels = dialectic;
-	    		mySpread = new DialecticSpread(myInt,dialectic);
-	    	}
-	    	
-	    	spreading=false;
-			begun = true;
-			browsing = false;
-	    	//new BotaInt(new TarotTrumpDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
-	    	beginSecondStage();
-		}
+			Deck.cards = Interpretation.myDeck.shuffle(Deck.cards,3);
+			
+			if (style.equals("arrow"))
+				mySpread = new ArrowSpread(myInt,timeArrow);
+			else if (style.equals("dialectic"))
+				mySpread = new DialecticSpread(myInt,dialectic);
+			else if (style.equals("pentagram"))
+				mySpread = new PentagramSpread(myInt,pentagram);
+			else if (style.equals("chaos"))
+				mySpread = new ChaosSpread(myInt,chaosStar);
+			else if (style.equals("celtic"))
+				mySpread = new CelticSpread(myInt,celticCross);
+			else
+				mySpread = getMySeqSpread(myInt,spreadLabels,false,isTrumpsOnly());
+			loaded = false;
+			beginSecondStage();
 	}
+
 	private void initSpreadMenu() {
 		begun = false;
 		browsing = false;
@@ -990,6 +1021,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				
 				return true;
 			} else if (browsing) {
+				ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
+				postFlip(flipper.getChildAt(0));
 				navigate();
 				return true;
 			} else if (state.equals("secondmenu") || state.equals("navigate")) {

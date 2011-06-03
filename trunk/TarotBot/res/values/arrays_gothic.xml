@@ -8,6 +8,7 @@
         <item>THE GOTHIC ARCH</item>             
     </string-array>
     <string-array name="gothic_main_menu">  
+    	<item>CARD OF THE DAY</item>
     	<item>DRAW A CARD</item>      
         <item>BROWSE ALL CARDS</item>
         <item>CHOOSE A SPREAD</item>
@@ -15,6 +16,7 @@
         <item>ABOUT THE TAROT</item>        
         <item>ABOUT THE ARTIST</item>
         <item>ABOUT THE APP</item>
+        <item>OPTIONS</item>
     </string-array>
     <string-array name="gothic_second_menu">        
         <item>VIEW FULL SPREAD</item>
@@ -23,7 +25,8 @@
         <item>CHOOSE A SPREAD</item>
         <item>ABOUT THE TAROT</item>        
         <item>ABOUT THE ARTIST</item>
-        <item>ABOUT THE APP</item>        
+        <item>ABOUT THE APP</item>
+        <item>OPTIONS</item>        
     </string-array>    
     <string-array name="gothic_arch">
         <item>Current Situation</item>

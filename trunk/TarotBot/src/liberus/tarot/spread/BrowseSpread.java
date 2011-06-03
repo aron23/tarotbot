@@ -1,10 +1,12 @@
 package liberus.tarot.spread;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import liberus.tarot.deck.Deck;
+import liberus.tarot.deck.FullTarotDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
 import liberus.tarot.os.activity.AbstractTarotBotActivity;
@@ -13,6 +15,7 @@ import liberus.utils.TarotBotManager;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,9 +23,9 @@ import android.widget.ImageView;
 public class BrowseSpread extends Spread {
 	
 	
-	private static int significatorIn;
 	private int myNum;
 	private boolean trumpsonly;
+	private static int significatorIn;
 
 	public BrowseSpread(Interpretation in, boolean trumps) {
 		super(in);
@@ -37,12 +40,6 @@ public class BrowseSpread extends Spread {
 		browsing = true;	
 	}
 	
-	@Override
-	public void operate(Context context, boolean loading) {
-		for (int i = 0; i < myNum; i++)
-			working.add(i);
-		Spread.circles = working;
-	}
 	@Override
 	public String getInterpretation(int circled, Context appcontext) {
 		
@@ -117,121 +114,161 @@ public class BrowseSpread extends Spread {
 			returner += "<br/>"+appcontext.getString(R.string.reversed_label);
 		return returner;
 	}
+	
+	@Override
+	public void operate(Context context, boolean loading) {
+		Spread.working = new ArrayList<Integer>(Arrays.asList(FullTarotDeck.cards));
+		Spread.circles = Spread.working;
+	}
+	
 
 	@Override
 	public int getLayout() {
+		if (!trumpsonly) {
+			switch (paged) {
+				case 0: return R.layout.browserlayout_trumps; 
+				case 1: return R.layout.browserlayout_wands; 
+				case 2: return R.layout.browserlayout_cups; 
+				case 3: return R.layout.browserlayout_swords; 
+				case 4: return R.layout.browserlayout_pent; 
+			}
+		}
 		return R.layout.browserlayout;
 	}
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
-		act.setBackground(layout);
-		layout = populateTrumps(layout,act,ctx);
-		if (act.isTrumpsOnly())
+		layout = populateNavigation(layout,act,ctx);
+		if (!trumpsonly) {
+			switch (paged) {
+				case 0: layout = populateTrumps(layout,act,ctx); break; 
+				case 1: layout = populateWands(layout,act,ctx); break; 
+				case 2: layout = populateCups(layout,act,ctx); break; 
+				case 3: layout = populateSwords(layout,act,ctx); break; 
+				case 4: layout = populatePentacles(layout,act,ctx); break; 
+			}
+			if (layout != null)
+				return layout;
+		}
+		return populateTrumps(layout,act,ctx);
+	}
+	
+	private View populateNavigation(View layout, AbstractTarotBotActivity act,
+			Context ctx) {
+		if (trumpsonly)
 			return layout;
-		layout = populateWands(layout,act,ctx);
-		layout = populateCups(layout,act,ctx);
-		layout = populateSwords(layout,act,ctx);
-		layout = populatePentacles(layout,act,ctx);
+		ImageView card = (ImageView) layout.findViewById(R.id.browse_triumph);
+		if (paged==0)
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.triumph_down,null)));
+		else
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.triumph,null)));
+		card.setId(0);
+		card.setOnClickListener(act);
+		
+		card = (ImageView) layout.findViewById(R.id.browse_wands);
+		if (paged==1)
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.wands_down,null)));
+		else
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.wands,null)));
+		card.setId(1);
+		card.setOnClickListener(act);
+		
+		card = (ImageView) layout.findViewById(R.id.browse_cups);
+		if (paged==2)
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.cups_down,null)));
+		else
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.cups,null)));
+		card.setId(2);
+		card.setOnClickListener(act);
+		
+		card = (ImageView) layout.findViewById(R.id.browse_swords);
+		if (paged==3)
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.swords_down,null)));
+		else
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.swords,null)));
+		card.setId(3);
+		card.setOnClickListener(act);
+		
+		card = (ImageView) layout.findViewById(R.id.browse_pent);
+		if (paged==4)
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.pent_down,null)));
+		else
+			card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.pent,null)));
+		card.setId(4);
+		card.setOnClickListener(act);
+		
 		return layout;
 	}
 
+
+
 	private View populateWands(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.wands_01);
-
-		File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_01_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_01),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_01),card,ctx);
 		card.setId(R.id.wands_01);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_02);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_02_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_02),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_02),card,ctx);
 		card.setId(R.id.wands_02);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_03);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_03_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_03),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_03),card,ctx);
 		card.setId(R.id.wands_03);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_04);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_04_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_04),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_04),card,ctx);
 		card.setId(R.id.wands_04);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_05);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_05_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_05),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_05),card,ctx);
 		card.setId(R.id.wands_05);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_06);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_06_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_06),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_06),card,ctx);
 		card.setId(R.id.wands_06);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_07);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_07_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_07),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_07),card,ctx);
 		card.setId(R.id.wands_07);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_08);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_08_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_08),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_08),card,ctx);
 		card.setId(R.id.wands_08);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_09);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_09_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_09),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_09),card,ctx);
 		card.setId(R.id.wands_09);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_10);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_10_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_10),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_10),card,ctx);
 		card.setId(R.id.wands_10);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_page);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_page_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_page),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_page),card,ctx);
 		card.setId(R.id.wands_page);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_knight);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_knight_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_knight),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_knight),card,ctx);
 		card.setId(R.id.wands_knight);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_queen);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_queen_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_queen),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_queen),card,ctx);
 		card.setId(R.id.wands_queen);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.wands_king);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/wands_king_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.wands_king),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.wands_king),card,ctx);
 		card.setId(R.id.wands_king);
 		card.setOnClickListener(act);
 		
@@ -241,100 +278,72 @@ public class BrowseSpread extends Spread {
 
 	private View populateCups(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.cups_01);
-		File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_01_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_01),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_01),card,ctx);
 		card.setId(R.id.cups_01);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_02);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_02_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_02),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_02),card,ctx);
 		card.setId(R.id.cups_02);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_03);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_03_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_03),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_03),card,ctx);
 		card.setId(R.id.cups_03);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_04);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_04_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_04),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_04),card,ctx);
 		card.setId(R.id.cups_04);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_05);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_05_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_05),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_05),card,ctx);
 		card.setId(R.id.cups_05);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_06);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_06_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_06),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_06),card,ctx);
 		card.setId(R.id.cups_06);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_07);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_07_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_07),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_07),card,ctx);
 		card.setId(R.id.cups_07);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_08);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_08_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_08),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_08),card,ctx);
 		card.setId(R.id.cups_08);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_09);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_09_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_09),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_09),card,ctx);
 		card.setId(R.id.cups_09);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_10);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_10_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_10),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_10),card,ctx);
 		card.setId(R.id.cups_10);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_page);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_page_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_page),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_page),card,ctx);
 		card.setId(R.id.cups_page);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_knight);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_knight_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_knight),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_knight),card,ctx);
 		card.setId(R.id.cups_knight);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_queen);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_queen_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_queen),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_queen),card,ctx);
 		card.setId(R.id.cups_queen);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.cups_king);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/cups_king_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.cups_king),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.cups_king),card,ctx);
 		card.setId(R.id.cups_king);
 		card.setOnClickListener(act);
 		
@@ -344,100 +353,72 @@ public class BrowseSpread extends Spread {
 	
 	private View populateSwords(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.swords_01);
-		File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_01_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_01),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_01),card,ctx);
 		card.setId(R.id.swords_01);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_02);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_02_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_02),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_02),card,ctx);
 		card.setId(R.id.swords_02);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_03);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_03_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_03),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_03),card,ctx);
 		card.setId(R.id.swords_03);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_04);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_04_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_04),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_04),card,ctx);
 		card.setId(R.id.swords_04);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_05);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_05_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_05),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_05),card,ctx);
 		card.setId(R.id.swords_05);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_06);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_06_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_06),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_06),card,ctx);
 		card.setId(R.id.swords_06);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_07);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_07_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_07),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_07),card,ctx);
 		card.setId(R.id.swords_07);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_08);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_08_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_08),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_08),card,ctx);
 		card.setId(R.id.swords_08);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_09);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_09_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_09),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_09),card,ctx);
 		card.setId(R.id.swords_09);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_10);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_10_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_10),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_10),card,ctx);
 		card.setId(R.id.swords_10);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_page);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_page_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_page),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_page),card,ctx);
 		card.setId(R.id.swords_page);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_knight);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_knight_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_knight),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_knight),card,ctx);
 		card.setId(R.id.swords_knight);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_queen);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_queen_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_queen),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_queen),card,ctx);
 		card.setId(R.id.swords_queen);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.swords_king);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/swords_king_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.swords_king),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.swords_king),card,ctx);
 		card.setId(R.id.swords_king);
 		card.setOnClickListener(act);
 		
@@ -447,100 +428,72 @@ public class BrowseSpread extends Spread {
 	
 	private View populatePentacles(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.pent_01);
-		File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_01_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_01),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_01),card,ctx);
 		card.setId(R.id.pent_01);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_02);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_02_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_02),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_02),card,ctx);
 		card.setId(R.id.pent_02);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_03);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_03_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_03),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_03),card,ctx);
 		card.setId(R.id.pent_03);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_04);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_04_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_04),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_04),card,ctx);
 		card.setId(R.id.pent_04);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_05);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_05_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_05),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_05),card,ctx);
 		card.setId(R.id.pent_05);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_06);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_06_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_06),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_06),card,ctx);
 		card.setId(R.id.pent_06);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_07);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_07_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_07),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_07),card,ctx);
 		card.setId(R.id.pent_07);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_08);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_08_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_08),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_08),card,ctx);
 		card.setId(R.id.pent_08);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_09);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_09_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_09),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_09),card,ctx);
 		card.setId(R.id.pent_09);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_10);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_10_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_10),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_10),card,ctx);
 		card.setId(R.id.pent_10);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_page);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_page_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_page),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_page),card,ctx);
 		card.setId(R.id.pent_page);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_knight);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_knight_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_knight),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_knight),card,ctx);
 		card.setId(R.id.pent_knight);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_queen);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_queen_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_queen),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_queen),card,ctx);
 		card.setId(R.id.pent_queen);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.pent_king);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/pent_king_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.pent_king),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.pent_king),card,ctx);
 		card.setId(R.id.pent_king);
 		card.setOnClickListener(act);
 		
@@ -550,160 +503,117 @@ public class BrowseSpread extends Spread {
 	
 	private View populateTrumps(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.trumps_01);
-		File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_01_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_01),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_01),card,ctx);
 		card.setId(R.id.trumps_01);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_02);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_02_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_02),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_02),card,ctx);
 		card.setId(R.id.trumps_02);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_03);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_03_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_03),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_03),card,ctx);
 		card.setId(R.id.trumps_03);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_04);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_04_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_04),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_04),card,ctx);
 		card.setId(R.id.trumps_04);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_05);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_05_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_05),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_05),card,ctx);
 		card.setId(R.id.trumps_05);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_06);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_06_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_06),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_06),card,ctx);
 		card.setId(R.id.trumps_06);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_07);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_07_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_07),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_07),card,ctx);
 		card.setId(R.id.trumps_07);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_08);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_08_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_08),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_08),card,ctx);
 		card.setId(R.id.trumps_08);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_09);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_09_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_09),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_09),card,ctx);
 		card.setId(R.id.trumps_09);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_10);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_10_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_10),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_10),card,ctx);
 		card.setId(R.id.trumps_10);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_11);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_11_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_11),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_11),card,ctx);
 		card.setId(R.id.trumps_11);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_12);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_12_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_12),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_12),card,ctx);
 		card.setId(R.id.trumps_12);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_13);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_13_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_13),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_13),card,ctx);
 		card.setId(R.id.trumps_13);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_14);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_14_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_14),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_14),card,ctx);
 		card.setId(R.id.trumps_14);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_15);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_15_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_15),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_15),card,ctx);
 		card.setId(R.id.trumps_15);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_16);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_16_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_16),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_16),card,ctx);
 		card.setId(R.id.trumps_16);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_17);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_17_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_17),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_17),card,ctx);
 		card.setId(R.id.trumps_17);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_18);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_18_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_18),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_18),card,ctx);
 		card.setId(R.id.trumps_18);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_19);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_19_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_19),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_19),card,ctx);
 		card.setId(R.id.trumps_19);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_20);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_20_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_20),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_20),card,ctx);
 		card.setId(R.id.trumps_20);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_21);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_21_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_21),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_21),card,ctx);
 		card.setId(R.id.trumps_21);
 		card.setOnClickListener(act);
 		
 		card = (ImageView) layout.findViewById(R.id.trumps_22);
-		customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/trumps_22_th.jpg");		
-		if (customFile.exists())
-			placeImage(Interpretation.getCardIndex(R.id.trumps_22),card,ctx);
+		placeImage(Interpretation.getCardIndex(R.id.trumps_22),card,ctx);
 		card.setId(R.id.trumps_22);
 		card.setOnClickListener(act);
 		
 		//layout.setOnTouchListener(act);	
 		return layout;
 	}
+
 }

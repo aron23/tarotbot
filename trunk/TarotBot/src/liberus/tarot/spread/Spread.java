@@ -34,6 +34,7 @@ public abstract class Spread {
 	protected static final int MIDRES = 24;
 	public Deck myDeck;
 	public ViewGroup myview;
+	public int paged = 0;
 	protected static Interpretation myInt; 
 	public String[] myLabels;
 	public static ArrayList<Integer> working = new ArrayList<Integer>();
@@ -49,8 +50,7 @@ public abstract class Spread {
 	public abstract int getLayout();
 	
 	public void clearView(ViewGroup v) {
-		if (myview == null)
-			return;
+		
 		int children = v.getChildCount();
 		for (int i = 0; i < children; i++) {
 			View toClear = v.getChildAt(i);
@@ -59,7 +59,8 @@ public abstract class Spread {
 					((BitmapDrawable)((ImageView)toClear).getDrawable()).getBitmap().recycle();
 				v.removeView(toClear);
 				toClear.destroyDrawingCache();
-				((ImageView)toClear).getDrawable().setCallback(null);
+				if (((ImageView)toClear).getDrawable() != null)
+					((ImageView)toClear).getDrawable().setCallback(null);
 				((ImageView)toClear).setImageDrawable(null);
 				((ImageView)toClear).getResources().flushLayoutCache();
 				((ImageView)toClear).destroyDrawingCache();
@@ -72,13 +73,11 @@ public abstract class Spread {
 	}
 	
 	public View navigate(View layout, AbstractTarotBotActivity abstractTarotBotActivity,Context ctx) {		
-		if (myview != null &! browsing) {
+		if (myview != null) {
 			clearView(myview);
+		}
 			myview = (ViewGroup) populateSpread(layout,abstractTarotBotActivity,ctx);
 			return myview;
-		}
-		mybrowseview = (ViewGroup) populateSpread(layout,abstractTarotBotActivity,ctx);
-		return mybrowseview;
 		
 	}
 	
@@ -284,7 +283,7 @@ public abstract class Spread {
 //			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
 //				options.inSampleSize = 3;
 			else
-				options.inSampleSize = 4;
+				options.inSampleSize = getMySampleSize();
 		if (bmp == null) {	
 			File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index).replaceAll("(\\.jpg)", "_th$1"));
 	        if (customFile.exists() &! TarotBotManager.hasEnoughMemory(HIGHRES,con) && displayPrefs.getBoolean("custom.deck", false)) 
@@ -303,6 +302,10 @@ public abstract class Spread {
 		return bmp;
 	}
 	
+	public int getMySampleSize() {
+		// TODO Auto-generated method stub
+		return 1;
+	}
 	public ImageView placeImage(int index, ImageView toPlace, Context con) {
 		
         Bitmap bmp = preImagePlacement(index,con);
@@ -536,6 +539,10 @@ public abstract class Spread {
 				dignity[1] = 1;
 		}
 		return dignity;
+	}
+	public String getCardTitle(int i, Context applicationContext) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

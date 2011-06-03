@@ -103,6 +103,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//tarotbottype = "liberus.tarot.oestara.erotic";
+		isBig=true;
 		setFullscreen();
 		setContentView(R.layout.tarotbotstart);
 		inflater = LayoutInflater.from(this);
@@ -762,6 +763,17 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 	public boolean onKey(DialogInterface arg0, int arg1, KeyEvent arg2) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	@Override
+	public Spread getMySeqSpread(Interpretation myInt, String[] labels,
+			boolean cardOfTheDay, boolean trumpsOnly) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Spread getMyBrowseSpread(Interpretation in, boolean trumps) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 		
 

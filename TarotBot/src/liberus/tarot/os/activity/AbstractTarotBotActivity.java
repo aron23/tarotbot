@@ -197,13 +197,16 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected String[] spreadmenu;
 	protected ListView myMenuList;
 	protected DatePicker dp;
+	protected boolean isBig=false;
 	
 	private static final int HIGHRES=32;
-	private static final int MIDRES=24;
+	private static final int MIDRES=28;
 
 	public abstract long getHiResZipSize();
 	public abstract String getMyType();
 	public abstract String getMyFolder();
+	public abstract Spread getMySeqSpread(Interpretation myInt, String[] labels, boolean cardOfTheDay,boolean trumpsOnly);
+	public abstract Spread getMyBrowseSpread(Interpretation in, boolean trumps);
 	abstract void reInit();
 
 	private String getPath() {
@@ -370,6 +373,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		//navigator.
 		priorstate = state;
 		state = "navigate";
+		
 		//new MyProgressDialog(this);
 		//MyProgressDialog.show(this,null,null,true,false,null);
 		View v = mySpread.navigate(inflater.inflate(mySpread.getLayout(), null), this, getApplicationContext());
@@ -545,6 +549,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 			secondSetIndex++;
 		
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
+		
 		flipper.setClickable(true);
 		flipper.setOnTouchListener(gestureListener);
 
@@ -843,7 +848,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 				File toRead = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType())+".ex");
 	            if (toRead.exists() ){//&& ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)) {
 
-	            	bmp = BitmapFactory.decodeFile(toRead.getPath()+"/"+WebUtils.md5(getMyType()+"/"+BotaInt.getCardName(flipdex.get(index))));
+	            	bmp = BitmapFactory.decodeFile(toRead.getPath()+"/"+WebUtils.md5(BotaInt.getCardName(flipdex.get(index))));
 	            	System.err.println(toRead.getPath()+"/"+WebUtils.md5(BotaInt.getCardName(flipdex.get(index))));
 	            	//bmp = BitmapFactory.decodeByteArray(buf, 0,buf.length);
 	        		deckPrefs = getSharedPreferences("decked", 0);
@@ -858,8 +863,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		    options.inDither=false;
 		    
 		    if (bmp == null) {	        	
-	        	//if (!TarotBotManager.hasEnoughMemory(MIDRES, getApplicationContext()))// && 
-	        		//options.inSampleSize = 2;					
+	        	if (!TarotBotManager.hasEnoughMemory(MIDRES, getApplicationContext())&&isBig)// && 
+	        		options.inSampleSize = 2;					
 	        	bmp = BitmapFactory.decodeResource(con.getResources(), BotaInt.getCard(flipdex.get(index)),options);
 	        }
 		int w = bmp.getWidth();
@@ -985,9 +990,18 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		((ImageView) v.findViewById(R.id.divine)).getResources().flushLayoutCache();
 		((ImageView) v.findViewById(R.id.divine)).destroyDrawingCache();
 		v=null;
-		
 	}
-	
+	public void preNavigate(View v) {
+		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
+		flipper.removeView(v);
+		v.destroyDrawingCache();
+		((BitmapDrawable)((ImageView) v.findViewById(R.id.divine)).getDrawable()).getBitmap().recycle();		
+		((ImageView) v.findViewById(R.id.divine)).getDrawable().setCallback(null);
+		((ImageView) v.findViewById(R.id.divine)).setImageDrawable(null);
+		((ImageView) v.findViewById(R.id.divine)).getResources().flushLayoutCache();
+		((ImageView) v.findViewById(R.id.divine)).destroyDrawingCache();
+		v=null;
+	}
 	protected void toastText(String text) {
 		if (spreadLabels != null && spreadLabels.length >= secondSetIndex && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT && spreadLabels[secondSetIndex] != null && spreadLabels[secondSetIndex].length() > 0) {
 			Toast toast = new Toast(getApplicationContext());

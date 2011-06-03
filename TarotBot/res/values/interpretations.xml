@@ -15,6 +15,7 @@
   <string name="trumps_01_abst">innocence, naivete</string>
   <string name="trumps_01_meanings">inexperience, readjustment, the unexpected onset of chaotic conditions</string>
   <string name="trumps_01_reversed"></string>
+  <string name="trumps_01_abst_reversed"></string>
   <string name="trumps_01_in_spiritual">Originality, audacity, a tendency to iconoclasm, venturesome quest of higher truth.</string>
   <string name="trumps_01_in_material">Folly, eccentricity, sudden action without sufficient consideration or forethought, stupidity, or even insanity.</string>
   <string name="trumps_01_well_dignified"></string>
@@ -61,6 +62,7 @@
   <string name="trumps_02_abst">wisdom, mastery of the elements</string>
   <string name="trumps_02_meanings">speed, dexterity, the skillful manipulation of the material world, communication, learning and intellectual pursuits</string>
   <string name="trumps_02_reversed"></string>
+  <string name="trumps_02_abst_reversed"></string>
   <string name="trumps_02_in_spiritual"></string>
   <string name="trumps_02_in_material"></string>
   <string name="trumps_02_well_dignified">Skill, adaptation, constructive power, initiative, subtlety.</string>
@@ -107,6 +109,7 @@
   <string name="trumps_03_abst">that which is just below the surface of ordinary reality</string>
   <string name="trumps_03_meanings">dreams, visions, insights, intuition, the subconscious, things hidden or unseen</string>
   <string name="trumps_03_reversed"></string>
+  <string name="trumps_03_abst_reversed"></string>
   <string name="trumps_03_in_spiritual"></string>
   <string name="trumps_03_in_material"></string>
   <string name="trumps_03_well_dignified"></string>
@@ -149,6 +152,7 @@
   <string name="trumps_04_abst">abundance and fruitfulness, feminine creative power</string>
   <string name="trumps_04_meanings">love, sex, reproduction, strong instinctual urges</string>
   <string name="trumps_04_reversed"></string>
+  <string name="trumps_04_abst_reversed"></string>
   <string name="trumps_04_in_spiritual"></string>
   <string name="trumps_04_in_material"></string>
   <string name="trumps_04_well_dignified">Fruitfulness, Beauty, luxury, pleasure, success and happiness.</string>
@@ -195,6 +199,7 @@
   <string name="trumps_05_abst">irresistible force and eternal renewal</string>
   <string name="trumps_05_meanings">structure, order, regulation, authority and governance</string>
   <string name="trumps_05_reversed"></string>
+  <string name="trumps_05_abst_reversed"></string>
   <string name="trumps_05_in_spiritual"></string>
   <string name="trumps_05_in_material"></string>
   <string name="trumps_05_well_dignified">Mental energy; foresight, supervision, oversight, control; reason, persistence, determination; ambition, leadership, enthusiasm.</string>
@@ -239,6 +244,7 @@
   <string name="trumps_06_abst">spiritual authority made manifest</string>
   <string name="trumps_06_meanings">dogma and rigidity, stubbornness, stability, domination</string>
   <string name="trumps_06_reversed"></string>
+  <string name="trumps_06_abst_reversed"></string>
   <string name="trumps_06_in_spiritual"></string>
   <string name="trumps_06_in_material"></string>
   <string name="trumps_06_well_dignified"></string>
@@ -287,6 +293,7 @@
   <string name="trumps_07_abst">balanced polarity, union of opposites</string>
   <string name="trumps_07_meanings">Attraction, beauty, love, sympathy. Balance of forces, and reciprocal activity</string>
   <string name="trumps_07_reversed"></string>
+  <string name="trumps_07_abst_reversed"></string>
   <string name="trumps_07_in_spiritual"></string>
   <string name="trumps_07_in_material"></string>
   <string name="trumps_07_well_dignified"></string>
@@ -333,6 +340,7 @@
   <string name="trumps_08_abst">the union of intellectual and physical powers</string>
   <string name="trumps_08_meanings">indirect control, intuition, the power of subtlety</string>
   <string name="trumps_08_reversed"></string>
+  <string name="trumps_08_abst_reversed"></string>
   <string name="trumps_08_in_spiritual"></string>
   <string name="trumps_08_in_material"></string>
   <string name="trumps_08_well_dignified"></string>
@@ -381,6 +389,7 @@
   <string name="trumps_09_abst">Power, the energy which manifests</string>
   <string name="trumps_09_meanings">patience and compassion; accepting others and forgiving mistakes, dealing calmly with frustration</string>
   <string name="trumps_09_reversed"></string>
+  <string name="trumps_09_abst_reversed"></string>
   <string name="trumps_09_in_spiritual">Relates to arousal and control of kundalini energies.</string>
   <string name="trumps_09_in_material">Relates to risky speculation, dangerous adventures, and sometimes to clandestine love-affairs.</string>
   <string name="trumps_09_well_dignified">courage, strength, fortitude</string>
@@ -421,6 +430,7 @@
   <string name="trumps_10_abst">The desire to turn away from society and focus on the inner world.</string>
   <string name="trumps_10_meanings">a period of reflection when distractions are limited, time alone</string>
   <string name="trumps_10_reversed"></string>
+  <string name="trumps_10_abst_reversed"></string>
   <string name="trumps_10_in_spiritual"></string>
   <string name="trumps_10_in_material"></string>
   <string name="trumps_10_well_dignified">Light and guidance from higher realms. Aid from superiors and inferiors. Good for Health.</string>
@@ -469,6 +479,7 @@
   <string name="trumps_11_abst">destiny</string>
   <string name="trumps_11_meanings">unexpected encounters and twists of fate, changes in direction, repeating cycles, rapid movement</string>
   <string name="trumps_11_reversed"></string>
+  <string name="trumps_11_abst_reversed"></string>
   <string name="trumps_11_in_spiritual"></string>
   <string name="trumps_11_in_material"></string>
   <string name="trumps_11_well_dignified">Good fortune, a turn for the better, happiness. When beset by doubts and uncertainties, the solution of those difficulties.</string>
@@ -507,6 +518,7 @@
   <string name="trumps_12_abst">balance directed by will</string>
   <string name="trumps_12_meanings">doing what needs to be done, accepting responsibility, settling accounts, karma</string>
   <string name="trumps_12_reversed"></string>
+  <string name="trumps_12_abst_reversed"></string>
   <string name="trumps_12_in_spiritual"></string>
   <string name="trumps_12_in_material"></string>
   <string name="trumps_12_well_dignified">Balance, equilibrium, especially emotional stability; good Karma. Is often an indication of successful dealings with the public, is favorable in all questions involving legal matters, partnership, or marriage.</string>
@@ -551,6 +563,7 @@
   <string name="trumps_13_abst">represents wisdom, but a wisdom that is just the reverse of what the world commonly accepts</string>
   <string name="trumps_13_meanings">self sacrifice, martyrdom, victory through surrender</string>
   <string name="trumps_13_reversed"></string>
+  <string name="trumps_13_abst_reversed"></string>
   <string name="trumps_13_in_spiritual">surrender to universal laws</string>
   <string name="trumps_13_in_material">involuntary submission to the force of circumstances, a symbol of reverses and losses, of suffering and sacrifice</string>
   <string name="trumps_13_well_dignified"></string>
@@ -599,6 +612,7 @@
   <string name="trumps_14_abst">an important ending that initiates great change</string>
   <string name="trumps_14_meanings">sadness and reluctance yet also relief and a sense of completion</string>
   <string name="trumps_14_reversed"></string>
+  <string name="trumps_14_abst_reversed"></string>
   <string name="trumps_14_in_spiritual"></string>
   <string name="trumps_14_in_material"></string>
   <string name="trumps_14_well_dignified">changing for the better</string>
@@ -641,6 +655,7 @@
   <string name="trumps_15_abst">moderation, self-restraint, combining and recombining</string>
   <string name="trumps_15_meanings">a need for balance, compromise and cooperation are vital, good health</string>
   <string name="trumps_15_reversed"></string>
+  <string name="trumps_15_abst_reversed"></string>
   <string name="trumps_15_in_spiritual"></string>
   <string name="trumps_15_in_material"></string>
   <string name="trumps_15_well_dignified"></string>
@@ -689,6 +704,7 @@
   <string name="trumps_16_abst">big business, the conventions of society, the injustice and cruelty of a social order in which money is god, humanity is bestialized, war is engineered by greed masquerading as patriotism, fear is dominant</string>
   <string name="trumps_16_meanings">Bondage, materiality, force </string>
   <string name="trumps_16_reversed"></string>
+  <string name="trumps_16_abst_reversed"></string>
   <string name="trumps_16_in_spiritual"></string>
   <string name="trumps_16_in_material"></string>
   <string name="trumps_16_well_dignified"></string>
@@ -733,6 +749,7 @@
   <string name="trumps_17_abst">punctuated equilibrium</string>
   <string name="trumps_17_meanings">sudden dramatic upheaval or reversal in fortune</string>
   <string name="trumps_17_reversed"></string>
+  <string name="trumps_17_abst_reversed"></string>
   <string name="trumps_17_in_spiritual">the overthrow of mistaken conceptions, or the defeat of activities opposed to the one\'s spiritual development</string>
   <string name="trumps_17_in_material">ambition, unforeseen catastrophes, fighting, grave dangers, the ruin of the one\'s plans, the defeat of his hopes</string>
   <string name="trumps_17_well_dignified"></string>
@@ -777,6 +794,7 @@
   <string name="trumps_18_abst">the light at the end of the tunnel</string>
   <string name="trumps_18_meanings">relying on intuition, inner wisdom, guidance, inspiration</string>
   <string name="trumps_18_reversed"></string>
+  <string name="trumps_18_abst_reversed"></string>
   <string name="trumps_18_in_spiritual"></string>
   <string name="trumps_18_in_material"></string>
   <string name="trumps_18_well_dignified">promises of unexpected help, and the realization of hopes and wishes.</string>
@@ -823,6 +841,7 @@
   <string name="pentacles_01_abst">Comfortable, reliable experiences provide security and establish a foundation of trust.</string>
   <string name="pentacles_01_meanings">prosperity, abundance and groundedness; manifestation of the will</string>
   <string name="pentacles_01_reversed"></string>
+  <string name="pentacles_01_abst_reversed"></string>
   <string name="pentacles_01_in_spiritual"></string>
   <string name="pentacles_01_in_material"></string>
   <string name="pentacles_01_well_dignified"></string>
@@ -853,6 +872,7 @@
   <string name="trumps_19_abst">mystery</string>
   <string name="trumps_19_meanings">the realm of shadow and night, inspiration and enchantment, drugs, madness, and intense experiences, the promise that all you imagine can be yours</string>
   <string name="trumps_19_reversed"></string>
+  <string name="trumps_19_abst_reversed"></string>
   <string name="trumps_19_in_spiritual"></string>
   <string name="trumps_19_in_material"></string>
   <string name="trumps_19_well_dignified">Voluntary change, advance into a wider field of activity, but an advance made primarily because one is unhappy in, or dissatisfied with the present position. An element of uncertainty.</string>
@@ -891,6 +911,7 @@
   <string name="trumps_20_abst">clarity and brilliance</string>
   <string name="trumps_20_meanings">success, fulfillment, self expansion</string>
   <string name="trumps_20_reversed"></string>
+  <string name="trumps_20_abst_reversed"></string>
   <string name="trumps_20_in_spiritual">Liberation, signifying release from the bondage of lower planes.</string>
   <string name="trumps_20_in_material">Signifies gain, glory, or riches</string>
   <string name="trumps_20_well_dignified"></string>
@@ -935,6 +956,7 @@
   <string name="trumps_21_abst">rebirth</string>
   <string name="trumps_21_meanings">the end of a cycle, a time of renewal and awakening, a time to reap rewards of past actions</string>
   <string name="trumps_21_reversed"></string>
+  <string name="trumps_21_abst_reversed"></string>
   <string name="trumps_21_in_spiritual"></string>
   <string name="trumps_21_in_material"></string>
   <string name="trumps_21_well_dignified">A favorable outcome. Often the renewal of hopes and wishes, or the betterment of conditions after a period of depression.</string>
@@ -975,6 +997,7 @@
   <string name="trumps_22_abst">synthesis, dynamic balance</string>
   <string name="trumps_22_meanings">a positive sign one is on track to achieve one\'s desires, active contribution and service</string>
   <string name="trumps_22_reversed"></string>
+  <string name="trumps_22_abst_reversed"></string>
   <string name="trumps_22_in_spiritual"></string>
   <string name="trumps_22_in_material"></string>
   <string name="trumps_22_well_dignified"></string>
@@ -1020,6 +1043,7 @@
 </string>
   <string name="wands_01_meanings">Natural, as opposed to invoked, force. Strength, force, vigor, vitality, and particularly the force of concentrated Will. The principle, or beginning of an enterprise.</string>
   <string name="wands_01_reversed"></string>
+  <string name="wands_01_abst_reversed"></string>
   <string name="wands_01_in_spiritual"></string>
   <string name="wands_01_in_material"></string>
   <string name="wands_01_well_dignified"></string>
@@ -1050,6 +1074,7 @@
   <string name="wands_02_abst">individual courage and greatness, personal power</string>
   <string name="wands_02_meanings">power, striving for power; daring and inventiveness</string>
   <string name="wands_02_reversed"></string>
+  <string name="wands_02_abst_reversed"></string>
   <string name="wands_02_in_spiritual"></string>
   <string name="wands_02_in_material"></string>
   <string name="wands_02_well_dignified">Force, enterprise, boldness, resolution, originality, some combativeness.</string>
@@ -1096,6 +1121,7 @@
   <string name="wands_03_abst">taking the long view, visionary</string>
   <string name="wands_03_meanings">mental energy, leadership, ambition, determination are among the meanings, the realization of hope, of success after struggle</string>
   <string name="wands_03_reversed"></string>
+  <string name="wands_03_abst_reversed"></string>
   <string name="wands_03_in_spiritual"></string>
   <string name="wands_03_in_material"></string>
   <string name="wands_03_well_dignified">Courage, persistence, pride, nobility.</string>
@@ -1136,6 +1162,7 @@
   <string name="wands_04_abst">rite of passage</string>
   <string name="wands_04_meanings">breaking the bonds that bind, celebration</string>
   <string name="wands_04_reversed"></string>
+  <string name="wands_04_abst_reversed"></string>
   <string name="wands_04_in_spiritual"></string>
   <string name="wands_04_in_material"></string>
   <string name="wands_04_well_dignified">Success through personal merit, good social standing, influential friends: the perfection of something built up after labor; benefit through travel, shipping and business with foreign countries.</string>
@@ -1178,6 +1205,7 @@
   <string name="wands_05_abst">contention and rivalry</string>
   <string name="wands_05_meanings">power, and pleasure in exercising it; adventure, speculation, and uncertainty; strong attachments.</string>
   <string name="wands_05_reversed"></string>
+  <string name="wands_05_abst_reversed"></string>
   <string name="wands_05_in_spiritual"></string>
   <string name="wands_05_in_material"></string>
   <string name="wands_05_well_dignified">Boldness, command, generosity.</string>
@@ -1222,6 +1250,7 @@
   <string name="wands_06_abst">the likelihood of success</string>
   <string name="wands_06_meanings">success, happiness, gain</string>
   <string name="wands_06_reversed"></string>
+  <string name="wands_06_abst_reversed"></string>
   <string name="wands_06_in_spiritual"></string>
   <string name="wands_06_in_material"></string>
   <string name="wands_06_well_dignified">Gain through love affairs, or by opposite sex; pleasure in labor, gain after a period of uncertainty or competition.</string>
@@ -1264,6 +1293,7 @@
   <string name="wands_07_abst">a position of advantage, taking a stand</string>
   <string name="wands_07_meanings">pleasure in strenuous action; some danger through love-affairs or self-indulgence</string>
   <string name="wands_07_reversed"></string>
+  <string name="wands_07_abst_reversed"></string>
   <string name="wands_07_in_spiritual"></string>
   <string name="wands_07_in_material"></string>
   <string name="wands_07_well_dignified">Adventure, strength, courage in the face of difficulties, influence over subordinates.</string>
@@ -1304,6 +1334,7 @@
   <string name="wands_08_abst">swift action</string>
   <string name="wands_08_meanings">now is the time for action; events proceed rapidly</string>
   <string name="wands_08_reversed"></string>
+  <string name="wands_08_abst_reversed"></string>
   <string name="wands_08_in_spiritual"></string>
   <string name="wands_08_in_material"></string>
   <string name="wands_08_well_dignified">Aspiration, foresight; rapid expression of force, but quickly expended; the acceleration of anything in which one is interested. Also generosity, confidence, freedom.</string>
@@ -1346,6 +1377,7 @@
   <string name="wands_09_abst">standing your ground</string>
   <string name="wands_09_meanings">strength in reserve, health after illness; success, but attended by some strife</string>
   <string name="wands_09_reversed"></string>
+  <string name="wands_09_abst_reversed"></string>
   <string name="wands_09_in_spiritual"></string>
   <string name="wands_09_in_material"></string>
   <string name="wands_09_well_dignified"></string>
@@ -1388,6 +1420,7 @@
   <string name="wands_10_abst">burdens of success</string>
   <string name="wands_10_meanings">step forward and take charge; an uphill battle</string>
   <string name="wands_10_reversed"></string>
+  <string name="wands_10_abst_reversed"></string>
   <string name="wands_10_in_spiritual"></string>
   <string name="wands_10_in_material"></string>
   <string name="wands_10_well_dignified">Generosity, success and honor in connection with the law, religion and philosophy; possibility of posts of responsibility; gain through travel.</string>
@@ -1436,6 +1469,7 @@
   <string name="wands_page_abst">Daring action, vitality, good news.</string>
   <string name="wands_page_meanings">A youthful person bringing opportunities to experience creativity, courage, charm and inspiration. An opening may appear that excites you or feeds your talents.</string>
   <string name="wands_page_reversed"></string>
+  <string name="wands_page_abst_reversed"></string>
   <string name="wands_page_in_spiritual"></string>
   <string name="wands_page_in_material"></string>
   <string name="wands_page_well_dignified"></string>
@@ -1456,6 +1490,7 @@
   <string name="wands_knight_abst">Change in the air, Creative energy, Impatience.</string>
   <string name="wands_knight_meanings">A young impetuous adult, unwilling to settle down.</string>
   <string name="wands_knight_reversed"></string>
+  <string name="wands_knight_abst_reversed"></string>
   <string name="wands_knight_in_spiritual"></string>
   <string name="wands_knight_in_material"></string>
   <string name="wands_knight_well_dignified">A matter of considerable importance is emerging in your life</string>
@@ -1476,6 +1511,7 @@
   <string name="wands_queen_abst">Balanced family and career interests.</string>
   <string name="wands_queen_meanings">An enterprising and ambitious woman, resolute in the face of opposition</string>
   <string name="wands_queen_reversed"></string>
+  <string name="wands_queen_abst_reversed"></string>
   <string name="wands_queen_in_spiritual"></string>
   <string name="wands_queen_in_material"></string>
   <string name="wands_queen_well_dignified">bringing energy, independence of thought, kindness, and generosity</string>
@@ -1496,6 +1532,7 @@
   <string name="wands_king_abst">Leading the way.</string>
   <string name="wands_king_meanings">Ardent, impulsive, influential man</string>
   <string name="wands_king_reversed"></string>
+  <string name="wands_king_abst_reversed"></string>
   <string name="wands_king_in_spiritual"></string>
   <string name="wands_king_in_material"></string>
   <string name="wands_king_well_dignified">bringing inspiration, motivation, and maturity</string>
@@ -1516,6 +1553,7 @@
   <string name="cups_01_abst">Affairs of the heart, inner attunement and spirituality.</string>
   <string name="cups_01_meanings">Fertility, productiveness, development, multiplication; happiness, pleasure, gratification, fruition of desires; cheerfulness, geniality, gaiety.</string>
   <string name="cups_01_reversed"></string>
+  <string name="cups_01_abst_reversed"></string>
   <string name="cups_01_in_spiritual"></string>
   <string name="cups_01_in_material"></string>
   <string name="cups_01_well_dignified"></string>
@@ -1546,6 +1584,7 @@
   <string name="cups_02_abst">the power of union</string>
   <string name="cups_02_meanings">romantic and sexual attraction; potential for bonding</string>
   <string name="cups_02_reversed"></string>
+  <string name="cups_02_abst_reversed"></string>
   <string name="cups_02_in_spiritual"></string>
   <string name="cups_02_in_material"></string>
   <string name="cups_02_well_dignified">Reciprocity, reflection; gain and benefit through parents; favors from opposite sex; changes of residence.</string>
@@ -1588,6 +1627,7 @@
   <string name="cups_03_abst">friendship, community, and social networks</string>
   <string name="cups_03_meanings">a time to rejoice, potential for self indulgence</string>
   <string name="cups_03_reversed"></string>
+  <string name="cups_03_abst_reversed"></string>
   <string name="cups_03_in_spiritual"></string>
   <string name="cups_03_in_material"></string>
   <string name="cups_03_well_dignified">Activity, determination, practicality; fondness for pleasure and comfort; attachments and attractions to the opposite sex; pleasure.</string>
@@ -1634,6 +1674,7 @@
   <string name="cups_04_abst">self absorbtion and apathy</string>
   <string name="cups_04_meanings">withdrawl due to discontent; potential for depression</string>
   <string name="cups_04_reversed"></string>
+  <string name="cups_04_abst_reversed"></string>
   <string name="cups_04_in_spiritual"></string>
   <string name="cups_04_in_material"></string>
   <string name="cups_04_well_dignified">Success in material things, but desire for something higher; a period of comparative comfort, yet a little confining; a degree of satiety; contemplation, and turning away from pleasure in quest for higher things; strong psychic influences.</string>
@@ -1676,6 +1717,7 @@
   <string name="cups_05_abst">sorrow, regret, and denial</string>
   <string name="cups_05_meanings">Loss in pleasure; vain regret; disappointment, sorrow and loss in those things which have been much desired; treachery, deceit; unexpected troubles and anxieties; disappointment in love, broken engagement, broken friendship.</string>
   <string name="cups_05_reversed"></string>
+  <string name="cups_05_abst_reversed"></string>
   <string name="cups_05_in_spiritual"></string>
   <string name="cups_05_in_material"></string>
   <string name="cups_05_well_dignified"></string>
@@ -1722,6 +1764,7 @@
   <string name="cups_06_abst">innocence</string>
   <string name="cups_06_meanings">a sense of nostalgia; clinging to the past</string>
   <string name="cups_06_reversed"></string>
+  <string name="cups_06_abst_reversed"></string>
   <string name="cups_06_in_spiritual"></string>
   <string name="cups_06_in_material"></string>
   <string name="cups_06_well_dignified">Deep emotions, ardor, enthusiasm, generosity; money through marriage of business partner, or by inheritance; the beginning of steady gain in business or pleasure, but beginning only; peculiar circumstances.</string>
@@ -1764,6 +1807,7 @@
   <string name="cups_07_abst">confusion resulting from lack of focus</string>
   <string name="cups_07_meanings">possible victory, but one may be too indolent to take advantage opportunities; success may be gained, but not followed up; necessity for choosing the highest possible objectives</string>
   <string name="cups_07_reversed"></string>
+  <string name="cups_07_abst_reversed"></string>
   <string name="cups_07_in_spiritual"></string>
   <string name="cups_07_in_material"></string>
   <string name="cups_07_well_dignified"></string>
@@ -1810,6 +1854,7 @@
   <string name="cups_08_abst">Moving on</string>
   <string name="cups_08_meanings">signs of change are apparent; living a dream no longer satisfies</string>
   <string name="cups_08_reversed"></string>
+  <string name="cups_08_abst_reversed"></string>
   <string name="cups_08_in_spiritual"></string>
   <string name="cups_08_in_material"></string>
   <string name="cups_08_well_dignified">Renunciation of material success for something higher; interest in psychic and spiritual things; strong emotions; charity and helpfulness; love of travel.</string>
@@ -1854,6 +1899,7 @@
   <string name="cups_09_abst">contentment</string>
   <string name="cups_09_meanings">wishes coming true, pursuit of pleasure without regard for consequences</string>
   <string name="cups_09_reversed"></string>
+  <string name="cups_09_abst_reversed"></string>
   <string name="cups_09_in_spiritual"></string>
   <string name="cups_09_in_material"></string>
   <string name="cups_09_well_dignified">Complete realization of desires; almost perfect pleasure and happiness; wishes fulfilled; materialistic well-being.</string>
@@ -1896,6 +1942,7 @@
   <string name="cups_10_abst">the serenity that accompanies harmony</string>
   <string name="cups_10_meanings">family relations; inner and outer peace</string>
   <string name="cups_10_reversed"></string>
+  <string name="cups_10_abst_reversed"></string>
   <string name="cups_10_in_spiritual">permanent and lasting success, through inspiration from higher levels of consciousness; high psychic development; realization of the highest aspirations; happiness.</string>
   <string name="cups_10_in_material"></string>
   <string name="cups_10_well_dignified">the promise of affection, contentment, and well-being</string>
@@ -1942,6 +1989,7 @@
   <string name="cups_page_abst">The beginning of a friendship.</string>
   <string name="cups_page_meanings">A youthful person bringing opportunities to experience romance, deep feelings, and the inner life. An opening may appear that stirs your emotions, pulls at your heartstrings, or brings you great joy.</string>
   <string name="cups_page_reversed"></string>
+  <string name="cups_page_abst_reversed"></string>
   <string name="cups_page_in_spiritual"></string>
   <string name="cups_page_in_material"></string>
   <string name="cups_page_well_dignified">renewing an emotional tie or starting a new relationship; a period of emotional development, sensitivity, and maturity</string>
@@ -1962,6 +2010,7 @@
   <string name="cups_knight_abst">Romance, artistic talent</string>
   <string name="cups_knight_meanings">A young romantic adult, tempermental and takes offense easily.</string>
   <string name="cups_knight_reversed"></string>
+  <string name="cups_knight_abst_reversed"></string>
   <string name="cups_knight_in_spiritual"></string>
   <string name="cups_knight_in_material"></string>
   <string name="cups_knight_well_dignified">An invitation or opportunity of a new relationship.</string>
@@ -1982,6 +2031,7 @@
   <string name="cups_queen_abst">Deep feeling, nurturing</string>
   <string name="cups_queen_meanings">A compassionate and intuitive woman, reverence for life.</string>
   <string name="cups_queen_reversed"></string>
+  <string name="cups_queen_abst_reversed"></string>
   <string name="cups_queen_in_spiritual"></string>
   <string name="cups_queen_in_material"></string>
   <string name="cups_queen_well_dignified">an opportunity to turn inwards and examine your feelings</string>
@@ -2002,6 +2052,7 @@
   <string name="cups_king_abst">Culture and intelligence.</string>
   <string name="cups_king_meanings">a wise and understanding man with deep knowledge of the world; an attentive listener and advisor</string>
   <string name="cups_king_reversed"></string>
+  <string name="cups_king_abst_reversed"></string>
   <string name="cups_king_in_spiritual"></string>
   <string name="cups_king_in_material"></string>
   <string name="cups_king_well_dignified">caring and empathic assistance</string>
@@ -2022,6 +2073,7 @@
   <string name="swords_01_abst">Inner resources to overcome obstacles</string>
   <string name="swords_01_meanings">intelligence, reason, justice, truth, clarity and fortitude</string>
   <string name="swords_01_reversed"></string>
+  <string name="swords_01_abst_reversed"></string>
   <string name="swords_01_in_spiritual"></string>
   <string name="swords_01_in_material"></string>
   <string name="swords_01_well_dignified"></string>
@@ -2052,6 +2104,7 @@
   <string name="swords_02_abst">barriers, both internal and external; contradictory characters in the same nature: strength through suffering; pleasure after pain.</string>
   <string name="swords_02_meanings">delay in the realization of objectives, a period of uncertainty</string>
   <string name="swords_02_reversed"></string>
+  <string name="swords_02_abst_reversed"></string>
   <string name="swords_02_in_spiritual"></string>
   <string name="swords_02_in_material"></string>
   <string name="swords_02_well_dignified"></string>
@@ -2098,6 +2151,7 @@
   <string name="swords_03_abst">something is amiss</string>
   <string name="swords_03_meanings">sorrow, disappointment, tears; delay, absence, separation, divorce; disruption of friendship, interruption of cherished projects, quarrels</string>
   <string name="swords_03_reversed"></string>
+  <string name="swords_03_abst_reversed"></string>
   <string name="swords_03_in_spiritual"></string>
   <string name="swords_03_in_material"></string>
   <string name="swords_03_well_dignified"></string>
@@ -2138,6 +2192,7 @@
   <string name="swords_04_abst">Shifting focus</string>
   <string name="swords_04_meanings">recuperation, meditation, relaxation</string>
   <string name="swords_04_reversed"></string>
+  <string name="swords_04_abst_reversed"></string>
   <string name="swords_04_in_spiritual"></string>
   <string name="swords_04_in_material"></string>
   <string name="swords_04_well_dignified">Rest after sorrow, relief from anxiety, rest after illness, quietness, change for the better, success in legal affairs. Strong mental attraction to a person of the opposite sex; activity in writing or short journeys.</string>
@@ -2188,6 +2243,7 @@
   <string name="swords_05_abst">self interest</string>
   <string name="swords_05_meanings">one-upmanship, vindictiveness, degredation</string>
   <string name="swords_05_reversed"></string>
+  <string name="swords_05_abst_reversed"></string>
   <string name="swords_05_in_spiritual">the end of a course of action in apparent defeat which will nevertheless produce a good ultimate result</string>
   <string name="swords_05_in_material">loss and failure</string>
   <string name="swords_05_well_dignified">Failure, defeat, trouble, poverty, and anxiety. Subject to slander.</string>
@@ -2230,6 +2286,7 @@
   <string name="swords_06_abst">moving away from stress and troubles</string>
   <string name="swords_06_meanings">dullness, listlessness, a time of recovery</string>
   <string name="swords_06_reversed"></string>
+  <string name="swords_06_abst_reversed"></string>
   <string name="swords_06_in_spiritual"></string>
   <string name="swords_06_in_material"></string>
   <string name="swords_06_well_dignified">Success after a period of trouble or anxiety; difficulties overcome; change of scene, possibly a journey; something mysterious effects a change of circumstances for the better; success earned through laborious efforts.</string>
@@ -2280,6 +2337,7 @@
   <string name="swords_07_abst">the lone wolf, veiled intent</string>
   <string name="swords_07_meanings">involvement in underhanded, deceptive, illicit, or sneaky endeavors</string>
   <string name="swords_07_reversed"></string>
+  <string name="swords_07_abst_reversed"></string>
   <string name="swords_07_in_spiritual"></string>
   <string name="swords_07_in_material"></string>
   <string name="swords_07_well_dignified">Opposition to intellectual freedom and independence.</string>
@@ -2324,6 +2382,7 @@
   <string name="swords_08_abst">restricted by circumstances</string>
   <string name="swords_08_meanings">force wasted in petty affairs; too much talk; too much ill-directed action; the state of being terribly busy without accomplishing much; over-careful about details</string>
   <string name="swords_08_reversed"></string>
+  <string name="swords_08_abst_reversed"></string>
   <string name="swords_08_in_spiritual"></string>
   <string name="swords_08_in_material"></string>
   <string name="swords_08_well_dignified"></string>
@@ -2368,6 +2427,7 @@
   <string name="swords_09_abst">unhappiness, trouble, a vulnerable spot</string>
   <string name="swords_09_meanings">unfounded fears, disturbed sleep, guiltiness</string>
   <string name="swords_09_reversed"></string>
+  <string name="swords_09_abst_reversed"></string>
   <string name="swords_09_in_spiritual"></string>
   <string name="swords_09_in_material"></string>
   <string name="swords_09_well_dignified"></string>
@@ -2414,6 +2474,7 @@
   <string name="swords_10_abst">hitting rock bottom</string>
   <string name="swords_10_meanings">interference from others, and loss through indiscretion in writing or signing contracts.</string>
   <string name="swords_10_reversed"></string>
+  <string name="swords_10_abst_reversed"></string>
   <string name="swords_10_in_spiritual">the end of delusion; the overthrow of limiting conditions; breakup of limitations</string>
   <string name="swords_10_in_material">sudden and unexpected changes, not necessarily unfortunate in the long run, but disappointing when experienced</string>
   <string name="swords_10_well_dignified"></string>
@@ -2454,6 +2515,7 @@
   <string name="swords_page_abst">Embrace difficult situations</string>
   <string name="swords_page_meanings">A youthful person bringing opportunities to experience growth in the guise of a problem or dilemma. An opening may appear after a series of trials that test your mettle.</string>
   <string name="swords_page_reversed"></string>
+  <string name="swords_page_abst_reversed"></string>
   <string name="swords_page_in_spiritual"></string>
   <string name="swords_page_in_material"></string>
   <string name="swords_page_well_dignified"></string>
@@ -2474,6 +2536,7 @@
   <string name="swords_knight_abst">Force of intellect</string>
   <string name="swords_knight_meanings">A young strong adult, assertive and analytical</string>
   <string name="swords_knight_reversed"></string>
+  <string name="swords_knight_abst_reversed"></string>
   <string name="swords_knight_in_spiritual"></string>
   <string name="swords_knight_in_material"></string>
   <string name="swords_knight_well_dignified">A period of struggle or confrontation in which quick and firm action are required.</string>
@@ -2494,6 +2557,7 @@
   <string name="swords_queen_abst">Candor, lack of pretense</string>
   <string name="swords_queen_meanings">A straightforward and direct woman, experienced in the ways of the world</string>
   <string name="swords_queen_reversed"></string>
+  <string name="swords_queen_abst_reversed"></string>
   <string name="swords_queen_in_spiritual"></string>
   <string name="swords_queen_in_material"></string>
   <string name="swords_queen_well_dignified">Autonomy, aloofness, and independence.</string>
@@ -2514,6 +2578,7 @@
   <string name="swords_king_abst">Mastery of reason and logic</string>
   <string name="swords_king_meanings">A man of cool rationality. Very observant.</string>
   <string name="swords_king_reversed"></string>
+  <string name="swords_king_abst_reversed"></string>
   <string name="swords_king_in_spiritual"></string>
   <string name="swords_king_in_material"></string>
   <string name="swords_king_well_dignified">Originality, desire to break the mold.</string>
@@ -2534,6 +2599,7 @@
   <string name="pentacles_02_abst">flexibility and adaptation</string>
   <string name="pentacles_02_meanings">harmony in the midst of change, alternation of gain and loss; change of occupation; travel in quest of wealth; ups and downs of fortune; a visit to friends</string>
   <string name="pentacles_02_reversed"></string>
+  <string name="pentacles_02_abst_reversed"></string>
   <string name="pentacles_02_in_spiritual"></string>
   <string name="pentacles_02_in_material"></string>
   <string name="pentacles_02_well_dignified"></string>
@@ -2574,6 +2640,7 @@
   <string name="pentacles_03_abst">collaboration; working together</string>
   <string name="pentacles_03_meanings">accomplishment, growth</string>
   <string name="pentacles_03_reversed"></string>
+  <string name="pentacles_03_abst_reversed"></string>
   <string name="pentacles_03_in_spiritual"></string>
   <string name="pentacles_03_in_material"></string>
   <string name="pentacles_03_well_dignified">Construction; increase, growth; financial gain; the building up of favorable conditions; gain in commercial transactions; rank or prestige in vocation or business; beginning of matters to be perfected later.</string>
@@ -2618,6 +2685,7 @@
   <string name="pentacles_04_abst">imposition of will</string>
   <string name="pentacles_04_meanings">ownership; stubborness</string>
   <string name="pentacles_04_reversed"></string>
+  <string name="pentacles_04_abst_reversed"></string>
   <string name="pentacles_04_in_spiritual"></string>
   <string name="pentacles_04_in_material"></string>
   <string name="pentacles_04_well_dignified">Opportunities for public service; an acute, sharp, penetrating, tactful temperament; economy in the arrangement of material affairs; activity in money-matters.</string>
@@ -2662,6 +2730,7 @@
   <string name="pentacles_05_abst">want of necessities</string>
   <string name="pentacles_05_meanings">degredation of health; economic setbacks; social rejection</string>
   <string name="pentacles_05_reversed"></string>
+  <string name="pentacles_05_abst_reversed"></string>
   <string name="pentacles_05_in_spiritual"></string>
   <string name="pentacles_05_in_material"></string>
   <string name="pentacles_05_well_dignified">Labor, toil, the cultivation of the land; building, and plans concerning it; some anxiety over money.</string>
@@ -2708,6 +2777,7 @@
   <string name="pentacles_06_abst">equitable distribution; generosity</string>
   <string name="pentacles_06_meanings">getting what you deserve</string>
   <string name="pentacles_06_reversed"></string>
+  <string name="pentacles_06_abst_reversed"></string>
   <string name="pentacles_06_in_spiritual"></string>
   <string name="pentacles_06_in_material"></string>
   <string name="pentacles_06_well_dignified">Practicality and determination; discretion and diplomacy; gain by writing, speaking, travel, teaching, commissions, and through advertising, study, books.</string>
@@ -2744,6 +2814,7 @@
   <string name="pentacles_07_abst">time for reflection; crossroads</string>
   <string name="pentacles_07_meanings">perseverance, investment</string>
   <string name="pentacles_07_reversed"></string>
+  <string name="pentacles_07_abst_reversed"></string>
   <string name="pentacles_07_in_spiritual"></string>
   <string name="pentacles_07_in_material"></string>
   <string name="pentacles_07_well_dignified">Slight gains, but of small account; much labor for small returns.</string>
@@ -2786,6 +2857,7 @@
   <string name="pentacles_08_abst">diligence and focus; meticulous attention</string>
   <string name="pentacles_08_meanings">growth through application of skill; gaining experience</string>
   <string name="pentacles_08_reversed"></string>
+  <string name="pentacles_08_abst_reversed"></string>
   <string name="pentacles_08_in_spiritual"></string>
   <string name="pentacles_08_in_material"></string>
   <string name="pentacles_08_well_dignified">Skill in the management of material affairs; industry; gain in subordinate positions, through writings, clerical work or travel; gain of ready money in small sums.</string>
@@ -2824,6 +2896,7 @@
   <string name="pentacles_09_abst">Self reliance</string>
   <string name="pentacles_09_meanings">discipline and self control; self mastery</string>
   <string name="pentacles_09_reversed"></string>
+  <string name="pentacles_09_abst_reversed"></string>
   <string name="pentacles_09_in_spiritual"></string>
   <string name="pentacles_09_in_material"></string>
   <string name="pentacles_09_well_dignified">Reserve, discretion, caution, frugality; some worries over money-matters, because of slow maturing of plans; gain through careful investment.</string>
@@ -2862,6 +2935,7 @@
   <string name="pentacles_10_abst">stability; settling down</string>
   <string name="pentacles_10_meanings">family support; material abundance</string>
   <string name="pentacles_10_reversed"></string>
+  <string name="pentacles_10_abst_reversed"></string>
   <string name="pentacles_10_in_spiritual"></string>
   <string name="pentacles_10_in_material"></string>
   <string name="pentacles_10_well_dignified">Money through subordinates; completion in material gain and fortune.</string>
@@ -2906,6 +2980,7 @@
   <string name="pentacles_page_abst">stability, trust, commitment</string>
   <string name="pentacles_page_meanings">A youthful person bringing opportunities to experience prosperity. An opening may appear promising enrichment, comfort, trust, and the chance to realize your dreams.</string>
   <string name="pentacles_page_reversed"></string>
+  <string name="pentacles_page_abst_reversed"></string>
   <string name="pentacles_page_in_spiritual"></string>
   <string name="pentacles_page_in_material"></string>
   <string name="pentacles_page_well_dignified">An opportunity to make money or engage in a new business venture.</string>
@@ -2926,6 +3001,7 @@
   <string name="pentacles_knight_abst">Tremendous stamina and dedication.</string>
   <string name="pentacles_knight_meanings">A young hard working adult, steadfast and stubborn.</string>
   <string name="pentacles_knight_reversed"></string>
+  <string name="pentacles_knight_abst_reversed"></string>
   <string name="pentacles_knight_in_spiritual"></string>
   <string name="pentacles_knight_in_material"></string>
   <string name="pentacles_knight_well_dignified">A new or unexpected source of prosperity.</string>
@@ -2946,6 +3022,7 @@
   <string name="pentacles_queen_abst">Practical management</string>
   <string name="pentacles_queen_meanings">A loyal and steadfast woman, inspiring trust.</string>
   <string name="pentacles_queen_reversed"></string>
+  <string name="pentacles_queen_abst_reversed"></string>
   <string name="pentacles_queen_in_spiritual"></string>
   <string name="pentacles_queen_in_material"></string>
   <string name="pentacles_queen_well_dignified">A sensible, pratical approach brings steady progress.</string>
@@ -2966,6 +3043,7 @@
   <string name="pentacles_king_abst">Worldly success</string>
   <string name="pentacles_king_meanings">An adept and enterprising man. Dependable and responsible jack of all trades.</string>
   <string name="pentacles_king_reversed"></string>
+  <string name="pentacles_king_abst_reversed"></string>
   <string name="pentacles_king_in_spiritual"></string>
   <string name="pentacles_king_in_material"></string>
   <string name="pentacles_king_well_dignified">Rewards of business involvement and organization of finances.</string>

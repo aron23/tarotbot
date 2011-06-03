@@ -111,4 +111,6 @@ public class BotaInt extends Interpretation {
 	public static void setMyQuerant(Querant aq) {
 		myQuerant = aq;
 	}
+
+	
 }

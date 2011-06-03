@@ -12,22 +12,29 @@ import liberus.tarot.os.activity.AbstractTarotBotActivity;
 import liberus.tarot.android.noads.R;
 import liberus.tarot.spread.Spread;
 import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.widget.ImageView;
 
 public class GothicBrowseSpread extends GothicSpread {
 	
 	
-	private static int significatorIn;
 	private int myNum;
+	private boolean trumpsonly;
 
 
-	public GothicBrowseSpread(Interpretation in) {
+	public GothicBrowseSpread(Interpretation in, boolean trumps) {
 		super(in);
-		browsing = true;
-		myNum = 78;
-		myLabels = new String[78];	
-		myDeck.reversed = Interpretation.myDeck.noreversal;
+		trumpsonly = trumps;
+//		if (trumpsonly) {
+//			myNum = 22;
+//			myLabels = new String[22];
+//		} else {
+			myNum = 78;
+			myLabels = new String[78];			
+//		}
+		browsing = true;	
 	}
 	
 	@Override
@@ -39,17 +46,60 @@ public class GothicBrowseSpread extends GothicSpread {
 
 	@Override
 	public int getLayout() {
+		switch (paged) {
+		case 0: return R.layout.browserlayout_trumps; 
+		case 1: return R.layout.browserlayout_wands; 
+		case 2: return R.layout.browserlayout_cups; 
+		case 3: return R.layout.browserlayout_swords; 
+		case 4: return R.layout.browserlayout_pent; 
+		}
 		return R.layout.browserlayout;
 	}
 
 	public View populateSpread(View layout, AbstractTarotBotActivity act, Context ctx) {
-		layout = populateTrumps(layout,act,ctx);
-		layout = populateWands(layout,act,ctx);
-		layout = populateCups(layout,act,ctx);
-		layout = populateSwords(layout,act,ctx);
-		layout = populatePentacles(layout,act,ctx);
+		layout = populateNavigation(layout,act,ctx);
+		switch (paged) {
+		case 0: layout = populateTrumps(layout,act,ctx); break; 
+		case 1: layout = populateWands(layout,act,ctx); break; 
+		case 2: layout = populateCups(layout,act,ctx); break; 
+		case 3: layout = populateSwords(layout,act,ctx); break; 
+		case 4: layout = populatePentacles(layout,act,ctx); break; 
+		}
+		
 		return layout;
 	}
+	
+	private View populateNavigation(View layout, AbstractTarotBotActivity act,
+			Context ctx) {
+		ImageView card = (ImageView) layout.findViewById(R.id.browse_triumph);
+		card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.triumph,null)));
+		card.setId(0);
+		card.setOnClickListener(act);
+		
+		card = (ImageView) layout.findViewById(R.id.browse_wands);
+		card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.wands,null)));
+		card.setId(1);
+		card.setOnClickListener(act);
+		
+		card = (ImageView) layout.findViewById(R.id.browse_cups);
+		card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.cups,null)));
+		card.setId(2);
+		card.setOnClickListener(act);
+		
+		card = (ImageView) layout.findViewById(R.id.browse_swords);
+		card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.swords,null)));
+		card.setId(3);
+		card.setOnClickListener(act);
+		
+		card = (ImageView) layout.findViewById(R.id.browse_pent);
+		card.setImageDrawable(new BitmapDrawable(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.pent,null)));
+		card.setId(4);
+		card.setOnClickListener(act);
+		
+		return layout;
+	}
+
+
 
 	private View populateWands(View layout, AbstractTarotBotActivity act,Context ctx) {
 		ImageView card = (ImageView) layout.findViewById(R.id.wands_01);

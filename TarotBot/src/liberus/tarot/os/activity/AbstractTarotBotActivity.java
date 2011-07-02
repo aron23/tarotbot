@@ -537,9 +537,9 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected void setFullscreen() {
 		//getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 		//requestWindowFeature(Window.FEATURE_NO_TITLE); 
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		requestWindowFeature(Window.FEATURE_NO_TITLE); 
+		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+		//		WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		//requestWindowFeature(Window.FEATURE_NO_TITLE); 
 	}  
 
 	public void incrementSecondSet(int index) {		
@@ -702,8 +702,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		flipper.setPersistentDrawingCache(ViewGroup.PERSISTENT_NO_CACHE);
 		flipper.setDrawingCacheEnabled(false);
 		flipper.setDisplayedChild(0);
-		
-		toastSpread();
+		if (!browsing)
+			toastSpread();
 	}
 
 	protected void redisplaySecondStage(int indexin) {
@@ -848,7 +848,9 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 				File toRead = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType())+".ex");
 	            if (toRead.exists() ){//&& ((conf.screenLayout&Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE)) {
 
-	            	bmp = BitmapFactory.decodeFile(toRead.getPath()+"/"+WebUtils.md5(BotaInt.getCardName(flipdex.get(index))));
+	            	bmp = BitmapFactory.decodeFile(toRead.getPath()+"/"+WebUtils.md5(getMyType()+"/"+BotaInt.getCardName(flipdex.get(index))));
+	            	if (bmp==null)
+	            		bmp = BitmapFactory.decodeFile(toRead.getPath()+"/"+WebUtils.md5(BotaInt.getCardName(flipdex.get(index))));
 	            	System.err.println(toRead.getPath()+"/"+WebUtils.md5(BotaInt.getCardName(flipdex.get(index))));
 	            	//bmp = BitmapFactory.decodeByteArray(buf, 0,buf.length);
 	        		deckPrefs = getSharedPreferences("decked", 0);

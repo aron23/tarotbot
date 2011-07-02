@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<resources>
+    <string name="spread_prompt">choisir un tirage</string>
+    <string name="navigate_prompt">choisir une carte</string>
+    <string name="launch_reading">lire</string>
+    <string name="reversalprompt">\t\t admettre inversion</string>
+    <string name="portraitnavigation"> passez le doigt vers le haut ou vers le bas pour voir l\'interprétation, gauche ou droite pour naviguer dans le tirage</string>
+    <string name="landscapenavigation">passez le doigt à gauche ou à droite pour naviguer dans le tirage</string>
+    <string name="load_menu">charger</string>
+    <string name="save_menu">enregistrer</string>
+    <string name="share_menu">partager</string>
+    <string name="help_menu">aide</string>
+    <string name="browse_menu">voir le jeu de cartes</string>
+    <string name="navigate_menu">voir le tirage</string>
+    <string name="loadprompt">choisir une interpretation à charger</string>
+    <string name="share_intent"> partager l\'interpretation</string>
+    <string name="share_subject">interpretation TarotBot</string>
+    <string name="save_label"> renommer l\'interpretation</string>
+    <string name="save_label_ok">OK</string>
+    <string name="save_label_no">non merci</string>
+    <string name="reverse_cards_yes">admettre inversion [Oui]</string>
+    <string name="reverse_cards_no">admettre inversion [Non]</string>
+    <string name="trumps_only_yes">atouts que [Oui]</string>
+    <string name="trumps_only_no">atouts que [Non]</string>
+    <string name="are_you_sure">Etes-vous sûr?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+</resources>

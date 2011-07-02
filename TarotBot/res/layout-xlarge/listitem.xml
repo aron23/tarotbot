@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/menuitem"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:height="65dip"    
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:typeface="serif"
+    android:textSize="28sp"
+    android:textStyle="bold"
+    android:textColor="@color/menu_colors"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"    
+    >
+</TextView>

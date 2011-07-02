@@ -1,0 +1,11 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<resources>
+   <string name="status_prompt">choisissez ce que vous décrit le mieux:</string>
+    <string name="birthdate_prompt">entrez votre date de naissance</string>
+    <string name="questionprompt">configurez votre date de naissance, choisissez le statut approprié, et envisagez votre question</string>
+    <string name="status_sf">femme, célibataire</string>
+    <string name="status_sm">homme, célibataire</string>
+    <string name="status_pf">femme, dans une relation</string>
+    <string name="status_pm">homme, dans une relation</string>
+    <string name="position">Position</string>
+</resources>

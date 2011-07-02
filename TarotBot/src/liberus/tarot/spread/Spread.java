@@ -279,7 +279,7 @@ public abstract class Spread {
 	   
 		if (browsing)
 			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
-				options.inSampleSize = 2;
+				options.inSampleSize = 0;
 //			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
 //				options.inSampleSize = 3;
 			else

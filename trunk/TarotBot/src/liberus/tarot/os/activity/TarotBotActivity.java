@@ -39,6 +39,7 @@ import liberus.tarot.spread.Spread;
 
 import liberus.utils.EfficientAdapter;
 import liberus.utils.MyProgressDialog;
+import liberus.utils.TarotBotManager;
 import liberus.utils.WebUtils;
 import liberus.utils.color.ColorDialog;
 import android.app.Activity;
@@ -370,7 +371,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	public void onClick(Object tag, int color) {
 		displayPrefsEd.putInt("background.color", color);
 		displayPrefsEd.commit();
-		View options = findViewById(R.id.optionlayout);
+		View options = findViewById(R.id.mainlayout);
 		options.setBackgroundColor(color);
 	}
 	
@@ -1041,6 +1042,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				return true;
 			}
 		} else if (keyCode == KeyEvent.KEYCODE_MENU) {
+			if (TarotBotManager.isCompatibleAPI(11, getApplicationContext()))
+				System.out.println("hahaha");
 			if (state.endsWith("menu"))
 				return true;
 			priorstate = state;

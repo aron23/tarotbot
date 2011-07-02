@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/secondsetlayout"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<ImageView 
+	android:id="@+id/divine"
+	android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:scaleType="fitStart"
+    android:adjustViewBounds="true"
+    android:paddingRight="10dip"
+    />    	     
+<ScrollView android:id="@+id/ScrollView01"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent">    
+<TextView 
+	android:id="@+id/interpretation" 
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:layout_marginTop="5dip"
+	android:layout_marginBottom="5dip"
+	android:layout_marginLeft="15dip"
+    android:typeface="serif"
+    android:textSize="23sp"
+    android:textStyle="bold"
+    android:textColor="@color/menu_colors"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1" 
+    />  
+    </ScrollView>
+</LinearLayout>

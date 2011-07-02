@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="spread_array">
+	<item>Flèche du Temps</item>
+	<item>Dialectique</item>
+	<item>Pentacle</item>
+	<item>Etoile du chaos</item>
+	<item>Croix celtique</item>
+	<item>BOTA</item>
+   </string-array>
+	<string-array name="status_array">
+	<item>femme, célibataire</item>
+	<item>homme, célibataire</item>
+	<item>femme, dans une relation</item>
+	<item>homme, dans une relation</item>
+   </string-array>
+    <string-array name="single">
+	<item></item>
+   </string-array>
+    <string-array name="timeArrow">
+	<item>le passé</item>
+	<item>le présent</item>
+	<item>l\'avenir</item>
+   </string-array>
+    <string-array name="dialectic">
+	<item>thèse</item>
+	<item>antithèse</item>
+	<item>synthèse</item>
+   </string-array>
+    <string-array name="pentagram">
+	<item>le feu: action / activités / détermination</item>
+	<item>l\'eau: relations / aspects émotionnels</item>
+	<item>l\'air: pensée / conflit</item>
+	<item>la terre: la carrière / l\'argent / des aspects pratiques </item>
+	<item>la dimension spirituelle</item>
+   </string-array>
+	<string-array name="chaosStar">
+	<item>rouge: des conflits externes</item>
+	<item>orange: l\'état mental</item>
+	<item>violet: sexe, passion</item>
+	<item>jaune: ego,la confiance en soi</item>
+	<item>vert: l\'amour,des relations</item>
+	<item>bleu: la richesse</item>
+	<item>noir: habitudes d\'auto-destructrice</item>
+	<item>octarine: le soi magique</item>
+   </string-array>
+    <string-array name="celticCross">
+	<item>le cœur de la question</item>
+	<item>le facteur adverse</item>
+	<item>des causes profondes</item>
+	<item>le passé</item>
+	<item>les attitudes et les croyances</item>
+	<item>l\'avenir</item>
+	<item>vous que vous êtes</item>
+	<item>l\'environnement extérieur</item>
+	<item>direction</item>
+	<item>les résultats</item>
+   </string-array>
+   <string-array name="main_menu">  
+   		<item>carte du jour</item>
+    	<item>tirer une carte</item>      
+        <item>feuilleter le jeu</item>
+        <item>choisir une disposition</item>
+        <item>interpretation enregistrée</item>
+        <item>a propos de tarot</item>        
+        <item>a propos de l\'artiste</item>
+        <item>a propos de l\'app</item>
+        <item>les options</item> 
+    </string-array>
+    <string-array name="second_menu">        
+        <item>voir la disposition complète</item>
+        <item>enregistrer l\'interpretation</item>
+        <item>partager l\'interpretation</item>      
+        <item>choisir la disposition</item>
+        <item>a propos de tarot</item>        
+        <item>a propos de l\'artiste</item>
+        <item>a propos de l\'app</item>
+        <item>les options</item> 
+    </string-array>
+</resources>

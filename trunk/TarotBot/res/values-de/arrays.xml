@@ -57,24 +57,24 @@
 	<item>Dorthin führt es </item>
    </string-array>
    <string-array name="main_menu">  
-   		<item>Gegenwart</item>
-    	<item>Einzelne Karte</item>      
-        <item>Deck durchblättern</item>
-        <item>Wähle ein Legesystem</item>
-        <item>Eine Lesung laden</item>
-        <item>Über Tarot</item>        
-        <item>Über den Künstler</item>
-        <item>Über App</item>
+   		<item>Karte des Tages</item>
+    	<item>eine Karte ziehen</item>      
+        <item>Karten durchblättern</item>
+        <item>Legesystem wählen</item>
+        <item>abgespeicherte Lesung laden</item>
+        <item>über Tarot</item>        
+        <item>über den Künstler</item>
+        <item>über das App</item>
         <item>Optionen</item> 
     </string-array>
     <string-array name="second_menu">        
-        <item>Legung ansehen</item>
-        <item>Speichern</item>
-        <item>Weiterempfehlen</item>      
-        <item>Wähle ein Legesystem</item>
-        <item>Über Tarot</item>        
-        <item>Über den Künstler</item>
-        <item>Über App</item>   
+        <item>die ganze Legung anzeigen</item>
+        <item>Lesung speichern</item>
+        <item>Lesung weiterleiten</item>      
+        <item>Legesystem wählen</item>
+        <item>über Tarot</item>        
+        <item>über den Künstler</item>
+        <item>über das App</item>   
         <item>Optionen</item>
     </string-array>
 </resources>

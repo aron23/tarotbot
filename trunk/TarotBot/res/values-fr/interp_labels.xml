@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<resources>
+    <string name="time_period_label"> période de temps</string>
+    <string name="astrology_label"> l\'astrologie</string>
+    <string name="keyword_label">mot-clé</string>
+    <string name="element_label">élément</string>
+    <string name="archetype_label"> archétype jungien</string>
+    <string name="hebrew_label">Hébreu</string>
+    <string name="spiritual_matters_label">aux affaires spirituelles</string>
+    <string name="material_matters_label"> aux affaires matérielles</string>
+    <string name="strengthened_by_label">Renforcée par des cartes entourantes</string>
+    <string name="impacted_by_label">Influencé négativement par des cartes entourantes</string>
+    <string name="related_label"> les comportements liés</string>
+    <string name="querant_label">Cette carte vous représente.</string>
+    <string name="personal_label">cette interpretation est particulièrement personnelle</string>
+    <string name="significant_label">cette carte est la plus importante du tirage</string>
+    <string name="general_label">En général</string>
+    <string name="directly_label">Plus directement</string>
+</resources>

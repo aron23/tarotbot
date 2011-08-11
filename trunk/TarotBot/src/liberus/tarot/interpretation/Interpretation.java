@@ -17,7 +17,7 @@ public abstract class Interpretation {
 	//protected static Integer[] cards = new Integer[78];
 	public static Querant myQuerant;
 	public static Pattern suitpat = Pattern.compile("(Wands|Cups|Swords|Pentacles)");
-	public static Deck myDeck;
+	public Deck myDeck;
 	
 	public Interpretation(Deck deck) {
 		myDeck = deck;

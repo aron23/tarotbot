@@ -3,11 +3,14 @@
         android:id="@+id/mainlayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     > 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/maininnerlayout"
     android:orientation="vertical"
     android:layout_width="fill_parent"
+    android:gravity="center"
     android:layout_height="fill_parent"
     >     
 <DatePicker 
@@ -34,5 +37,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />      
+<TextView 
+	android:id="@+id/aboutbota" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:textColor="#FFFFFF"
+    android:typeface="serif"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:textSize="17sp"
+    android:gravity="center"
+    android:layout_gravity="left"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
+    android:text="@string/questionprompt"/>  
 </LinearLayout>
 </RelativeLayout>

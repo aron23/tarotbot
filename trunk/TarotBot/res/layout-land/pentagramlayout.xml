@@ -28,7 +28,7 @@
 
 					android:orientation="horizontal" android:layout_gravity="bottom"
 					android:gravity="bottom" android:clipChildren="true"
-					android:layout_weight="2">
+					android:layout_weight="1">
 					<LinearLayout android:id="@+id/leftcolumn"
 						xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_width="fill_parent" android:layout_height="fill_parent"
@@ -42,7 +42,7 @@
 
 							android:layout_gravity="center" android:gravity="center"
 							android:clipChildren="true" android:layout_margin="16dip"
-							android:layout_weight="4"/>
+							android:layout_weight="5"/>
 						<LinearLayout android:id="@+id/pentagram_fire_back"
 							xmlns:android="http://schemas.android.com/apk/res/android"
 							android:layout_height="fill_parent" android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
 
 							android:layout_gravity="center" android:gravity="center"
 							android:clipChildren="true" android:layout_margin="16dip"
-							android:layout_weight="4"/>
+							android:layout_weight="5"/>
 					</LinearLayout>
 
 					<LinearLayout android:id="@+id/rightcolumn"
@@ -100,7 +100,7 @@
 
 							android:layout_gravity="center" android:gravity="center"
 							android:clipChildren="true" android:layout_margin="16dip"
-							android:layout_weight="4"/>
+							android:layout_weight="5"/>
 						<LinearLayout android:id="@+id/pentagram_earth_back"
 							xmlns:android="http://schemas.android.com/apk/res/android"
 							android:layout_height="fill_parent" android:layout_width="wrap_content"
@@ -129,7 +129,7 @@
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
 
 						android:layout_gravity="top" android:gravity="top"
-						android:clipChildren="true" android:layout_weight="4" />
+						android:clipChildren="true" android:layout_weight="3" />
 					<LinearLayout android:id="@+id/pentagram_water_back"
 						xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="wrap_content" android:layout_width="fill_parent"
@@ -148,7 +148,7 @@
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
 
 						android:layout_gravity="top" android:gravity="top"
-						android:clipChildren="true" android:layout_weight="4" />
+						android:clipChildren="true" android:layout_weight="3" />
 					<LinearLayout android:id="@+id/pentagram_air_back"
 						xmlns:android="http://schemas.android.com/apk/res/android"
 						android:layout_height="wrap_content" android:layout_width="fill_parent"
@@ -167,7 +167,7 @@
 						android:layout_height="fill_parent" android:layout_width="fill_parent"
 
 						android:layout_gravity="top" android:gravity="top"
-						android:clipChildren="true" android:layout_weight="4" />
+						android:clipChildren="true" android:layout_weight="3" />
 				</LinearLayout>
 			</LinearLayout>
 		</ScrollView>

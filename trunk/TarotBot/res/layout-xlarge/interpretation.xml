@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/readinglayout"
     android:orientation="vertical"
@@ -6,67 +7,111 @@
     android:layout_height="fill_parent"
     android:layout_marginLeft="20dip"
     android:layout_marginRight="20dip"
-    android:background="#000000"
+    android:layout_gravity="top"
     >
-     <RelativeLayout android:id="@+id/header"
- xmlns:android="http://schemas.android.com/apk/res/android"
- android:layout_height="wrap_content" android:layout_width="fill_parent"
- android:layout_gravity="center">
+ <LinearLayout android:id="@+id/header"
+	 xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:layout_height="wrap_content" 
+	 android:layout_width="fill_parent"
+	 android:gravity="center_horizontal"
+	 android:layout_gravity="center_horizontal">
     <TextView android:id="@+id/title" android:layout_width="wrap_content"
- android:gravity="center_vertical" android:textSize="18sp"
- android:textColor="#ff0000"
- android:shadowColor="#000000"
- android:typeface="serif"
- android:textStyle="bold"
- android:layout_height="wrap_content" android:layout_centerInParent="true"
- android:padding="2dip" />
- </RelativeLayout>
- <RelativeLayout android:id="@+id/cardlabellayout"
- xmlns:android="http://schemas.android.com/apk/res/android"
- android:layout_height="wrap_content" android:layout_width="fill_parent"
- android:layout_gravity="center">
-    <TextView android:id="@+id/cardlabel" android:layout_width="wrap_content"
- android:gravity="center_vertical" android:textSize="18sp"
- android:textColor="#ff0000"
- android:shadowColor="#000000"
- android:typeface="serif"
- android:textStyle="bold"
- android:layout_height="wrap_content" android:layout_centerInParent="true"
- android:padding="2dip" />
- </RelativeLayout>
- <LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
-  android:layout_below="@id/title"
-  android:layout_marginTop="2dip"
-  >
+     android:textSize="24sp"
+	 android:textColor="@color/label_colors"
+	 android:shadowColor="#000000"
+	 android:textStyle="bold"
+	 android:typeface="serif"
+	 android:layout_height="wrap_content" 
+	 android:layout_centerInParent="true"
+	 android:padding="2dip" />
+ </LinearLayout>
+ <LinearLayout android:id="@+id/cardlabellayout"
+	 xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:layout_height="wrap_content" 
+	 android:layout_width="fill_parent"
+	 android:gravity="center_horizontal"
+	 android:layout_gravity="center_horizontal">
+    <TextView android:id="@+id/cardlabel" 
+     android:layout_width="wrap_content"
+	 android:gravity="center_vertical" 
+	 android:textSize="24sp"
+	 android:typeface="serif"
+	 android:textColor="@color/label_colors"
+	 android:shadowColor="#000000"
+	 android:textStyle="bold"
+	 android:layout_height="wrap_content" 
+	 android:layout_centerInParent="true"
+	 android:padding="2dip" />
+ </LinearLayout>
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent" 
-	>
+    android:layout_height="fill_parent"   
+    android:fillViewport="true"
+    android:fadingEdge="none">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/readinglayout"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >		     
+    android:layout_gravity="top"
+    >		   
 <TextView 
 	android:id="@+id/interpretation" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
+    android:textColor="#FFFFFF"
+    android:typeface="serif"
     android:layout_marginLeft="20dip"
     android:layout_marginRight="20dip"
-    android:typeface="serif"
     android:textSize="23sp"
-    android:textStyle="bold"
-    android:textColor="@color/menu_colors"
+    android:gravity="left"
+    android:layout_gravity="left"
     android:shadowColor="#000000"
     android:shadowRadius="1.5"  
     android:shadowDx="1"  
-    android:shadowDy="1" /> 
+    android:shadowDy="1"/>   
+<LinearLayout 
+	android:id="@+id/menulayout"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:layout_gravity="bottom"
+    android:background="@android:color/transparent"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@id/interpretation"
+    >
+<ImageView 
+	android:id="@+id/spreadkey" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:scaleType="fitCenter"
+    android:background="@android:color/transparent"
+    android:src="@drawable/spread" android:layout_gravity="center"/>       
+</LinearLayout> 
+<LinearLayout 
+	android:id="@+id/menulayout2"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:layout_gravity="bottom"
+    android:background="@android:color/transparent"
+    android:layout_alignParentRight="true"
+    android:layout_below="@id/interpretation"
+    >
+<ImageView 
+	android:id="@+id/cardkey" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:scaleType="fitCenter"
+    android:background="@android:color/transparent"
+    android:src="@drawable/card" android:layout_gravity="center"/>       
+</LinearLayout>
 </RelativeLayout>
 </ScrollView>
 </LinearLayout>
-</LinearLayout>
+

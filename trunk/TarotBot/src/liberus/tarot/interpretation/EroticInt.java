@@ -11,7 +11,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.content.Context;
-import android.telephony.TelephonyManager;
+import android.content.SharedPreferences;
+//import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 import liberus.tarot.deck.Deck;
@@ -63,7 +64,7 @@ public class EroticInt extends Interpretation {
 		return (context[0] == -1 || context[1] == -1);
 	}
 
-	public static boolean isReversed(int i) {
+	public boolean isReversed(int i) {
 		return myDeck.reversed[i];
 	}
 	
@@ -77,8 +78,17 @@ public class EroticInt extends Interpretation {
 		begin.set(Calendar.SECOND,0);
 		begin.set(Calendar.MINUTE,0);
 		begin.set(Calendar.HOUR,0);		
-		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-		String seed = tel.getDeviceId();
+		//TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		//String seed = tel.getDeviceId();
+
+		SharedPreferences readingPrefs = context.getSharedPreferences("tarotbot.reading", 0);
+		int seedy = readingPrefs.getInt("seed", new Random().nextInt());
+		
+		SharedPreferences.Editor readingPrefsEd = readingPrefs.edit();
+		readingPrefsEd.putInt("seed", seedy);
+		readingPrefsEd.commit();
+		
+		String seed = String.valueOf(seedy);
 		if (seed == null || seed.length() < 1 || seed.matches("^0+$"))
 			seed = "10000";
 		seed = seed.replaceAll("[\\D0]", "1");

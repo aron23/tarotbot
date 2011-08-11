@@ -350,7 +350,23 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		if (activeView.findViewById(R.id.secondsetlayout) != null)
 			laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 		//else continue;
+		ImageView menu = (ImageView) activeView.findViewById(R.id.menukey);
+		menu.setClickable(true);
+		menu.setOnClickListener(this);
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+			ImageView book = (ImageView) activeView.findViewById(R.id.interpretationkey);
+			book.setClickable(true);
+			book.setOnClickListener(this);
+		}
 
+		ImageView spread = (ImageView) activeView.findViewById(R.id.spreadkey);
+		if (Spread.circles.size() > 1) {
+			spread.setClickable(true);
+			spread.setOnClickListener(this);
+		} else {
+			spread.setAlpha(0);
+		}
+		
 		ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
 		divine.setClickable(true);
 		divine.setOnTouchListener(gestureListener);
@@ -426,7 +442,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected String reversalsToString() {
 		String toReturn = "";
 		
-	    for (boolean reversal: Interpretation.myDeck.reversed) {
+	    for (boolean reversal: myInt.myDeck.reversed) {
 	    	String represent;
 	    	if (reversal)
 	    		represent = "R";
@@ -548,6 +564,9 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		else 
 			secondSetIndex++;
 		
+		if (secondSetIndex >= Spread.circles.size())
+			secondSetIndex=0;
+		
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		
 		flipper.setClickable(true);
@@ -557,7 +576,24 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		if (activeView.findViewById(R.id.secondsetlayout) != null)
 			laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 		//else continue;
+		ImageView menu = (ImageView) activeView.findViewById(R.id.menukey);
+		menu.setClickable(true);
+		menu.setOnClickListener(this);
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+			ImageView book = (ImageView) activeView.findViewById(R.id.interpretationkey);
+			book.setClickable(true);
+			book.setOnClickListener(this);
+		}
 
+
+		ImageView spread = (ImageView) activeView.findViewById(R.id.spreadkey);
+		if (Spread.circles.size() > 1) {
+			spread.setClickable(true);
+			spread.setOnClickListener(this);
+		} else {
+			spread.setAlpha(0);
+		}
+		
 		ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
 		divine.setClickable(true);
 		divine.setOnTouchListener(gestureListener);
@@ -587,6 +623,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		}  else
 			secondSetIndex--;
 		
+		while (secondSetIndex >= Spread.circles.size())
+			secondSetIndex--;
 		
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		flipper.setClickable(true);
@@ -596,7 +634,24 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		if (activeView.findViewById(R.id.secondsetlayout) != null)
 			laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 		//else continue;
+		ImageView menu = (ImageView) activeView.findViewById(R.id.menukey);
+		menu.setClickable(true);
+		menu.setOnClickListener(this);
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+			ImageView book = (ImageView) activeView.findViewById(R.id.interpretationkey);
+			book.setClickable(true);
+			book.setOnClickListener(this);
+		}
+		
 
+		ImageView spread = (ImageView) activeView.findViewById(R.id.spreadkey);
+		if (Spread.circles.size() > 1) {
+			spread.setClickable(true);
+			spread.setOnClickListener(this);
+		} else {
+			spread.setAlpha(0);
+		}
+		
 		ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
 		divine.setClickable(true);
 		divine.setOnTouchListener(gestureListener);
@@ -624,11 +679,13 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		secondSetIndex=0;
 		type = new ArrayList<Integer>();
 		flipdex = new ArrayList<Integer>();
-		Interpretation.myDeck.establishReversal();
-		mySpread.myDeck.reversed = Interpretation.myDeck.noreversal;
-		if (browsing || style.equals("single")) {}
+		if (!state.equals("loaded")) {
+			myInt.myDeck.establishReversal();
+			mySpread.myDeck.reversed = myInt.myDeck.noreversal;
+		}
+		if (browsing || style.equals("single") || state.equals("loaded")) {}
 		else if (!readingPrefs.getBoolean("reversal", false) &! loaded) {
-			mySpread.myDeck.reversed = Interpretation.myDeck.noreversal;
+			mySpread.myDeck.reversed = myInt.myDeck.noreversal;
 		} else if (!loaded) {
 			mySpread.myDeck.reversed = Deck.establishReversal(mySpread.myDeck);
 		}
@@ -659,6 +716,9 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		
 		setContentView(R.layout.transition);
 		
+		if (mySpread != null && mySpread.myview != null)
+			mySpread.clearView(mySpread.myview);
+		
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		for (int i = 0; i < flipper.getChildCount(); i++) {
 			View v = flipper.getChildAt(i);
@@ -685,6 +745,24 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 			laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 		//else continue;
 
+		ImageView menu = (ImageView) activeView.findViewById(R.id.menukey);
+		menu.setClickable(true);
+		menu.setOnClickListener(this);
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+			ImageView book = (ImageView) activeView.findViewById(R.id.interpretationkey);
+			book.setClickable(true);
+			book.setOnClickListener(this);
+		}
+		
+
+		ImageView spread = (ImageView) activeView.findViewById(R.id.spreadkey);
+		if (Spread.circles.size() > 1) {
+			spread.setClickable(true);
+			spread.setOnClickListener(this);
+		} else {
+			spread.setAlpha(0);
+		}
+		
 		ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
 		divine.setClickable(true);
 		divine.setOnTouchListener(gestureListener);
@@ -717,6 +795,23 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 				laidout.add((ViewGroup) activeView.findViewById(R.id.secondsetlayout));
 			//else continue;
 			counter++;
+			ImageView menu = (ImageView) activeView.findViewById(R.id.menukey);
+			menu.setClickable(true);
+			menu.setOnClickListener(this);
+			if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+				ImageView book = (ImageView) activeView.findViewById(R.id.interpretationkey);
+				book.setClickable(true);
+				book.setOnClickListener(this);
+			}
+			
+			ImageView spread = (ImageView) activeView.findViewById(R.id.spreadkey);
+			if (Spread.circles.size() > 1) {
+				spread.setClickable(true);
+				spread.setOnClickListener(this);
+			} else {
+				spread.setAlpha(0);
+			}
+			
 			ImageView divine = (ImageView) activeView.findViewById(R.id.divine);
 			divine.setClickable(true);
 			divine.setOnTouchListener(gestureListener);
@@ -1028,7 +1123,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 			toast.setView(toaster);
 			((TextView)toaster.findViewById(R.id.toast_text)).setText(spreadLabels[secondSetIndex]);			
 			toast.setDuration(Toast.LENGTH_SHORT);			
-			toast.show();
+			//toast.show();
 		}
 	}
 

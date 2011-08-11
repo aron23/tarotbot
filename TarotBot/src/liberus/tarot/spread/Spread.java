@@ -43,7 +43,7 @@ public abstract class Spread {
 	private ViewGroup mybrowseview;
 	public Spread(Interpretation inInt) {		
 		myInt = inInt;
-		myDeck = Interpretation.myDeck;
+		myDeck = myInt.myDeck;
 	}
 	public abstract void operate(Context context,boolean loaded);
 	public abstract String getInterpretation(int card, Context context);
@@ -380,7 +380,7 @@ public abstract class Spread {
 		w = bmp.getWidth();
 		h = bmp.getHeight();
 		
-		if (Interpretation.myDeck.reversed[index]) {		
+		if (myInt.myDeck.reversed[index]) {		
 			mtx = new Matrix();
 			mtx.postRotate(180);
 			bmp = Bitmap.createBitmap(bmp, 0, 0, w, h, mtx, true);

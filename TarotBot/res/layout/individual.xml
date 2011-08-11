@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/mylayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent"
+    >
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/individuallayout"
     android:orientation="vertical"
@@ -15,6 +23,8 @@
     android:gravity="center"
     android:layout_gravity="center"
     android:scaleType="fitCenter"
+    android:src="@drawable/trumps_01"
     android:background="@android:color/transparent"
     />    
 </RelativeLayout>
+</FrameLayout>

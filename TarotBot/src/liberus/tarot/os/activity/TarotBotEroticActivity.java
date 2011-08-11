@@ -124,7 +124,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
     		reversals.add(false);
     	}
     	loaded=true;
-    	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
+    	myInt.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
     	BotaInt.loaded = true;
     	
 		mySpread = new BrowseSpread(myInt,isTrumpsOnly());
@@ -377,7 +377,7 @@ public class TarotBotEroticActivity extends AbstractTarotBotActivity  {
 		for (int i = positions.size(); i < keys.size(); i++)
 			reversals.add(readingPrefs.getBoolean(keys.get(i),false));
 		BotaSpread.working = positions;
-		Interpretation.myDeck.reversed = reversals.toArray(new Boolean[0]);
+		myInt.myDeck.reversed = reversals.toArray(new Boolean[0]);
 		secondSetIndex = querantPrefs.getInt("activeCard", 0);
 	}
 

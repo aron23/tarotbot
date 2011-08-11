@@ -31,7 +31,7 @@ import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
-import android.telephony.TelephonyManager;
+//import android.telephony.TelephonyManager;
 import android.util.Log;
 
 
@@ -129,7 +129,7 @@ public class WebUtils {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpContext localContext = new BasicHttpContext();
 		String saveResult = "";
-		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		//TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		HttpGet httpGet;
 		title = title.replaceAll("\\s+", "+");
 		if (style == "bota")
@@ -168,7 +168,7 @@ public class WebUtils {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpContext localContext = new BasicHttpContext();
 		ArrayList<String[]> loadResult = new ArrayList<String[]>();
-		TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+		//TelephonyManager tel = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		
 		HttpGet httpGet = new HttpGet("http://liber.us/tarotbot/readspread.test.php?uid=private");
 		

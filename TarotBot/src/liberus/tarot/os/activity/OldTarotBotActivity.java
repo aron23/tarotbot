@@ -53,7 +53,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.telephony.TelephonyManager;
+//import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -147,7 +147,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
     		reversals.add(false);
     	}
     	
-    	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
+    	myInt.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));	
     	
     	
 		mySpread = new BrowseSpread(myInt,isTrumpsOnly());
@@ -506,7 +506,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 					begun = true;
 					browsing = false;
 					myInt = new BotaInt(new FullTarotDeck(), aq);
-					Integer[] shuffled = Interpretation.myDeck.shuffle(Deck.cards,3);
+					Integer[] shuffled = myInt.myDeck.shuffle(Deck.cards,3);
 					Deck.cards = shuffled;
 					mySpread = new SeqSpread(myInt,spreadLabels,false);
 					loaded = false;
@@ -515,7 +515,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 			    		reversals.add(false);
 			    	}
 			    	
-			    	Interpretation.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));
+			    	myInt.myDeck = new FullTarotDeck(reversals.toArray(new Boolean[0]));
 					beginSecondStage();
 					break;				
 				case 1:					
@@ -769,7 +769,7 @@ public class OldTarotBotActivity extends AbstractTarotBotActivity  {
 				begun = true;
 				browsing = false;
 				myInt = new BotaInt(new FullTarotDeck(), aq);
-				Integer[] shuffled = Interpretation.myDeck.shuffle(new Integer[78],3);
+				Integer[] shuffled = myInt.myDeck.shuffle(new Integer[78],3);
 				Deck.cards = shuffled;
 				if (style.equals("arrow"))
 					mySpread = new ArrowSpread(myInt,timeArrow);

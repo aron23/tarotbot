@@ -67,7 +67,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.telephony.TelephonyManager;
+//import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
@@ -166,7 +166,10 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			showing = inflater.inflate(R.layout.interpretation, null);
 			TextView title = (TextView)showing.findViewById(R.id.title);
-			title.setText(mySpread.myLabels[secondSetIndex]);
+			if (secondSetIndex < mySpread.myLabels.length)
+				title.setText(mySpread.myLabels[secondSetIndex]);
+			else
+				title.setText("");
 			TextView cardlabel = (TextView)showing.findViewById(R.id.cardlabel);
 			
 			if (mySpread.myDeck.isReversed(i)) 
@@ -319,7 +322,7 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 			else
 				myInt = new BotaInt(new FullTarotDeck(), aq);
 			
-			Deck.cards = Interpretation.myDeck.shuffle(Deck.cards,3);
+			Deck.cards = myInt.myDeck.shuffle(Deck.cards,3);
 			if (style.equals("arrow"))
 				mySpread = new GothicArrowSpread(myInt,timeArrow);
 			else if (style.equals("dialectic"))

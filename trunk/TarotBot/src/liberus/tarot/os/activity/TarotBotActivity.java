@@ -1019,24 +1019,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				return true;
 				
 			} else if (state.equals("spreadmenu") || (state.equals("loaded") &! browsing) || state.equals("single") || (state.equals("navigate") && browsing)) {
-				if (mySpread != null && mySpread.myview != null &! browsing)
-					mySpread.clearView(mySpread.myview);
-				spreading=false;
-				//spread=false;
-				begun = false;
-				browsing = false;
-				loaded=false;
-		    	BotaInt.loaded = false;
-		    	Spread.circles = new ArrayList<Integer>();
-				Spread.working = new ArrayList<Integer>();
-				if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
-					myInt = new BotaInt(new TarotTrumpDeck(), aq);
-				else
-					myInt = new BotaInt(new FullTarotDeck(), aq);
-		    	type = new ArrayList<Integer>();
-				flipdex = new ArrayList<Integer>();
 				reInit();
-				
 				return true;
 			} else if (browsing) {
 				ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
@@ -1048,17 +1031,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				displaySecondStage(secondSetIndex);
 				return true;
 			} else {
-				if (mySpread != null && mySpread.myview != null)
-					mySpread.clearView(mySpread.myview);
-				state = "mainmenu";
-				spreading=false;
-				//spread=false;
 				reInit();
 				return true;
 			}
 		} else if (keyCode == KeyEvent.KEYCODE_MENU) {
-			if (TarotBotManager.isCompatibleAPI(11, getApplicationContext()))
-				System.out.println("hahaha");
 			if (state.endsWith("menu"))
 				return true;
 			priorstate = state;
@@ -1071,8 +1047,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				myMenuList.setAdapter(new EfficientAdapter(this,inflater,secondmenu,R.layout.listitem));			
 				myMenuList.setTag("secondmenu");
 			} else {
-				myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));			
-				myMenuList.setTag("mainmenu");
+				reInit();
 			}
 	
 			return true;
@@ -1081,6 +1056,22 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	}
 	@Override
 	void reInit() {
+		if (mySpread != null && mySpread.myview != null &! browsing)
+			mySpread.clearView(mySpread.myview);
+		spreading=false;
+		//spread=false;
+		begun = false;
+		browsing = false;
+		loaded=false;
+    	BotaInt.loaded = false;
+    	Spread.circles = new ArrayList<Integer>();
+		Spread.working = new ArrayList<Integer>();
+		if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
+			myInt = new BotaInt(new TarotTrumpDeck(), aq);
+		else
+			myInt = new BotaInt(new FullTarotDeck(), aq);
+    	type = new ArrayList<Integer>();
+		flipdex = new ArrayList<Integer>();
 		state = "mainmenu";
 		establishMenu(R.layout.mainmenu);
 		initText();	

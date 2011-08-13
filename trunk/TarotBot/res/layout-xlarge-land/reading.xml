@@ -19,10 +19,16 @@
     android:scaleType="fitStart"
     android:adjustViewBounds="true"
     android:paddingRight="10dip"
-    />    	     
+    />    	 
+<LinearLayout    	     
+android:id="@+id/secondsetlayout"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 <ScrollView android:id="@+id/ScrollView01"
 	android:layout_width="fill_parent"
-    android:layout_height="fill_parent">    
+    android:layout_height="fill_parent"
+    android:layout_weight="1">    
 <TextView 
 	android:id="@+id/interpretation" 
 	android:layout_width="fill_parent"
@@ -40,18 +46,17 @@
     android:shadowDy="1" 
     />  
     </ScrollView>
-</LinearLayout>
+
 <LinearLayout 
 	android:id="@+id/menulayout"
     android:orientation="vertical"
     android:layout_alignParentTop="true"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:gravity="right"
     android:layout_gravity="right"
     android:background="@android:color/transparent"
-    
-    >
+    android:layout_weight="4">
 <ImageView 
 	android:id="@+id/menukey" 
     android:layout_width="fill_parent" 
@@ -71,6 +76,8 @@
     android:scaleType="fitCenter"
     android:background="@android:color/transparent"
     android:src="@drawable/spread"
-    /> 
+    />  
+</LinearLayout>
+</LinearLayout>
 </LinearLayout>
 </FrameLayout>

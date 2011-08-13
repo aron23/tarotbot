@@ -18,6 +18,7 @@
     android:layout_gravity="center"
     android:src="@drawable/biglogo"
     android:background="@android:color/transparent"
+    android:adjustViewBounds="true"
      /> 
 <LinearLayout
 	android:layout_width="fill_parent" 

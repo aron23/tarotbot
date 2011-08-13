@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="liberus.tarot.android.noads" android:installLocation="auto" android:versionName="2.27" android:versionCode="70">
+      package="liberus.tarot.android.noads" android:installLocation="auto" android:versionCode="70" android:versionName="2.3">
     <application 
     android:icon="@drawable/logo" 
     android:label="@string/app_name" 

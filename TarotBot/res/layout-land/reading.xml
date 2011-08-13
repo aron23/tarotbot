@@ -18,14 +18,22 @@
     android:layout_height="fill_parent"
     android:scaleType="fitStart"
     android:adjustViewBounds="true"
+    android:cropToPadding="true"
     android:paddingRight="10dip"
-    />    	     
+    android:src="@drawable/trumps_01"
+    />
+<LinearLayout    	     
+android:id="@+id/secondsetlayout"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 <ScrollView android:id="@+id/ScrollView01"
 	android:layout_width="fill_parent"
-    android:layout_height="fill_parent">    
+    android:layout_height="fill_parent"
+    android:layout_weight="1">    
 <TextView 
 	android:id="@+id/interpretation" 
-	android:layout_width="fill_parent"
+	android:layout_width="wrap_content"
     android:layout_height="fill_parent"
 	android:layout_marginTop="5dip"
 	android:layout_marginBottom="5dip"
@@ -35,18 +43,19 @@
     android:shadowRadius="1.5"  
     android:shadowDx="1"  
     android:shadowDy="1"
-    />  
+    android:text="here is a bunch of text to fill up the textview I am testing in this layout"/>  
     </ScrollView>
 
 <LinearLayout 
 	android:id="@+id/menulayout"
     android:orientation="vertical"
     android:layout_alignParentTop="true"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:gravity="right"
     android:layout_gravity="right"
-    android:background="@android:color/transparent">
+    android:background="@android:color/transparent"
+    android:layout_weight="4">
 <ImageView 
 	android:id="@+id/menukey" 
     android:layout_width="fill_parent" 
@@ -67,6 +76,7 @@
     android:background="@android:color/transparent"
     android:src="@drawable/littlespread"
     />  
+</LinearLayout>
 </LinearLayout>
 </LinearLayout>
 </FrameLayout>

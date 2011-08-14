@@ -45,6 +45,7 @@ public class GothicSeqSpread extends GothicSpread {
 				Spread.working.add(Deck.cards[i]);
 			Spread.circles = working;
 		} else if (!loading) {
+			Spread.working.clear();
 			if (isTrumpsOnly)
 				Deck.cards = Deck.orderedDeck(22);
 			else

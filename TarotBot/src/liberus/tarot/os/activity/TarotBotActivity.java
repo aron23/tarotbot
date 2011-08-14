@@ -109,7 +109,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	private Dialog helper;
 	private boolean leavespread;
 	private TextView deckNote;
-	private Dialog interpretor;
+	protected Dialog interpretor;
 	
 	
 	/** Called when the activity is first created. */
@@ -336,6 +336,19 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			showing = inflater.inflate(R.layout.interpretation, null);
 			setBackground(showing);
+			
+			TextView title = (TextView)showing.findViewById(R.id.title);
+			if (secondSetIndex < mySpread.myLabels.length)
+				title.setText(mySpread.myLabels[secondSetIndex]);
+			else
+				title.setText("");
+			TextView cardlabel = (TextView)showing.findViewById(R.id.cardlabel);
+			
+			if (mySpread.myDeck.isReversed(i)) 
+				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext())+" reversed");
+			else
+				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext()));
+			
 			infotext = (TextView) showing.findViewById(R.id.interpretation);	
 			
 			infotext.setText(Html.fromHtml(interpretation));
@@ -356,10 +369,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			}
 			
 			interpretor = new Dialog(this,android.R.style.Theme);
-			if (mySpread.myLabels.length > secondSetIndex)
-				interpretor.setTitle(mySpread.myLabels[secondSetIndex]);
-			else
-				interpretor.setTitle("");
+
 			interpretor.setContentView(showing);			
 			interpretor.setOnKeyListener(this);			
 			interpretor.show();
@@ -369,11 +379,22 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
 			View v = flipper.getCurrentView();
 			setBackground(v);
-			infotext = (TextView)v.findViewById(R.id.interpretation);
-			if (mySpread.myLabels[secondSetIndex] != null)
-				infotext.setText(Html.fromHtml("<br/><i>"+mySpread.myLabels[secondSetIndex]+"</i><br/><br/>"+interpretation));
+			
+			TextView title = (TextView)v.findViewById(R.id.title);
+			if (secondSetIndex < mySpread.myLabels.length)
+				title.setText(mySpread.myLabels[secondSetIndex]);
 			else
-				infotext.setText(Html.fromHtml(interpretation));
+				title.setText("");
+			TextView cardlabel = (TextView)v.findViewById(R.id.cardlabel);
+			
+			if (mySpread.myDeck.isReversed(i)) 
+				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext())+" reversed");
+			else
+				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext()));
+			
+			infotext = (TextView)v.findViewById(R.id.interpretation);
+
+			infotext.setText(Html.fromHtml(interpretation));
 		}			
 	}
 	

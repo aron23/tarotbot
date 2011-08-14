@@ -27,6 +27,38 @@ android:id="@+id/secondsetlayout"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+<LinearLayout android:id="@+id/content"
+	android:orientation="vertical"
+	 xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:layout_height="fill_parent" 
+	 android:layout_width="fill_parent"
+	 android:layout_weight="1">
+<LinearLayout android:id="@+id/header"
+	 xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:layout_height="wrap_content" 
+	 android:layout_width="fill_parent">
+    <TextView android:id="@+id/title" android:layout_width="fill_parent"
+		 android:gravity="center" android:textSize="18sp"
+		 android:textColor="@color/label_colors"
+		 android:shadowColor="#000000"
+		 android:typeface="serif"
+		 android:textStyle="bold"
+		 android:layout_height="wrap_content" android:layout_centerInParent="true"
+		 android:padding="2dip" />
+ </LinearLayout>
+ <LinearLayout android:id="@+id/cardlabellayout"
+	 xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:layout_height="wrap_content" 
+	 android:layout_width="fill_parent">
+    <TextView android:id="@+id/cardlabel" android:layout_width="fill_parent"
+		 android:gravity="center" android:textSize="18sp"
+		 android:textColor="@color/label_colors"
+		 android:shadowColor="#000000"
+		 android:typeface="serif"
+		 android:textStyle="bold"
+		 android:layout_height="wrap_content" android:layout_centerInParent="true"
+		 android:padding="2dip" />
+ </LinearLayout>    
 <ScrollView android:id="@+id/ScrollView01"
 	android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -38,6 +70,7 @@ android:id="@+id/secondsetlayout"
 	android:layout_marginTop="5dip"
 	android:layout_marginBottom="5dip"
 	android:layout_marginLeft="15dip"
+	android:typeface="serif"
     android:textColor="#FFFFFF"
     android:shadowColor="#000000"
     android:shadowRadius="1.5"  
@@ -45,7 +78,7 @@ android:id="@+id/secondsetlayout"
     android:shadowDy="1"
     android:text="here is a bunch of text to fill up the textview I am testing in this layout"/>  
     </ScrollView>
-
+</LinearLayout>
 <LinearLayout 
 	android:id="@+id/menulayout"
     android:orientation="vertical"

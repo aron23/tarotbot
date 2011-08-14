@@ -157,49 +157,58 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 	public Spread getMyBrowseSpread(Interpretation myInt, boolean trumpsOnly) {
 		return new GothicBrowseSpread(myInt,trumpsOnly);
 	}
-	public void showInfo(int type) {
-		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
-
-		if (type == Configuration.ORIENTATION_PORTRAIT) {
-			infoDisplayed = true;
-			int i = GothicSpread.circles.get(secondSetIndex);
-			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
-			showing = inflater.inflate(R.layout.interpretation, null);
-			TextView title = (TextView)showing.findViewById(R.id.title);
-			if (secondSetIndex < mySpread.myLabels.length)
-				title.setText(mySpread.myLabels[secondSetIndex]);
-			else
-				title.setText("");
-			TextView cardlabel = (TextView)showing.findViewById(R.id.cardlabel);
-			
-			if (mySpread.myDeck.isReversed(i)) 
-				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext())+" reversed");
-			else
-				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext()));
-			
-			infotext = (TextView) showing.findViewById(R.id.interpretation);		
-			infotext.setText(Html.fromHtml(interpretation));
-			
-//			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//	public void showInfo(int type) {
+//		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 //
-//			builder.setView(showing);
-			
-			Dialog interpretor = new Dialog(this,R.style.interpretation_style);
-			
-			interpretor.setContentView(showing);
-			interpretor.show();
-		} else if (type == Configuration.ORIENTATION_LANDSCAPE) {
-			int i = GothicSpread.circles.get(secondSetIndex);
-			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
-			View v = flipper.getCurrentView();
-			infotext = (TextView)v.findViewById(R.id.interpretation);		
-			
-			if (mySpread.myLabels[secondSetIndex] != null)
-				infotext.setText(Html.fromHtml("<br/><i>"+mySpread.myLabels[secondSetIndex]+"</i><br/><br/>"+interpretation));
-			else
-				infotext.setText(Html.fromHtml(interpretation));
-		}			
-	}
+//		if (type == Configuration.ORIENTATION_PORTRAIT) {
+//			infoDisplayed = true;
+//			int i = GothicSpread.circles.get(secondSetIndex);
+//			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
+//			showing = inflater.inflate(R.layout.interpretation, null);
+//			TextView title = (TextView)showing.findViewById(R.id.title);
+//			if (secondSetIndex < mySpread.myLabels.length)
+//				title.setText(mySpread.myLabels[secondSetIndex]);
+//			else
+//				title.setText("");
+//			TextView cardlabel = (TextView)showing.findViewById(R.id.cardlabel);
+//			
+//			if (mySpread.myDeck.isReversed(i)) 
+//				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext())+" reversed");
+//			else
+//				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext()));
+//			
+//			infotext = (TextView) showing.findViewById(R.id.interpretation);		
+//			infotext.setText(Html.fromHtml(interpretation));
+//			
+//			ImageView card = (ImageView) showing.findViewById(R.id.cardkey);
+//			card.setClickable(true);
+//			card.setOnClickListener(this);
+//			
+//			ImageView spread = (ImageView) showing.findViewById(R.id.spreadkey);
+//			if (Spread.circles.size() > 1) {
+//				spread.setClickable(true);
+//				spread.setOnClickListener(this);
+//			} else {
+//				spread.setAlpha(0);
+//			}
+//			
+//			interpretor = new Dialog(this,R.style.interpretation_style);
+//			
+//			interpretor.setContentView(showing);			
+//			interpretor.setOnKeyListener(this);			
+//			interpretor.show();
+//		} else if (type == Configuration.ORIENTATION_LANDSCAPE) {
+//			int i = GothicSpread.circles.get(secondSetIndex);
+//			String interpretation = mySpread.getInterpretation(i,getApplicationContext());
+//			View v = flipper.getCurrentView();
+//			infotext = (TextView)v.findViewById(R.id.interpretation);		
+//			
+//			if (mySpread.myLabels[secondSetIndex] != null)
+//				infotext.setText(Html.fromHtml("<br/><i>"+mySpread.myLabels[secondSetIndex]+"</i><br/><br/>"+interpretation));
+//			else
+//				infotext.setText(Html.fromHtml(interpretation));
+//		}			
+//	}
 
 	@Override
 	public String getStorageFile() {

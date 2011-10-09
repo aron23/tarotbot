@@ -63,7 +63,7 @@
     android:layout_gravity="right"
     android:scaleType="fitCenter"
     android:background="@android:color/transparent"
-    android:src="@drawable/littlespread"
+    android:src="@drawable/spread"
     />     
 </LinearLayout>
 </FrameLayout>

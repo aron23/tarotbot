@@ -9,7 +9,9 @@
        
     <string name="portraitnavigation">swipe your finger up or down to display interpretation, left or right to navigate the spread</string>
     <string name="landscapenavigation">swipe left or right to navigate the spread</string>
-    
+    <string name="checkin">I had an amazing reading using TarotBot!</string>
+    <string name="mute">STOP MUSIC</string>
+    <string name="unmute">PLAY MUSIC</string>
     <string name="load_menu">load</string>
     <string name="save_menu">save</string>
     <string name="share_menu">share</string>

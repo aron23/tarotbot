@@ -23,6 +23,17 @@
     android:background="@android:color/transparent"
     android:adjustViewBounds="true"
      /> 
+		<ToggleButton android:id="@+id/mute_button"
+android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:typeface="serif"
+    android:textSize="28sp"
+    android:textStyle="bold"
+    android:textColor="@color/menu_colors"
+	android:padding="15dp"	
+  	android:background="@drawable/reversal_selector"
+			android:textOn="" android:textOff="" android:onClick="mute"
+			android:shadowColor="#000000" />
 <ToggleButton android:id="@+id/reversal_button"
    android:layout_width="fill_parent"
    android:layout_height="wrap_content"
@@ -96,4 +107,11 @@
 android:id="@+id/ad"
 android:layout_width="0px"
 android:layout_height="0px"/>
+<ToggleButton android:id="@+id/mute_button"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:visibility="gone" android:enabled="false" android:typeface="serif"
+	android:textSize="1sp" android:textStyle="bold" android:textColor="@color/menu_colors"
+	android:paddingBottom="0dp" android:background="@drawable/reversal_selector"
+	android:textOn="" android:textOff="" android:onClick="mute"
+	android:shadowColor="#000000" />
 </LinearLayout>

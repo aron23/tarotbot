@@ -324,6 +324,94 @@ public abstract class Interpretation {
 		return "";
 	}
 	
+	public static String getCardNumber(int index) {
+		switch (index) {
+			case 0:return "00.jpg";
+			case 1:return "01.jpg";
+			case 2:return "02.jpg";
+			case 3:return "03.jpg";
+			case 4:return "04.jpg";
+			case 5:return "05.jpg";
+			case 6:return "06.jpg";
+			case 7:return "07.jpg";
+			case 8:return "08.jpg";
+			case 9:return "09.jpg";
+			case 10:return "10.jpg";
+			case 11:return "11.jpg";
+			case 12:return "12.jpg";
+			case 13:return "13.jpg";
+			case 14:return "14.jpg";
+			case 15:return "15.jpg";
+			case 16:return "16.jpg";
+			case 17:return "17.jpg";
+			case 18:return "18.jpg";		
+			case 19:return "19.jpg";
+			case 20:return "20.jpg";
+			case 21:return "21.jpg";
+	
+			case 22:return "22.jpg";
+			case 23:return "23.jpg";
+			case 24:return "24.jpg";
+			case 25:return "25.jpg";
+			case 26:return "26.jpg";
+			case 27:return "27.jpg";
+			case 28:return "28.jpg";
+			case 29:return "29.jpg";
+			case 30:return "30.jpg";
+			case 31:return "31.jpg";
+			case 32:return "32.jpg";
+			case 33:return "33.jpg";
+			case 34:return "34.jpg";
+			case 35:return "35.jpg";
+	
+			case 36:return "36.jpg";
+			case 37:return "37.jpg";
+			case 38:return "38.jpg";
+			case 39:return "39.jpg";
+			case 40:return "40.jpg";
+			case 41:return "41.jpg";
+			case 42:return "42.jpg";
+			case 43:return "43.jpg";
+			case 44:return "44.jpg";
+			case 45:return "45.jpg";
+			case 46:return "46.jpg";
+			case 47:return "47.jpg";
+			case 48:return "48.jpg";
+			case 49:return "49.jpg";
+	
+			case 50:return "50.jpg";
+			case 51:return "51.jpg";
+			case 52:return "52.jpg";
+			case 53:return "53.jpg";
+			case 54:return "54.jpg";
+			case 55:return "55.jpg";
+			case 56:return "56.jpg";
+			case 57:return "57.jpg";
+			case 58:return "58.jpg";
+			case 59:return "59.jpg";
+			case 60:return "60.jpg";
+			case 61:return "61.jpg";
+			case 62:return "62.jpg";
+			case 63:return "63.jpg";
+	
+			case 64:return "64.jpg";
+			case 65:return "65.jpg";
+			case 66:return "66.jpg";
+			case 67:return "67.jpg";
+			case 68:return "68.jpg";
+			case 69:return "69.jpg";
+			case 70:return "70.jpg";
+			case 71:return "71.jpg";
+			case 72:return "72.jpg";
+			case 73:return "73.jpg";
+			case 74:return "74.jpg";
+			case 75:return "75.jpg";
+			case 76:return "76.jpg";
+			case 77:return "77.jpg";				
+		}
+		return "";
+	}
+	
 	public static int getCardIndex(int card) {
 		switch (card) {
 			case R.id.trumps_01:return 0;

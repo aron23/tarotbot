@@ -70,7 +70,8 @@
     <string-array name="second_menu">        
         <item>View Full Spread</item>
         <item>Save Reading</item>
-        <item>Share Reading</item>      
+        <item>Share Reading</item>
+        <item>Check In</item>      
         <item>Choose Spread</item>
         <item>About Tarot</item>        
         <item>About the Artist</item>

@@ -59,6 +59,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -103,6 +104,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
 
+import com.heyzap.sdk.HeyzapLib;
 
 public abstract class TarotBotActivity extends AbstractTarotBotActivity implements ColorDialog.OnClickListener  {
 
@@ -110,6 +112,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	private boolean leavespread;
 	private TextView deckNote;
 	protected Dialog interpretor;
+	private Integer significator;
+	
 	
 	
 	/** Called when the activity is first created. */
@@ -165,7 +169,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			myMenuList.setOnItemClickListener(this);
 			myMenuList.setTag("mainmenu");		
 		}
-		
+		HeyzapLib.load(this,false);
 	}
 	@Override
 	public Spread getMySeqSpread(Interpretation myInt, String[] labels, boolean cardOfTheDay,boolean trumpsOnly) {
@@ -368,7 +372,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				spread.setAlpha(0);
 			}
 			
-			interpretor = new Dialog(this,android.R.style.Theme);
+			interpretor = new Dialog(this,R.style.interpretation_style);
 
 			interpretor.setContentView(showing);			
 			interpretor.setOnKeyListener(this);			
@@ -393,7 +397,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext()));
 			
 			infotext = (TextView)v.findViewById(R.id.interpretation);
-
+			infotext.setTextColor(Color.WHITE);
 			infotext.setText(Html.fromHtml(interpretation));
 		}			
 	}
@@ -734,11 +738,14 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			        return;
 			    case 2:
 			    	save(true);			     
-			        return;				
-			    case 3:	
+			        return;		
+			    case 3:
+			    	HeyzapLib.checkin(this, R.string.checkin);			     
+			        return;		
+			    case 4:	
 			    	reInitSpread(R.layout.spreadmenu);								
 					return;			    	
-			    case 4: 
+			    case 5: 
 			    	showing = inflater.inflate(R.layout.interpretation, null);
 			    	setBackground(showing);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);
@@ -751,7 +758,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					helper.setContentView(showing);
 					helper.show();
 					break;
-			    case 5: 	 
+			    case 6: 	 
 					showing = inflater.inflate(R.layout.interpretation, null);
 					setBackground(showing);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);	
@@ -764,7 +771,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					helper.setContentView(showing);
 					helper.show();
 					break;
-			    case 6:
+			    case 7:
 			    	showing = inflater.inflate(R.layout.interpretation, null);
 			    	setBackground(showing);
 					infotext = (TextView) showing.findViewById(R.id.interpretation);	
@@ -777,7 +784,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 					helper.setContentView(showing);
 					helper.show();
 					break;
-			    case 7:	
+			    case 8:	
 			    	state = "secondmenu";
 			    	initOptionsMenu();
 					return;
@@ -799,7 +806,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		ArrayList<String[]> deck = new ArrayList<String[]>();
     	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
     	ArrayList<Integer> working = new ArrayList<Integer>();
-    	int significator = Integer.valueOf(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("significator"));
+    	significator = Integer.valueOf(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("significator"));
     	int count = 0;
     	String[] reversed = savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("reversals").split(",");
     	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("spread").split(",")));
@@ -823,15 +830,23 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
     		deck.add(new String[] {card,String.valueOf(count+1),rev,spr});
     		count++;
     	}
-    	//Interpretation.myDeck = ;	
-    	if (readingPrefs.getBoolean("trumps.only", false) || isTrumpsOnly())
-			myInt = new BotaInt(new TarotTrumpDeck(reversals.toArray(new Boolean[0])), aq);
-		else
-			myInt = new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])), aq);
+    	loaded=true;
+    	state = "loaded";
+    	myInt = new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])),aq);
     	Spread.working = working;
     	BotaInt.loaded = true;
+
+    	processSavedSpread(index);
     	
-    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("bota")) {
+    	spreading=false;
+		begun = true;
+		browsing = false;
+    	//new BotaInt(new TarotTrumpDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
+    	beginSecondStage();
+	}
+	
+	public void processSavedSpread(int index) {
+		if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("bota")) {
     		BotaInt.setMyQuerant(new Querant(significator));
     		mySpread = new BotaSpread(myInt);				    		
     	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("celtic")) {
@@ -859,18 +874,12 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
     		spreadLabels = dialectic;
     		mySpread = new DialecticSpread(myInt,dialectic);
     	}
-    	loaded=true;
-    	state = "loaded";
-    	spreading=false;
-		begun = true;
-		browsing = false;
-    	//new BotaInt(new TarotTrumpDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
-    	beginSecondStage();
 	}
 
 	public void handleSpreadSelection(int index, AdapterView<?> adapter) {
 		readingPrefsEd.putInt("spread", adapter.getSelectedItemPosition());
 		readingPrefsEd.commit();
+		
 		switch (index) {
 		case 0: {
 			//seqSpread();
@@ -956,7 +965,18 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		myMenuList.setTag("spreadmenu");
 	}
 	
-	
+	public void mute(View v) {
+		muted = !muted;	
+		readingPrefsEd.putBoolean("muted", muted);
+		readingPrefsEd.commit();
+		if (mp != null)
+			if (!mp.isPlaying() && !muted){
+				 mp=MediaPlayer.create(this, R.raw.background);
+				 mp.start();
+				 mp.setLooping(true);
+			} else if (mp.isPlaying() && muted)
+				mp.stop();
+	}
 
 	public void displayBackgroundColorChoice(View v) {
 		ColorDialog dialog = new ColorDialog(this, true, v, displayPrefs.getInt("background.color", Color.BLACK), this, R.drawable.logo);		
@@ -969,6 +989,9 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	
 	private void initOptionsMenu() {
 		establishMenu(R.layout.optionsmenu);		
+		muteToggle = (ToggleButton) this.findViewById(R.id.mute_button);
+		muteToggle.setChecked(readingPrefs.getBoolean("muted", false));
+
 		reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
 		reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
 		reverseToggle.setClickable(true);

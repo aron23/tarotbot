@@ -60,6 +60,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -113,7 +114,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected boolean male = false;
 	protected boolean partnered = false;
 	protected boolean firstpass=true;
-
+	protected MediaPlayer mp;
 	public int secondSetIndex=79;
 	protected RelativeLayout secondlayout;
 
@@ -132,6 +133,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected View showing;
 	protected TextView infotext;
 	protected TextView closure;
+	
+	public boolean muted = false;
 
 	protected SharedPreferences querantPrefs;
 	protected SharedPreferences readingPrefs;
@@ -147,6 +150,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected EditText input;
 	public boolean infoDisplayed;
 	protected int myRandomCard;
+	protected ToggleButton muteToggle;
 	protected ToggleButton reverseToggle;
 	protected boolean sharing;
 	protected ToggleButton trumpToggle;
@@ -159,7 +163,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	public boolean loaded = false;
 	protected boolean helping;
 	protected Spread mySpread;
-	
+
 	String whatUrl;
 	String howUrl;
 	String tarotUrl;
@@ -292,13 +296,14 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 			d.mkdir();
 		final File f = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
 		final Context c = this.getApplicationContext();
-		if ((!f.exists() || !isHighResComplete(f)) && WebUtils.checkWiFi(this.getApplicationContext())) {
+		if ((!f.exists() || !isHighResComplete(f))) {
 			Looper.prepare();
-			        
-			WebUtils.Download("http://liber.us/tarotbot/"+getMyType()+".zip", f.getPath(),c,downloadProgress);			
+			WebUtils.Download("https://s3.amazonaws.com/tarotbot-high-resolution/"+getMyType()+".zip", f.getPath(),c,downloadProgress);			
 			ZipUtils.unzipArchive(f, f.getPath());
+			f.delete();
 		} else if (!new File(f.getPath()+".ex").exists()) {
 			ZipUtils.unzipArchive(f, f.getPath());
+			f.delete();
 		}
 	}
 	
@@ -913,12 +918,21 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	@Override
 	protected void onPause() {
 		super.onPause();	
+		if (mp != null)
+			if (mp.isPlaying())
+				mp.stop();
 		System.gc();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();	
+		if (mp != null)
+			if (!mp.isPlaying() &! muted) {
+				mp=MediaPlayer.create(this, R.raw.background); 
+				mp.start();
+				mp.setLooping(true);
+			}
 		System.gc();
 	}
 	@Override
@@ -926,6 +940,9 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		super.onDestroy();	
 		if (mySpread != null && mySpread.myview != null)
 			mySpread.clearView(mySpread.myview);
+		if (mp != null)
+			if (mp.isPlaying())
+				mp.stop();
 		System.gc();
 	}
 	
@@ -934,9 +951,16 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	public ImageView placeImage(int index, ImageView toPlace, Context con, ArrayList<Integer> flipdex) {
 		
 		Bitmap bmp = null;
+		
+		
+       
+		
 		File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(flipdex.get(index)));
-        if (customFile.exists() && displayPrefs.getBoolean("custom.deck", false)) {
+		File customFile2 = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardNumber(index));
+		if (customFile.exists() && displayPrefs.getBoolean("custom.deck", false)) {
         	bmp = BitmapFactory.decodeFile(customFile.getPath());
+        } else if (customFile2.exists() && displayPrefs.getBoolean("custom.deck", false)) {
+        	bmp = BitmapFactory.decodeFile(customFile2.getPath());
         }
 		if (bmp == null && TarotBotManager.hasEnoughMemory(32,getApplicationContext())) 	
 			try {

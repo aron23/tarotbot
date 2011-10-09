@@ -216,45 +216,8 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 	}
 
 	@Override
-	public void handleLoadMenu(int index, AdapterView<?> adapter) {
-		Spread.circles = new ArrayList<Integer>();
-		Spread.working = new ArrayList<Integer>();
-		flipdex = new ArrayList<Integer>();
-		//ArrayList<String[]> deck = WebUtils.loadTarotBotReading(getApplicationContext(),Integer.valueOf(savedReadings.get(which)[0]));
-		ArrayList<String[]> deck = new ArrayList<String[]>();
-    	ArrayList<Boolean> reversals = new ArrayList<Boolean>(); 
-    	ArrayList<Integer> working = new ArrayList<Integer>();
-    	int significator = Integer.valueOf(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("significator"));
-    	int count = 0;
-    	String[] reversed = savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("reversals").split(",");
-    	ArrayList<String> spreaded = new ArrayList<String>(Arrays.asList(savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("spread").split(",")));
-    	for(String card: savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("deck").split(",")) {
-    		String rev = "0";
-    		String spr = "0";
-    		if (reversed[count].equals("R")) {
-    			reversals.add(true);
-    			rev = "1";
-    		} else
-    			reversals.add(false);
-    		
-    		if (spreaded.contains(card)) {
-    			spr = "1";
-    			working.add(Integer.valueOf(card)-100);
-    		}
-    		
-    		
-    			
-    		
-    		deck.add(new String[] {card,String.valueOf(count+1),rev,spr});
-    		count++;
-    	}
-    	loaded=true;
-    	state = "loaded";
-    	//Interpretation.myDeck = ;	
-    	myInt = new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])),aq);
-    	Spread.working = working;
-    	BotaInt.loaded = true;
-    	if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("arch")) {
+	public void processSavedSpread(int index) {
+		if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("arch")) {
     		mySpread = new GothicArch(myInt,arch);
     		spreadLabels = arch;
     		Spread.circles = Spread.working;				    		
@@ -275,14 +238,8 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
     		spreadLabels = celticCross;
     		Spread.circles = Spread.working;				    		
     	} 
-    	
-    	
-    	spreading=false;
-		begun = true;
-		browsing = false;
-    	//new BotaInt(new FullTarotDeck(reversals.toArray(new Boolean[0])),new Querant(significator),working);
-    	beginSecondStage();
 	}
+	
 	@Override
 	public void handleSpreadSelection(int index, AdapterView<?> adapter) {
 		readingPrefsEd.putInt("spread", adapter.getSelectedItemPosition());

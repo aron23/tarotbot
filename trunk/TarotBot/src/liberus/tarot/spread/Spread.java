@@ -286,10 +286,15 @@ public abstract class Spread {
 				options.inSampleSize = getMySampleSize();
 		if (bmp == null) {	
 			File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index).replaceAll("(\\.jpg)", "_th$1"));
+			File customFile2 = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardNumber(index));
 	        if (customFile.exists() &! TarotBotManager.hasEnoughMemory(HIGHRES,con) && displayPrefs.getBoolean("custom.deck", false)) 
 	        	bmp = BitmapFactory.decodeFile(customFile.getPath());
-	        else
+	        else if (customFile2.exists() &! TarotBotManager.hasEnoughMemory(HIGHRES,con) && displayPrefs.getBoolean("custom.deck", false)) 
+	        	bmp = BitmapFactory.decodeFile(customFile.getPath());
+	        else if (customFile.exists())
 	        	customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index));
+	        else 
+	        	customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardNumber(index));
 	        
 	        if (bmp == null && customFile.exists() && displayPrefs.getBoolean("custom.deck", false)) 
 	        	bmp = BitmapFactory.decodeFile(customFile.getPath());

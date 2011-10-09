@@ -48,8 +48,8 @@ public abstract class AbstractPremiumActivity extends Activity  {
         public void dontAllow() {
             Intent resultIntent = new Intent();
         	resultIntent.putExtra("completed", true);
-        	setResult(Activity.RESULT_CANCELED, resultIntent);
-        	//setResult(Activity.RESULT_OK, resultIntent);
+        	//setResult(Activity.RESULT_CANCELED, resultIntent);
+        	setResult(Activity.RESULT_OK, resultIntent);
         	_active = false;
         	finish();
         }

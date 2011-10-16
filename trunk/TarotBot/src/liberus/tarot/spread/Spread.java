@@ -547,7 +547,7 @@ public abstract class Spread {
 	}
 	public String getCardTitle(int i, Context applicationContext) {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 }

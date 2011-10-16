@@ -7,6 +7,7 @@
     <string name="reversalprompt">转牌</string>
     <string name="portraitnavigation">轻扫手指上下滑动，竖直显示</string>
     <string name="landscapenavigation">手指左右滑动，横向显示</string>
+    <string name="checkin">今天我用塔罗牌占卜，发现不可思议的惊奇！</string>
     <string name="load_menu">下载</string>
     <string name="save_menu">保存</string>
     <string name="share_menu">分享</string>

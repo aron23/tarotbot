@@ -71,7 +71,8 @@
     <string-array name="second_menu">        
         <item>選擇一張牌</item>
         <item>保存</item>
-        <item>分享</item>      
+        <item>分享</item>   
+        <item>發貼</item>   
         <item>請選擇</item>
         <item>什麽是塔羅牌</item>        
         <item>塔羅牌設計師</item>

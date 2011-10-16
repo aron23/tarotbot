@@ -66,6 +66,7 @@
         <item>a propos de l\'artiste</item>
         <item>a propos de l\'app</item>
         <item>les options</item> 
+        <item></item> 
     </string-array>
     <string-array name="second_menu">        
         <item>voir la disposition complète</item>
@@ -76,5 +77,6 @@
         <item>a propos de l\'artiste</item>
         <item>a propos de l\'app</item>
         <item>les options</item> 
+        <item></item> 
     </string-array>
 </resources>

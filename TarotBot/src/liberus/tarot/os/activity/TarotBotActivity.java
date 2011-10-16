@@ -369,8 +369,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	public void onClick(Object tag, int color) {
 		displayPrefsEd.putInt("background.color", color);
 		displayPrefsEd.commit();
-		View options = findViewById(R.id.mainlayout);
-		options.setBackgroundColor(color);
+		//View options = findViewById(R.id.mainlayout);
+		//options.setBackgroundColor(color);
 	}
 	
 	public void onClick(View v) {	

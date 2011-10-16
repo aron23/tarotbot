@@ -65,7 +65,8 @@
         <item>über Tarot</item>        
         <item>über den Künstler</item>
         <item>über das App</item>
-        <item>Optionen</item> 
+        <item>Optionen</item>
+        <item></item> 
     </string-array>
     <string-array name="second_menu">        
         <item>die ganze Legung anzeigen</item>
@@ -77,5 +78,6 @@
         <item>über den Künstler</item>
         <item>über das App</item>   
         <item>Optionen</item>
+        <item></item> 
     </string-array>
 </resources>

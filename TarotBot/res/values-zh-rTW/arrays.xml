@@ -67,6 +67,7 @@
         <item>塔羅牌設計師</item>
         <item>程序介紹</item>
         <item>選項</item>
+        <item></item> 
     </string-array>
     <string-array name="second_menu">        
         <item>選擇一張牌</item>
@@ -78,5 +79,6 @@
         <item>塔羅牌設計師</item>
         <item>程序介紹</item>   
         <item>選項</item>
+        <item></item> 
     </string-array>
 </resources>

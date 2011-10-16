@@ -27,4 +27,8 @@
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
     <string name="checkin">Ich hatte eine tolle Wahrsagung mit TarotBot!</string>
+    <string name="custom_deck_yes">Spezielles Kartenspiel</string>
+    <string name="custom_deck_no">Standard Kartenspiel</string>
+    <string name="custom_deck_note">&lt;i>Die Kompatibilität des speziellen Kartenspieles hängt von der Bildgrösse der Karten und von der Leistungsfähigkeit der Hardware ab. &lt;a href=\'http://liber.us/tarotbot/custom-decks\'>Instruktionen auf Englisch sind hier erhältlich&lt;/a>.&lt;/i></string>
+	<string name="background_color_choice">Hintergrund ändern</string>
 </resources>

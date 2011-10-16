@@ -21,7 +21,8 @@
     <string-array name="gothic_second_menu">        
         <item>VIEW FULL SPREAD</item>
         <item>SAVE THIS READING</item>
-        <item>SHARE THIS READING</item>      
+        <item>SHARE THIS READING</item>     
+        <item>CHECK IN</item> 
         <item>CHOOSE A SPREAD</item>
         <item>ABOUT THE TAROT</item>        
         <item>ABOUT THE ARTIST</item>

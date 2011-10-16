@@ -70,7 +70,8 @@
     <string-array name="second_menu">        
         <item>die ganze Legung anzeigen</item>
         <item>Lesung speichern</item>
-        <item>Lesung weiterleiten</item>      
+        <item>Lesung weiterleiten</item>
+        <item>Check In</item>      
         <item>Legesystem wählen</item>
         <item>über Tarot</item>        
         <item>über den Künstler</item>

@@ -1,13 +1,9 @@
 package liberus.tarot.os.activity;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,17 +12,13 @@ import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
-
+import liberus.tarot.android.noads.R;
 import liberus.tarot.deck.Deck;
 import liberus.tarot.deck.FullTarotDeck;
 import liberus.tarot.deck.TarotTrumpDeck;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.interpretation.Interpretation;
-
-import liberus.utils.MyGestureDetector;
-import liberus.tarot.android.noads.R;
 import liberus.tarot.querant.Querant;
-
 import liberus.tarot.spread.ArrowSpread;
 import liberus.tarot.spread.BotaSpread;
 import liberus.tarot.spread.BrowseSpread;
@@ -36,65 +28,32 @@ import liberus.tarot.spread.DialecticSpread;
 import liberus.tarot.spread.PentagramSpread;
 import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
-
 import liberus.utils.EfficientAdapter;
-import liberus.utils.MyProgressDialog;
-import liberus.utils.TarotBotManager;
+import liberus.utils.MyGestureDetector;
 import liberus.utils.WebUtils;
 import liberus.utils.color.ColorDialog;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-//import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
-import android.util.Log;
 import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
-import android.view.GestureDetector.SimpleOnGestureListener;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.DatePicker;
-import android.widget.DatePicker.OnDateChangedListener;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -122,6 +81,11 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		super.onCreate(savedInstanceState);
 
 		setFullscreen();
+		int orient = getResources().getConfiguration().orientation;
+		if (orient == 2)
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		else 
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		
 		inflater = LayoutInflater.from(this);
 		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
@@ -740,7 +704,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			    	save(true);			     
 			        return;		
 			    case 3:
-			    	HeyzapLib.checkin(this, R.string.checkin);			     
+			    	HeyzapLib.checkin(this,getResources().getString(R.string.checkin));			     
 			        return;		
 			    case 4:	
 			    	reInitSpread(R.layout.spreadmenu);								

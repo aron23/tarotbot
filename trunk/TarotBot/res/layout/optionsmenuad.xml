@@ -8,21 +8,6 @@
   android:baselineAlignBottom="true"
   android:background="@drawable/menu_background"
   >
-<ImageView  
-	android:id="@+id/mainlogo"
-	android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:gravity="center"
-    android:paddingTop="20dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    android:layout_gravity="center"
-    android:src="@drawable/biglogo"
-    android:scaleType="fitCenter"
-    android:background="@android:color/transparent"
-    android:adjustViewBounds="true"
-     /> 
 <ToggleButton android:id="@+id/reversal_button"
    android:layout_width="fill_parent"
    android:layout_height="wrap_content"

@@ -69,7 +69,8 @@ public abstract class Spread {
 				clearView((ViewGroup)toClear);
 			}
 		}
-		v.destroyDrawingCache();		
+		v.destroyDrawingCache();
+		System.gc();
 	}
 	
 	public View navigate(View layout, AbstractTarotBotActivity abstractTarotBotActivity,Context ctx) {		
@@ -290,8 +291,8 @@ public abstract class Spread {
 	        if (customFile.exists() &! TarotBotManager.hasEnoughMemory(HIGHRES,con) && displayPrefs.getBoolean("custom.deck", false)) 
 	        	bmp = BitmapFactory.decodeFile(customFile.getPath());
 	        else if (customFile2.exists() &! TarotBotManager.hasEnoughMemory(HIGHRES,con) && displayPrefs.getBoolean("custom.deck", false)) 
-	        	bmp = BitmapFactory.decodeFile(customFile.getPath());
-	        else if (customFile.exists())
+	        	bmp = BitmapFactory.decodeFile(customFile2.getPath());
+	        else if (new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index)).exists())
 	        	customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index));
 	        else 
 	        	customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardNumber(index));

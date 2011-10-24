@@ -389,9 +389,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		}
 	
 	public void navigate() {
-		//navigator = new Dialog(this,android.R.style.Theme);
-		//navigator.setTitle(getString(R.string.navigate_prompt));
-		//navigator.
+		preNavigate();
 		priorstate = state;
 		state = "navigate";
 		
@@ -729,13 +727,17 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 			View v = flipper.getChildAt(i);
 			flipper.removeView(v);
 			v.destroyDrawingCache();
-			((ImageView) v.findViewById(R.id.divine)).getDrawable().setCallback(null);
-			((ImageView) v.findViewById(R.id.divine)).setImageDrawable(null);
-			((ImageView) v.findViewById(R.id.divine)).getResources().flushLayoutCache();
-			((ImageView) v.findViewById(R.id.divine)).destroyDrawingCache();
+			ImageView im = ((ImageView) v.findViewById(R.id.divine));
+			if (im.getDrawable() instanceof BitmapDrawable)
+				((BitmapDrawable)im.getDrawable()).getBitmap().recycle();
+			im.getDrawable().setCallback(null);
+			im.setImageDrawable(null);
+			im.getResources().flushLayoutCache();
+			im.destroyDrawingCache();
+			im = null;
 			v=null;
 		}
-		
+		System.gc();
 		for (int index:Spread.circles) {					
 			//flipper.addView(null);
 			type.add(0);
@@ -1105,23 +1107,34 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
 		flipper.removeView(v);
 		v.destroyDrawingCache();
-		((BitmapDrawable)((ImageView) v.findViewById(R.id.divine)).getDrawable()).getBitmap().recycle();		
-		((ImageView) v.findViewById(R.id.divine)).getDrawable().setCallback(null);
-		((ImageView) v.findViewById(R.id.divine)).setImageDrawable(null);
-		((ImageView) v.findViewById(R.id.divine)).getResources().flushLayoutCache();
-		((ImageView) v.findViewById(R.id.divine)).destroyDrawingCache();
+		ImageView im = ((ImageView) v.findViewById(R.id.divine));
+		if (im.getDrawable() instanceof BitmapDrawable)
+			((BitmapDrawable)im.getDrawable()).getBitmap().recycle();
+		im.getDrawable().setCallback(null);
+		im.setImageDrawable(null);
+		im.getResources().flushLayoutCache();
+		im.destroyDrawingCache();
+		im = null;
 		v=null;
+		System.gc();
 	}
-	public void preNavigate(View v) {
+	public void preNavigate() {
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
-		flipper.removeView(v);
-		v.destroyDrawingCache();
-		((BitmapDrawable)((ImageView) v.findViewById(R.id.divine)).getDrawable()).getBitmap().recycle();		
-		((ImageView) v.findViewById(R.id.divine)).getDrawable().setCallback(null);
-		((ImageView) v.findViewById(R.id.divine)).setImageDrawable(null);
-		((ImageView) v.findViewById(R.id.divine)).getResources().flushLayoutCache();
-		((ImageView) v.findViewById(R.id.divine)).destroyDrawingCache();
-		v=null;
+		for (int i = 0; i < flipper.getChildCount(); i++) {
+			View v = flipper.getChildAt(i);
+			flipper.removeView(v);
+			v.destroyDrawingCache();
+			ImageView im = ((ImageView) v.findViewById(R.id.divine));
+			if (im.getDrawable() instanceof BitmapDrawable)
+				((BitmapDrawable)im.getDrawable()).getBitmap().recycle();
+			im.getDrawable().setCallback(null);
+			im.setImageDrawable(null);
+			im.getResources().flushLayoutCache();
+			im.destroyDrawingCache();
+			im = null;
+			v=null;
+		}
+		System.gc();
 	}
 	protected void toastText(String text) {
 		if (spreadLabels != null && spreadLabels.length >= secondSetIndex && Spread.circles.size() <78 && getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT && spreadLabels[secondSetIndex] != null && spreadLabels[secondSetIndex].length() > 0) {

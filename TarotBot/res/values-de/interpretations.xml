@@ -16,7 +16,7 @@
 <string name="trumps_01_in_spiritual">Originalität, Kühnheit, eine Tendenz zu Ikonoklasmus, abenteuerliche Suche nach der höheren Wahrheit.</string>
 <string name="trumps_01_astrology">Uranus</string>
 <string name="trumps_01_abst">Unschuld, Naivität</string>
-<string name="trumps_01_en_title"/>
+
 <string name="trumps_01_actions"/>
 <string name="trumps_01_ill_dignified"/>
 <string name="trumps_02_element">Luft</string>
@@ -35,7 +35,7 @@
 <string name="trumps_02_in_spiritual"/>
 <string name="trumps_02_astrology">Merkur</string>
 <string name="trumps_02_abst"/>
-<string name="trumps_02_en_title"/>
+
 <string name="trumps_02_actions"/>
 <string name="trumps_02_ill_dignified"/>
 <string name="trumps_03_element">Erde</string>
@@ -54,7 +54,7 @@
 <string name="trumps_03_in_spiritual"/>
 <string name="trumps_03_astrology">Mond</string>
 <string name="trumps_03_abst">dasjenige, das knapp unter der Oberfläche der gewöhnlichen Wirklichkeit liegt</string>
-<string name="trumps_03_en_title"/>
+
 <string name="trumps_03_actions"/>
 <string name="trumps_03_ill_dignified"/>
 <string name="trumps_04_element">Erde</string>
@@ -73,7 +73,7 @@
 <string name="trumps_04_in_spiritual"/>
 <string name="trumps_04_astrology">Venus</string>
 <string name="trumps_04_abst">Fülle und Fruchtbarkeit, weibliche schöpferische Kraft</string>
-<string name="trumps_04_en_title"/>
+
 <string name="trumps_04_actions"/>
 <string name="trumps_04_ill_dignified"/>
 <string name="trumps_05_element">Feuer</string>
@@ -92,7 +92,7 @@
 <string name="trumps_05_in_spiritual"/>
 <string name="trumps_05_astrology">Widder</string>
 <string name="trumps_05_abst">Unwiderstehliche Kraft und ewige Erneuerung</string>
-<string name="trumps_05_en_title"/>
+
 <string name="trumps_05_actions"/>
 <string name="trumps_05_ill_dignified"/>
 <string name="trumps_06_element">Erde</string>
@@ -111,7 +111,7 @@
 <string name="trumps_06_in_spiritual"/>
 <string name="trumps_06_astrology">Stier</string>
 <string name="trumps_06_abst">Offenbarung spiritueller Autorität</string>
-<string name="trumps_06_en_title"/>
+
 <string name="trumps_06_actions"/>
 <string name="trumps_06_ill_dignified"/>
 <string name="trumps_07_element">Luft</string>
@@ -130,7 +130,7 @@
 <string name="trumps_07_in_spiritual"/>
 <string name="trumps_07_astrology">Zwillinge</string>
 <string name="trumps_07_abst">ausgewogene Polarität, Vereinigung der Gegensätze</string>
-<string name="trumps_07_en_title"/>
+
 <string name="trumps_07_actions"/>
 <string name="trumps_07_ill_dignified"/>
 <string name="trumps_08_element">Wasser</string>
@@ -149,10 +149,10 @@
 <string name="trumps_08_in_spiritual"/>
 <string name="trumps_08_astrology">Krebs</string>
 <string name="trumps_08_abst">Vereinigung der geistigen und körperlichen Kräfte</string>
-<string name="trumps_08_en_title"/>
+
 <string name="trumps_08_actions"/>
 <string name="trumps_08_ill_dignified"/>
-<string name="trumps_09_element">Luft</string>
+<string name="trumps_09_element">Feuer</string>
 <string name="trumps_09_well_dignified"/>
 <string name="trumps_09_archetype"/>
 <string name="trumps_09_meanings">Geduld und Anteilnahme, andere akzeptieren und Fehler verzeihen; ruhiger Umgang mit Enttäuschung</string>
@@ -168,7 +168,7 @@
 <string name="trumps_09_in_spiritual">Bezug zu Erregung und Kontrolle von Kundalini-Energien.</string>
 <string name="trumps_09_astrology">Löwe</string>
 <string name="trumps_09_abst">Kraft, Stärke, die Energie, die sich offenbart</string>
-<string name="trumps_09_en_title"/>
+
 <string name="trumps_09_actions"/>
 <string name="trumps_09_ill_dignified"/>
 <string name="trumps_10_element">Luft</string>
@@ -187,7 +187,7 @@
 <string name="trumps_10_in_spiritual"/>
 <string name="trumps_10_astrology">Jungfrau</string>
 <string name="trumps_10_abst">Der Wunsch, sich von der Gesellschaft abzuwenden und sich auf die innere Welt zu konzentrieren.</string>
-<string name="trumps_10_en_title"/>
+
 <string name="trumps_10_actions"/>
 <string name="trumps_10_ill_dignified"/>
 <string name="trumps_11_element">Wasser</string>
@@ -206,10 +206,10 @@
 <string name="trumps_11_in_spiritual"/>
 <string name="trumps_11_astrology">Jupiter</string>
 <string name="trumps_11_abst">Schicksal</string>
-<string name="trumps_11_en_title"/>
+
 <string name="trumps_11_actions"/>
 <string name="trumps_11_ill_dignified"/>
-<string name="trumps_12_element">Feuer</string>
+<string name="trumps_12_element">Luft</string>
 <string name="trumps_12_well_dignified"/>
 <string name="trumps_12_archetype"/>
 <string name="trumps_12_meanings">tun, was getan werden muss, Verantwortung übernehmen, Endabrechnung, Karma</string>
@@ -225,7 +225,7 @@
 <string name="trumps_12_in_spiritual"/>
 <string name="trumps_12_astrology">Waage</string>
 <string name="trumps_12_abst">Wille steuert Gleichgewicht </string>
-<string name="trumps_12_en_title"/>
+
 <string name="trumps_12_actions"/>
 <string name="trumps_12_ill_dignified"/>
 <string name="trumps_13_element">Wasser</string>
@@ -244,7 +244,7 @@
 <string name="trumps_13_in_spiritual">Hingabe an die universellen Gesetze</string>
 <string name="trumps_13_astrology">Neptun</string>
 <string name="trumps_13_abst">steht für Weisheit, aber eine Weisheit, die das Gegenteil davon ist , was die Welt gemeinhin akzeptiert </string>
-<string name="trumps_13_en_title"/>
+
 <string name="trumps_13_actions"/>
 <string name="trumps_13_ill_dignified"/>
 <string name="trumps_14_element">Wasser</string>
@@ -263,7 +263,7 @@
 <string name="trumps_14_in_spiritual"/>
 <string name="trumps_14_astrology">Skorpion</string>
 <string name="trumps_14_abst">eine wichtiges Ende, das große Veränderungen einleitet</string>
-<string name="trumps_14_en_title"/>
+
 <string name="trumps_14_actions"/>
 <string name="trumps_14_ill_dignified"/>
 <string name="trumps_15_element">Feuer</string>
@@ -282,7 +282,7 @@
 <string name="trumps_15_in_spiritual"/>
 <string name="trumps_15_astrology">Schütze</string>
 <string name="trumps_15_abst">Enthaltsamkeit, Selbstbeherrschung, Kombinierung und Neukombinierung</string>
-<string name="trumps_15_en_title"/>
+
 <string name="trumps_15_actions"/>
 <string name="trumps_15_ill_dignified"/>
 <string name="trumps_16_element">Erde</string>
@@ -301,7 +301,7 @@
 <string name="trumps_16_in_spiritual"/>
 <string name="trumps_16_astrology">Steinbock</string>
 <string name="trumps_16_abst">Big Business, die Konventionen der Gesellschaft, die Ungerechtigkeit und Grausamkeit einer gesellschaftlichen Ordnung, in der Geld Gott ist, Menschlichkeit bestialisiert wird, Krieg sich durch Gier entwickelt und als Patriotismus getarnt ist; Angst dominiert</string>
-<string name="trumps_16_en_title"/>
+
 <string name="trumps_16_actions"/>
 <string name="trumps_16_ill_dignified"/>
 <string name="trumps_17_element">Feuer</string>
@@ -320,7 +320,7 @@
 <string name="trumps_17_in_spiritual">das Umstürzen falscher Vorstellungen oder die Niederlage von Aktivitäten gegen die eigene spirituellen Entwicklung </string>
 <string name="trumps_17_astrology">Mars</string>
 <string name="trumps_17_abst">punktuelles Gleichgewicht </string>
-<string name="trumps_17_en_title"/>
+
 <string name="trumps_17_actions"/>
 <string name="trumps_17_ill_dignified"/>
 <string name="trumps_18_element">Luft</string>
@@ -339,7 +339,7 @@
 <string name="trumps_18_in_spiritual"/>
 <string name="trumps_18_astrology">Wassermann</string>
 <string name="trumps_18_abst">das Licht am Ende des Tunnels</string>
-<string name="trumps_18_en_title"/>
+
 <string name="trumps_18_actions"/>
 <string name="trumps_18_ill_dignified"/>
 <string name="pentacles_01_element"/>
@@ -377,7 +377,7 @@
 <string name="trumps_19_in_spiritual"/>
 <string name="trumps_19_astrology">Fische</string>
 <string name="trumps_19_abst">Geheimnis</string>
-<string name="trumps_19_en_title"/>
+
 <string name="trumps_19_actions"/>
 <string name="trumps_19_ill_dignified"/>
 <string name="trumps_20_element">Feuer</string>
@@ -396,7 +396,7 @@
 <string name="trumps_20_in_spiritual">Befreiung - von der Knechtschaft der unteren Ebenen. </string>
 <string name="trumps_20_astrology">Sonne</string>
 <string name="trumps_20_abst">Klarheit und Brillanz</string>
-<string name="trumps_20_en_title"/>
+
 <string name="trumps_20_actions"/>
 <string name="trumps_20_ill_dignified"/>
 <string name="trumps_21_element">Feuer</string>
@@ -415,7 +415,7 @@
 <string name="trumps_21_in_spiritual"/>
 <string name="trumps_21_astrology">Pluto</string>
 <string name="trumps_21_abst">Wiedergeburt </string>
-<string name="trumps_21_en_title"/>
+
 <string name="trumps_21_actions"/>
 <string name="trumps_21_ill_dignified"/>
 <string name="trumps_22_element">Erde</string>
@@ -434,7 +434,7 @@
 <string name="trumps_22_in_spiritual"/>
 <string name="trumps_22_astrology">Saturn</string>
 <string name="trumps_22_abst">Synthese, dynamisches Gleichgewicht</string>
-<string name="trumps_22_en_title"/>
+
 <string name="trumps_22_actions"/>
 <string name="trumps_22_ill_dignified"/>
 <string name="wands_01_element"/>

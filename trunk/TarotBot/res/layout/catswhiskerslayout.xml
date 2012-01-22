@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  >
+<ScrollView android:id="@+id/textAreaScroller" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"   
+    android:fillViewport="true"
+    android:fadingEdge="none">
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:layout_margin="4dip"  
+  
+  android:orientation="vertical">	
+
+<LinearLayout android:id="@+id/rowone"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:layout_gravity="bottom"
+  android:gravity="bottom"
+  
+  android:layout_weight="1">
+
+<LinearLayout android:id="@+id/past_cause_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  android:layout_gravity="bottom"
+  android:gravity="bottom"
+  	
+	android:clipToPadding="true"    
+	android:layout_margin="2dip"
+  	android:layout_weight="7">  
+<ImageView android:id="@+id/past_cause" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+  android:layout_gravity="center"
+  android:gravity="center"    
+    android:adjustViewBounds="true"
+    android:padding="1px"
+    ></ImageView>          
+</LinearLayout>
+<LinearLayout android:id="@+id/past_neg_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  android:layout_gravity="bottom"
+  android:gravity="bottom"
+  	
+	android:clipToPadding="true"    
+	android:layout_margin="2dip"
+  	android:layout_weight="7">  
+<ImageView android:id="@+id/past_neg" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+  android:layout_gravity="center"
+  android:gravity="center"    
+    android:adjustViewBounds="true"
+    android:padding="1px"
+    ></ImageView>          
+</LinearLayout>
+<LinearLayout android:id="@+id/past_pos_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  android:layout_gravity="bottom"
+  android:gravity="bottom"
+  	
+	android:clipToPadding="true"    
+	android:layout_margin="2dip"
+  	android:layout_weight="7">  
+<ImageView android:id="@+id/past_pos" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+  android:layout_gravity="center"
+  android:gravity="center"    
+    android:adjustViewBounds="true"
+    android:padding="1px"
+    ></ImageView>          
+</LinearLayout>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	
+	  	android:layout_weight="7"/>	  		  	
+<LinearLayout android:id="@+id/future_neg_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  android:layout_gravity="bottom"
+  android:layout_margin="2dip"
+  android:gravity="bottom"	  
+  	
+  	android:layout_weight="7">  
+<ImageView android:id="@+id/future_neg" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+  android:layout_gravity="center"
+  android:gravity="center"    
+    android:padding="1px"
+    ></ImageView>          
+</LinearLayout>
+<LinearLayout android:id="@+id/future_pos_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  android:layout_gravity="bottom"
+  android:layout_margin="2dip"
+  android:gravity="bottom"  	  
+  	
+  	android:layout_weight="7">  
+<ImageView android:id="@+id/future_pos" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+  android:layout_gravity="center"
+  android:gravity="center"    
+    android:padding="1px"
+    ></ImageView>          
+</LinearLayout>
+<LinearLayout android:id="@+id/future_advice_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  android:layout_gravity="bottom"
+  android:layout_margin="2dip"
+  android:gravity="bottom"  	  
+  	
+  	android:layout_weight="7">  
+<ImageView android:id="@+id/future_advice" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+  android:layout_gravity="center"
+  android:gravity="center"    
+    android:padding="1px"
+    ></ImageView>          
+</LinearLayout>
+</LinearLayout>
+
+
+<LinearLayout android:id="@+id/rowtwo"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+    android:layout_gravity="top"
+	android:gravity="top"
+    
+  android:layout_weight="1">
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	
+	  	android:layout_weight="7"/>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	
+	  	android:layout_weight="7"/>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	
+	  	android:layout_weight="7"/>
+<LinearLayout android:id="@+id/need_back" 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_height="wrap_content"
+  	android:layout_width="fill_parent"
+  		
+  	android:layout_gravity="top"
+	android:gravity="top"
+	android:layout_margin="2dip"
+	android:clipToPadding="true"
+  	android:layout_weight="7">  
+<ImageView android:id="@+id/need" 
+	android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:clickable="true"
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+    android:layout_gravity="center"
+	android:gravity="center"
+    android:padding="1px"
+    ></ImageView>          
+</LinearLayout>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	
+	  	android:layout_weight="7"/>	
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	
+	  	android:layout_weight="7"/>	
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"
+	  	
+	  	android:layout_weight="7"/>		  	  		  	
+</LinearLayout>
+
+</LinearLayout>
+</ScrollView>  
+</LinearLayout>

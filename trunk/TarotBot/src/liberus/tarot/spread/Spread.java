@@ -23,6 +23,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Environment;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,7 @@ import android.widget.ImageView;
 
 public abstract class Spread {
 	
-	protected static final int HIGHRES = 32;
+	protected static final int HIGHRES = 36;
 	protected static final int MIDRES = 24;
 	public Deck myDeck;
 	public ViewGroup myview;
@@ -272,6 +273,7 @@ public abstract class Spread {
 	
 	private Bitmap preImagePlacement(int index, Context con) {
 		SharedPreferences displayPrefs = con.getSharedPreferences("tarotbot.display", 0);
+		SharedPreferences deckPrefs = con.getSharedPreferences("decked", 0);
 		Bitmap bmp = null;
 		
 		BitmapFactory.Options options;
@@ -280,22 +282,23 @@ public abstract class Spread {
 	   
 		if (browsing)
 			if (TarotBotManager.hasEnoughMemory(HIGHRES,con))
-				options.inSampleSize = 0;
-//			else if (TarotBotManager.hasEnoughMemory(MIDRES,con))
-//				options.inSampleSize = 3;
+				if (Build.VERSION.SDK_INT < 14)
+					options.inSampleSize = 1;
+				else
+					options.inSampleSize = 2;
 			else
 				options.inSampleSize = getMySampleSize();
 		if (bmp == null) {	
-			File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index).replaceAll("(\\.jpg)", "_th$1"));
-			File customFile2 = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardNumber(index));
+			File customFile = new File(Environment.getExternalStorageDirectory()+"/"+deckPrefs.getString("tarotbot.custom", "tarotbot.custom")+"/"+Interpretation.getCardName(index).replaceAll("(\\.jpg)", "_th$1"));
+			File customFile2 = new File(Environment.getExternalStorageDirectory()+"/"+deckPrefs.getString("tarotbot.custom", "tarotbot.custom")+"/"+Interpretation.getCardNumber(index));
 	        if (customFile.exists() &! TarotBotManager.hasEnoughMemory(HIGHRES,con) && displayPrefs.getBoolean("custom.deck", false)) 
 	        	bmp = BitmapFactory.decodeFile(customFile.getPath());
 	        else if (customFile2.exists() &! TarotBotManager.hasEnoughMemory(HIGHRES,con) && displayPrefs.getBoolean("custom.deck", false)) 
 	        	bmp = BitmapFactory.decodeFile(customFile2.getPath());
-	        else if (new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index)).exists())
-	        	customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(index));
+	        else if (new File(Environment.getExternalStorageDirectory()+"/"+deckPrefs.getString("tarotbot.custom", "tarotbot.custom")+"/"+Interpretation.getCardName(index)).exists())
+	        	customFile = new File(Environment.getExternalStorageDirectory()+"/"+deckPrefs.getString("tarotbot.custom", "tarotbot.custom")+"/"+Interpretation.getCardName(index));
 	        else 
-	        	customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardNumber(index));
+	        	customFile = new File(Environment.getExternalStorageDirectory()+"/"+deckPrefs.getString("tarotbot.custom", "tarotbot.custom")+"/"+Interpretation.getCardNumber(index));
 	        
 	        if (bmp == null && customFile.exists() && displayPrefs.getBoolean("custom.deck", false)) 
 	        	bmp = BitmapFactory.decodeFile(customFile.getPath());

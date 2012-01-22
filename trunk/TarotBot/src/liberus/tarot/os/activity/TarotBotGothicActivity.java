@@ -109,7 +109,7 @@ import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
 
 
-public class TarotBotGothicActivity extends TarotBotActivity  {
+public abstract class TarotBotGothicActivity extends TarotBotActivity  {
 
 	
 	
@@ -358,11 +358,7 @@ public class TarotBotGothicActivity extends TarotBotActivity  {
 		return "liberus.tarot.monolith.gothic";
 	}
 
-	@Override
-	public long getHiResZipSize() {
-		// TODO Auto-generated method stub
-		return 15805970;
-	}
+
 
 	@Override
 	public String getMyFolder() {

@@ -14,7 +14,7 @@
 	 android:layout_height="wrap_content" 
 	 android:layout_width="fill_parent">
     <TextView android:id="@+id/title" android:layout_width="wrap_content"
-     android:textSize="17sp"
+     android:textSize="14sp"
 	 android:textColor="@color/label_colors"
 	 android:shadowColor="#000000"
 	 android:typeface="serif"
@@ -29,7 +29,7 @@
 	 android:layout_width="fill_parent">
     <TextView android:id="@+id/cardlabel" 
      android:layout_width="wrap_content"
-	 android:gravity="center_vertical" android:textSize="17sp"
+	 android:gravity="center_vertical" android:textSize="14sp"
 	 android:textColor="@color/label_colors"
 	 android:shadowColor="#000000"
 	 android:typeface="serif"
@@ -39,16 +39,16 @@
  </LinearLayout>
 <ScrollView android:id="@+id/textAreaScroller" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent"   
+    android:layout_height="wrap_content"   
     android:fillViewport="true"
     android:fadingEdge="none">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/readinglayout"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="top"
-    >		   
+    android:gravity="top">		   
 <TextView 
 	android:id="@+id/interpretation" 
     android:layout_width="fill_parent" 
@@ -57,55 +57,71 @@
     android:textColor="#FFFFFF"
     android:layout_marginLeft="20dip"
     android:layout_marginRight="20dip"
-    android:typeface="serif"
-    android:textSize="16sp"
+    android:textSize="13sp"
+ 	android:typeface="serif"
     android:gravity="left"
     android:layout_gravity="left"
     android:shadowColor="#000000"
     android:shadowRadius="1.5"  
     android:shadowDx="1"  
-    android:shadowDy="1"/>   
-<LinearLayout 
-	android:id="@+id/menulayout"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
+    android:shadowDy="1"
+    android:layout_alignParentTop="true"
+    />
+
+<EditText 
+	android:id="@+id/custom_interpretation" 
+    android:hint="Enter custom text here"
+    android:editable="true"
+    android:minLines="4"
+    android:background="@android:color/transparent"
+    
+   
+    android:layout_width="fill_parent" 
     android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:textColor="#FFFFFF"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:textSize="13sp"
+ 	android:typeface="serif"
     android:gravity="left"
-    android:layout_gravity="bottom"
-    android:background="@android:color/transparent"
-    android:layout_alignParentLeft="true"
-    android:layout_below="@id/interpretation"
-    >
-<ImageView 
-	android:id="@+id/spreadkey" 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:scaleType="fitCenter"
-    android:background="@android:color/transparent"
-    android:src="@drawable/littlespread" android:layout_gravity="center"/>       
-</LinearLayout> 
-<LinearLayout 
-	android:id="@+id/menulayout2"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="right"
-    android:layout_gravity="bottom"
-    android:background="@android:color/transparent"
-    android:layout_alignParentRight="true"
-    android:layout_below="@id/interpretation"
-    >
-<ImageView 
-	android:id="@+id/cardkey" 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:scaleType="fitCenter"
-    android:background="@android:color/transparent"
-    android:src="@drawable/littlecard" android:layout_gravity="center"/>       
-</LinearLayout>
+    android:layout_gravity="left"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
+  	android:layout_below="@id/interpretation"/>    
 </RelativeLayout>
 </ScrollView>
+<RelativeLayout 
+    android:orientation="vertical"
+    android:id="@+id/keychain"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">    
+<ImageView 
+	android:id="@+id/spreadkey" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:scaleType="fitStart"
+    android:background="@android:color/transparent"
+    android:src="@drawable/littlespread" 
+    android:layout_gravity="left"
+    android:layout_alignParentLeft="true"/>       
+<ImageView 
+	android:id="@+id/cardkey" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:scaleType="fitEnd"
+    android:background="@android:color/transparent"
+    android:src="@drawable/littlecard" 
+    android:layout_gravity="right"
+    android:layout_alignParentRight="true"/>
+</RelativeLayout>       
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_height="fill_parent"
+	  	android:layout_width="fill_parent"/>
 </LinearLayout>
 

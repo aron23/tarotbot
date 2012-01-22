@@ -8,21 +8,17 @@
   android:baselineAlignBottom="true"
   android:background="@drawable/menu_background"
   >
-
-	android:id="@+id/mainlogo"
+<ScrollView android:id="@+id/ScrollView01"
 	android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:gravity="center"
-    android:paddingTop="20dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    android:layout_gravity="center"
-    android:src="@drawable/biglogo"
-    android:scaleType="fitCenter"
-    android:background="@android:color/transparent"
-    android:adjustViewBounds="true"
-     /> 
+    android:layout_height="wrap_content"   
+    android:fillViewport="true"
+    android:fadingEdge="none">    
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  >
 <ToggleButton android:id="@+id/reversal_button"
    android:layout_width="fill_parent"
    android:layout_height="wrap_content"
@@ -68,6 +64,13 @@
     android:shadowRadius="1.5"  
     android:shadowDx="1"  
     android:shadowDy="1"  />     
+<EditText android:id="@+id/custom_deck_name"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content"
+   android:text="tarotbot.custom"
+   android:singleLine="true"
+    android:editable="true"
+    android:visibility="gone"/>
 <TextView android:id="@+id/custom_deck_note"
    android:layout_width="fill_parent"
    android:layout_height="wrap_content"
@@ -99,9 +102,10 @@
 	android:paddingBottom="0dp" android:background="@drawable/reversal_selector"
 	android:textOn="" android:textOff="" android:onClick="mute"
 	android:shadowColor="#000000" />
-    <com.google.ads.AdView
+</LinearLayout>
+</ScrollView>
+<com.google.ads.AdView
 android:id="@+id/ad"
 android:layout_width="0px"
 android:layout_height="0px"/>
-
 </LinearLayout>

@@ -4,6 +4,7 @@
 	<item>单牌</item>
 	<item>时光之箭</item>
 	<item>辩证法</item>
+	<item>猫的胡须</item>
 	<item>五角星</item>
 	<item>混沌之星</item>
 	<item>凯尔特十字</item>
@@ -35,7 +36,16 @@
 	<item>地球：事业/金钱/实际问题</item>
 	<item>灵性</item>
    </string-array>
-	<string-array name="chaosStar">
+	<string-array name="catsWhiskers">
+        <item>过去：根本原因</item>
+        <item>过去：问题和挑战</item>
+        <item>过去：成功和胜利</item>
+        <item>需要什么</item>
+        <item>未来：问题和挑战</item> 
+        <item>未来：成功和胜利</item>
+        <item>未来: 建议</item> 
+   </string-array>
+  <string-array name="chaosStar">
 	<item>红色：内外冲突</item>
 	<item>橙色：精神状态</item>
 	<item>紫色：性，激情</item>

@@ -50,22 +50,63 @@ android:id="@+id/secondsetlayout"
 		 android:layout_height="wrap_content" android:layout_centerInParent="true"
 		 android:padding="2dip" />
  </LinearLayout>      
-<ScrollView android:id="@+id/ScrollView01"
-	android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_weight="1">    
+<ScrollView android:id="@+id/textAreaScroller" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"   
+    android:fillViewport="true"
+    android:fadingEdge="none">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/readinglayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:gravity="top">		   
 <TextView 
 	android:id="@+id/interpretation" 
-	android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-	android:layout_marginTop="5dip"
-	android:layout_marginBottom="5dip"
-	android:layout_marginLeft="5dip"
-    android:background="#000000"
-	android:typeface="serif"    
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
     android:textColor="#FFFFFF"
-    />  
-    </ScrollView>
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:textSize="13sp"
+ 	android:typeface="serif"
+    android:gravity="left"
+    android:layout_gravity="left"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
+    android:layout_alignParentTop="true"
+    />
+
+<EditText 
+	android:id="@+id/custom_interpretation" 
+    android:hint="Enter custom text here"
+    android:editable="true"
+    android:minLines="4"
+    android:background="@android:color/transparent"
+    
+   
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:textColor="#FFFFFF"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:textSize="13sp"
+ 	android:typeface="serif"
+    android:gravity="left"
+    android:layout_gravity="left"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
+  	android:layout_below="@id/interpretation"/>    
+</RelativeLayout>
+</ScrollView>
+
 
 <LinearLayout 
 	android:id="@+id/menulayout"

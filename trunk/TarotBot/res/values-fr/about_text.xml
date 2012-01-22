@@ -126,9 +126,9 @@
 	&lt;p>The deck included with the free versions is a vintage Rider-Waite deck with artwork by &lt;a href=\'http://beinecke.library.yale.edu/awia/gallery/smith.html\' target=\'_blank\'>Pamela Coleman Smith&lt;/a>&lt;/p>
 </string>
 <string name="market_link">
-	&lt;p>&lt;a href=\'market://details?id=liberus.tarot.android.noads\'>please tell us what you think in the market&lt;/a>&lt;/p>
+	&lt;p>&lt;a href=\'http://liber.us/tarotbot\'>please tell us what you think on our website &lt;/a>&lt;/p>
 </string>
 <string name="other_apps">
-	&lt;p>&lt;a href=\'market://search?q=pub:Liberus\'>check out our other decks&lt;/a>&lt;/p>
+	&lt;p>&lt;a href=\'http://liber.us/tarotbot/decks\'>check out our other decks&lt;/a>&lt;/p>
 </string>
 </resources>

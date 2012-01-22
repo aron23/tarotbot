@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -17,10 +18,12 @@ import java.util.ArrayList;
 import liberus.tarot.interpretation.BotaInt;
 import liberus.tarot.spread.BotaSpread;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.entity.BufferedHttpEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
@@ -45,6 +48,13 @@ public class WebUtils {
 		return false;
 	}
 	
+	public static boolean check4g(Context act) {
+		ConnectivityManager myConn = (ConnectivityManager) act.getSystemService(act.CONNECTIVITY_SERVICE);
+		NetworkInfo ni = myConn.getActiveNetworkInfo();
+		if (ni != null && ni.getState().equals(NetworkInfo.State.CONNECTED) && (ni.getSubtype() == 6 || ni.getSubtype() == 13 || ni.getSubtype() == 14))
+			return true;
+		return false;
+	}
 	
 	public static void Download(String Url, String destination, Context con, ProgressDialog pd)
 	 {		
@@ -55,14 +65,18 @@ public class WebUtils {
 	   //set the download URL, a url that points to a file on the internet
 	   //this is the file to be downloaded
 	   URL url = new URL(Url);
-	   //create the new connection
-	   HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+	   
+	   HttpGet httpRequest = null;
 
-	   //set up some things on the connection
-	   urlConnection.setRequestMethod("GET");
-	   urlConnection.setDoOutput(true); 
-	    //and connect!
-	   urlConnection.connect();
+       httpRequest = new HttpGet(url.toURI());
+
+       HttpClient httpclient = new DefaultHttpClient();
+       HttpResponse response = (HttpResponse) httpclient.execute(httpRequest);
+
+       HttpEntity entity = response.getEntity();
+       BufferedHttpEntity bufHttpEntity = new BufferedHttpEntity(entity);
+       InputStream inputStream = bufHttpEntity.getContent();
+	   
 	   //set the path where we want to save the file
 	   //in this case, going to save it on the root directory of the
 	   //sd card.
@@ -81,35 +95,29 @@ public class WebUtils {
 	   //this will be used to write the downloaded data into the file we created
 	   FileOutputStream fileOutput = new FileOutputStream(file);
 
-	   //this will be used in reading the data from the internet
-	   InputStream inputStream = urlConnection.getInputStream();
 
 	   //this is the total size of the file
-	   int totalSize = urlConnection.getContentLength();
+	   long totalSize = entity.getContentLength();//urlConnection.getContentLength();
 	   //variable to store total downloaded bytes
 	   int downloadedSize = 0;
+
 
 	   //create a buffer...
 	   byte[] buffer = new byte[1024];
 	   int bufferLength = 0; //used to store a temporary size of the buffer
 	   
-	   //now, read through the input buffer and write the contents to the file
 	   double off = 0;
 	   while ( (bufferLength = inputStream.read(buffer)) > 0 ) {
 		
-	    //add the data in the buffer to the file in the file output stream (the file on the sd card
 	    fileOutput.write(buffer, 0, bufferLength);
-	    //add up the size so we know how much is downloaded
+	    
 	    downloadedSize += bufferLength;
-	    //pd.setProgress((int)(100*((double)downloadedSize/(double)totalSize)));
-	    
-	    
-	    
-	    
-	    //this is where you would do something to report the prgress, like this maybe
-	    if (downloadedSize % 1024 == 0)
-	    	System.err.println("downloadedSize:"+downloadedSize+"totalSize:"+ totalSize) ;
 
+	    
+	    if (downloadedSize % 102400 == 0) {
+	    	pd.setProgress((int)(((double)downloadedSize/(double)totalSize)*100));
+	    	System.err.println("downloadedSize:"+downloadedSize+"totalSize:"+ totalSize) ;
+	    }
 	   }
 	   //close the output stream when done
 	   fileOutput.close();
@@ -121,9 +129,12 @@ public class WebUtils {
 	  } catch (IOException e) {
 	   filepath=null;
 	   e.printStackTrace();
-	  }
+	  } catch (URISyntaxException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	  System.err.println(" "+filepath) ;
-	  //pd.dismiss();
+
 	 }
 	public static String saveTarotBot(String spread, String deck, String reversals, String title, String style, Context context, String tarotbottype) {
 		HttpClient httpClient = new DefaultHttpClient();

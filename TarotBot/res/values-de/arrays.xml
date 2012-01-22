@@ -4,6 +4,7 @@
 	<item>Pfeil der Zeit</item>
 	<item>Dialektik</item>
 	<item>Pentagramm</item>
+	<item>Schnurrhaare</item>
 	<item>Chaosstern</item>
 	<item>Keltisches Kreuz</item>
 	<item>BOTA</item>
@@ -34,6 +35,15 @@
 	<item>Erde: Karriere/Geld/Materie/Praktisches </item>
 	<item>Spirituelle Dimension</item>
    </string-array>
+   <string-array name="catsWhiskers">
+   <item>Die Vergangenheit: Ursachen</item>
+	<item>Die Vergangenheit: Probleme und Herausforderungen</item>
+	<item>Die Vergangenheit: Erfolge und Siege</item>
+	<item>Was jetzt nötig ist</item>
+	<item>Die Zukunft: Probleme und Herausforderungen</item>
+	<item>Die Zukunft: Erfolge und Siege</item>
+	<item>Die Zukunft: Beratung</item>
+	</string-array>
 	<string-array name="chaosStar">
 	<item>rot: äußere Konflikte</item>
 	<item>orange: mentaler Zustand</item>

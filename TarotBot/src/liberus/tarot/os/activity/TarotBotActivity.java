@@ -22,6 +22,7 @@ import liberus.tarot.querant.Querant;
 import liberus.tarot.spread.ArrowSpread;
 import liberus.tarot.spread.BotaSpread;
 import liberus.tarot.spread.BrowseSpread;
+import liberus.tarot.spread.CatsWhiskersSpread;
 import liberus.tarot.spread.CelticSpread;
 import liberus.tarot.spread.ChaosSpread;
 import liberus.tarot.spread.DialecticSpread;
@@ -30,10 +31,13 @@ import liberus.tarot.spread.SeqSpread;
 import liberus.tarot.spread.Spread;
 import liberus.utils.EfficientAdapter;
 import liberus.utils.MyGestureDetector;
+import liberus.utils.TarotBotManager;
 import liberus.utils.WebUtils;
 import liberus.utils.color.ColorDialog;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -42,18 +46,23 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnKeyListener;
+import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -70,6 +79,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 	private Dialog helper;
 	private boolean leavespread;
 	private TextView deckNote;
+	private EditText deckPath;
 	protected Dialog interpretor;
 	private Integer significator;
 	
@@ -91,17 +101,60 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		readingPrefs = getSharedPreferences("tarotbot.reading", 0);
 		readingPrefsEd = readingPrefs.edit();
 		
+		deckPrefs = getSharedPreferences("decked", 0);
+		deckPrefsEd = deckPrefs.edit();
+		
 		displayPrefs = getSharedPreferences("tarotbot.display", 0);
 		displayPrefsEd = displayPrefs.edit();
+
+		interpretationPrefs = getSharedPreferences("tarotbot.custom_text", 0);
+		interpretationPrefsEd = interpretationPrefs.edit();
 		
 		gestureDetector = new GestureDetector(new MyGestureDetector(this));
 		gestureListener = getGestureListener(gestureDetector);
 		initSaved(getStorageFile());
-		new Thread(new Runnable(){
-			public void run(){				
-				initHighRes();
-			}
-		},"downloading").start();
+		
+		File f = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
+
+		if (displayPrefs.getBoolean("init.HD", true) &&
+				(!f.exists() || !isHighResComplete(f)) &&
+				TarotBotManager.hasEnoughMemory(HIGHRES,getApplicationContext()) &&
+				TarotBotManager.hasStrongConnection(getApplicationContext())) {
+			highResInitial = new ProgressDialog(this);
+			extractHD =  new ProgressDialog(this);
+			
+			AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+			alertDialog.setTitle("HD initialization");
+			alertDialog.setMessage("Your device seems capable, do you want to initialize HD images?\n(this may cause a force close)");
+			alertDialog.setButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				extractHD.setCancelable(false);
+				extractHD.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+				extractHD.setMessage("Extracting");
+				extractHD.setIndeterminate(true);
+				extractHD.show();
+				highResInitial.setCancelable(false);
+				highResInitial.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+				highResInitial.setMessage("Initializing HD");
+				highResInitial.setMax(100);
+				highResInitial.setProgress(0);
+				highResInitial.show();
+				new Thread(new Runnable(){
+					public void run(){				
+						initHighRes();
+					}
+				},"downloading").start();
+			} }); 
+			alertDialog.setButton2(getString(R.string.no), new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				displayPrefsEd.putBoolean("init.HD", false);
+				displayPrefsEd.commit();
+				return;
+			}}); 
+			alertDialog.show();
+			// = ProgressDialog.show(this, "Working..", "Initializing HD images\npress back to cancel", false, true);
+
+		}
 		initText();	
 		if (getIntent().getType() != null && getIntent().getType().equals("widget")) {
 			//seqSpread();
@@ -132,8 +185,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
 			myMenuList.setOnItemClickListener(this);
 			myMenuList.setTag("mainmenu");		
+			myMenuList.setFocusable(true);
+			myMenuList.requestFocus();
 		}
-		HeyzapLib.load(this,false);
+		
 	}
 	@Override
 	public Spread getMySeqSpread(Interpretation myInt, String[] labels, boolean cardOfTheDay,boolean trumpsOnly) {
@@ -200,6 +255,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		single = res.getStringArray(R.array.single);
 		timeArrow = res.getStringArray(R.array.timeArrow);
 		pentagram = res.getStringArray(R.array.pentagram);
+		catswhiskers = res.getStringArray(R.array.catsWhiskers);
 		dialectic = res.getStringArray(R.array.dialectic);
 		chaosStar = res.getStringArray(R.array.chaosStar);
 		celticCross = res.getStringArray(R.array.celticCross);
@@ -317,10 +373,37 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			else
 				cardlabel.setText(mySpread.getCardTitle(i,getApplicationContext()));
 			
+			customtext = (EditText) showing.findViewById(R.id.custom_interpretation);	
+			
+			customtext.setText(interpretationPrefs.getString(String.valueOf(i), ""));
+			
+			customtext.setId(i);
+			
+			customtext.addTextChangedListener(new TextWatcher() {
+					    public void afterTextChanged(Editable s) {
+					    	interpretationPrefsEd.putString(String.valueOf(customtext.getId()), s.toString());
+					    	interpretationPrefsEd.commit();
+					    }
+		
+					    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+					    }
+		
+					    public void onTextChanged(CharSequence s, int start, int before, int count) {
+					    	
+					    }
+					}
+			    );
+			
+			
+			
+			
+			
+			
 			infotext = (TextView) showing.findViewById(R.id.interpretation);	
 			
 			infotext.setText(Html.fromHtml(interpretation));
-			infotext.setOnTouchListener(gestureListener);
+			
 			
 			showing.setOnTouchListener(gestureListener);
 
@@ -400,12 +483,15 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				displayPrefsEd.putBoolean("custom.deck", deckToggle.isChecked());
 				displayPrefsEd.commit();
 				if (deckToggle.isChecked()) {
+					deckPath.setVisibility(View.VISIBLE);
 					deckNote.setText(Html.fromHtml(getString(R.string.custom_deck_note)));
 					Linkify.addLinks(deckNote, Linkify.ALL);
 					deckNote.setLinksClickable(true);
 					deckNote.setMovementMethod(LinkMovementMethod.getInstance());				
-				} else
+				} else {
+					deckPath.setVisibility(View.VISIBLE);
 					deckNote.setText("");
+				}
 			}
 		} else if (v.getId()==R.id.menukey) {
 			onKeyDown(KeyEvent.KEYCODE_MENU,null);
@@ -704,6 +790,7 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			    	save(true);			     
 			        return;		
 			    case 3:
+			    	//HeyzapLib.load(this,false);
 			    	HeyzapLib.checkin(this,getResources().getString(R.string.checkin));			     
 			        return;		
 			    case 4:	
@@ -837,6 +924,10 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
     		Spread.circles = Spread.working;
     		spreadLabels = dialectic;
     		mySpread = new DialecticSpread(myInt,dialectic);
+    	} else if (savedReadings.get(savedList.get(savedList.indexOf(sortedSaved.get(index)))).get("type").equals("catswhiskers")) {
+    		Spread.circles = Spread.working;
+    		spreadLabels = catswhiskers;
+    		mySpread = new CatsWhiskersSpread(myInt,catswhiskers);
     	}
 	}
 
@@ -865,17 +956,23 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		}	
 		case 3: {
 			//seqSpread();
+			spreadLabels = catswhiskers;
+			style = "catswhiskers";
+			break;
+		}
+		case 4: {
+			//seqSpread();
 			spreadLabels = chaosStar;
 			style = "chaos";
 			break;
 		}
-		case 4: {
+		case 5: {
 			//seqSpread();
 			spreadLabels = celticCross;
 			style = "celtic";
 			break;
 		}
-		case 5: {
+		case 6: {
 			botaSpread();		
 			style = "bota";
 			spreading=false;
@@ -900,6 +997,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 				mySpread = new DialecticSpread(myInt,dialectic);
 			else if (style.equals("pentagram"))
 				mySpread = new PentagramSpread(myInt,pentagram);
+			else if (style.equals("catswhiskers"))
+				mySpread = new CatsWhiskersSpread(myInt,catswhiskers);
 			else if (style.equals("chaos"))
 				mySpread = new ChaosSpread(myInt,chaosStar);
 			else if (style.equals("celtic"))
@@ -927,6 +1026,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
 		myMenuList.setOnItemClickListener(this);
 		myMenuList.setTag("spreadmenu");
+		myMenuList.setFocusable(true);
+			myMenuList.requestFocus();
 	}
 	
 	public void mute(View v) {
@@ -968,6 +1069,28 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		deckToggle.setChecked(displayPrefs.getBoolean("custom.deck", false));
 		deckToggle.setClickable(true);
 		deckToggle.setOnClickListener(this);
+		deckPath = (EditText) this.findViewById(R.id.custom_deck_name);
+		if (deckPrefs.getString("tarotbot.custom", "").length() > 0)
+			deckPath.setText(deckPrefs.getString("tarotbot.custom", "tarotbot.custom"));
+		deckPath.addTextChangedListener(new TextWatcher() {
+			    public void afterTextChanged(Editable s) {
+			    	deckPrefsEd.putString("tarotbot.custom", s.toString());
+			    	deckPrefsEd.commit();
+			    }
+	
+			    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+	
+			    }
+	
+			    public void onTextChanged(CharSequence s, int start, int before, int count) {
+			    	
+			    }
+			}
+	    );
+		if (deckToggle.isChecked())
+			deckPath.setVisibility(View.VISIBLE);
+		else 
+			deckPath.setVisibility(View.GONE);
 		deckNote = (TextView) this.findViewById(R.id.custom_deck_note);		
 	}
 	
@@ -1051,13 +1174,15 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 			initText();	
 			myMenuList = (ListView) this.findViewById(R.id.menulist);
 			myMenuList.setOnItemClickListener(this);
+			myMenuList.setFocusable(true);
+			myMenuList.requestFocus();
 			if ((priorstate.equals("new reading") || priorstate.equals("navigate")) &!browsing) {
 				myMenuList.setAdapter(new EfficientAdapter(this,inflater,secondmenu,R.layout.listitem));			
 				myMenuList.setTag("secondmenu");
 			} else {
 				reInit();
 			}
-	
+			
 			return true;
 		}
 		return super.onKeyDown(keyCode,event);		
@@ -1087,6 +1212,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,mainmenu,R.layout.listitem));
 		myMenuList.setOnItemClickListener(this);
 		myMenuList.setTag("mainmenu");
+		myMenuList.setFocusable(true);
+			myMenuList.requestFocus();
 	}
 	@Override
 	protected void displaySaved() {				
@@ -1112,6 +1239,8 @@ public abstract class TarotBotActivity extends AbstractTarotBotActivity implemen
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,items,R.layout.load_listitem));
 		myMenuList.setOnItemClickListener(this);
 		myMenuList.setTag("loadmenu");
+		myMenuList.setFocusable(true);
+			myMenuList.requestFocus();
 		
 	}
 

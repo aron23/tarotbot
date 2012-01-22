@@ -79,6 +79,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnFocusChangeListener;
+import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -105,7 +107,8 @@ import android.widget.ToggleButton;
 import android.widget.ViewSwitcher;
 
 
-public abstract class AbstractTarotBotActivity extends Activity implements OnItemClickListener, OnClickListener, View.OnClickListener, OnItemSelectedListener, OnDateChangedListener, OnKeyListener {
+public abstract class AbstractTarotBotActivity extends Activity 
+		implements OnItemClickListener, OnClickListener, OnLongClickListener, View.OnClickListener, OnItemSelectedListener, OnDateChangedListener, OnKeyListener, OnFocusChangeListener {
 	//protected DatePicker dp;
 	protected Spinner statusspin;
 	protected Button initbutton;
@@ -131,6 +134,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected View.OnTouchListener gestureListener;
 	public LayoutInflater inflater;
 	protected View showing;
+	protected EditText customtext;
 	protected TextView infotext;
 	protected TextView closure;
 	
@@ -138,6 +142,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 
 	protected SharedPreferences querantPrefs;
 	protected SharedPreferences readingPrefs;
+	protected SharedPreferences interpretationPrefs;
 	public SharedPreferences displayPrefs;
 	protected SharedPreferences deckPrefs;
 	protected int statusselected;
@@ -156,6 +161,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected ToggleButton trumpToggle;
 	protected ToggleButton deckToggle;
 	protected Editor displayPrefsEd;
+	protected Editor deckPrefsEd;
+	protected Editor interpretationPrefsEd;
 
 	protected String saveResult;
 	protected boolean begun = false;
@@ -186,6 +193,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected String[] timeArrow;
 	protected String[] dialectic;
 	protected String[] pentagram;
+	protected String[] catswhiskers;
 	protected boolean browsing = false;
 	protected Dialog navigator;
 	protected ArrayList<String> savedList = new ArrayList<String>();
@@ -203,9 +211,11 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	protected DatePicker dp;
 	protected boolean isBig=false;
 	
-	private static final int HIGHRES=32;
+	protected static final int HIGHRES=32;
 	private static final int MIDRES=28;
-
+	
+	protected ProgressDialog highResInitial;
+	protected ProgressDialog extractHD;
 	public abstract long getHiResZipSize();
 	public abstract String getMyType();
 	public abstract String getMyFolder();
@@ -235,6 +245,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,spreadmenu,R.layout.listitem));
 		myMenuList.setOnItemClickListener(this);
 		myMenuList.setTag("spreadmenu");
+		myMenuList.setFocusable(true);
+		myMenuList.requestFocus();
 //		reverseToggle = (ToggleButton) this.findViewById(R.id.reversal_button);
 //		reverseToggle.setChecked(readingPrefs.getBoolean("reversal", false));
 //		reverseToggle.setClickable(true);
@@ -289,8 +301,9 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	}
 	
 	protected void initHighRes() {
-		if (!TarotBotManager.hasEnoughMemory(32,getApplicationContext()))
-			return;
+		
+		try {
+			
 		File d = new File(Environment.getExternalStorageDirectory()+"/"+WebUtils.md5(getMyFolder()));
 		if (!d.exists())
 			d.mkdir();
@@ -298,18 +311,37 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		final Context c = this.getApplicationContext();
 		if ((!f.exists() || !isHighResComplete(f))) {
 			Looper.prepare();
-			WebUtils.Download("https://s3.amazonaws.com/tarotbot-high-resolution/"+getMyType()+".zip", f.getPath(),c,downloadProgress);			
+			highResInitial.setMessage("downloading HD images");
+			
+			WebUtils.Download("https://s3.amazonaws.com/tarotbot-high-resolution/"+getMyType()+".zip", f.getPath(),c,highResInitial);	
+			
+			if (highResInitial.isShowing())
+				highResInitial.dismiss();
+			
+			extractHD.show();
 			ZipUtils.unzipArchive(f, f.getPath());
-			f.delete();
+			extractHD.dismiss();
+			
 		} else if (!new File(f.getPath()+".ex").exists()) {
+			if (highResInitial.isShowing())
+				highResInitial.dismiss();
+			
+			extractHD.show();
 			ZipUtils.unzipArchive(f, f.getPath());
-			f.delete();
+			extractHD.dismiss();
 		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		if (highResInitial.isShowing())
+			highResInitial.dismiss();
+		if (extractHD.isShowing())
+			extractHD.dismiss();
 	}
 	
 	
 	
-	private boolean isHighResComplete(File f) {
+	protected boolean isHighResComplete(File f) {
 		long length = f.length();
         if (getHiResZipSize()  > length)
         	return false;
@@ -438,7 +470,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		myMenuList.setAdapter(new EfficientAdapter(this,inflater,items,R.layout.load_listitem));
 		myMenuList.setOnItemClickListener(this);
 		myMenuList.setTag("loadmenu");
-		
+		myMenuList.setFocusable(true);
+		myMenuList.requestFocus();
 	}
 
 	
@@ -554,11 +587,9 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	public abstract void showInfo(int type);
 
 	protected void setFullscreen() {
-		//getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-		//requestWindowFeature(Window.FEATURE_NO_TITLE); 
-		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
-		//		WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		//requestWindowFeature(Window.FEATURE_NO_TITLE); 
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+                                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 	}  
 
 	public void incrementSecondSet(int index) {		
@@ -755,8 +786,14 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		ImageView menu = (ImageView) activeView.findViewById(R.id.menukey);
 		menu.setClickable(true);
 		menu.setOnClickListener(this);
+		menu.setFocusable(true);
+		menu.requestFocus();
+		menu.setOnFocusChangeListener(this);
+		ImageView book = (ImageView) activeView.findViewById(R.id.interpretationkey);
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-			ImageView book = (ImageView) activeView.findViewById(R.id.interpretationkey);
+			//android:minSdkVersion="3"DownId(R.id.interpretationkey);
+			//android:minSdkVersion="3"ForwardId(R.id.interpretationkey);
+			//android:minSdkVersion="3"RightId(R.id.interpretationkey);
 			book.setClickable(true);
 			book.setOnClickListener(this);
 		}
@@ -766,6 +803,16 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		if (Spread.circles.size() > 1) {
 			spread.setClickable(true);
 			spread.setOnClickListener(this);
+			if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+				//android:minSdkVersion="3"DownId(R.id.spreadkey);
+				//android:minSdkVersion="3"UpId(R.id.spreadkey);
+				//android:minSdkVersion="3"RightId(R.id.spreadkey);
+				//android:minSdkVersion="3"LeftId(R.id.spreadkey);
+				//android:minSdkVersion="3"ForwardId(R.id.spreadkey);
+			} else {
+				//android:minSdkVersion="3"UpId(R.id.spreadkey);
+				//android:minSdkVersion="3"LeftId(R.id.spreadkey);
+			}
 		} else {
 			spread.setAlpha(0);
 		}
@@ -957,8 +1004,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		
        
 		
-		File customFile = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardName(flipdex.get(index)));
-		File customFile2 = new File(Environment.getExternalStorageDirectory()+"/tarotbot.custom/"+Interpretation.getCardNumber(index));
+		File customFile = new File(Environment.getExternalStorageDirectory()+"/"+deckPrefs.getString("tarotbot.custom", "tarotbot.custom")+"/"+Interpretation.getCardName(flipdex.get(index)));
+		File customFile2 = new File(Environment.getExternalStorageDirectory()+"/"+deckPrefs.getString("tarotbot.custom", "tarotbot.custom")+"/"+Interpretation.getCardNumber(index));
 		if (customFile.exists() && displayPrefs.getBoolean("custom.deck", false)) {
         	bmp = BitmapFactory.decodeFile(customFile.getPath());
         } else if (customFile2.exists() && displayPrefs.getBoolean("custom.deck", false)) {
@@ -974,8 +1021,7 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	            		bmp = BitmapFactory.decodeFile(toRead.getPath()+"/"+WebUtils.md5(BotaInt.getCardName(flipdex.get(index))));
 	            	System.err.println(toRead.getPath()+"/"+WebUtils.md5(BotaInt.getCardName(flipdex.get(index))));
 	            	//bmp = BitmapFactory.decodeByteArray(buf, 0,buf.length);
-	        		deckPrefs = getSharedPreferences("decked", 0);
-	        		deckPrefs.edit().putString("path", WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
+	            	deckPrefsEd.putString("path", WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
 				        
 	    		}      
 	            
@@ -1054,8 +1100,8 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 			        			len -= read;
 			        		}
 			        		bmp = BitmapFactory.decodeByteArray(buf, 0,buf.length);
-			        		deckPrefs = getSharedPreferences("decked", 0);
-			        		deckPrefs.edit().putString("path", WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
+			        		
+			        		deckPrefsEd.putString("path", WebUtils.md5(getMyFolder())+"/"+WebUtils.md5(getMyType()));
 			        		//
 			        		break;
 			            }
@@ -1120,20 +1166,21 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 	}
 	public void preNavigate() {
 		ViewSwitcher flipper = (ViewSwitcher) this.findViewById(R.id.flipper);
-		for (int i = 0; i < flipper.getChildCount(); i++) {
-			View v = flipper.getChildAt(i);
-			flipper.removeView(v);
-			v.destroyDrawingCache();
-			ImageView im = ((ImageView) v.findViewById(R.id.divine));
-			if (im.getDrawable() instanceof BitmapDrawable)
-				((BitmapDrawable)im.getDrawable()).getBitmap().recycle();
-			im.getDrawable().setCallback(null);
-			im.setImageDrawable(null);
-			im.getResources().flushLayoutCache();
-			im.destroyDrawingCache();
-			im = null;
-			v=null;
-		}
+		if (flipper != null)
+			for (int i = 0; i < flipper.getChildCount(); i++) {
+				View v = flipper.getChildAt(i);
+				flipper.removeView(v);
+				v.destroyDrawingCache();
+				ImageView im = ((ImageView) v.findViewById(R.id.divine));
+				if (im.getDrawable() instanceof BitmapDrawable)
+					((BitmapDrawable)im.getDrawable()).getBitmap().recycle();
+				im.getDrawable().setCallback(null);
+				im.setImageDrawable(null);
+				im.getResources().flushLayoutCache();
+				im.destroyDrawingCache();
+				im = null;
+				v=null;
+			}
 		System.gc();
 	}
 	protected void toastText(String text) {
@@ -1191,4 +1238,17 @@ public abstract class AbstractTarotBotActivity extends Activity implements OnIte
 		if (v.findViewById(R.id.spreadmenulist) != null)
 			((ListView)v.findViewById(R.id.spreadmenulist)).setCacheColorHint(displayPrefs.getInt("background.color", Color.BLACK));
 	}
+	
+	public void onFocusChange(View v, boolean hasFocus) {
+		if (hasFocus)
+			((ImageView)v).setAlpha(0);
+		else
+			((ImageView)v).setAlpha(100);
+	}
+	public boolean onLongClick(View v) {
+		customtext.setVisibility(View.VISIBLE);
+		return true;
+	}
+	
+
 }

@@ -23,11 +23,14 @@
  android:padding="2dip" /> 
 <ScrollView android:id="@+id/ScrollView01"
 	android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout 
+    android:layout_width="fill_parent" 
     android:layout_height="fill_parent">    
 <TextView 
 	android:id="@+id/interpretation" 
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
     android:textColor="#FFFFFF"
     android:layout_marginLeft="20dip"
@@ -40,6 +43,29 @@
     android:shadowRadius="1.5"  
     android:shadowDx="1"  
     android:shadowDy="1"/>  
-    </ScrollView>
+<EditText 
+	android:id="@+id/custom_interpretation" 
+    android:hint="Enter custom text here"
+    android:editable="true"
+    android:minLines="4"
+    android:background="@android:color/transparent"
+    
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:textColor="#FFFFFF"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:textSize="14sp"
+ 	android:typeface="serif"
+    android:gravity="left"
+    android:layout_gravity="left"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
+    />  
+</LinearLayout>    
+</ScrollView>
 </LinearLayout>
 

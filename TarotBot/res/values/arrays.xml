@@ -4,6 +4,7 @@
         <item>Arrow of Time</item>
         <item>Dialectic</item>
         <item>Pentagram</item>
+        <item>Cat\'s Whiskers</item>
         <item>Chaos Star</item>
         <item>Celtic Cross</item>
         <item>BOTA</item>
@@ -33,6 +34,15 @@
         <item>Air: thoughts/conflict</item>
         <item>Earth: career/money/practical aspects</item>
         <item>Spiritual dimension</item>
+    </string-array>
+    <string-array name="catsWhiskers">
+        <item>The Past: underlying cause</item>
+        <item>The Past: problems and challenges</item>
+        <item>The Past: successes and victories</item>
+        <item>What is needed now</item>
+        <item>The Future: problems and challenges</item>
+        <item>The Future: successes and victories</item>
+        <item>The Future: advice</item>
     </string-array>
 	<string-array name="chaosStar">
         <item>red: external conflicts</item>

@@ -4,6 +4,7 @@
 	<item>Flèche du Temps</item>
 	<item>Dialectique</item>
 	<item>Pentacle</item>
+	<item> Les moustaches du chat </item>
 	<item>Etoile du chaos</item>
 	<item>Croix celtique</item>
 	<item>BOTA</item>
@@ -44,6 +45,15 @@
 	<item>noir: habitudes d\'auto-destructrice</item>
 	<item>octarine: le soi magique</item>
    </string-array>
+      <string-array name="catsWhiskers">
+         <item> Le passé: cause sous-jacente </item>
+         <item> Le passé: problèmes et défis </item>
+         <item> Le passé: les réussites et les victoires </item>
+         <item> Ce qu’il faut maintenant</item>
+         <item> L\'avenir: problèmes et défis </item>
+         <item> L\'avenir: les réussites et les victoires </item>
+         <item> L\'avenir: les conseils </item>
+	</string-array>
     <string-array name="celticCross">
 	<item>le cœur de la question</item>
 	<item>le facteur adverse</item>

@@ -65,4 +65,9 @@ public class TarotBotManager {
 		}
 		return -1;
 	}
+	public static boolean hasStrongConnection(Context con) {
+		if (WebUtils.checkWiFi(con) || WebUtils.check4g(con))
+			return true;
+		return false;
+	}
 }

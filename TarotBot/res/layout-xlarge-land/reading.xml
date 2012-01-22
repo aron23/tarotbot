@@ -70,6 +70,13 @@ android:id="@+id/secondsetlayout"
 	android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="1">    
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/readinglayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:gravity="top">	  
 <TextView 
 	android:id="@+id/interpretation" 
 	android:layout_width="wrap_content"
@@ -86,6 +93,30 @@ android:id="@+id/secondsetlayout"
     android:shadowDy="1" 
     android:text="here is a bunch of text to fill up the textview I am testing in this layout"/>
     />  
+    <EditText 
+	android:id="@+id/custom_interpretation" 
+    android:hint="Enter custom text here"
+    android:editable="true"
+    android:minLines="4"
+    android:background="@android:color/transparent"
+    
+   
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:textColor="#FFFFFF"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:textSize="23sp"
+ 	android:typeface="serif"
+    android:gravity="left"
+    android:layout_gravity="left"
+    android:shadowColor="#000000"
+    android:shadowRadius="1.5"  
+    android:shadowDx="1"  
+    android:shadowDy="1"
+  	android:layout_below="@id/interpretation"/>   
+</RelativeLayout>
     </ScrollView>
 </LinearLayout>
 <LinearLayout 
@@ -107,6 +138,7 @@ android:id="@+id/secondsetlayout"
     android:scaleType="fitCenter"
     android:background="@android:color/transparent"
     android:src="@drawable/menu"
+    android:focusable="true"
     />    
 <ImageView 
 	android:id="@+id/spreadkey" 

@@ -18,6 +18,7 @@ public abstract class AbstractPremiumActivity extends Activity  {
 	protected LicenseChecker mChecker;
 	protected MyLicenseCheckerCallback mLicenseCheckerCallback;
 	protected boolean _active = true;
+	public static boolean isAmazon = false;
 	// Generate 20 random bytes, and put them here.
     private static final byte[] SALT = new byte[] {
      -16, 68, 35, -28, -13, -57, 34, -25, 51, 77, -95,

@@ -3,7 +3,8 @@
 <string-array name="spread_array">
 	<item>單牌</item>
 	<item>時光之箭</item>
-	<item>辯證法</item>
+	<item>辯証法</item>
+	<item>貓的胡須</item>
 	<item>五角星</item>
 	<item>混沌之星</item>
 	<item>凱爾特十字</item>
@@ -34,6 +35,15 @@
 	<item>空氣：想法/沖突</item>
 	<item>地球：事業/金錢/實際問題</item>
 	<item>靈性</item>
+   </string-array>
+<string-array name="catsWhiskers">
+        <item>過去：根本原因</item>
+        <item>過去：問題和挑戰</item>
+        <item>過去：成功和勝利</item>
+        <item>需要什麼</item>
+        <item>未來：問題和挑戰</item> 
+        <item>未來：成功和勝利</item>
+        <item>未來: 建議</item> 
    </string-array>
 	<string-array name="chaosStar">
 	<item>紅色：內外沖突</item>
